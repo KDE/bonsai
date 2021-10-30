@@ -1,45 +1,101 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.16)
 
-project(bonsai LANGUAGES CXX)
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(BONSAI_VERSION 1.0.0)
+
+project(bonsai VERSION ${BONSAI_VERSION})
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# QtCreator supports the following variables for Android, which are identical to qmake Android variables.
-# Check http://doc.qt.io/qt-5/deployment-android.html for more information.
-# They need to be set before the find_package(Qt5 ...) call.
-
-#if(ANDROID)
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-#    if (ANDROID_ABI STREQUAL "armeabi-v7a")
-#        set(ANDROID_EXTRA_LIBS
-#            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libcrypto.so
-#            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libssl.so)
-#    endif()
-#endif()
-
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick REQUIRED)
+set(REQUIRED_QT_VERSION 5.15.0)
+set(REQUIRED_KF5_VERSION 5.60)
 
 if(ANDROID)
-    add_library(bonsai SHARED
-      src/main.cpp
-      src/qml.qrc
-    )
-else()
-    add_executable(bonsai
-      src/main.cpp
-      src/qml.qrc
-    )
+    set(ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/android_files)
+    set(ANDROID_ABIS "armeabi-v7a")
 endif()
 
-target_compile_definitions(bonsai
-  PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
-target_link_libraries(bonsai
-  PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick)
+option(QUICK_COMPILER "Use QtQuick compiler to improve performance" TRUE)
+
+find_package(ECM ${REQUIRED_KF5_VERSION} REQUIRED NO_MODULE)
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${ECM_MODULE_PATH})
+
+if(UNIX AND NOT APPLE AND NOT ANDROID)
+    include(KDEInstallDirs)
+    include(KDECMakeSettings)
+    include(ECMInstallIcons)
+    include(ECMAddAppIcon)
+endif()
+
+include(KDECompilerSettings NO_POLICY_SCOPE)
+include(KDEClangFormat)
+include(ECMSetupVersion)
+include(ECMSourceVersionControl)
+include(FeatureSummary)
+include(ECMQMLModules)
+
+find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Quick Core)
+find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS I18n CoreAddons)
+
+if(ANDROID)
+    find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS AndroidExtras)
+else()
+    find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets)
+endif()
+
+find_package(MauiKit REQUIRED)
+find_package(LibGit2 REQUIRED)
+set_package_properties(Libgit2 PROPERTIES DESCRIPTION "A library to manipulate git repositories"
+    PURPOSE "Add git support"
+    URL "https://libgit2.org"
+    TYPE REQUIRED
+)
+
+if(QUICK_COMPILER)
+    find_package(Qt5QuickCompiler)
+    set_package_properties(Qt5QuickCompiler PROPERTIES
+        DESCRIPTION "Compile QML at build time"
+        TYPE OPTIONAL
+        )
+endif()
+
+if(${ECM_SOURCE_UNDER_VERSION_CONTROL})
+    execute_process(
+        COMMAND git rev-parse --abbrev-ref HEAD
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+        OUTPUT_VARIABLE GIT_BRANCH
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+        )
+
+    # Get the latest abbreviated commit hash of the working branch
+    execute_process(
+        COMMAND git log -1 --format=%h
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+        OUTPUT_VARIABLE GIT_COMMIT_HASH
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+        )
+
+    add_definitions(-DGIT_COMMIT_HASH="${GIT_COMMIT_HASH}")
+    add_definitions(-DGIT_BRANCH="${GIT_BRANCH}")
+
+else()
+    add_definitions(-DGIT_COMMIT_HASH="${BONSAI_VERSION}")
+    add_definitions(-DGIT_BRANCH="Stable")
+endif()
+
+ecm_setup_version(${BONSAI_VERSION}
+    VARIABLE_PREFIX BONSAI
+    VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/bonsai_version.h"
+    )
+
+
+add_subdirectory(src)
+
+
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

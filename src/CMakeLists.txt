@@ -1,45 +1,47 @@
-cmake_minimum_required(VERSION 3.14)
 
-project(bonsai LANGUAGES CXX)
-
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-# QtCreator supports the following variables for Android, which are identical to qmake Android variables.
-# Check http://doc.qt.io/qt-5/deployment-android.html for more information.
-# They need to be set before the find_package(Qt5 ...) call.
-
-#if(ANDROID)
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-#    if (ANDROID_ABI STREQUAL "armeabi-v7a")
-#        set(ANDROID_EXTRA_LIBS
-#            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libcrypto.so
-#            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libssl.so)
-#    endif()
-#endif()
-
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Quick REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Quick REQUIRED)
-
-if(ANDROID)
-    add_library(bonsai SHARED
-      main.cpp
-      qml.qrc
-    )
-else()
-    add_executable(bonsai
-      main.cpp
-      qml.qrc
-    )
+if (LIBGIT2_FOUND)
+    include_directories(${LIBGIT2_INCLUDE_DIR})
+    add_definitions(-DWITH_LIBGIT2)
 endif()
 
-target_compile_definitions(bonsai
-  PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
-target_link_libraries(bonsai
-  PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick)
+set(bonsai_SRCS
+    main.cpp
+    controllers/gitoperations.cpp
+    models/projectsmodel.cpp
+    )
+
+if(QUICK_COMPILER)
+    qtquick_compiler_add_resources(bonsai_QML_QRC qml.qrc)
+else()
+    qt5_add_resources(bonsai_QML_QRC qml.qrc)
+endif()
+
+if(ANDROID)
+    add_library(${PROJECT_NAME} SHARED
+        ${bonsai_SRCS}
+        ${bonsai_QML_QRC}
+        )
+else()
+    add_executable(${PROJECT_NAME}
+        ${bonsai_SRCS}
+        ${bonsai_QML_QRC}
+        )
+endif()
+
+target_compile_definitions(${PROJECT_NAME}
+    PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
+
+if(ANDROID)
+    target_link_libraries(${PROJECT_NAME} MauiKit Qt5::AndroidExtras)
+else()
+    target_link_libraries(${PROJECT_NAME} MauiKit Qt5::Widgets )
+endif()
+
+target_link_libraries(${PROJECT_NAME} MauiKit Qt5::Quick Qt5::Core KF5::CoreAddons KF5::I18n ${LIBGIT2_LIBRARIES})
+
+install(TARGETS ${PROJECT_NAME} ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(FILES org.kde.bonsai.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+
+#TODO: port to ecm_install_icons()
+install(FILES assets/bonsai.svg DESTINATION ${KDE_INSTALL_ICONDIR}/hicolor/scalable/apps)
+# install(FILES org.kde.booth.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
