@@ -50,12 +50,6 @@ else()
 endif()
 
 find_package(MauiKit REQUIRED)
-find_package(LibGit2 REQUIRED)
-set_package_properties(Libgit2 PROPERTIES DESCRIPTION "A library to manipulate git repositories"
-    PURPOSE "Add git support"
-    URL "https://libgit2.org"
-    TYPE REQUIRED
-)
 
 if(QUICK_COMPILER)
     find_package(Qt5QuickCompiler)
@@ -93,9 +87,9 @@ ecm_setup_version(${BONSAI_VERSION}
     VARIABLE_PREFIX BONSAI
     VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/bonsai_version.h"
     )
+include_directories(src/controllers)
 
-
+add_subdirectory(src/controllers)
 add_subdirectory(src)
-
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

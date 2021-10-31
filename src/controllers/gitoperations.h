@@ -1,14 +1,15 @@
 #ifndef GITOPERATIONS_H
 #define GITOPERATIONS_H
-#include <QtCore/QMutex>
 #include <QObject>
-
+#include <QUrl>
 class GitOperations : public QObject
 {
     Q_OBJECT
 public:
     explicit GitOperations(QObject *parent = nullptr);
-    static QMutex gitMutex;
+
+public slots:
+    void clone(const QUrl &url, const QUrl &);
 signals:
 
 };

@@ -22,7 +22,9 @@
 
 #include "../bonsai_version.h"
 
-#define BONSAI_URI "org.maui.booth"
+#include "controllers/gitoperations.h"
+
+#define BONSAI_URI "org.maui.bonsai"
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {    
@@ -69,6 +71,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
         }, Qt::QueuedConnection);
 
         engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
+        qmlRegisterType<GitOperations>(BONSAI_URI, 1, 0, "GitOperations");
 
     engine.load(url);
 
