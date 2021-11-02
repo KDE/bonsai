@@ -3,6 +3,7 @@
 set(bonsai_SRCS
     main.cpp
     controllers/gitoperations.cpp
+    controllers/project.cpp
     models/projectsmodel.cpp
     assets.qrc
     )
