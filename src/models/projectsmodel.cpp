@@ -16,10 +16,18 @@ const FMH::MODEL_LIST &ProjectsModel::items() const
     return m_list;
 }
 
+void ProjectsModel::setList(const FMH::MODEL_LIST &list)
+{
+    this->preListChanged();
+    this->m_list << list;
+    this->postListChanged();
+}
+
 void ProjectsModel::insert(const FMH::MODEL &item)
 {
     qDebug() << "inserting item << " << item;
-    preItemAppended();
+    emit this->preItemAppended();
     this->m_list << item;
-    postItemAppended();
+    emit this->postItemAppended();
+    emit this->countChanged();
 }

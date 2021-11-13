@@ -2,27 +2,26 @@
 #define PROJECT_H
 
 #include <QObject>
+#include <QUrl>
+#include "libGitWrap/Repository.hpp"
 
 class Project : public QObject
 {
     Q_OBJECT
     Q_DISABLE_COPY(Project)
 
-    Q_PROPERTY(QString url READ url WRITE setUrl NOTIFY urlChanged)
+    Q_PROPERTY(QUrl url READ url CONSTANT FINAL)
 
 public:
-    explicit Project(QObject *parent = nullptr);
+    explicit Project(const QUrl &url, const Git::Repository &repo, QObject *parent = nullptr);
 
-    QString url() const;
+    QUrl url() const;
 
 private:
-    QString m_url;
-
-public slots:
-    void setUrl(QString url);
+    QUrl m_url;
+    Git::Repository m_repo;
 
 signals:
-    void urlChanged(QString url);
 };
 
 #endif // PROJECT_H

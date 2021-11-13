@@ -13,6 +13,8 @@ public:
 
     const FMH::MODEL_LIST &items() const override final;
 
+    void setList(const FMH::MODEL_LIST &list);
+
 public slots:
     void insert(const FMH::MODEL &item);
 

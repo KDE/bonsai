@@ -1,20 +1,14 @@
 #include "project.h"
 
-Project::Project(QObject *parent) : QObject(parent)
+Project::Project(const QUrl &url, const Git::Repository &repo, QObject *parent) : QObject(parent)
+ , m_url(url)
+  , m_repo(repo)
 {
 
 }
 
-QString Project::url() const
+QUrl Project::url() const
 {
     return m_url;
 }
 
-void Project::setUrl(QString url)
-{
-    if (m_url == url)
-        return;
-
-    m_url = url;
-    emit urlChanged(m_url);
-}

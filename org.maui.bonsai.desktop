@@ -1,0 +1,18 @@
+# Copyright 2018-2020 Camilo Higuita <milo.h@aol.com>
+# Copyright 2018-2020 Nitrux Latinoamericana S.C.
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+
+[Desktop Entry]
+Name=Bonsai
+Comment=Git manager
+TryExec=bonsai
+Exec=bonsai %U
+Terminal=false
+Type=Application
+Categories=Qt;KDE;System;FileTools;FileManager;
+GenericName=Git Manager
+StartupNotify=true
+Icon=bonsai
+MimeType=inode/directory;
