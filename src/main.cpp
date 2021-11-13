@@ -77,7 +77,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
         qmlRegisterType<GitOperations>(BONSAI_URI, 1, 0, "GitOperations");
         qmlRegisterAnonymousType<ProjectsModel>(BONSAI_URI, 1);
-        qmlRegisterAnonymousType<Project>(BONSAI_URI, 1);
+        qmlRegisterType<Project>(BONSAI_URI, 1, 0, "Project");
         qmlRegisterType<ProjectManager>(BONSAI_URI, 1, 0, "ProjectManager");
 
     engine.load(url);

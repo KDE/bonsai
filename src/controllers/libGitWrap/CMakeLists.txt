@@ -150,7 +150,6 @@ add_library(
     ${MOC_FILES}
     )
 
-
 target_include_directories(GitWrap PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR};${CMAKE_CURRENT_BINARY_DIR};>")
 
 target_link_libraries(
@@ -160,3 +159,5 @@ target_link_libraries(
     ${LIBGIT2_LIBRARIES}
     )
 
+
+install(TARGETS GitWrap ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})

@@ -54,6 +54,7 @@ Maui.ApplicationWindow
 
     BrowserView
     {
+        id: _browserView
         anchors.fill: parent
     }
 
@@ -64,7 +65,9 @@ Maui.ApplicationWindow
         dialog.callback = function(paths)
         {
             console.log("Paths", paths)
-            _projectManager.openProject(paths[0])
+            const url = paths[0]
+            _projectManager.addProject(url)
+            _browserView.openProject(url)
         }
 
         dialog.open()

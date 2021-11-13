@@ -20,7 +20,20 @@ ProjectsModel *ProjectManager::projectsModel()
     return m_projectsModel;
 }
 
-Project *ProjectManager::openProject(const QString &url)
+QUrl ProjectManager::projectLogo(const QUrl &url)
+{
+    QUrl res;
+    auto logo = url.toString() + "/logo.png";
+
+    if(FMStatic::fileExists(QUrl(logo)))
+    {
+       res = QUrl(logo);
+    }
+
+    return res;
+}
+
+void ProjectManager::addProject(const QString &url)
 {
     const QUrl localUrl = QUrl::fromUserInput(url, "/", QUrl::AssumeLocalFile);
     auto repo = gitDir(localUrl);
@@ -32,11 +45,7 @@ Project *ProjectManager::openProject(const QString &url)
         {
             m_projectsModel->insert(repoInfo(localUrl, repo));
         }
-
-        return new Project(localUrl, repo, this);
     }
-
-    return nullptr;
 }
 
 Git::Repository ProjectManager::gitDir(const QUrl &url)
@@ -66,13 +75,7 @@ FMH::MODEL ProjectManager::repoInfo(const QUrl &url, const Git::Repository &repo
     FMH::MODEL res = FMStatic::getFileInfoModel(url);
 
     res[FMH::MODEL_KEY::TITLE] = repo.name();
-
-    auto logo = url.toString() + "/logo.png";
-
-    if(FMStatic::fileExists(QUrl(logo)))
-    {
-       res[FMH::MODEL_KEY::ARTWORK] = logo;
-    }
+    res[FMH::MODEL_KEY::ARTWORK] = ProjectManager::projectLogo(url).toString();
 
     return res;
 }

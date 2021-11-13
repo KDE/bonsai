@@ -10,18 +10,40 @@ class Project : public QObject
     Q_OBJECT
     Q_DISABLE_COPY(Project)
 
-    Q_PROPERTY(QUrl url READ url CONSTANT FINAL)
-
+    Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY urlChanged)
+    Q_PROPERTY(QString title READ getTitle NOTIFY titleChanged)
+    Q_PROPERTY(QUrl logo READ getLogo NOTIFY logoChanged)
+Q_PROPERTY(QStringList branches READ getBranches NOTIFY branchesChanged)
 public:
-    explicit Project(const QUrl &url, const Git::Repository &repo, QObject *parent = nullptr);
+    explicit Project(QObject *parent = nullptr);
 
     QUrl url() const;
+    void setData(const QUrl &url);
+    QString getTitle() const;
+
+    QUrl getLogo() const;
+
+    QStringList getBranches() const;
+
+public slots:
+    void setUrl(QUrl url);
 
 private:
     QUrl m_url;
     Git::Repository m_repo;
 
+    QString m_title;
+
+    QUrl m_logo;
+
+    QStringList m_branches;
+
 signals:
+    void titleChanged(QString title);
+    void logoChanged(QUrl logo);
+    void urlChanged(QUrl url);
+    void error(QString message);
+    void branchesChanged(QStringList branches);
 };
 
 #endif // PROJECT_H
