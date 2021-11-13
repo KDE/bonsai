@@ -12,15 +12,32 @@ Maui.ApplicationWindow
     visible: true
     title: qsTr("Hello World")
 
-    headBar.leftContent: ToolButton
+    headBar.leftContent: Maui.ToolButtonMenu
     {
-        icon.name: "go-previous"
-        onClicked: _browser.goBack()
+        icon.name: "application-menu"
+        MenuItem
+        {
+            text: i18n("Settings")
+            icon.name: "settings-configure"
+            onTriggered: openConfigDialog()
+        }
+
+        MenuItem
+        {
+            text: i18n("About")
+            icon.name: "documentinfo"
+            onTriggered: root.about()
+        }
     }
 
     Bonsai.GitOperations
     {
         id: _gitOperations
+    }
+
+    Bonsai.ProjectManager
+    {
+        id: _projectManager
     }
 
     Maui.NewDialog
@@ -32,28 +49,88 @@ Maui.ApplicationWindow
         onFinished: _gitOperations.clone(text, "file:///home/camilo/Documents/basket")
     }
 
-    Maui.Holder
+    property alias dialog : _dialogLoader.item
+
+    Loader
     {
-        anchors.fill: parent
-        title : i18n("Let's Start")
-        body: i18n("Open or clone an existing repository, or create a new one.")
-        emoji: "qrc:/assets/assets/folder-add.svg"
+        id: _dialogLoader
+    }
 
-        Action
+    Component
+    {
+        id: _openFileDialogComponent
+
+        FB.FileDialog
         {
-            text: "Clone"
-            onTriggered: cloneDialog.open()
-        }
 
-        Action
-        {
-            text: "Create"
-        }
-
-
-        Action
-        {
-            text: "Open"
         }
     }
+
+    Maui.AltBrowser
+    {
+        anchors.fill: parent
+
+        gridView.itemSize: 200
+        gridView.cellHeight: 120
+viewType: Maui.AltBrowser.Grid
+
+holder.visible: count === 0
+        holder.title : i18n("Let's Start")
+        holder.body: i18n("Open or clone an existing repository, or create a new one.")
+        holder.emoji: "qrc:/assets/assets/folder-add.svg"
+
+        holder.actions:[Action
+            {
+                text: "Clone"
+                onTriggered: cloneDialog.open()
+            },
+
+            Action
+            {
+                text: "Create"
+            },
+
+            Action
+            {
+                text: "Open"
+                onTriggered:
+                {
+                    _dialogLoader.sourceComponent = _openFileDialogComponent
+                    dialog.singleSelection = true
+                    dialog.callback = function(paths)
+                    {
+                        console.log("Paths", paths)
+                        _projectManager.openProject(paths[0])
+                    }
+
+                    dialog.open()
+                }
+            }
+        ]
+
+        model: Maui.BaseModel
+        {
+            list: _projectManager.projectsModel
+        }
+
+        gridDelegate: Item
+        {
+            width: GridView.view.cellWidth
+            height: GridView.view.cellHeight
+
+            Maui.ListBrowserDelegate
+            {
+                anchors.fill: parent
+                anchors.margins: Maui.Style.space.medium
+
+                iconSource: model.icon
+                template.headerSizeHint: 32
+                iconSizeHint: 22
+                label1.text: model.title
+                label2.text: model.url
+            }
+        }
+    }
+
+
 }

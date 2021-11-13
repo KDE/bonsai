@@ -50,6 +50,7 @@ else()
 endif()
 
 find_package(MauiKit REQUIRED)
+find_package(MauiKit REQUIRED COMPONENTS FileBrowsing)
 
 if(QUICK_COMPILER)
     find_package(Qt5QuickCompiler)

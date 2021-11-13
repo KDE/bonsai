@@ -8,6 +8,16 @@ class ProjectsModel : public MauiList
     Q_OBJECT
 public:
     ProjectsModel(QObject *parent = nullptr);
+
+    void componentComplete() override final;
+
+    const FMH::MODEL_LIST &items() const override final;
+
+public slots:
+    void insert(const FMH::MODEL &item);
+
+private:
+    FMH::MODEL_LIST m_list;
 };
 
 #endif // PROJECTSMODEL_H

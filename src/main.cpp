@@ -23,6 +23,8 @@
 #include "../bonsai_version.h"
 
 #include "controllers/gitoperations.h"
+#include "controllers/projectmanager.h"
+#include "models/projectsmodel.h"
 
 #define BONSAI_URI "org.maui.bonsai"
 
@@ -40,8 +42,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 #endif
 
         app.setOrganizationName(QStringLiteral("Maui"));
-        app.setWindowIcon(QIcon(":/assets/booth.svg"));
-        MauiApp::instance()->setIconName("qrc:/assets/booth.svg");
+        app.setWindowIcon(QIcon(":/assets/assets/bonsai.svg"));
+        MauiApp::instance()->setIconName("qrc:/assets/assets/bonsai.svg");
 
         KLocalizedString::setApplicationDomain("bonsai");
         KAboutData about(QStringLiteral("bonsai"), i18n("Bonsai"), BONSAI_VERSION_STRING, i18n("Quick Git control version manager."), KAboutLicense::LGPL_V3, i18n("© 2021 Maui Development Team",QString::number(QDate::currentDate().year())), QString(GIT_BRANCH) + "/" + QString(GIT_COMMIT_HASH));
@@ -71,7 +73,10 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
         }, Qt::QueuedConnection);
 
         engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
+
         qmlRegisterType<GitOperations>(BONSAI_URI, 1, 0, "GitOperations");
+        qmlRegisterAnonymousType<ProjectsModel>(BONSAI_URI, 1);
+        qmlRegisterType<ProjectManager>(BONSAI_URI, 1, 0, "ProjectManager");
 
     engine.load(url);
 

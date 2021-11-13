@@ -274,6 +274,7 @@ namespace Git
      */
     Repository Repository::open(Result& result, const QString& path)
     {
+        git_libgit2_init();
         GW_CHECK_RESULT( result, Repository() );
 
         git_repository* repo = nullptr;
