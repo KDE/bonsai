@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QUrl>
 #include "libGitWrap/Repository.hpp"
-
+#include "models/commithistorymodel.h"
 class Project : public QObject
 {
     Q_OBJECT
@@ -14,6 +14,8 @@ class Project : public QObject
     Q_PROPERTY(QString title READ getTitle NOTIFY titleChanged)
     Q_PROPERTY(QUrl logo READ getLogo NOTIFY logoChanged)
 Q_PROPERTY(QStringList branches READ getBranches NOTIFY branchesChanged)
+    Q_PROPERTY(QString currentBranch READ currentBranch NOTIFY currentBranchChanged)
+    Q_PROPERTY(CommitHistoryModel *commitsModel READ getCommitsModel CONSTANT FINAL)
 public:
     explicit Project(QObject *parent = nullptr);
 
@@ -24,6 +26,10 @@ public:
     QUrl getLogo() const;
 
     QStringList getBranches() const;
+
+    QString currentBranch() const;
+
+    CommitHistoryModel * getCommitsModel();
 
 public slots:
     void setUrl(QUrl url);
@@ -38,12 +44,17 @@ private:
 
     QStringList m_branches;
 
+    QString m_currentBranch;
+
+    CommitHistoryModel * m_commitsModel;
+
 signals:
     void titleChanged(QString title);
     void logoChanged(QUrl logo);
     void urlChanged(QUrl url);
     void error(QString message);
     void branchesChanged(QStringList branches);
+    void currentBranchChanged(QString currentBranch);
 };
 
 #endif // PROJECT_H

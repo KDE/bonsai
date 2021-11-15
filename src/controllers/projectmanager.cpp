@@ -70,12 +70,21 @@ Git::Repository ProjectManager::gitDir(const QUrl &url)
     return repo;
 }
 
-FMH::MODEL ProjectManager::repoInfo(const QUrl &url, const Git::Repository &repo)
+FMH::MODEL ProjectManager::repoInfo(const QUrl &url, Git::Repository &repo)
 {
     FMH::MODEL res = FMStatic::getFileInfoModel(url);
 
     res[FMH::MODEL_KEY::TITLE] = repo.name();
     res[FMH::MODEL_KEY::ARTWORK] = ProjectManager::projectLogo(url).toString();
+
+    Git::Result r;
+    QString branch = repo.currentBranch(r);
+    if ( !r )
+    {
+        qDebug()  << "Unable to get repo current branch" << r.errorText();
+    }
+
+    res[FMH::MODEL_KEY::BRANCH] = branch;
 
     return res;
 }

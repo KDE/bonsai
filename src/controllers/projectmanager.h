@@ -20,7 +20,7 @@ public:
     static QUrl projectLogo(const QUrl &url);
 
     static Git::Repository gitDir(const QUrl &url);
-    static FMH::MODEL repoInfo(const QUrl &url, const Git::Repository &repo);
+    static FMH::MODEL repoInfo(const QUrl &url, Git::Repository &repo);
 
 public slots:
     void addProject(const QString &url);

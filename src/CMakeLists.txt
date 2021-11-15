@@ -6,6 +6,7 @@ set(bonsai_SRCS
     controllers/project.cpp
     controllers/projectmanager.cpp
     models/projectsmodel.cpp
+    models/commithistorymodel.cpp
     assets.qrc
     )
 
