@@ -6,13 +6,37 @@
 
 [Desktop Entry]
 Name=Bonsai
+Name[ca]=Bonsai
+Name[ca@valencia]=Bonsai
+Name[es]=Bonsai
+Name[ko]=Bonsai
+Name[nl]=Bonsai
+Name[sv]=Bonsai
+Name[uk]=Бонсай
+Name[x-test]=xxBonsaixx
 Comment=Git manager
+Comment[ca]=Gestor de Git
+Comment[ca@valencia]=Gestor de Git
+Comment[es]=Gestor de Git
+Comment[ko]=Git 관리자
+Comment[nl]=Gitbeheerder
+Comment[sv]=Git-hanterare
+Comment[uk]=Керування git
+Comment[x-test]=xxGit managerxx
 TryExec=bonsai
 Exec=bonsai %U
 Terminal=false
 Type=Application
 Categories=Qt;KDE;System;FileTools;FileManager;
 GenericName=Git Manager
+GenericName[ca]=Gestor de Git
+GenericName[ca@valencia]=Gestor de Git
+GenericName[es]=Gestor de Git
+GenericName[ko]=Git 관리자
+GenericName[nl]=Gitbeheerder
+GenericName[sv]=Git-hanterare
+GenericName[uk]=Керування git
+GenericName[x-test]=xxGit Managerxx
 StartupNotify=true
 Icon=bonsai
 MimeType=inode/directory;
