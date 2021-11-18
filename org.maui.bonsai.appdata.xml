@@ -9,6 +9,8 @@
   <name xml:lang="es">Index</name>
   <name xml:lang="ko">Index</name>
   <name xml:lang="nl">Index</name>
+  <name xml:lang="sk">Index</name>
+  <name xml:lang="sl">Indeks</name>
   <name xml:lang="sv">Index</name>
   <name xml:lang="uk">Index</name>
   <name xml:lang="x-test">xxIndexxx</name>
@@ -18,6 +20,8 @@
   <summary xml:lang="es">Gestione sus archivos</summary>
   <summary xml:lang="ko">내 파일 관리</summary>
   <summary xml:lang="nl">Uw bestanden beheren</summary>
+  <summary xml:lang="sk">Spravovať vaše súbory</summary>
+  <summary xml:lang="sl">Upravljajte vaše datoteke</summary>
   <summary xml:lang="sv">Hantera dina filer</summary>
   <summary xml:lang="uk">Керування вашими файлами</summary>
   <summary xml:lang="x-test">xxManage your filesxx</summary>
@@ -28,6 +32,8 @@
     <p xml:lang="es">Index le permite explorar su equipo y mostrar vistas previas de los archivos multimedia.</p>
     <p xml:lang="ko">Index 파일 관리자로 컴퓨터를 탐색하고 멀티미디어 파일을 미리 볼 수 있습니다.</p>
     <p xml:lang="nl">Index biedt u het navigeren in uw computer en multimediabestanden te bekijken.</p>
+    <p xml:lang="sk">Index vám umožní prechádzať váš počítač a prehliadať multimediálne súbory.</p>
+    <p xml:lang="sl">Indeks dovoljuje krmarjenje skozi računalnik in predogled večpredstavnostnih datotek.</p>
     <p xml:lang="sv">Index låter dig navigera på datorn och förhandsgranska multimediafiler.</p>
     <p xml:lang="uk">За допомогою Index ви зможете здійснювати навігацію файловою системою вашого комп'ютера і попереднього переглядати файли мультимедійних даних.</p>
     <p xml:lang="x-test">xxIndex allows you to navigate your computer and preview multimedia files.xx</p>
@@ -43,6 +49,8 @@
       <caption xml:lang="es">Gestor de archivos Index</caption>
       <caption xml:lang="ko">Index 파일 관리자</caption>
       <caption xml:lang="nl">Indexbestandsbeheerder</caption>
+      <caption xml:lang="sk">Správca súborov Index</caption>
+      <caption xml:lang="sl">Index upravljalnik datotek</caption>
       <caption xml:lang="sv">Index filhanterare</caption>
       <caption xml:lang="uk">Програма для керування файлами Index</caption>
       <caption xml:lang="x-test">xxIndex file managerxx</caption>
