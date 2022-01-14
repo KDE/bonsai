@@ -6,6 +6,7 @@
   <name>Index</name>
   <name xml:lang="ca">Índex</name>
   <name xml:lang="ca-valencia">Índex</name>
+  <name xml:lang="cs">Index</name>
   <name xml:lang="es">Index</name>
   <name xml:lang="fi">Index</name>
   <name xml:lang="fr">Index</name>
@@ -23,6 +24,7 @@
   <summary>Manage your files</summary>
   <summary xml:lang="ca">Gestioneu els fitxers</summary>
   <summary xml:lang="ca-valencia">Gestioneu els fitxers</summary>
+  <summary xml:lang="cs">Spravujte své soubory</summary>
   <summary xml:lang="es">Gestione sus archivos</summary>
   <summary xml:lang="fi">Hallitse tiedostoja</summary>
   <summary xml:lang="fr">Gérer vos fichiers</summary>
@@ -64,6 +66,7 @@
       <caption>Index file manager</caption>
       <caption xml:lang="ca">Gestor de fitxers Índex</caption>
       <caption xml:lang="ca-valencia">Gestor de fitxers Índex</caption>
+      <caption xml:lang="cs">Správce souborů indexů</caption>
       <caption xml:lang="es">Gestor de archivos Index</caption>
       <caption xml:lang="fi">Index-tiedostonhallinta</caption>
       <caption xml:lang="fr">Gestionnaire de fichiers Index</caption>
