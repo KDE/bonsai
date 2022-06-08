@@ -13,9 +13,10 @@ class Project : public QObject
     Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY urlChanged)
     Q_PROPERTY(QString title READ getTitle NOTIFY titleChanged)
     Q_PROPERTY(QUrl logo READ getLogo NOTIFY logoChanged)
-Q_PROPERTY(QStringList branches READ getBranches NOTIFY branchesChanged)
+    Q_PROPERTY(QStringList branches READ getBranches NOTIFY branchesChanged)
     Q_PROPERTY(QString currentBranch READ currentBranch NOTIFY currentBranchChanged)
     Q_PROPERTY(CommitHistoryModel *commitsModel READ getCommitsModel CONSTANT FINAL)
+
 public:
     explicit Project(QObject *parent = nullptr);
 

@@ -38,36 +38,18 @@ void Project::setData(const QUrl &url)
         emit this->currentBranchChanged(m_currentBranch);
     }
 
-    qDebug() << "references names";
+    qDebug() << "status states";
 
-    auto refs = m_repo.allReferenceNames(r);
-
-    if ( !r )
-    {
-        qDebug()  << "Unable to get repo refs names" << r.errorText();
-    }else
-    {
-        qDebug() << refs;
-    }
-
-
-    auto commit = m_repo.lookupCommit(r, "HEAD");
+    auto status = m_repo.status(r);
 
     if ( !r )
     {
-        qDebug()  << "Unable to get repo commit" << r.errorText();
+        qDebug()  << "Unable to get repo status" << r.errorText();
     }else
     {
-        auto commits = commit.parentCommits(r);
-
-        if(!r)
-        {
-            qDebug() << "failed to get commits";
-        }else
-        {
-            qDebug() << "Commits" << commits;
-        }
+        qDebug() << status.keys();
     }
+
 
 //    auto head = m_repo.HEAD(r);
 //    if(r)
