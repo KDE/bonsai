@@ -17,6 +17,7 @@
   <name xml:lang="ka">ინდექსი</name>
   <name xml:lang="ko">Index</name>
   <name xml:lang="nl">Index</name>
+  <name xml:lang="nn">Index</name>
   <name xml:lang="pa">ਇੰਡੈਕਸ</name>
   <name xml:lang="pl">Index</name>
   <name xml:lang="pt">Índice</name>
@@ -42,6 +43,7 @@
   <summary xml:lang="ka">მართეთ თქვენი ფაილები</summary>
   <summary xml:lang="ko">내 파일 관리</summary>
   <summary xml:lang="nl">Uw bestanden beheren</summary>
+  <summary xml:lang="nn">Handsam filene dine</summary>
   <summary xml:lang="pa">ਆਪਣੀਆਂ ਫਾਇਲਾਂ ਦਾ ਇੰਤਜ਼ਾਮ ਕਰੋ</summary>
   <summary xml:lang="pl">Zarządzaj swoimi plikami</summary>
   <summary xml:lang="pt">Faz a gestão dos seus ficheiros</summary>
@@ -67,6 +69,7 @@
     <p xml:lang="ka">ინდექსი თქვენს კომპიუტერში ნავიგაციისა და მულტიმედია ფაილებზე გადახედვის საშუალებას გაძლევთ.</p>
     <p xml:lang="ko">Index 파일 관리자로 컴퓨터를 탐색하고 멀티미디어 파일을 미리 볼 수 있습니다.</p>
     <p xml:lang="nl">Index biedt u het navigeren in uw computer en multimediabestanden te bekijken.</p>
+    <p xml:lang="nn">Index lèt deg bla gjennom filer på maskina og førehandsvisa multimediefiler.</p>
     <p xml:lang="pa">ਇੰਡੈਕਸ ਤੁਹਾਨੂੰ ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ ਨੂੰ ਫੋਲਣ ਤੇ ਮਲਟੀਮੀਡੀਆ ਫਾਇਲਾਂ ਦੀ ਝਲਕ ਵੇਖਣ ਲਈ ਮਦਦਗਾਰ ਹੈ।</p>
     <p xml:lang="pl">Index umożliwia przeglądanie i podgląd plików multimedialnych na twoim komputerze.</p>
     <p xml:lang="pt">O Índice permite-lhe navegar pelo seu computador e antever os ficheiros multimédia.</p>
@@ -98,6 +101,7 @@
       <caption xml:lang="ka">ინდექსის ფაილების მმართველი</caption>
       <caption xml:lang="ko">Index 파일 관리자</caption>
       <caption xml:lang="nl">Indexbestandsbeheerder</caption>
+      <caption xml:lang="nn">Index filhandsamar</caption>
       <caption xml:lang="pa">ਇੰਡੈਕਸ ਫਾਇਲ ਮੈਨੇਜਰ</caption>
       <caption xml:lang="pl">Przeglądarka do indeksowania plików</caption>
       <caption xml:lang="pt">Gestor de ficheiros Índice</caption>
