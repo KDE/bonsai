@@ -11,12 +11,9 @@ import "views"
 Maui.ApplicationWindow
 {
     id: root
-    width: 640
-    height: 480
-    visible: true
+
     title: qsTr("Hello World")
 
-    headBar.visible: false
 
     Bonsai.GitOperations
     {
@@ -115,96 +112,93 @@ Maui.ApplicationWindow
         }
     }
 
-
-    sideBar: Maui.AbstractSideBar
+    Maui.SideBarView
     {
-        collapsible: true
-        visible: true
-        collapsed: !root.isWide
-        preferredWidth: Maui.Style.units.gridUnit * 18
-        BrowserView
+        id: _sideBarView
+        sideBarContent: BrowserView
         {
             id: _browserView
             anchors.fill: parent
         }
-    }
 
-Maui.Page
-{
-    anchors.fill: parent
 
-    headBar.rightContent: ToolButton
-    {
-        icon.name: "list-add"
-        onClicked:
+        Maui.Page
         {
-            _dialogLoader.sourceComponent = _newDialogComponent
-            dialog.open()
-        }
-    }
+            anchors.fill: parent
 
-    headBar.farLeftContent: Loader
-    {
-        asynchronous: true
-        sourceComponent: ToolButton
-        {
-            icon.name: sideBar.visible ? "sidebar-collapse" : "sidebar-expand"
-            onClicked: sideBar.toggle()
-            checked: sideBar.visible
-            ToolTip.delay: 1000
-            ToolTip.timeout: 5000
-            ToolTip.visible: hovered
-            ToolTip.text: i18n("Toogle SideBar")
-        }
-    }
-
-    headBar.leftContent: Maui.ToolButtonMenu
-    {
-        icon.name: "application-menu"
-        MenuItem
-        {
-            text: i18n("Settings")
-            icon.name: "settings-configure"
-            onTriggered: openConfigDialog()
-        }
-
-        MenuItem
-        {
-            text: i18n("About")
-            icon.name: "documentinfo"
-            onTriggered: root.about()
-        }
-    }
-
-    Maui.TabView
-    {
-        id: _tabView
-//        mobile: true
-        anchors.fill: parent
-        holder.title : i18n("Let's Start")
-        holder.body: i18n("Open or clone an existing repository, or create a new one.")
-        holder.emoji: "qrc:/assets/assets/folder-add.svg"
-
-        holder.actions:[ Action
+            headBar.rightContent: ToolButton
             {
-                text: "Clone"
-                onTriggered: cloneDialog.open()
-            },
-
-            Action
-            {
-                text: "Create"
-            },
-
-            Action
-            {
-                text: "Open"
-                onTriggered: openLocalRepo()
+                icon.name: "list-add"
+                onClicked:
+                {
+                    _dialogLoader.sourceComponent = _newDialogComponent
+                    dialog.open()
+                }
             }
-        ]
-    }
 
-}
+            headBar.farLeftContent: Loader
+            {
+                asynchronous: true
+                sourceComponent: ToolButton
+                {
+                    icon.name: _sideBarView.sideBar.visible ? "sidebar-collapse" : "sidebar-expand"
+                    onClicked: _sideBarView.sideBar.toggle()
+                    checked: _sideBarView.sideBar.visible
+                    ToolTip.delay: 1000
+                    ToolTip.timeout: 5000
+                    ToolTip.visible: hovered
+                    ToolTip.text: i18n("Toogle SideBar")
+                }
+            }
+
+            headBar.leftContent: Maui.ToolButtonMenu
+            {
+                icon.name: "application-menu"
+                MenuItem
+                {
+                    text: i18n("Settings")
+                    icon.name: "settings-configure"
+                    onTriggered: openConfigDialog()
+                }
+
+                MenuItem
+                {
+                    text: i18n("About")
+                    icon.name: "documentinfo"
+                    onTriggered: root.about()
+                }
+            }
+
+            Maui.TabView
+            {
+                id: _tabView
+                //        mobile: true
+                anchors.fill: parent
+                holder.title : i18n("Let's Start")
+                holder.body: i18n("Open or clone an existing repository, or create a new one.")
+                holder.emoji: "qrc:/assets/assets/folder-add.svg"
+
+                holder.actions:[ Action
+                    {
+                        text: "Clone"
+                        onTriggered: cloneDialog.open()
+                    },
+
+                    Action
+                    {
+                        text: "Create"
+                    },
+
+                    Action
+                    {
+                        text: "Open"
+                        onTriggered: openLocalRepo()
+                    }
+                ]
+            }
+
+        }
+    }
 
     Component
     {
