@@ -12,9 +12,6 @@ Maui.ApplicationWindow
 {
     id: root
 
-    title: qsTr("Hello World")
-
-
     Bonsai.GitOperations
     {
         id: _gitOperations
@@ -31,7 +28,7 @@ Maui.ApplicationWindow
         title: i18n("Git URL")
         textEntry.placeholderText: i18n("URL")
 
-        onFinished: _gitOperations.clone(text, "file:///home/camilo/Documents/basket")
+        onFinished: _gitOperations.clone(text, FB.FM.homePath()+"/bonsai_test")
     }
 
     property alias dialog : _dialogLoader.item
@@ -61,8 +58,6 @@ Maui.ApplicationWindow
             title: i18n("New Repo")
             maxWidth: 350
 
-            page.padding: Maui.Style.space.medium
-            spacing: Maui.Style.space.medium
             persistent: false
             defaultButtons: false
             rejectButton.visible : false
@@ -71,24 +66,19 @@ Maui.ApplicationWindow
             Maui.ListBrowserDelegate
             {
                 Layout.fillWidth: true
-                implicitHeight: 80
 
-                template.headerSizeHint: iconSizeHint + Maui.Style.space.big
                 iconSizeHint: Maui.Style.iconSizes.big
                 iconSource: "vcs-diff"
                 label1.text: i18n("Clone")
                 label2.text: i18n("Clone a repository")
-
+                template.isMask: true
                 onClicked: cloneDialog.open()
             }
-
 
             Maui.ListBrowserDelegate
             {
                 Layout.fillWidth: true
-                implicitHeight: 80
-
-                template.headerSizeHint: iconSizeHint + Maui.Style.space.big
+                template.isMask: true
                 iconSizeHint: Maui.Style.iconSizes.big
                 iconSource: "folder-new"
                 label1.text: i18n("Create")
@@ -99,9 +89,7 @@ Maui.ApplicationWindow
             Maui.ListBrowserDelegate
             {
                 Layout.fillWidth: true
-                implicitHeight: 80
-
-                template.headerSizeHint: iconSizeHint + Maui.Style.space.big
+                template.isMask: true
                 iconSizeHint: Maui.Style.iconSizes.big
                 iconSource: "document-open"
                 label1.text: i18n("Open")
@@ -120,7 +108,6 @@ Maui.ApplicationWindow
             id: _browserView
             anchors.fill: parent
         }
-
 
         Maui.Page
         {

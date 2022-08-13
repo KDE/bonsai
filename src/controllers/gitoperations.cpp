@@ -25,7 +25,7 @@ void GitOperations::clone(const QUrl &url, const QUrl &path)
     repo->setPath(path.toLocalFile());
     repo->setBare(bare);
     repo->setBackgroundMode(true);
-
+repo->
     connect(repo, &Git::CloneOperation::doneCheckout,[]()
     {
         qDebug() << "DOne checkout" ;

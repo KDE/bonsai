@@ -12,7 +12,7 @@ Maui.Page
 {
     id: control
     headBar.forceCenterMiddleContent: false
-background: null
+    background: null
     headBar.middleContent: Maui.TextField
     {
         Layout.fillWidth: true
@@ -91,19 +91,18 @@ background: null
         delegate:  Maui.ListBrowserDelegate
         {
             width: ListView.view.width
-//            height: implicitHeight + Maui.Style.space.medium
-            iconSource: model.icon
+//            iconSource: model.icon
             imageSource: model.artwork
-            template.headerSizeHint: 32
-            iconSizeHint: 22
+
+            iconSizeHint: Maui.Style.iconSizes.big
             template.imageSizeHint: iconSizeHint
 
             label1.text: model.title
             label2.text: model.branch
             tooltipText: model.url
 
-//            label3.text : i18np("%1 item", "%1 items", model.count)
-//            label4.text: Maui.Handy.formatDate(model.lastread, "MM/dd/yyyy")
+            //            label3.text : i18np("%1 item", "%1 items", model.count)
+            //            label4.text: Maui.Handy.formatDate(model.lastread, "MM/dd/yyyy")
 
             onClicked:
             {
