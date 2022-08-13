@@ -112,7 +112,7 @@ Maui.ApplicationWindow
         Maui.Page
         {
             anchors.fill: parent
-
+            showCSDControls: true
             headBar.rightContent: ToolButton
             {
                 icon.name: "list-add"
