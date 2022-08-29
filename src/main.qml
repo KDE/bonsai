@@ -103,6 +103,7 @@ Maui.ApplicationWindow
     Maui.SideBarView
     {
         id: _sideBarView
+        anchors.fill: parent
         sideBarContent: BrowserView
         {
             id: _browserView
