@@ -6,6 +6,7 @@
 
 [Desktop Entry]
 Name=Bonsai
+Name[ar]=بونساي
 Name[ca]=Bonsai
 Name[ca@valencia]=Bonsai
 Name[cs]=Bonsai
@@ -33,6 +34,7 @@ Name[uk]=Бонсай
 Name[x-test]=xxBonsaixx
 Name[zh_CN]=Bonsai
 Comment=Git manager
+Comment[ar]=مدير غت
 Comment[ca]=Gestor de Git
 Comment[ca@valencia]=Gestor de Git
 Comment[cs]=Správce Git
@@ -65,6 +67,7 @@ Terminal=false
 Type=Application
 Categories=Qt;KDE;System;FileTools;FileManager;
 GenericName=Git Manager
+GenericName[ar]=مدير غت
 GenericName[ca]=Gestor de Git
 GenericName[ca@valencia]=Gestor de Git
 GenericName[cs]=Správce Git
