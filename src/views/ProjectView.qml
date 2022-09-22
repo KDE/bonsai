@@ -46,11 +46,19 @@ Maui.Page
         }
     }
 
+    headBar.rightContent: Maui.ComboBox
+    {
+        model: _project.branches.allBranches
+        displayText: _project.currentBranch
+        onActivated: _project.currentBranch = currentText
+    }
+
     SwipeView
     {
         id: _swipeView
         currentIndex: _actionViews.currentIndex
         anchors.fill: parent
+        clip: false
 
         Maui.ListBrowser
         {
@@ -65,6 +73,7 @@ Maui.Page
                 label1.text: model.message
                 label3.text: model.id
                 label2.text: model.author
+                label4.text: Qt.formatDateTime(model.date, "dd MM yyyy")
                 rightLabels.visible: true
             }
         }
@@ -72,6 +81,8 @@ Maui.Page
         FB.FileBrowser
         {
             currentPath: control.project.url
+            onItemClicked: openItem(index)
+//            gridItemSize: 100
         }
     }
 

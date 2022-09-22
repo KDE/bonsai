@@ -24,6 +24,7 @@
 
 #include "controllers/gitoperations.h"
 #include "controllers/projectmanager.h"
+#include "controllers/branchesmanager.h"
 #include "controllers/project.h"
 #include "models/projectsmodel.h"
 
@@ -78,6 +79,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
         qmlRegisterType<GitOperations>(BONSAI_URI, 1, 0, "GitOperations");
         qmlRegisterAnonymousType<ProjectsModel>(BONSAI_URI, 1);
         qmlRegisterAnonymousType<CommitHistoryModel>(BONSAI_URI, 1);
+        qmlRegisterAnonymousType<BranchesManager>(BONSAI_URI, 1);
         qmlRegisterType<Project>(BONSAI_URI, 1, 0, "Project");
         qmlRegisterType<ProjectManager>(BONSAI_URI, 1, 0, "ProjectManager");
 

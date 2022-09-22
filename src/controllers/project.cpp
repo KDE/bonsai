@@ -2,8 +2,12 @@
 #include "projectmanager.h"
 #include <QDebug>
 
+#include "controllers/branchesmanager.h"
+
+
 Project::Project(QObject *parent) : QObject(parent)
   , m_commitsModel(nullptr)
+  ,m_branchesManager(nullptr)
 {
 connect(this, &Project::urlChanged, this, &Project::setData);
 }
@@ -47,7 +51,9 @@ void Project::setData(const QUrl &url)
         qDebug()  << "Unable to get repo status" << r.errorText();
     }else
     {
+        qDebug() << "PROJECT STATUS" << status.keys();
         qDebug() << status.keys();
+        m_status = status.keys();
     }
 
 
@@ -69,11 +75,6 @@ QUrl Project::getLogo() const
     return m_logo;
 }
 
-QStringList Project::getBranches() const
-{
-    return m_branches;
-}
-
 QString Project::currentBranch() const
 {
     return m_currentBranch;
@@ -90,6 +91,21 @@ CommitHistoryModel *Project::getCommitsModel()
     return m_commitsModel;
 }
 
+BranchesManager *Project::getBranches()
+{
+    if(!m_branchesManager)
+    {
+        m_branchesManager = new BranchesManager(this);
+        m_branchesManager->setRepo(this->m_repo);
+    }
+    return m_branchesManager;
+}
+
+QStringList Project::status() const
+{
+    return m_status;
+}
+
 void Project::setUrl(QUrl url)
 {
     if (m_url == url)
@@ -97,5 +113,14 @@ void Project::setUrl(QUrl url)
 
     m_url = url;
     emit urlChanged(m_url);
+}
+
+void Project::setCurrentBranch(QString currentBranch)
+{
+    if (m_currentBranch == currentBranch)
+        return;
+
+    m_currentBranch = currentBranch;
+    emit currentBranchChanged(m_currentBranch);
 }
 

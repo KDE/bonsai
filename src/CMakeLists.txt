@@ -5,6 +5,7 @@ set(bonsai_SRCS
     controllers/gitoperations.cpp
     controllers/project.cpp
     controllers/projectmanager.cpp
+    controllers/branchesmanager.cpp
     models/projectsmodel.cpp
     models/commithistorymodel.cpp
     assets.qrc

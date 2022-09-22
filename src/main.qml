@@ -110,82 +110,89 @@ Maui.ApplicationWindow
             anchors.fill: parent
         }
 
-        Maui.Page
+
+        Maui.TabView
         {
+            id: _tabView
+            //        mobile: true
             anchors.fill: parent
-            showCSDControls: true
-            headBar.rightContent: ToolButton
-            {
-                icon.name: "list-add"
-                onClicked:
+            holder.title : i18n("Let's Start")
+            holder.body: i18n("Open or clone an existing repository, or create a new one.")
+            holder.emoji: "qrc:/assets/assets/folder-add.svg"
+
+            holder.actions:[ Action
                 {
-                    _dialogLoader.sourceComponent = _newDialogComponent
-                    dialog.open()
-                }
-            }
+                    text: "Clone"
+                    onTriggered: cloneDialog.open()
+                },
 
-            headBar.farLeftContent: Loader
-            {
-                asynchronous: true
-                sourceComponent: ToolButton
+                Action
                 {
-                    icon.name: _sideBarView.sideBar.visible ? "sidebar-collapse" : "sidebar-expand"
-                    onClicked: _sideBarView.sideBar.toggle()
-                    checked: _sideBarView.sideBar.visible
-                    ToolTip.delay: 1000
-                    ToolTip.timeout: 5000
-                    ToolTip.visible: hovered
-                    ToolTip.text: i18n("Toogle SideBar")
-                }
-            }
+                    text: "Create"
+                },
 
-            headBar.leftContent: Maui.ToolButtonMenu
-            {
-                icon.name: "application-menu"
-                MenuItem
+                Action
                 {
-                    text: i18n("Settings")
-                    icon.name: "settings-configure"
-                    onTriggered: openConfigDialog()
+                    text: "Open"
+                    onTriggered: openLocalRepo()
                 }
+            ]
 
-                MenuItem
+            tabBar.visible: true
+                       tabBar.showNewTabButton: false
+
+            tabBar.rightContent: [
+                ToolButton
                 {
-                    text: i18n("About")
-                    icon.name: "documentinfo"
-                    onTriggered: root.about()
-                }
-            }
-
-            Maui.TabView
-            {
-                id: _tabView
-                //        mobile: true
-                anchors.fill: parent
-                holder.title : i18n("Let's Start")
-                holder.body: i18n("Open or clone an existing repository, or create a new one.")
-                holder.emoji: "qrc:/assets/assets/folder-add.svg"
-
-                holder.actions:[ Action
+                    icon.name: "list-add"
+                    onClicked:
                     {
-                        text: "Clone"
-                        onTriggered: cloneDialog.open()
-                    },
-
-                    Action
-                    {
-                        text: "Create"
-                    },
-
-                    Action
-                    {
-                        text: "Open"
-                        onTriggered: openLocalRepo()
+                        _dialogLoader.sourceComponent = _newDialogComponent
+                        dialog.open()
                     }
-                ]
-            }
+                },
 
+                Maui.WindowControls {}
+            ]
+
+            tabBar.leftContent: [
+
+                Loader
+                {
+                    asynchronous: true
+                    sourceComponent: ToolButton
+                    {
+                        icon.name: _sideBarView.sideBar.visible ? "sidebar-collapse" : "sidebar-expand"
+                        onClicked: _sideBarView.sideBar.toggle()
+                        checked: _sideBarView.sideBar.visible
+                        ToolTip.delay: 1000
+                        ToolTip.timeout: 5000
+                        ToolTip.visible: hovered
+                        ToolTip.text: i18n("Toogle SideBar")
+                    }
+                },
+
+                Maui.ToolButtonMenu
+                {
+                    icon.name: "application-menu"
+                    MenuItem
+                    {
+                        text: i18n("Settings")
+                        icon.name: "settings-configure"
+                        onTriggered: openConfigDialog()
+                    }
+
+                    MenuItem
+                    {
+                        text: i18n("About")
+                        icon.name: "documentinfo"
+                        onTriggered: root.about()
+                    }
+                }
+            ]
         }
+
+
     }
 
     Component

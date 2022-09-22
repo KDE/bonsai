@@ -4,7 +4,11 @@
 #include <QObject>
 #include <QUrl>
 #include "libGitWrap/Repository.hpp"
+
 #include "models/commithistorymodel.h"
+
+class BranchesManager;
+
 class Project : public QObject
 {
     Q_OBJECT
@@ -13,9 +17,10 @@ class Project : public QObject
     Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY urlChanged)
     Q_PROPERTY(QString title READ getTitle NOTIFY titleChanged)
     Q_PROPERTY(QUrl logo READ getLogo NOTIFY logoChanged)
-    Q_PROPERTY(QStringList branches READ getBranches NOTIFY branchesChanged)
-    Q_PROPERTY(QString currentBranch READ currentBranch NOTIFY currentBranchChanged)
+    Q_PROPERTY(QString currentBranch READ currentBranch WRITE setCurrentBranch NOTIFY currentBranchChanged)
     Q_PROPERTY(CommitHistoryModel *commitsModel READ getCommitsModel CONSTANT FINAL)
+    Q_PROPERTY(BranchesManager* branches READ getBranches CONSTANT FINAL)
+    Q_PROPERTY(QStringList status READ status NOTIFY statusChanged)
 
 public:
     explicit Project(QObject *parent = nullptr);
@@ -26,14 +31,18 @@ public:
 
     QUrl getLogo() const;
 
-    QStringList getBranches() const;
-
     QString currentBranch() const;
 
     CommitHistoryModel * getCommitsModel();
 
+    BranchesManager* getBranches();
+
+    QStringList status() const;
+
 public slots:
     void setUrl(QUrl url);
+
+    void setCurrentBranch(QString currentBranch);
 
 private:
     QUrl m_url;
@@ -43,19 +52,20 @@ private:
 
     QUrl m_logo;
 
-    QStringList m_branches;
-
     QString m_currentBranch;
 
     CommitHistoryModel * m_commitsModel;
+    BranchesManager* m_branchesManager;
+
+    QStringList m_status;
 
 signals:
     void titleChanged(QString title);
     void logoChanged(QUrl logo);
     void urlChanged(QUrl url);
     void error(QString message);
-    void branchesChanged(QStringList branches);
     void currentBranchChanged(QString currentBranch);
+    void statusChanged(QStringList status);
 };
 
 #endif // PROJECT_H
