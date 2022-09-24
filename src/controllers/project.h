@@ -8,6 +8,8 @@
 #include "models/commithistorymodel.h"
 
 class BranchesManager;
+class Project;
+
 
 class Project : public QObject
 {
@@ -18,9 +20,14 @@ class Project : public QObject
     Q_PROPERTY(QString title READ getTitle NOTIFY titleChanged)
     Q_PROPERTY(QUrl logo READ getLogo NOTIFY logoChanged)
     Q_PROPERTY(QString currentBranch READ currentBranch WRITE setCurrentBranch NOTIFY currentBranchChanged)
+    Q_PROPERTY(QVariantMap currentBranchRemote READ currentBranchRemote NOTIFY currentBranchRemoteChanged)
+    Q_PROPERTY(QVariantMap headBranch READ getHeadBranch NOTIFY headBranchChanged)
+
     Q_PROPERTY(CommitHistoryModel *commitsModel READ getCommitsModel CONSTANT FINAL)
     Q_PROPERTY(BranchesManager* branches READ getBranches CONSTANT FINAL)
     Q_PROPERTY(QStringList status READ status NOTIFY statusChanged)
+    Q_PROPERTY(QUrl readmeFile READ readmeFile NOTIFY readmeFileChanged CONSTANT)
+    Q_PROPERTY(QVariantList remotesModel READ getRemotesModel NOTIFY remotesModelChanged)
 
 public:
     explicit Project(QObject *parent = nullptr);
@@ -39,10 +46,22 @@ public:
 
     QStringList status() const;
 
+    QUrl readmeFile() const;
+
+    QVariantList getRemotesModel() const;
+
+    QVariantMap currentBranchRemote() const;
+
+    QVariantMap getHeadBranch() const;
+
 public slots:
     void setUrl(QUrl url);
 
-    void setCurrentBranch(QString currentBranch);
+    void setCurrentBranch(const QString &currentBranch);
+    QString fileStatusIcon(const QString &file);
+
+    QVariantMap commitAuthor(const QString &id);
+    QVariantMap remoteInfo(const QString &remoteName);
 
 private:
     QUrl m_url;
@@ -59,6 +78,16 @@ private:
 
     QStringList m_status;
 
+    QUrl m_readmeFile;
+
+    QVariantList m_remotesModel;
+
+    QVariantMap m_currentBranchRemote;
+    QVariantMap m_headBranch;
+
+    void setCurrentBranchRemote(const QString &currentBranch);
+    void setHeadBranch();
+
 signals:
     void titleChanged(QString title);
     void logoChanged(QUrl logo);
@@ -66,6 +95,10 @@ signals:
     void error(QString message);
     void currentBranchChanged(QString currentBranch);
     void statusChanged(QStringList status);
+    void readmeFileChanged(QUrl readmeFile);
+    void remotesModelChanged(QVariantList remotesModel);
+    void currentBranchRemoteChanged(QVariantMap currentBranchRemote);
+    void headBranchChanged(QVariantMap headBranch);
 };
 
 #endif // PROJECT_H

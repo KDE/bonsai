@@ -62,8 +62,7 @@ void CommitHistoryModel::setData()
 
                         if(r)
                         {
-                            qDebug()  << commit.message() << id.toString();
-                            this->m_list << FMH::MODEL {{FMH::MODEL_KEY::ID, id.toString(Git::ObjectId::SHA1_Length)}, {FMH::MODEL_KEY::MESSAGE, commit.message()}, {FMH::MODEL_KEY::AUTHOR, commit.author().name()}, {FMH::MODEL_KEY::EMAIL, commit.author().email()}, {FMH::MODEL_KEY::DATE, commit.author().when().toString()}};
+                            this->m_list << FMH::MODEL {{FMH::MODEL_KEY::ID, id.toString()}, {FMH::MODEL_KEY::MESSAGE, commit.message()}, {FMH::MODEL_KEY::AUTHOR, commit.author().name()}, {FMH::MODEL_KEY::EMAIL, commit.author().email()}, {FMH::MODEL_KEY::DATE, commit.author().when().toString()}};
 
                         }
                     }

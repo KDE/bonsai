@@ -68,7 +68,23 @@ Maui.ApplicationWindow
                 Layout.fillWidth: true
 
                 iconSizeHint: Maui.Style.iconSizes.big
-                iconSource: "vcs-diff"
+                iconSource: "shallow-history"
+                label1.text: i18n("Recent")
+                label2.text: i18n("Open a recent project")
+                template.isMask: true
+                onClicked:
+                {
+                    _mainStackView.push(_browserViewComponent)
+                    close()
+                }
+            }
+
+            Maui.ListBrowserDelegate
+            {
+                Layout.fillWidth: true
+
+                iconSizeHint: Maui.Style.iconSizes.big
+                iconSource: "vcs-merge"
                 label1.text: i18n("Clone")
                 label2.text: i18n("Clone a repository")
                 template.isMask: true
@@ -100,18 +116,36 @@ Maui.ApplicationWindow
         }
     }
 
-    Maui.SideBarView
+    Component
     {
-        id: _sideBarView
-        anchors.fill: parent
-        sideBarContent: BrowserView
+        id: _browserViewComponent
+        BrowserView
         {
             id: _browserView
-            anchors.fill: parent
+            headBar.leftContent: ToolButton
+            {
+                icon.name: "go-previous"
+                onClicked: _mainStackView.pop()
+            }
         }
+    }
 
+    Component
+    {
+        id: _projectPageComponent
 
-        Maui.TabView
+        ProjectView
+        {
+
+        }
+    }
+
+    StackView
+    {
+        id: _mainStackView
+        anchors.fill: parent
+
+        initialItem: Maui.TabView
         {
             id: _tabView
             //        mobile: true
@@ -120,7 +154,15 @@ Maui.ApplicationWindow
             holder.body: i18n("Open or clone an existing repository, or create a new one.")
             holder.emoji: "qrc:/assets/assets/folder-add.svg"
 
-            holder.actions:[ Action
+            holder.actions:[
+
+                Action
+                {
+                    text: "Recent"
+                    onTriggered: _mainStackView.push(_browserViewComponent)
+                },
+
+                Action
                 {
                     text: "Clone"
                     onTriggered: cloneDialog.open()
@@ -139,7 +181,7 @@ Maui.ApplicationWindow
             ]
 
             tabBar.visible: true
-                       tabBar.showNewTabButton: false
+            tabBar.showNewTabButton: false
 
             tabBar.rightContent: [
                 ToolButton
@@ -157,7 +199,7 @@ Maui.ApplicationWindow
 
             tabBar.leftContent: [
 
-                Loader
+                /*   Loader
                 {
                     asynchronous: true
                     sourceComponent: ToolButton
@@ -170,7 +212,8 @@ Maui.ApplicationWindow
                         ToolTip.visible: hovered
                         ToolTip.text: i18n("Toogle SideBar")
                     }
-                },
+                }*/
+
 
                 Maui.ToolButtonMenu
                 {
@@ -191,19 +234,8 @@ Maui.ApplicationWindow
                 }
             ]
         }
-
-
     }
 
-    Component
-    {
-        id: _projectPageComponent
-
-        ProjectView
-        {
-
-        }
-    }
 
     function openLocalRepo()
     {
@@ -214,7 +246,6 @@ Maui.ApplicationWindow
             console.log("Paths", paths)
             const url = paths[0]
             _projectManager.addProject(url)
-            _browserView.openProject(url)
         }
 
         dialog.open()
@@ -232,6 +263,10 @@ Maui.ApplicationWindow
         }
 
         _tabView.addTab(_projectPageComponent, {'url' : url})
+        if(_mainStackView.depth === 2)
+        {
+            _mainStackView.pop()
+        }
     }
 
     function tabIndex(path) //find the tab index for a path

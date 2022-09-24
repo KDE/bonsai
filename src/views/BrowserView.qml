@@ -11,12 +11,12 @@ import org.mauikit.filebrowsing 1.3 as FB
 Maui.Page
 {
     id: control
-    headBar.forceCenterMiddleContent: false
-    background: null
+    headBar.forceCenterMiddleContent: !root.isWide
     headBar.middleContent: Maui.TextField
     {
         Layout.fillWidth: true
         Layout.maximumWidth: 500
+        Layout.alignment: Qt.AlignCenter
         placeholderText: i18np("Filter", "Filter %1 repos", _listView.model.list.count);
         onAccepted: _listView.model.filter = text
         onCleared:  _listView.model.filter = text
@@ -91,14 +91,16 @@ Maui.Page
         delegate:  Maui.ListBrowserDelegate
         {
             width: ListView.view.width
-//            iconSource: model.icon
+            iconSource: model.icon
             imageSource: model.artwork
 
             iconSizeHint: Maui.Style.iconSizes.big
             template.imageSizeHint: iconSizeHint
 
             label1.text: model.title
-            label2.text: model.branch
+            label2.text: model.url.replace(FB.FM.homePath(), "")
+            label3.text: model.branch
+
             tooltipText: model.url
 
             //            label3.text : i18np("%1 item", "%1 items", model.count)

@@ -33,6 +33,19 @@ QUrl ProjectManager::projectLogo(const QUrl &url)
     return res;
 }
 
+QUrl ProjectManager::readmeFile(const QUrl &url)
+{
+    QUrl res;
+    auto readme = url.toString() + "/README.md";
+
+    if(FMStatic::fileExists(QUrl(readme)))
+    {
+       res = QUrl(readme);
+    }
+
+    return res;
+}
+
 void ProjectManager::addProject(const QString &url)
 {
     const QUrl localUrl = QUrl::fromUserInput(url, "/", QUrl::AssumeLocalFile);

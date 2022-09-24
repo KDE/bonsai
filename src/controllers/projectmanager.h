@@ -18,6 +18,7 @@ public:
     ProjectsModel *projectsModel();
 
     static QUrl projectLogo(const QUrl &url);
+    static QUrl readmeFile(const QUrl &url);
 
     static Git::Repository gitDir(const QUrl &url);
     static FMH::MODEL repoInfo(const QUrl &url, Git::Repository &repo);

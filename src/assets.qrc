@@ -5,4 +5,22 @@
         <file>assets/edit-paste.svg</file>
         <file>assets/bonsai.svg</file>
     </qresource>
+    <qresource prefix="/icons">
+        <file>assets/icons/ic_branch.svg</file>
+        <file>assets/icons/ic_check.svg</file>
+        <file>assets/icons/ic_code.svg</file>
+        <file>assets/icons/ic_commit.svg</file>
+        <file>assets/icons/ic_compare.svg</file>
+        <file>assets/icons/ic_copy.svg</file>
+        <file>assets/icons/ic_error.svg</file>
+        <file>assets/icons/ic_folder.svg</file>
+        <file>assets/icons/ic_fork.svg</file>
+        <file>assets/icons/ic_issue.svg</file>
+        <file>assets/icons/ic_merge.svg</file>
+        <file>assets/icons/ic_pull_request.svg</file>
+        <file>assets/icons/ic_pull.svg</file>
+        <file>assets/icons/ic_push.svg</file>
+        <file>assets/icons/ic_stash.svg</file>
+        <file>assets/icons/ic_wiki.svg</file>
+    </qresource>
 </RCC>

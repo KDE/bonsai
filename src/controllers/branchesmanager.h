@@ -22,6 +22,10 @@ public:
 
     QStringList remoteBranches();
 
+public slots:
+    QString upstreamRemote(const QString &branchName);
+    QString upstream(const QString &branchName);
+
 private:
     Git::Repository m_repo;
 
