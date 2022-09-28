@@ -78,6 +78,7 @@ Maui.Page
 
         ToolButton
         {
+            visible: String(_project.readmeFile).length > 0
             icon.name: "documentinfo"
             onClicked:
             {
@@ -86,11 +87,21 @@ Maui.Page
             }
         },
 
-        Maui.ComboBox
+        Maui.ToolButtonMenu
         {
-            model: _project.branches.allBranches
-            displayText: _project.currentBranch
-            onActivated: _project.currentBranch = currentText
+
+            icon.name: "vcs-branch"
+            Repeater
+            {
+                model: _project.branches.allBranches
+                MenuItem
+                {
+                    autoExclusive: true
+                    checked: _project.currentBranch === text
+                    text: modelData
+                    onTriggered: _project.currentBranch = text
+                }
+            }
         }]
 
     Loader
@@ -121,6 +132,8 @@ Maui.Page
                     CheckBox
                     {
                         visible: _project.headBranch.isCurrentBranch
+                        checked: visible
+                        checkable: false
                     }
                 }
 
@@ -141,9 +154,16 @@ Maui.Page
                     model: _project.remotesModel
                     delegate: Maui.SettingTemplate
                     {
-                        label1.text: modelData.name
+                        property string remoteName : modelData.name
+                        label1.text: remoteName
                         label2.text: modelData.url
                         enabled: modelData.isValid
+
+                        Maui.CheckBoxItem
+                        {
+                            checked: _project.currentBranchRemote.name === remoteName
+                            visible: checked
+                        }
                     }
                 }
             }
@@ -176,6 +196,7 @@ Maui.Page
             maxWidth: 900
             defaultButtons: false
             hint: 1
+            title: "README.MD"
             stack: TE.TextEditor
             {
                 Layout.fillWidth: true
@@ -282,6 +303,7 @@ Maui.Page
         initialItem: Maui.Page
         {
 
+            headBar.forceCenterMiddleContent: root.isWide
             headBar.middleContent: Maui.SearchField
             {
                 Layout.alignment: Qt.AlignCenter
@@ -331,6 +353,7 @@ Maui.Page
                 flickable.header: Column
                 {
                     width: parent.width
+
                     Maui.SectionDropDown
                     {
                         topPadding: Maui.Style.space.big
@@ -339,12 +362,11 @@ Maui.Page
 
                         width: parent.width
                         template.iconSource: _project.logo
-                        //                template.iconSizeHint: Maui.Style.iconSizes.huge
+
                         label1.text: _project.title
                         label2.text: _project.currentBranch
-                        template.label3.text: _project.currentBranchRemote.name
-                        template.label4.text: _project.currentBranchRemote.url
-                        //                label1.font.pointSize: Maui.Style.fontSizes.enormous
+                        //                        template.label3.text: _project.currentBranchRemote.name
+                        //                        template.label4.text: _project.currentBranchRemote.url
 
                         template.content:[ Maui.GridItemTemplate
                             {
@@ -372,15 +394,15 @@ Maui.Page
                         ]
                     }
 
-//                    Maui.SectionDropDown
-//                    {
-//                        topPadding: Maui.Style.space.big
-//                        bottomPadding: topPadding + _commitsListView.topPadding
-//                        padding: _commitsListView.padding
-//                        width: parent.width
-//                        label1.text: _project.url
-//                        label2.text: _project.currentBranch
-//                    }
+                    //                    Maui.SectionDropDown
+                    //                    {
+                    //                        topPadding: Maui.Style.space.big
+                    //                        bottomPadding: topPadding + _commitsListView.topPadding
+                    //                        padding: _commitsListView.padding
+                    //                        width: parent.width
+                    //                        label1.text: _project.url
+                    //                        label2.text: _project.currentBranch
+                    //                    }
                 }
 
                 model: Maui.BaseModel
@@ -405,6 +427,13 @@ Maui.Page
                         _commitsListView.currentIndex = index
                     }
 
+                    onDoubleClicked:
+                    {
+                        _commitsListView.currentIndex = index
+                        openCommitInfoDialog(_commitsModel.get(_commitsListView.currentIndex).id)
+                    }
+
+
                     onRightClicked:
                     {
                         _commitsListView.currentIndex = index
@@ -424,12 +453,7 @@ Maui.Page
                     MenuItem
                     {
                         text: i18n("Info")
-                        onTriggered:
-                        {
-                            _dialogLoader.sourceComponent = _commitInfoDialogComponent
-                            control.dialog.commitId = _commitsModel.get(_commitsListView.currentIndex).id
-                            control.dialog.open()
-                        }
+                        onTriggered: openCommitInfoDialog(_commitsModel.get(_commitsListView.currentIndex).id)
                     }
 
 
@@ -438,7 +462,6 @@ Maui.Page
                         text: i18n("Copy ID")
                         onTriggered: Maui.Handy.copyTextToClipboard(_commitsModel.get(_commitsListView.currentIndex).id)
                     }
-
                 }
             }
         }
@@ -563,5 +586,10 @@ Maui.Page
 
 
 
-
+    function openCommitInfoDialog(id)
+    {
+        _dialogLoader.sourceComponent = _commitInfoDialogComponent
+        control.dialog.commitId = id
+        control.dialog.open()
+    }
 }
