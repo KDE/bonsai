@@ -14,6 +14,7 @@
   <name xml:lang="eu">Index</name>
   <name xml:lang="fi">Index</name>
   <name xml:lang="fr">Index</name>
+  <name xml:lang="id">Index</name>
   <name xml:lang="it">Index</name>
   <name xml:lang="ka">ინდექსი</name>
   <name xml:lang="ko">Index</name>
@@ -41,6 +42,7 @@
   <summary xml:lang="eu">Kudeatu zure fitxategiak</summary>
   <summary xml:lang="fi">Hallitse tiedostoja</summary>
   <summary xml:lang="fr">Gérer vos fichiers</summary>
+  <summary xml:lang="id">Mengelola file-mu</summary>
   <summary xml:lang="it">Gestisci i tuoi file</summary>
   <summary xml:lang="ka">მართეთ თქვენი ფაილები</summary>
   <summary xml:lang="ko">내 파일 관리</summary>
@@ -68,6 +70,7 @@
     <p xml:lang="eu">Index-ek zure ordenagailuan nabigatzeko eta multimedia fitxategiak aurreikusteko aukera ematen dizu.</p>
     <p xml:lang="fi">Indexillä voi liikkua koneen tallennustilassa ja esikatsella mediatiedostoja.</p>
     <p xml:lang="fr">Le logiciel Index vous permet de naviguer au sein de votre ordinateur et d'afficher des aperçus de fichiers multimédia.</p>
+    <p xml:lang="id">Indeks memungkinkan kamu untuk menavigasi komputermu dan melihat pratinjau file multimedia.</p>
     <p xml:lang="it">Index ti consente di navigare il tuo computer e offre un'anteprima dei file multimediali.</p>
     <p xml:lang="ka">ინდექსი თქვენს კომპიუტერში ნავიგაციისა და მულტიმედია ფაილებზე გადახედვის საშუალებას გაძლევთ.</p>
     <p xml:lang="ko">Index 파일 관리자로 컴퓨터를 탐색하고 멀티미디어 파일을 미리 볼 수 있습니다.</p>
@@ -101,6 +104,7 @@
       <caption xml:lang="eu">Index fitxategi kudeatzailea</caption>
       <caption xml:lang="fi">Index-tiedostonhallinta</caption>
       <caption xml:lang="fr">Gestionnaire de fichiers Index</caption>
+      <caption xml:lang="id">Pengelola file indeks</caption>
       <caption xml:lang="it">Gestore dei file Index</caption>
       <caption xml:lang="ka">ინდექსის ფაილების მმართველი</caption>
       <caption xml:lang="ko">Index 파일 관리자</caption>
