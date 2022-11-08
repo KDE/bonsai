@@ -92,6 +92,8 @@ include_directories(src/controllers)
 add_subdirectory(src/controllers)
 add_subdirectory(src)
 
+ki18n_install(po)
+
 if(UNIX AND NOT APPLE AND NOT ANDROID)
     install(FILES org.maui.bonsai.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
     install(FILES org.maui.bonsai.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
