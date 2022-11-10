@@ -1,0 +1,313 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the bonsai package.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: bonsai\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-11-09 00:46+0000\n"
+"PO-Revision-Date: 2022-11-09 20:51+0200\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 20.12.0\n"
+
+#: src/main.cpp:51
+#, kde-format
+msgid "Bonsai"
+msgstr "Бонсай"
+
+#: src/main.cpp:51
+#, kde-format
+msgid "Quick Git control version manager."
+msgstr "Програма для швидкого керування Git."
+
+#: src/main.cpp:51
+#, kde-format
+msgid "© 2021-%1 Maui Development Team"
+msgstr "© Команда розробників Maui, 2021–%1"
+
+#: src/main.cpp:53
+#, kde-format
+msgid "Camilo Higuita"
+msgstr "Camilo Higuita"
+
+#: src/main.cpp:53
+#, kde-format
+msgid "Developer"
+msgstr "Розробник"
+
+#: src/main.qml:28
+#, kde-format
+msgid "Git URL"
+msgstr "Адреса Git"
+
+#: src/main.qml:30 src/main.qml:158
+#, kde-format
+msgid "Clone"
+msgstr "Клонувати"
+
+#: src/main.qml:35
+#, kde-format
+msgid "Repo URL"
+msgstr "Адреса сховища"
+
+#: src/main.qml:36
+#, kde-format
+msgid "Remote repo URL"
+msgstr "Адреса віддаленого сховища"
+
+#: src/main.qml:42
+#, kde-format
+msgid "URL"
+msgstr "Адреса"
+
+#: src/main.qml:50 src/main.qml:57 src/views/BrowserView.qml:57
+#, kde-format
+msgid "Name"
+msgstr "Назва"
+
+#: src/main.qml:51
+#, kde-format
+msgid "Remote name"
+msgstr "Назва віддаленого сховища"
+
+#: src/main.qml:64
+#, kde-format
+msgid "Location"
+msgstr "Місце"
+
+#: src/main.qml:65
+#, kde-format
+msgid "Local location to clone"
+msgstr "Локальне місце для клонування"
+
+#: src/main.qml:71
+#, kde-format
+msgid "Path"
+msgstr "Шлях"
+
+#: src/main.qml:79
+#, kde-format
+msgid "Bare"
+msgstr "Мінімальне"
+
+#: src/main.qml:80
+#, kde-format
+msgid "Create a bare repo"
+msgstr "Створити мінімальне сховище"
+
+#: src/main.qml:91
+#, kde-format
+msgid "Recursive"
+msgstr "Рекурсивно"
+
+#: src/main.qml:92
+#, kde-format
+msgid "Clone submodules"
+msgstr "Клонувати підмодулі"
+
+#: src/main.qml:128
+#, kde-format
+msgid "New Repo"
+msgstr "Нове сховище"
+
+#: src/main.qml:142
+#, kde-format
+msgid "Recent"
+msgstr "Нещодавні"
+
+#: src/main.qml:143
+#, kde-format
+msgid "Open a recent project"
+msgstr "Відкрити нещодавній проєкт"
+
+#: src/main.qml:159
+#, kde-format
+msgid "Clone a repository"
+msgstr "Клонувати сховище"
+
+#: src/main.qml:170
+#, kde-format
+msgid "Create"
+msgstr "Створити"
+
+#: src/main.qml:171
+#, kde-format
+msgid "Create a new repository"
+msgstr "Створити сховище"
+
+#: src/main.qml:181
+#, kde-format
+msgid "Open"
+msgstr "Відкрити"
+
+#: src/main.qml:182
+#, kde-format
+msgid "Open a local repository"
+msgstr "Відкрити локальне сховище"
+
+#: src/main.qml:223
+#, kde-format
+msgid "Let's Start"
+msgstr "Розпочнімо"
+
+#: src/main.qml:224
+#, kde-format
+msgid "Open or clone an existing repository, or create a new one."
+msgstr "Відкрийте або клонуйте наявне сховище або створіть сховище."
+
+#: src/main.qml:293
+#, kde-format
+msgid "Settings"
+msgstr "Параметри"
+
+#: src/main.qml:300
+#, kde-format
+msgid "About"
+msgstr "Про програму"
+
+#: src/views/BrowserView.qml:20
+#, kde-format
+msgid "Filter"
+msgid_plural "Filter %1 repos"
+msgstr[0] "Фільтрувати %1 сховище"
+msgstr[1] "Фільтрувати %1 сховища"
+msgstr[2] "Фільтрувати %1 сховищ"
+
+#: src/views/BrowserView.qml:33 src/views/ProjectView.qml:273
+#: src/views/ProjectView.qml:329
+#, kde-format
+msgid "Date"
+msgstr "Дата"
+
+#: src/views/BrowserView.qml:45
+#, kde-format
+msgid "Modified"
+msgstr "Змінено"
+
+#: src/views/BrowserView.qml:75
+#, kde-format
+msgid "Nothing here!"
+msgstr "Тут нічого немає!"
+
+#: src/views/BrowserView.qml:76
+#, kde-format
+msgid "Previously opened repos will be listed here."
+msgstr "Тут буде показано раніше відкриті сховища."
+
+#: src/views/ProjectView.qml:44
+#, kde-format
+msgid "Commits"
+msgstr "Внески"
+
+#: src/views/ProjectView.qml:52
+#, kde-format
+msgid "Browser"
+msgstr "Навігатор"
+
+#: src/views/ProjectView.qml:126
+#, kde-format
+msgid "Head"
+msgstr "Основа"
+
+#: src/views/ProjectView.qml:151
+#, kde-format
+msgid "Remotes"
+msgstr "Віддалені"
+
+#: src/views/ProjectView.qml:173
+#, kde-format
+msgid "Remote Branches"
+msgstr "Віддалені гілки"
+
+#: src/views/ProjectView.qml:227 src/views/ProjectView.qml:324
+#, kde-format
+msgid "Author"
+msgstr "Автор"
+
+#: src/views/ProjectView.qml:231
+#, kde-format
+msgid "Full Name"
+msgstr "Ім'я повністю"
+
+#: src/views/ProjectView.qml:237
+#, kde-format
+msgid "Email"
+msgstr "Ел. пошта"
+
+#: src/views/ProjectView.qml:249
+#, kde-format
+msgid "ID"
+msgstr "Ід."
+
+#: src/views/ProjectView.qml:261
+#, kde-format
+msgid "Message"
+msgstr "Повідомлення"
+
+#: src/views/ProjectView.qml:279
+#, kde-format
+msgid "Parent Commit"
+msgstr "Батьківський внесок"
+
+#: src/views/ProjectView.qml:286
+#, kde-format
+msgid "Repo"
+msgstr "Схов."
+
+#: src/views/ProjectView.qml:289
+#, kde-format
+msgid "Local path"
+msgstr "Локальний шлях"
+
+#: src/views/ProjectView.qml:312
+#, kde-format
+msgid "Filter commit by id, message or author"
+msgstr "Фільтрувати внески за ідентифікатором, повідомленням або автором"
+
+#: src/views/ProjectView.qml:336
+#, kde-format
+msgid "Asc"
+msgstr "Зрост"
+
+#: src/views/ProjectView.qml:341
+#, kde-format
+msgid "Desc"
+msgstr "Опис"
+
+#: src/views/ProjectView.qml:450
+#, kde-format
+msgid "Checkout"
+msgstr "Отримати"
+
+#: src/views/ProjectView.qml:455
+#, kde-format
+msgid "Info"
+msgstr "Інформація"
+
+#: src/views/ProjectView.qml:462
+#, kde-format
+msgid "Copy ID"
+msgstr "Копіювати ідентифікатор"
+
+#: src/views/ProjectView.qml:519
+#, kde-format
+msgid "New Branch"
+msgstr "Нова гілка"
+
+#: src/views/ProjectView.qml:525
+#, kde-format
+msgid "New Tag"
+msgstr "Нова мітка"
+
+#: src/views/ProjectView.qml:533
+#, kde-format
+msgid "New File"
+msgstr "Новий файл"

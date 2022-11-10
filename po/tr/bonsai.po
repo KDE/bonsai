@@ -1,0 +1,311 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the bonsai package.
+#
+# Emir SARI <emir_sari@icloud.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: bonsai\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-11-09 00:46+0000\n"
+"PO-Revision-Date: 2022-11-09 11:49+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 22.08.2\n"
+
+#: src/main.cpp:51
+#, kde-format
+msgid "Bonsai"
+msgstr "Bonsai"
+
+#: src/main.cpp:51
+#, kde-format
+msgid "Quick Git control version manager."
+msgstr "Tez Git sürüm denetim yöneticisi."
+
+#: src/main.cpp:51
+#, kde-format
+msgid "© 2021-%1 Maui Development Team"
+msgstr "© 2021-%1 Maui Geliştirme Takımı"
+
+#: src/main.cpp:53
+#, kde-format
+msgid "Camilo Higuita"
+msgstr "Camilo Higuita"
+
+#: src/main.cpp:53
+#, kde-format
+msgid "Developer"
+msgstr "Geliştirici"
+
+#: src/main.qml:28
+#, kde-format
+msgid "Git URL"
+msgstr "Git URL'si"
+
+#: src/main.qml:30 src/main.qml:158
+#, kde-format
+msgid "Clone"
+msgstr "Klonla"
+
+#: src/main.qml:35
+#, kde-format
+msgid "Repo URL"
+msgstr "Depo URL'si"
+
+#: src/main.qml:36
+#, kde-format
+msgid "Remote repo URL"
+msgstr "Uzak depo URL'si"
+
+#: src/main.qml:42
+#, kde-format
+msgid "URL"
+msgstr "URL"
+
+#: src/main.qml:50 src/main.qml:57 src/views/BrowserView.qml:57
+#, kde-format
+msgid "Name"
+msgstr "Ad"
+
+#: src/main.qml:51
+#, kde-format
+msgid "Remote name"
+msgstr "Uzak konum adı"
+
+#: src/main.qml:64
+#, kde-format
+msgid "Location"
+msgstr "Konum"
+
+#: src/main.qml:65
+#, kde-format
+msgid "Local location to clone"
+msgstr "Klonlanacak yerel konum"
+
+#: src/main.qml:71
+#, kde-format
+msgid "Path"
+msgstr "Yol"
+
+#: src/main.qml:79
+#, kde-format
+msgid "Bare"
+msgstr "Çıplak"
+
+#: src/main.qml:80
+#, kde-format
+msgid "Create a bare repo"
+msgstr "Çıplak bir depo oluştur"
+
+#: src/main.qml:91
+#, kde-format
+msgid "Recursive"
+msgstr "Özyineli"
+
+#: src/main.qml:92
+#, kde-format
+msgid "Clone submodules"
+msgstr "Altmodülleri klonla"
+
+#: src/main.qml:128
+#, kde-format
+msgid "New Repo"
+msgstr "Yeni Depo"
+
+#: src/main.qml:142
+#, kde-format
+msgid "Recent"
+msgstr "Son Kullanılan"
+
+#: src/main.qml:143
+#, kde-format
+msgid "Open a recent project"
+msgstr "Son kullanılan bir projeyi aç"
+
+#: src/main.qml:159
+#, kde-format
+msgid "Clone a repository"
+msgstr "Bir depo klonla"
+
+#: src/main.qml:170
+#, kde-format
+msgid "Create"
+msgstr "Oluştur"
+
+#: src/main.qml:171
+#, kde-format
+msgid "Create a new repository"
+msgstr "Yeni bir depo oluştur"
+
+#: src/main.qml:181
+#, kde-format
+msgid "Open"
+msgstr "Aç"
+
+#: src/main.qml:182
+#, kde-format
+msgid "Open a local repository"
+msgstr "Yerel bir depo aç"
+
+#: src/main.qml:223
+#, kde-format
+msgid "Let's Start"
+msgstr "Haydi Başlayalım"
+
+#: src/main.qml:224
+#, kde-format
+msgid "Open or clone an existing repository, or create a new one."
+msgstr "Var olan bir depoyu açın/klonlayın veya yeni bir tane oluşturun."
+
+#: src/main.qml:293
+#, kde-format
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: src/main.qml:300
+#, kde-format
+msgid "About"
+msgstr "Hakkında"
+
+#: src/views/BrowserView.qml:20
+#, kde-format
+msgid "Filter"
+msgid_plural "Filter %1 repos"
+msgstr[0] "Süz"
+msgstr[1] "%1 depoyu süz"
+
+#: src/views/BrowserView.qml:33 src/views/ProjectView.qml:273
+#: src/views/ProjectView.qml:329
+#, kde-format
+msgid "Date"
+msgstr "Tarih"
+
+#: src/views/BrowserView.qml:45
+#, kde-format
+msgid "Modified"
+msgstr "Değiştirilme"
+
+#: src/views/BrowserView.qml:75
+#, kde-format
+msgid "Nothing here!"
+msgstr "Burada bir şey yok!"
+
+#: src/views/BrowserView.qml:76
+#, kde-format
+msgid "Previously opened repos will be listed here."
+msgstr "Daha önceden açılan depolar burada listelenirler."
+
+#: src/views/ProjectView.qml:44
+#, kde-format
+msgid "Commits"
+msgstr "İşlemeler"
+
+#: src/views/ProjectView.qml:52
+#, kde-format
+msgid "Browser"
+msgstr "Tarayıcı"
+
+#: src/views/ProjectView.qml:126
+#, kde-format
+msgid "Head"
+msgstr "Depo Ucu"
+
+#: src/views/ProjectView.qml:151
+#, kde-format
+msgid "Remotes"
+msgstr "Uzak Konumlar"
+
+#: src/views/ProjectView.qml:173
+#, kde-format
+msgid "Remote Branches"
+msgstr "Uzak Dallar"
+
+#: src/views/ProjectView.qml:227 src/views/ProjectView.qml:324
+#, kde-format
+msgid "Author"
+msgstr "Yazar"
+
+#: src/views/ProjectView.qml:231
+#, kde-format
+msgid "Full Name"
+msgstr "Tam Ad"
+
+#: src/views/ProjectView.qml:237
+#, kde-format
+msgid "Email"
+msgstr "E-posta"
+
+#: src/views/ProjectView.qml:249
+#, kde-format
+msgid "ID"
+msgstr "Kimlik"
+
+#: src/views/ProjectView.qml:261
+#, kde-format
+msgid "Message"
+msgstr "İleti"
+
+#: src/views/ProjectView.qml:279
+#, kde-format
+msgid "Parent Commit"
+msgstr "Üst İşleme"
+
+#: src/views/ProjectView.qml:286
+#, kde-format
+msgid "Repo"
+msgstr "Depo"
+
+#: src/views/ProjectView.qml:289
+#, kde-format
+msgid "Local path"
+msgstr "Yerel yol"
+
+#: src/views/ProjectView.qml:312
+#, kde-format
+msgid "Filter commit by id, message or author"
+msgstr "İşlemeyi; kimliğe, iletiye veya yazara göre süz"
+
+#: src/views/ProjectView.qml:336
+#, kde-format
+msgid "Asc"
+msgstr "Artan"
+
+#: src/views/ProjectView.qml:341
+#, kde-format
+msgid "Desc"
+msgstr "Azalan"
+
+#: src/views/ProjectView.qml:450
+#, kde-format
+msgid "Checkout"
+msgstr "Çıkış"
+
+#: src/views/ProjectView.qml:455
+#, kde-format
+msgid "Info"
+msgstr "Bilgi"
+
+#: src/views/ProjectView.qml:462
+#, kde-format
+msgid "Copy ID"
+msgstr "Kimliği Kopyala"
+
+#: src/views/ProjectView.qml:519
+#, kde-format
+msgid "New Branch"
+msgstr "Yeni Dal"
+
+#: src/views/ProjectView.qml:525
+#, kde-format
+msgid "New Tag"
+msgstr "Yeni Etiket"
+
+#: src/views/ProjectView.qml:533
+#, kde-format
+msgid "New File"
+msgstr "Yeni Dosya"

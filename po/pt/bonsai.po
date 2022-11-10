@@ -1,0 +1,312 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the bonsai package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: bonsai\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-11-09 00:46+0000\n"
+"PO-Revision-Date: 2022-11-09 22:02+0000\n"
+"Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
+"Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/main.cpp:51
+#, kde-format
+msgid "Bonsai"
+msgstr ""
+
+#: src/main.cpp:51
+#, kde-format
+msgid "Quick Git control version manager."
+msgstr ""
+
+#: src/main.cpp:51
+#, kde-format
+msgid "© 2021-%1 Maui Development Team"
+msgstr ""
+
+#: src/main.cpp:53
+#, kde-format
+msgid "Camilo Higuita"
+msgstr "Camilo Higuita"
+
+#: src/main.cpp:53
+#, kde-format
+msgid "Developer"
+msgstr "Desenvolvimento"
+
+#: src/main.qml:28
+#, kde-format
+msgid "Git URL"
+msgstr ""
+
+#: src/main.qml:30 src/main.qml:158
+#, kde-format
+msgid "Clone"
+msgstr "Clonar"
+
+#: src/main.qml:35
+#, kde-format
+msgid "Repo URL"
+msgstr ""
+
+#: src/main.qml:36
+#, kde-format
+msgid "Remote repo URL"
+msgstr ""
+
+#: src/main.qml:42
+#, kde-format
+msgid "URL"
+msgstr "URL"
+
+#: src/main.qml:50 src/main.qml:57 src/views/BrowserView.qml:57
+#, kde-format
+msgid "Name"
+msgstr "Nome"
+
+#: src/main.qml:51
+#, kde-format
+msgid "Remote name"
+msgstr ""
+
+#: src/main.qml:64
+#, kde-format
+msgid "Location"
+msgstr "Localização"
+
+#: src/main.qml:65
+#, kde-format
+msgid "Local location to clone"
+msgstr ""
+
+#: src/main.qml:71
+#, kde-format
+msgid "Path"
+msgstr ""
+
+#: src/main.qml:79
+#, kde-format
+msgid "Bare"
+msgstr ""
+
+#: src/main.qml:80
+#, kde-format
+msgid "Create a bare repo"
+msgstr ""
+
+#: src/main.qml:91
+#, kde-format
+msgid "Recursive"
+msgstr "Recursivo"
+
+#: src/main.qml:92
+#, kde-format
+msgid "Clone submodules"
+msgstr ""
+
+#: src/main.qml:128
+#, kde-format
+msgid "New Repo"
+msgstr ""
+
+#: src/main.qml:142
+#, kde-format
+msgid "Recent"
+msgstr ""
+
+#: src/main.qml:143
+#, kde-format
+msgid "Open a recent project"
+msgstr ""
+
+#: src/main.qml:159
+#, kde-format
+msgid "Clone a repository"
+msgstr "Clonar um repositório"
+
+#: src/main.qml:170
+#, kde-format
+msgid "Create"
+msgstr "Criar"
+
+#: src/main.qml:171
+#, kde-format
+msgid "Create a new repository"
+msgstr ""
+
+#: src/main.qml:181
+#, kde-format
+msgid "Open"
+msgstr "Abrir"
+
+#: src/main.qml:182
+#, kde-format
+msgid "Open a local repository"
+msgstr ""
+
+#: src/main.qml:223
+#, kde-format
+msgid "Let's Start"
+msgstr ""
+
+#: src/main.qml:224
+#, kde-format
+msgid "Open or clone an existing repository, or create a new one."
+msgstr ""
+
+#: src/main.qml:293
+#, kde-format
+msgid "Settings"
+msgstr "Configuração"
+
+#: src/main.qml:300
+#, kde-format
+msgid "About"
+msgstr "Acerca"
+
+#: src/views/BrowserView.qml:20
+#, kde-format
+msgid "Filter"
+msgid_plural "Filter %1 repos"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/views/BrowserView.qml:33 src/views/ProjectView.qml:273
+#: src/views/ProjectView.qml:329
+#, kde-format
+msgid "Date"
+msgstr "Data"
+
+#: src/views/BrowserView.qml:45
+#, kde-format
+msgid "Modified"
+msgstr ""
+
+#: src/views/BrowserView.qml:75
+#, kde-format
+msgid "Nothing here!"
+msgstr "Nada aqui!"
+
+#: src/views/BrowserView.qml:76
+#, kde-format
+msgid "Previously opened repos will be listed here."
+msgstr ""
+
+#: src/views/ProjectView.qml:44
+#, kde-format
+msgid "Commits"
+msgstr "Modificações"
+
+#: src/views/ProjectView.qml:52
+#, kde-format
+msgid "Browser"
+msgstr "Navegador"
+
+#: src/views/ProjectView.qml:126
+#, kde-format
+msgid "Head"
+msgstr ""
+
+#: src/views/ProjectView.qml:151
+#, kde-format
+msgid "Remotes"
+msgstr "Servidores Remotos"
+
+#: src/views/ProjectView.qml:173
+#, kde-format
+msgid "Remote Branches"
+msgstr ""
+
+#: src/views/ProjectView.qml:227 src/views/ProjectView.qml:324
+#, kde-format
+msgid "Author"
+msgstr "Autoria"
+
+#: src/views/ProjectView.qml:231
+#, kde-format
+msgid "Full Name"
+msgstr "Nome Completo"
+
+#: src/views/ProjectView.qml:237
+#, kde-format
+msgid "Email"
+msgstr "E-mail"
+
+#: src/views/ProjectView.qml:249
+#, kde-format
+msgid "ID"
+msgstr "ID"
+
+#: src/views/ProjectView.qml:261
+#, kde-format
+msgid "Message"
+msgstr "Mensagem"
+
+#: src/views/ProjectView.qml:279
+#, kde-format
+msgid "Parent Commit"
+msgstr ""
+
+#: src/views/ProjectView.qml:286
+#, kde-format
+msgid "Repo"
+msgstr "Repositório"
+
+#: src/views/ProjectView.qml:289
+#, kde-format
+msgid "Local path"
+msgstr ""
+
+#: src/views/ProjectView.qml:312
+#, kde-format
+msgid "Filter commit by id, message or author"
+msgstr ""
+
+#: src/views/ProjectView.qml:336
+#, kde-format
+msgid "Asc"
+msgstr ""
+
+#: src/views/ProjectView.qml:341
+#, kde-format
+msgid "Desc"
+msgstr ""
+
+#: src/views/ProjectView.qml:450
+#, kde-format
+msgid "Checkout"
+msgstr ""
+
+#: src/views/ProjectView.qml:455
+#, kde-format
+msgid "Info"
+msgstr "Informação"
+
+#: src/views/ProjectView.qml:462
+#, kde-format
+msgid "Copy ID"
+msgstr ""
+
+#: src/views/ProjectView.qml:519
+#, kde-format
+msgid "New Branch"
+msgstr ""
+
+#: src/views/ProjectView.qml:525
+#, kde-format
+msgid "New Tag"
+msgstr "Nova Marca"
+
+#: src/views/ProjectView.qml:533
+#, kde-format
+msgid "New File"
+msgstr "Novo Ficheiro"
