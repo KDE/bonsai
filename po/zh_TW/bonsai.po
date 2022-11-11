@@ -1,22 +1,20 @@
-# Spanish translations for bonsai.po package.
-# Copyright (C) 2022 This file is copyright:
+# Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the bonsai package.
 #
-# Automatically generated, 2022.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2022.
+# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-09 00:46+0000\n"
-"PO-Revision-Date: 2022-11-10 03:54+0100\n"
-"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
-"Language-Team: Spanish <kde-l10n-es@kde.org>\n"
-"Language: es\n"
+"PO-Revision-Date: 2022-11-10 19:15+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 22.08.2\n"
 
 #: src/main.cpp:51
@@ -27,12 +25,12 @@ msgstr "Bonsai"
 #: src/main.cpp:51
 #, kde-format
 msgid "Quick Git control version manager."
-msgstr "Gestor de control de versiones Git rápido."
+msgstr "快速 Git 版本控制管理器。"
 
 #: src/main.cpp:51
 #, kde-format
 msgid "© 2021-%1 Maui Development Team"
-msgstr "© 2021-%1 El equipo de desarrollo de Maui"
+msgstr "© 2021-%1 Maui 開發團隊"
 
 #: src/main.cpp:53
 #, kde-format
@@ -42,175 +40,174 @@ msgstr "Camilo Higuita"
 #: src/main.cpp:53
 #, kde-format
 msgid "Developer"
-msgstr "Desarrollador"
+msgstr "開發者"
 
 #: src/main.qml:28
 #, kde-format
 msgid "Git URL"
-msgstr "URL de Git"
+msgstr "Git 網址"
 
 #: src/main.qml:30 src/main.qml:158
 #, kde-format
 msgid "Clone"
-msgstr "Clonar"
+msgstr "複製"
 
 #: src/main.qml:35
 #, kde-format
 msgid "Repo URL"
-msgstr "URL del repositorio"
+msgstr "版本庫網址"
 
 #: src/main.qml:36
 #, kde-format
 msgid "Remote repo URL"
-msgstr "URL del repositorio remoto"
+msgstr "遠端版本庫網址"
 
 #: src/main.qml:42
 #, kde-format
 msgid "URL"
-msgstr "URL"
+msgstr "網址"
 
 #: src/main.qml:50 src/main.qml:57 src/views/BrowserView.qml:57
 #, kde-format
 msgid "Name"
-msgstr "Nombre"
+msgstr "名稱"
 
 #: src/main.qml:51
 #, kde-format
 msgid "Remote name"
-msgstr "Nombre remoto"
+msgstr "遠端名稱"
 
 #: src/main.qml:64
 #, kde-format
 msgid "Location"
-msgstr "Ubicación"
+msgstr "位置"
 
 #: src/main.qml:65
 #, kde-format
 msgid "Local location to clone"
-msgstr "Ubicación local a clonar"
+msgstr "要複製到的本機位置"
 
 #: src/main.qml:71
 #, kde-format
 msgid "Path"
-msgstr "Ruta"
+msgstr "路徑"
 
 #: src/main.qml:79
 #, kde-format
 msgid "Bare"
-msgstr "Simple"
+msgstr "裸庫"
 
 #: src/main.qml:80
 #, kde-format
 msgid "Create a bare repo"
-msgstr "Crear un repositorio simple"
+msgstr "建立一個裸版本庫"
 
 #: src/main.qml:91
 #, kde-format
 msgid "Recursive"
-msgstr "Recursivo"
+msgstr "遞迴"
 
 #: src/main.qml:92
 #, kde-format
 msgid "Clone submodules"
-msgstr "Clonar submódulos"
+msgstr "複製 submodule"
 
 #: src/main.qml:128
 #, kde-format
 msgid "New Repo"
-msgstr "Nuevo repositorio"
+msgstr "新版本庫"
 
 #: src/main.qml:142
 #, kde-format
 msgid "Recent"
-msgstr "Reciente"
+msgstr "最近使用"
 
 #: src/main.qml:143
 #, kde-format
 msgid "Open a recent project"
-msgstr "Abrir un proyecto reciente"
+msgstr "開啟最近使用的專案"
 
 #: src/main.qml:159
 #, kde-format
 msgid "Clone a repository"
-msgstr "Clonar un repositorio"
+msgstr "複製版本庫"
 
 #: src/main.qml:170
 #, kde-format
 msgid "Create"
-msgstr "Crear"
+msgstr "建立"
 
 #: src/main.qml:171
 #, kde-format
 msgid "Create a new repository"
-msgstr "Crear un nuevo repositorio"
+msgstr "建立新版本庫"
 
 #: src/main.qml:181
 #, kde-format
 msgid "Open"
-msgstr "Abrir"
+msgstr "開啟"
 
 #: src/main.qml:182
 #, kde-format
 msgid "Open a local repository"
-msgstr "Abrir un repositorio local"
+msgstr "開啟本機版本庫"
 
 #: src/main.qml:223
 #, kde-format
 msgid "Let's Start"
-msgstr "Empecemos"
+msgstr "開始吧"
 
 #: src/main.qml:224
 #, kde-format
 msgid "Open or clone an existing repository, or create a new one."
-msgstr "Abrir o clonar un repositorio existente, o crear uno nuevo."
+msgstr "開啟或複製一個現有的版本庫，或者是建立一個新的。"
 
 #: src/main.qml:293
 #, kde-format
 msgid "Settings"
-msgstr "Preferencias"
+msgstr "設定"
 
 #: src/main.qml:300
 #, kde-format
 msgid "About"
-msgstr "Acerca de"
+msgstr "關於"
 
 #: src/views/BrowserView.qml:20
 #, kde-format
 msgid "Filter"
 msgid_plural "Filter %1 repos"
-msgstr[0] "Filtrar"
-msgstr[1] "Filtrar %1 repositorios"
+msgstr[0] "過濾 %1 個版本庫"
 
 #: src/views/BrowserView.qml:33 src/views/ProjectView.qml:273
 #: src/views/ProjectView.qml:329
 #, kde-format
 msgid "Date"
-msgstr "Fecha"
+msgstr "日期"
 
 #: src/views/BrowserView.qml:45
 #, kde-format
 msgid "Modified"
-msgstr "Modificado"
+msgstr "修改時間"
 
 #: src/views/BrowserView.qml:75
 #, kde-format
 msgid "Nothing here!"
-msgstr "Aquí no hay nada."
+msgstr "這裡什麼都沒有！"
 
 #: src/views/BrowserView.qml:76
 #, kde-format
 msgid "Previously opened repos will be listed here."
-msgstr "Aquí se mostrarán los repositorios abiertos con anterioridad."
+msgstr "之前開啟過的版本庫會列在這裡。"
 
 #: src/views/ProjectView.qml:44
 #, kde-format
 msgid "Commits"
-msgstr "Confirmaciones"
+msgstr "提交"
 
 #: src/views/ProjectView.qml:52
 #, kde-format
 msgid "Browser"
-msgstr "Navegador"
+msgstr "瀏覽器"
 
 #: src/views/ProjectView.qml:126
 #, kde-format
@@ -220,27 +217,27 @@ msgstr "Head"
 #: src/views/ProjectView.qml:151
 #, kde-format
 msgid "Remotes"
-msgstr "Remotos"
+msgstr "遠端"
 
 #: src/views/ProjectView.qml:173
 #, kde-format
 msgid "Remote Branches"
-msgstr "Ramas remotas"
+msgstr "遠端分支"
 
 #: src/views/ProjectView.qml:227 src/views/ProjectView.qml:324
 #, kde-format
 msgid "Author"
-msgstr "Autor"
+msgstr "作者"
 
 #: src/views/ProjectView.qml:231
 #, kde-format
 msgid "Full Name"
-msgstr "Nombre completo"
+msgstr "全名"
 
 #: src/views/ProjectView.qml:237
 #, kde-format
 msgid "Email"
-msgstr "Correo electrónico"
+msgstr "電子郵件"
 
 #: src/views/ProjectView.qml:249
 #, kde-format
@@ -250,64 +247,64 @@ msgstr "ID"
 #: src/views/ProjectView.qml:261
 #, kde-format
 msgid "Message"
-msgstr "Mensaje"
+msgstr "訊息"
 
 #: src/views/ProjectView.qml:279
 #, kde-format
 msgid "Parent Commit"
-msgstr "Confirmación padre"
+msgstr "親提交"
 
 #: src/views/ProjectView.qml:286
 #, kde-format
 msgid "Repo"
-msgstr "Repositorio"
+msgstr "版本庫"
 
 #: src/views/ProjectView.qml:289
 #, kde-format
 msgid "Local path"
-msgstr "Ruta local"
+msgstr "本機路徑"
 
 #: src/views/ProjectView.qml:312
 #, kde-format
 msgid "Filter commit by id, message or author"
-msgstr "Filtrar confirmaciones por ID, mensaje o autor"
+msgstr "依 ID、訊息或作者過濾提交"
 
 #: src/views/ProjectView.qml:336
 #, kde-format
 msgid "Asc"
-msgstr "Asc"
+msgstr "遞增"
 
 #: src/views/ProjectView.qml:341
 #, kde-format
 msgid "Desc"
-msgstr "Desc"
+msgstr "遞減"
 
 #: src/views/ProjectView.qml:450
 #, kde-format
 msgid "Checkout"
-msgstr "Cambiar rama"
+msgstr "簽出"
 
 #: src/views/ProjectView.qml:455
 #, kde-format
 msgid "Info"
-msgstr "Información"
+msgstr "資訊"
 
 #: src/views/ProjectView.qml:462
 #, kde-format
 msgid "Copy ID"
-msgstr "Copiar ID"
+msgstr "複製 ID"
 
 #: src/views/ProjectView.qml:519
 #, kde-format
 msgid "New Branch"
-msgstr "Nueva rama"
+msgstr "建立分支"
 
 #: src/views/ProjectView.qml:525
 #, kde-format
 msgid "New Tag"
-msgstr "Nueva etiqueta"
+msgstr "建立標籤"
 
 #: src/views/ProjectView.qml:533
 #, kde-format
 msgid "New File"
-msgstr "Nuevo archivo"
+msgstr "建立檔案"
