@@ -1,314 +1,311 @@
-# Copyright (C) YEAR This file is copyright:
+# German translations for bonsai package.
+# Copyright (C) 2022 This file is copyright:
 # This file is distributed under the same license as the bonsai package.
+# Automatically generated, 2022.
 #
-# Matjaž Jeran <matjaz.jeran@amis.net>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-09 00:46+0000\n"
-"PO-Revision-Date: 2022-11-12 19:40+0100\n"
-"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
-"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
-"Language: sl\n"
+"PO-Revision-Date: 2022-11-09 08:48+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
-"X-Generator: Poedit 3.1.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/main.cpp:51
 #, kde-format
 msgid "Bonsai"
-msgstr "Bonsai"
+msgstr ""
 
 #: src/main.cpp:51
 #, kde-format
 msgid "Quick Git control version manager."
-msgstr "Hitri skrbnik nadzora Git različic."
+msgstr ""
 
 #: src/main.cpp:51
 #, kde-format
 msgid "© 2021-%1 Maui Development Team"
-msgstr "© 2021-%1 razvojna ekipa Maui"
+msgstr ""
 
 #: src/main.cpp:53
 #, kde-format
 msgid "Camilo Higuita"
-msgstr "Camilo Higuita"
+msgstr ""
 
 #: src/main.cpp:53
 #, kde-format
 msgid "Developer"
-msgstr "Razvojnik"
+msgstr ""
 
 #: src/main.qml:28
 #, kde-format
 msgid "Git URL"
-msgstr "Git URL"
+msgstr ""
 
 #: src/main.qml:30 src/main.qml:158
 #, kde-format
 msgid "Clone"
-msgstr "Kloniraj"
+msgstr ""
 
 #: src/main.qml:35
 #, kde-format
 msgid "Repo URL"
-msgstr "URL skladišča"
+msgstr ""
 
 #: src/main.qml:36
 #, kde-format
 msgid "Remote repo URL"
-msgstr "URL oddaljenega skladišča"
+msgstr ""
 
 #: src/main.qml:42
 #, kde-format
 msgid "URL"
-msgstr "URL"
+msgstr ""
 
 #: src/main.qml:50 src/main.qml:57 src/views/BrowserView.qml:57
 #, kde-format
 msgid "Name"
-msgstr "Ime"
+msgstr ""
 
 #: src/main.qml:51
 #, kde-format
 msgid "Remote name"
-msgstr "Oddaljeno ime"
+msgstr ""
 
 #: src/main.qml:64
 #, kde-format
 msgid "Location"
-msgstr "Lokacija"
+msgstr ""
 
 #: src/main.qml:65
 #, kde-format
 msgid "Local location to clone"
-msgstr "Lokalna lokacija za klone"
+msgstr ""
 
 #: src/main.qml:71
 #, kde-format
 msgid "Path"
-msgstr "Pot"
+msgstr ""
 
 #: src/main.qml:79
 #, kde-format
 msgid "Bare"
-msgstr "Golo"
+msgstr ""
 
 #: src/main.qml:80
 #, kde-format
 msgid "Create a bare repo"
-msgstr "Ustvari golo spletišče"
+msgstr ""
 
 #: src/main.qml:91
 #, kde-format
 msgid "Recursive"
-msgstr "Rekurzivno"
+msgstr ""
 
 #: src/main.qml:92
 #, kde-format
 msgid "Clone submodules"
-msgstr "Kloniraj podmodule"
+msgstr ""
 
 #: src/main.qml:128
 #, kde-format
 msgid "New Repo"
-msgstr "Novo skladišče"
+msgstr ""
 
 #: src/main.qml:142
 #, kde-format
 msgid "Recent"
-msgstr "Nedavno"
+msgstr ""
 
 #: src/main.qml:143
 #, kde-format
 msgid "Open a recent project"
-msgstr "Odpri nedavni projekt"
+msgstr ""
 
 #: src/main.qml:159
 #, kde-format
 msgid "Clone a repository"
-msgstr "Kloniraj skladišče"
+msgstr ""
 
 #: src/main.qml:170
 #, kde-format
 msgid "Create"
-msgstr "Ustvari"
+msgstr ""
 
 #: src/main.qml:171
 #, kde-format
 msgid "Create a new repository"
-msgstr "Ustvari novo skladišče"
+msgstr ""
 
 #: src/main.qml:181
 #, kde-format
 msgid "Open"
-msgstr "Odpri"
+msgstr ""
 
 #: src/main.qml:182
 #, kde-format
 msgid "Open a local repository"
-msgstr "Odpri lokalno skladišče"
+msgstr ""
 
 #: src/main.qml:223
 #, kde-format
 msgid "Let's Start"
-msgstr "Pa začnimo"
+msgstr ""
 
 #: src/main.qml:224
 #, kde-format
 msgid "Open or clone an existing repository, or create a new one."
-msgstr "Odpri ali kloniraj obstoječe skladišče ali ustvari novo skladišče."
+msgstr ""
 
 #: src/main.qml:293
 #, kde-format
 msgid "Settings"
-msgstr "Nastavitve"
+msgstr ""
 
 #: src/main.qml:300
 #, kde-format
 msgid "About"
-msgstr "O programu"
+msgstr ""
 
 #: src/views/BrowserView.qml:20
 #, kde-format
 msgid "Filter"
 msgid_plural "Filter %1 repos"
-msgstr[0] "Filtriraj %1 skladišče"
-msgstr[1] "Filtriraj %1 skladišči"
-msgstr[2] "Filtriraj %1 skladišča"
-msgstr[3] "Filtriraj %1 skladišč"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/views/BrowserView.qml:33 src/views/ProjectView.qml:273
 #: src/views/ProjectView.qml:329
 #, kde-format
 msgid "Date"
-msgstr "Datum"
+msgstr ""
 
 #: src/views/BrowserView.qml:45
 #, kde-format
 msgid "Modified"
-msgstr "Spremenjeno"
+msgstr ""
 
 #: src/views/BrowserView.qml:75
 #, kde-format
 msgid "Nothing here!"
-msgstr "Tu ni ničesar!"
+msgstr ""
 
 #: src/views/BrowserView.qml:76
 #, kde-format
 msgid "Previously opened repos will be listed here."
-msgstr "Tu bo seznam v preteklosti odprtih skladišč."
+msgstr ""
 
 #: src/views/ProjectView.qml:44
 #, kde-format
 msgid "Commits"
-msgstr "Potrditve"
+msgstr ""
 
 #: src/views/ProjectView.qml:52
 #, kde-format
 msgid "Browser"
-msgstr "Brskalnik"
+msgstr ""
 
 #: src/views/ProjectView.qml:126
 #, kde-format
 msgid "Head"
-msgstr "Glava"
+msgstr ""
 
 #: src/views/ProjectView.qml:151
 #, kde-format
 msgid "Remotes"
-msgstr "Oddaljeni"
+msgstr ""
 
 #: src/views/ProjectView.qml:173
 #, kde-format
 msgid "Remote Branches"
-msgstr "Oddaljene veje"
+msgstr ""
 
 #: src/views/ProjectView.qml:227 src/views/ProjectView.qml:324
 #, kde-format
 msgid "Author"
-msgstr "Avtor"
+msgstr ""
 
 #: src/views/ProjectView.qml:231
 #, kde-format
 msgid "Full Name"
-msgstr "Polno ime"
+msgstr ""
 
 #: src/views/ProjectView.qml:237
 #, kde-format
 msgid "Email"
-msgstr "E-pošta"
+msgstr ""
 
 #: src/views/ProjectView.qml:249
 #, kde-format
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #: src/views/ProjectView.qml:261
 #, kde-format
 msgid "Message"
-msgstr "Sporočilo"
+msgstr ""
 
 #: src/views/ProjectView.qml:279
 #, kde-format
 msgid "Parent Commit"
-msgstr "Nadrejena potrditev"
+msgstr ""
 
 #: src/views/ProjectView.qml:286
 #, kde-format
 msgid "Repo"
-msgstr "Skladišče"
+msgstr ""
 
 #: src/views/ProjectView.qml:289
 #, kde-format
 msgid "Local path"
-msgstr "Lokalna pot"
+msgstr ""
 
 #: src/views/ProjectView.qml:312
 #, kde-format
 msgid "Filter commit by id, message or author"
-msgstr "Filtriraj potrditve po id, sporočilu ali avtorju"
+msgstr ""
 
 #: src/views/ProjectView.qml:336
 #, kde-format
 msgid "Asc"
-msgstr "Naraščajoče"
+msgstr ""
 
 #: src/views/ProjectView.qml:341
 #, kde-format
 msgid "Desc"
-msgstr "Padajoče"
+msgstr ""
 
 #: src/views/ProjectView.qml:450
 #, kde-format
 msgid "Checkout"
-msgstr "Prevzemi"
+msgstr ""
 
 #: src/views/ProjectView.qml:455
 #, kde-format
 msgid "Info"
-msgstr "Info"
+msgstr ""
 
 #: src/views/ProjectView.qml:462
 #, kde-format
 msgid "Copy ID"
-msgstr "Kopiraj ID"
+msgstr ""
 
 #: src/views/ProjectView.qml:519
 #, kde-format
 msgid "New Branch"
-msgstr "Nova veja"
+msgstr ""
 
 #: src/views/ProjectView.qml:525
 #, kde-format
 msgid "New Tag"
-msgstr "Nova oznaka"
+msgstr ""
 
 #: src/views/ProjectView.qml:533
 #, kde-format
 msgid "New File"
-msgstr "Nova datoteka"
+msgstr ""
