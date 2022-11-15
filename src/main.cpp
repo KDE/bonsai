@@ -48,7 +48,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
         MauiApp::instance()->setIconName("qrc:/assets/assets/bonsai.svg");
 
         KLocalizedString::setApplicationDomain("bonsai");
-        KAboutData about(QStringLiteral("bonsai"), i18n("Bonsai"), BONSAI_VERSION_STRING, i18n("Quick Git control version manager."), KAboutLicense::LGPL_V3, i18n("© 2021-%1 Maui Development Team",QString::number(QDate::currentDate().year())), QString(GIT_BRANCH) + "/" + QString(GIT_COMMIT_HASH));
+        KAboutData about(QStringLiteral("bonsai"), i18n("Bonsai"), BONSAI_VERSION_STRING, i18n("Git version control manager."), KAboutLicense::LGPL_V3, i18n("© 2021-%1 Maui Development Team",QString::number(QDate::currentDate().year())), QString(GIT_BRANCH) + "/" + QString(GIT_COMMIT_HASH));
 
         about.addAuthor(i18n("Camilo Higuita"), i18n("Developer"), QStringLiteral("milo.h@aol.com"));
         about.setHomepage("https://mauikit.org");
