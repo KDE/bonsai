@@ -4,6 +4,7 @@
         <file>assets/archive-insert.svg</file>
         <file>assets/edit-paste.svg</file>
         <file>assets/bonsai.svg</file>
+        <file>assets/bonsai.png</file>
     </qresource>
     <qresource prefix="/icons">
         <file>assets/icons/ic_branch.svg</file>
