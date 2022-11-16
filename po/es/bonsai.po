@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-15 00:45+0000\n"
-"PO-Revision-Date: 2022-11-10 03:54+0100\n"
+"POT-Creation-Date: 2022-11-16 00:45+0000\n"
+"PO-Revision-Date: 2022-11-16 01:25+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,30 +17,29 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.08.3\n"
 
-#: src/main.cpp:51
+#: src/main.cpp:50
 #, kde-format
 msgid "Bonsai"
 msgstr "Bonsai"
 
-#: src/main.cpp:51
-#, fuzzy, kde-format
-#| msgid "Quick Git control version manager."
+#: src/main.cpp:50
+#, kde-format
 msgid "Git version control manager."
-msgstr "Gestor de control de versiones Git rápido."
+msgstr "Gestor de control de versiones Git."
 
-#: src/main.cpp:51
+#: src/main.cpp:50
 #, kde-format
 msgid "© 2021-%1 Maui Development Team"
 msgstr "© 2021-%1 El equipo de desarrollo de Maui"
 
-#: src/main.cpp:53
+#: src/main.cpp:52
 #, kde-format
 msgid "Camilo Higuita"
 msgstr "Camilo Higuita"
 
-#: src/main.cpp:53
+#: src/main.cpp:52
 #, kde-format
 msgid "Developer"
 msgstr "Desarrollador"

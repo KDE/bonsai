@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-15 00:45+0000\n"
+"POT-Creation-Date: 2022-11-16 00:45+0000\n"
 "PO-Revision-Date: 2022-11-10 19:15+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
@@ -17,28 +17,28 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 22.08.2\n"
 
-#: src/main.cpp:51
+#: src/main.cpp:50
 #, kde-format
 msgid "Bonsai"
 msgstr "Bonsai"
 
-#: src/main.cpp:51
+#: src/main.cpp:50
 #, fuzzy, kde-format
 #| msgid "Quick Git control version manager."
 msgid "Git version control manager."
 msgstr "快速 Git 版本控制管理器。"
 
-#: src/main.cpp:51
+#: src/main.cpp:50
 #, kde-format
 msgid "© 2021-%1 Maui Development Team"
 msgstr "© 2021-%1 Maui 開發團隊"
 
-#: src/main.cpp:53
+#: src/main.cpp:52
 #, kde-format
 msgid "Camilo Higuita"
 msgstr "Camilo Higuita"
 
-#: src/main.cpp:53
+#: src/main.cpp:52
 #, kde-format
 msgid "Developer"
 msgstr "開發者"
