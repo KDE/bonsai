@@ -1,137 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component type="desktop">
-  <id>org.kde.index.desktop</id>
+  <id>org.kde.bonsai.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>LGPL-3.0</project_license>
-  <name>Index</name>
-  <name xml:lang="ar">الدليل</name>
-  <name xml:lang="ca">Índex</name>
-  <name xml:lang="ca-valencia">Índex</name>
-  <name xml:lang="cs">Index</name>
-  <name xml:lang="de">Index</name>
-  <name xml:lang="en-GB">Index</name>
-  <name xml:lang="es">Index</name>
-  <name xml:lang="eu">Index</name>
-  <name xml:lang="fi">Index</name>
-  <name xml:lang="fr">Index</name>
-  <name xml:lang="id">Index</name>
-  <name xml:lang="it">Index</name>
-  <name xml:lang="ka">ინდექსი</name>
-  <name xml:lang="ko">Index</name>
-  <name xml:lang="nl">Index</name>
-  <name xml:lang="nn">Index</name>
-  <name xml:lang="pa">ਇੰਡੈਕਸ</name>
-  <name xml:lang="pl">Index</name>
-  <name xml:lang="pt">Índice</name>
-  <name xml:lang="pt-BR">Index</name>
-  <name xml:lang="sk">Index</name>
-  <name xml:lang="sl">Indeks</name>
-  <name xml:lang="sv">Index</name>
-  <name xml:lang="tr">İndeks</name>
-  <name xml:lang="uk">Index</name>
-  <name xml:lang="x-test">xxIndexxx</name>
-  <name xml:lang="zh-CN">Index</name>
-  <name xml:lang="zh-TW">Index</name>
-  <summary>Manage your files</summary>
-  <summary xml:lang="ar">أدر ملفاتك</summary>
-  <summary xml:lang="ca">Gestioneu els fitxers</summary>
-  <summary xml:lang="ca-valencia">Gestioneu els fitxers</summary>
-  <summary xml:lang="cs">Spravujte své soubory</summary>
-  <summary xml:lang="de">Ihre Dateien verwalten</summary>
-  <summary xml:lang="en-GB">Manage your files</summary>
-  <summary xml:lang="es">Gestione sus archivos</summary>
-  <summary xml:lang="eu">Kudeatu zure fitxategiak</summary>
-  <summary xml:lang="fi">Hallitse tiedostoja</summary>
-  <summary xml:lang="fr">Gérer vos fichiers</summary>
-  <summary xml:lang="id">Mengelola file-mu</summary>
-  <summary xml:lang="it">Gestisci i tuoi file</summary>
-  <summary xml:lang="ka">მართეთ თქვენი ფაილები</summary>
-  <summary xml:lang="ko">내 파일 관리</summary>
-  <summary xml:lang="nl">Uw bestanden beheren</summary>
-  <summary xml:lang="nn">Handsam filene dine</summary>
-  <summary xml:lang="pa">ਆਪਣੀਆਂ ਫਾਇਲਾਂ ਦਾ ਇੰਤਜ਼ਾਮ ਕਰੋ</summary>
-  <summary xml:lang="pl">Zarządzaj swoimi plikami</summary>
-  <summary xml:lang="pt">Faz a gestão dos seus ficheiros</summary>
-  <summary xml:lang="pt-BR">Gerencie seus arquivos</summary>
-  <summary xml:lang="sk">Spravovať vaše súbory</summary>
-  <summary xml:lang="sl">Upravljajte vaše datoteke</summary>
-  <summary xml:lang="sv">Hantera dina filer</summary>
-  <summary xml:lang="tr">Dosyalarınızı yönetin</summary>
-  <summary xml:lang="uk">Керування вашими файлами</summary>
-  <summary xml:lang="x-test">xxManage your filesxx</summary>
-  <summary xml:lang="zh-CN">文件管理应用</summary>
-  <summary xml:lang="zh-TW">管理您的檔案</summary>
+  <name>Bonsai</name>
+  <summary>Git version control manager</summary>
   <description>
-    <p>Index allows you to navigate your computer and preview multimedia files.</p>
-    <p xml:lang="ar">يسمح لك الدليل بالتنقل في حاسوبك ومعاينة ملفات الوسائط.</p>
-    <p xml:lang="ca">L'Índex permet navegar per l'ordinador i previsualitzar fitxers multimèdia.</p>
-    <p xml:lang="ca-valencia">L'Índex permet navegar per l'ordinador i previsualitzar fitxers multimèdia.</p>
-    <p xml:lang="de">Mit Index können Sie auf Ihrem Rechner navigieren und eine Vorschau von Multimediadateien ansehen.</p>
-    <p xml:lang="en-GB">Index allows you to navigate your computer and preview multimedia files.</p>
-    <p xml:lang="es">Index le permite explorar su equipo y mostrar vistas previas de los archivos multimedia.</p>
-    <p xml:lang="eu">Index-ek zure ordenagailuan nabigatzeko eta multimedia fitxategiak aurreikusteko aukera ematen dizu.</p>
-    <p xml:lang="fi">Indexillä voi liikkua koneen tallennustilassa ja esikatsella mediatiedostoja.</p>
-    <p xml:lang="fr">Le logiciel Index vous permet de naviguer au sein de votre ordinateur et d'afficher des aperçus de fichiers multimédia.</p>
-    <p xml:lang="id">Indeks memungkinkan kamu untuk menavigasi komputermu dan melihat pratinjau file multimedia.</p>
-    <p xml:lang="it">Index ti consente di navigare il tuo computer e offre un'anteprima dei file multimediali.</p>
-    <p xml:lang="ka">ინდექსი თქვენს კომპიუტერში ნავიგაციისა და მულტიმედია ფაილებზე გადახედვის საშუალებას გაძლევთ.</p>
-    <p xml:lang="ko">Index 파일 관리자로 컴퓨터를 탐색하고 멀티미디어 파일을 미리 볼 수 있습니다.</p>
-    <p xml:lang="nl">Index biedt u het navigeren in uw computer en multimediabestanden te bekijken.</p>
-    <p xml:lang="nn">Index lèt deg bla gjennom filer på maskina og førehandsvisa multimediefiler.</p>
-    <p xml:lang="pa">ਇੰਡੈਕਸ ਤੁਹਾਨੂੰ ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ ਨੂੰ ਫੋਲਣ ਤੇ ਮਲਟੀਮੀਡੀਆ ਫਾਇਲਾਂ ਦੀ ਝਲਕ ਵੇਖਣ ਲਈ ਮਦਦਗਾਰ ਹੈ।</p>
-    <p xml:lang="pl">Index umożliwia przeglądanie i podgląd plików multimedialnych na twoim komputerze.</p>
-    <p xml:lang="pt">O Índice permite-lhe navegar pelo seu computador e antever os ficheiros multimédia.</p>
-    <p xml:lang="pt-BR">O Index permite que você navegue no seu computador e visualize arquivos multimídia.</p>
-    <p xml:lang="sk">Index vám umožní prechádzať váš počítač a prehliadať multimediálne súbory.</p>
-    <p xml:lang="sl">Indeks dovoljuje krmarjenje skozi računalnik in predogled večpredstavnostnih datotek.</p>
-    <p xml:lang="sv">Index låter dig navigera på datorn och förhandsgranska multimediafiler.</p>
-    <p xml:lang="tr">İndeks, bilgisayarınızdaki dosyalarda dolaşmanıza ve çoklu ortam dosyalarını önizlemenize izin verir.</p>
-    <p xml:lang="uk">За допомогою Index ви зможете здійснювати навігацію файловою системою вашого комп'ютера і попереднього переглядати файли мультимедійних даних.</p>
-    <p xml:lang="x-test">xxIndex allows you to navigate your computer and preview multimedia files.xx</p>
-    <p xml:lang="zh-CN">Index 让您可以浏览计算机中的内容，并预览多媒体文件。</p>
-    <p xml:lang="zh-TW">Index 讓您瀏覽您的電腦並預覽多媒體檔案。</p>
+    <p>Browse and manage your local repositories.</p>
   </description>
   <url type="homepage">https://mauikit.org/</url>
-  <url type="bugtracker">https://invent.kde.org/maui/index-fm/-/issues</url>
+  <url type="bugtracker">https://invent.kde.org/maui/bonsai/-/issues</url>
   <url type="donation">https://www.kde.org/community/donations</url>
   <screenshots>
     <screenshot type="default">
-      <caption>Index file manager</caption>
-      <caption xml:lang="ar">الدليل مدير ملفات</caption>
-      <caption xml:lang="ca">Gestor de fitxers Índex</caption>
-      <caption xml:lang="ca-valencia">Gestor de fitxers Índex</caption>
-      <caption xml:lang="cs">Správce souborů indexů</caption>
-      <caption xml:lang="de">Index-Dateiverwaltung</caption>
-      <caption xml:lang="en-GB">Index file manager</caption>
-      <caption xml:lang="es">Gestor de archivos Index</caption>
-      <caption xml:lang="eu">Index fitxategi kudeatzailea</caption>
-      <caption xml:lang="fi">Index-tiedostonhallinta</caption>
-      <caption xml:lang="fr">Gestionnaire de fichiers Index</caption>
-      <caption xml:lang="id">Pengelola file indeks</caption>
-      <caption xml:lang="it">Gestore dei file Index</caption>
-      <caption xml:lang="ka">ინდექსის ფაილების მმართველი</caption>
-      <caption xml:lang="ko">Index 파일 관리자</caption>
-      <caption xml:lang="nl">Indexbestandsbeheerder</caption>
-      <caption xml:lang="nn">Index filhandsamar</caption>
-      <caption xml:lang="pa">ਇੰਡੈਕਸ ਫਾਇਲ ਮੈਨੇਜਰ</caption>
-      <caption xml:lang="pl">Przeglądarka do indeksowania plików</caption>
-      <caption xml:lang="pt">Gestor de ficheiros Índice</caption>
-      <caption xml:lang="pt-BR">Gerenciador de arquivos Index</caption>
-      <caption xml:lang="sk">Správca súborov Index</caption>
-      <caption xml:lang="sl">Index upravljalnik datotek</caption>
-      <caption xml:lang="sv">Index filhanterare</caption>
-      <caption xml:lang="tr">İndeks dosya yöneticisi</caption>
-      <caption xml:lang="uk">Програма для керування файлами Index</caption>
-      <caption xml:lang="x-test">xxIndex file managerxx</caption>
-      <caption xml:lang="zh-CN">Index 文件管理器</caption>
-      <caption xml:lang="zh-TW">Index 檔案管理員</caption>
+      <caption>Bonsai - mobile version</caption>
       <image type="source" width="2899" height="2326">
-       https://cdn.kde.org/screenshots/index/index.png
+       https://mauikit.org/wp-content/uploads/2022/11/bonsai.jpg
       </image>
     </screenshot>
   </screenshots>
   <provides>
-    <binary>index</binary>
+    <binary>bonsai</binary>
   </provides>
   <recommends>
     <control>pointing</control>
@@ -141,9 +30,8 @@
   <content_rating type="oars-1.0"/>
   <project_group>KDE</project_group>
   <releases>
-    <release version="1.2.2" date="2021-05-11">
-      <url>https://nxos.org/maui/maui-1-2-2-release/</url>
+    <release version="1.0.1" date="2022-11-25">
+      <url>https://mauikit.org/blog/maui-2-2-1-release/</url>
     </release>
-    <release version="1.1.1" date="2020-05-17"/>
   </releases>
 </component>
