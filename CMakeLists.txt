@@ -95,8 +95,8 @@ add_subdirectory(src)
 ki18n_install(po)
 
 if(UNIX AND NOT APPLE AND NOT ANDROID)
-    install(FILES org.maui.bonsai.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
-    install(FILES org.maui.bonsai.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
+    install(FILES org.kde.bonsai.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+    install(FILES org.kde.bonsai.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 endif()
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
