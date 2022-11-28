@@ -5,25 +5,34 @@
   <project_license>LGPL-3.0</project_license>
   <name>Bonsai</name>
   <name xml:lang="ca">Bonsai</name>
+  <name xml:lang="ca-valencia">Bonsai</name>
   <name xml:lang="es">Bonsai</name>
   <name xml:lang="eu">Bonsai</name>
   <name xml:lang="nl">Bonsai</name>
+  <name xml:lang="sl">Bonsai</name>
   <name xml:lang="tr">Bonsai</name>
+  <name xml:lang="uk">Бонсай</name>
   <name xml:lang="x-test">xxBonsaixx</name>
   <summary>Git version control manager</summary>
   <summary xml:lang="ca">Gestor de control de versions Git</summary>
+  <summary xml:lang="ca-valencia">Gestor de control de versions Git</summary>
   <summary xml:lang="es">Gestor de control de versiones de Git</summary>
   <summary xml:lang="eu">Git bertsio kontrol kudeatzailea</summary>
   <summary xml:lang="nl">Versiebesturingsbeheerder van Git</summary>
+  <summary xml:lang="sl">Upravljalnik različic Git</summary>
   <summary xml:lang="tr">Git sürüm denetim yöneticisi</summary>
+  <summary xml:lang="uk">Програма для керування версіями за допомогою Git</summary>
   <summary xml:lang="x-test">xxGit version control managerxx</summary>
   <description>
     <p>Browse and manage your local repositories.</p>
     <p xml:lang="ca">Navegueu i gestioneu els repositoris locals.</p>
+    <p xml:lang="ca-valencia">Navegueu i gestioneu els repositoris locals.</p>
     <p xml:lang="es">Explore y gestione sus repositorios locales.</p>
     <p xml:lang="eu">Arakatu eta kudeatu zure gordetegi lokalak.</p>
     <p xml:lang="nl">Door uw lokale opslagruimten bladeren en deze beheren.</p>
+    <p xml:lang="sl">Brskanje in upravljanje vaših lokalnih skladišč.</p>
     <p xml:lang="tr">Yerel depolarınıza göz atın ve onları yönetin</p>
+    <p xml:lang="uk">Навігація і керування вашими локальними сховищами коду.</p>
     <p xml:lang="x-test">xxBrowse and manage your local repositories.xx</p>
   </description>
   <url type="homepage">https://mauikit.org/</url>
@@ -33,10 +42,13 @@
     <screenshot type="default">
       <caption>Bonsai - mobile version</caption>
       <caption xml:lang="ca">Bonsai - versió mobil</caption>
+      <caption xml:lang="ca-valencia">Bonsai - versió mobil</caption>
       <caption xml:lang="es">Bonsai - versión para móvil</caption>
       <caption xml:lang="eu">Bonsai - mugikorreko bertsioa</caption>
       <caption xml:lang="nl">Bonsai - mobiele versie</caption>
+      <caption xml:lang="sl">Bonsai - mobilna različica</caption>
       <caption xml:lang="tr">Bonsai - Taşınabilir sürüm</caption>
+      <caption xml:lang="uk">Бонсай — мобільна версія</caption>
       <caption xml:lang="x-test">xxBonsai - mobile versionxx</caption>
       <image type="source" width="2899" height="2326">
        https://mauikit.org/wp-content/uploads/2022/11/bonsai.jpg
