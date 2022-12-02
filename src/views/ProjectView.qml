@@ -31,7 +31,7 @@ Maui.Page
     title: project.title
     showTitle: false
 
-    headBar.leftContent: Maui.ToolActions
+    footBar.leftContent: Maui.ToolActions
     {
         id: _actionViews
         expanded: true
@@ -64,7 +64,7 @@ Maui.Page
 
 
 
-    headBar.rightContent: [
+    footBar.rightContent: [
 
         ToolButton
         {

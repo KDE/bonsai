@@ -79,7 +79,7 @@ Maui.ApplicationWindow
             label1.text: i18n("Bare")
             label2.text: i18n("Create a bare repo")
 
-           Switch
+            Switch
             {
                 id: _bareSwitch
             }
@@ -91,7 +91,7 @@ Maui.ApplicationWindow
             label1.text: i18n("Recursive")
             label2.text: i18n("Clone submodules")
 
-           Switch
+            Switch
             {
                 id: _recursiveSwitch
             }
@@ -115,74 +115,6 @@ Maui.ApplicationWindow
         FB.FileDialog
         {
 
-        }
-    }
-
-
-    Component
-    {
-        id: _newDialogComponent
-
-        Maui.Dialog
-        {
-            title: i18n("New Repo")
-            maxWidth: 350
-
-            persistent: false
-            defaultButtons: false
-            rejectButton.visible : false
-            acceptButton.visible: false
-
-            Maui.ListBrowserDelegate
-            {
-                Layout.fillWidth: true
-
-                iconSizeHint: Maui.Style.iconSizes.big
-                iconSource: "shallow-history"
-                label1.text: i18n("Recent")
-                label2.text: i18n("Open a recent project")
-                template.isMask: true
-                onClicked:
-                {
-                    _mainStackView.push(_browserViewComponent)
-                    close()
-                }
-            }
-
-            Maui.ListBrowserDelegate
-            {
-                Layout.fillWidth: true
-
-                iconSizeHint: Maui.Style.iconSizes.big
-                iconSource: "vcs-merge"
-                label1.text: i18n("Clone")
-                label2.text: i18n("Clone a repository")
-                template.isMask: true
-                onClicked: cloneDialog.open()
-            }
-
-            Maui.ListBrowserDelegate
-            {
-                Layout.fillWidth: true
-                template.isMask: true
-                iconSizeHint: Maui.Style.iconSizes.big
-                iconSource: "folder-new"
-                label1.text: i18n("Create")
-                label2.text: i18n("Create a new repository")
-
-            }
-
-            Maui.ListBrowserDelegate
-            {
-                Layout.fillWidth: true
-                template.isMask: true
-                iconSizeHint: Maui.Style.iconSizes.big
-                iconSource: "document-open"
-                label1.text: i18n("Open")
-                label2.text: i18n("Open a local repository")
-
-                onClicked: openLocalRepo()
-            }
         }
     }
 
@@ -210,6 +142,45 @@ Maui.ApplicationWindow
         }
     }
 
+    Action
+    {
+        id: _recentAction
+        icon.name: "shallow-history"
+        text: i18n("Recent")
+
+        onTriggered:
+        {
+            _mainStackView.push(_browserViewComponent)
+        }
+    }
+
+    Action
+    {
+        id: _cloneAction
+        icon.name: "vcs-merge"
+        text: i18n("Clone")
+        onTriggered: cloneDialog.open()
+    }
+
+    Action
+    {
+
+        id: _newAction
+        icon.name: "folder-new"
+        text: i18n("Create")
+
+    }
+
+    Action
+    {
+
+        id: _openAction
+        icon.name: "document-open"
+        text: i18n("Open")
+
+        onTriggered: openLocalRepo()
+    }
+
     StackView
     {
         id: _mainStackView
@@ -224,70 +195,40 @@ Maui.ApplicationWindow
             holder.body: i18n("Open or clone an existing repository, or create a new one.")
             holder.emoji: "qrc:/assets/assets/folder-add.svg"
 
-            holder.actions:[
-
-                Action
-                {
-                    text: "Recent"
-                    onTriggered: _mainStackView.push(_browserViewComponent)
-                },
-
-                Action
-                {
-                    text: "Clone"
-                    onTriggered: cloneDialog.open()
-                },
-
-                Action
-                {
-                    text: "Create"
-                },
-
-                Action
-                {
-                    text: "Open"
-                    onTriggered: openLocalRepo()
-                }
-            ]
+            holder.actions:[  _recentAction, _cloneAction, _openAction, _newAction    ]
 
             tabBar.visible: true
             tabBar.showNewTabButton: false
 
             tabBar.rightContent: [
-                ToolButton
-                {
-                    icon.name: "list-add"
-                    onClicked:
-                    {
-                        _dialogLoader.sourceComponent = _newDialogComponent
-                        dialog.open()
-                    }
-                },
-
-                Maui.WindowControls {}
-            ]
-
-            tabBar.leftContent: [
-
-                /*   Loader
-                {
-                    asynchronous: true
-                    sourceComponent: ToolButton
-                    {
-                        icon.name: _sideBarView.sideBar.visible ? "sidebar-collapse" : "sidebar-expand"
-                        onClicked: _sideBarView.sideBar.toggle()
-                        checked: _sideBarView.sideBar.visible
-                        ToolTip.delay: 1000
-                        ToolTip.timeout: 5000
-                        ToolTip.visible: hovered
-                        ToolTip.text: i18n("Toogle SideBar")
-                    }
-                }*/
-
-
                 Maui.ToolButtonMenu
                 {
-                    icon.name: "application-menu"
+                    icon.name: "list-add"
+
+
+                    MenuItem
+                    {
+                        action: _recentAction
+                    }
+
+                    MenuItem
+                    {
+                        action: _cloneAction
+
+                    }
+
+                    MenuItem
+                    {
+                        action: _newAction
+                    }
+
+                    MenuItem
+                    {
+                        action: _openAction
+                    }
+
+                    MenuSeparator {}
+
                     MenuItem
                     {
                         text: i18n("Settings")
@@ -301,8 +242,12 @@ Maui.ApplicationWindow
                         icon.name: "documentinfo"
                         onTriggered: root.about()
                     }
-                }
+                },
+
+                Maui.WindowControls {}
             ]
+
+
         }
     }
 
