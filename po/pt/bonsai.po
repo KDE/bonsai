@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-16 00:45+0000\n"
+"POT-Creation-Date: 2022-12-03 00:45+0000\n"
 "PO-Revision-Date: 2022-11-15 09:32+0000\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
@@ -48,7 +48,7 @@ msgstr "Desenvolvimento"
 msgid "Git URL"
 msgstr "URL do Git"
 
-#: src/main.qml:30 src/main.qml:158
+#: src/main.qml:30 src/main.qml:161
 #, kde-format
 msgid "Clone"
 msgstr "Clonar"
@@ -113,62 +113,37 @@ msgstr "Recursivo"
 msgid "Clone submodules"
 msgstr "Clonar os sub-módulos"
 
-#: src/main.qml:128
-#, kde-format
-msgid "New Repo"
-msgstr "Novo Repositório"
-
-#: src/main.qml:142
+#: src/main.qml:149
 #, kde-format
 msgid "Recent"
 msgstr "Recente"
-
-#: src/main.qml:143
-#, kde-format
-msgid "Open a recent project"
-msgstr "Abrir um projecto recente"
-
-#: src/main.qml:159
-#, kde-format
-msgid "Clone a repository"
-msgstr "Clonar um repositório"
 
 #: src/main.qml:170
 #, kde-format
 msgid "Create"
 msgstr "Criar"
 
-#: src/main.qml:171
-#, kde-format
-msgid "Create a new repository"
-msgstr "Criar um novo repositório"
-
-#: src/main.qml:181
+#: src/main.qml:179
 #, kde-format
 msgid "Open"
 msgstr "Abrir"
 
-#: src/main.qml:182
-#, kde-format
-msgid "Open a local repository"
-msgstr "Abrir um repositório local"
-
-#: src/main.qml:223
+#: src/main.qml:194
 #, kde-format
 msgid "Let's Start"
 msgstr "Vamos Começar"
 
-#: src/main.qml:224
+#: src/main.qml:195
 #, kde-format
 msgid "Open or clone an existing repository, or create a new one."
 msgstr "Abrir ou clonar um repositório existente, ou ainda criar um novo."
 
-#: src/main.qml:293
+#: src/main.qml:234
 #, kde-format
 msgid "Settings"
 msgstr "Configuração"
 
-#: src/main.qml:300
+#: src/main.qml:241
 #, kde-format
 msgid "About"
 msgstr "Acerca"
@@ -310,3 +285,18 @@ msgstr "Nova Marca"
 #, kde-format
 msgid "New File"
 msgstr "Novo Ficheiro"
+
+#~ msgid "New Repo"
+#~ msgstr "Novo Repositório"
+
+#~ msgid "Open a recent project"
+#~ msgstr "Abrir um projecto recente"
+
+#~ msgid "Clone a repository"
+#~ msgstr "Clonar um repositório"
+
+#~ msgid "Create a new repository"
+#~ msgstr "Criar um novo repositório"
+
+#~ msgid "Open a local repository"
+#~ msgstr "Abrir um repositório local"
