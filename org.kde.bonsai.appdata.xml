@@ -8,6 +8,7 @@
   <name xml:lang="ca-valencia">Bonsai</name>
   <name xml:lang="es">Bonsai</name>
   <name xml:lang="eu">Bonsai</name>
+  <name xml:lang="fr">Bonsai</name>
   <name xml:lang="id">Bonsai</name>
   <name xml:lang="ka">Bonsai</name>
   <name xml:lang="nl">Bonsai</name>
@@ -21,6 +22,7 @@
   <summary xml:lang="ca-valencia">Gestor de control de versions Git</summary>
   <summary xml:lang="es">Gestor de control de versiones de Git</summary>
   <summary xml:lang="eu">Git bertsio kontrol kudeatzailea</summary>
+  <summary xml:lang="fr">Gestionnaire pour le contrôleur de version « Git »</summary>
   <summary xml:lang="id">Manajer kontrol versi Git</summary>
   <summary xml:lang="ka">Git ვერსიის კონტროლის მმართველი</summary>
   <summary xml:lang="nl">Versiebesturingsbeheerder van Git</summary>
@@ -35,6 +37,7 @@
     <p xml:lang="ca-valencia">Navegueu i gestioneu els repositoris locals.</p>
     <p xml:lang="es">Explore y gestione sus repositorios locales.</p>
     <p xml:lang="eu">Arakatu eta kudeatu zure gordetegi lokalak.</p>
+    <p xml:lang="fr">Naviguer et gérer vos dépôts locaux.</p>
     <p xml:lang="id">Telusur dan kelola repositori lokal Anda.</p>
     <p xml:lang="ka">დაათვალიერეთ და მართეთ თქვენი ლოკალური რეპოზიტორიები.</p>
     <p xml:lang="nl">Door uw lokale opslagruimten bladeren en deze beheren.</p>
@@ -54,6 +57,7 @@
       <caption xml:lang="ca-valencia">Bonsai - versió mobil</caption>
       <caption xml:lang="es">Bonsai - versión para móvil</caption>
       <caption xml:lang="eu">Bonsai - mugikorreko bertsioa</caption>
+      <caption xml:lang="fr">Bonsai - version mobile</caption>
       <caption xml:lang="id">Bonsai - versi ponsel</caption>
       <caption xml:lang="ka">Bonsai - მობილურის ვერსია</caption>
       <caption xml:lang="nl">Bonsai - mobiele versie</caption>
