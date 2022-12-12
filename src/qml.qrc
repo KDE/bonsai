@@ -3,5 +3,6 @@
         <file>main.qml</file>
         <file>views/BrowserView.qml</file>
         <file>views/ProjectView.qml</file>
+        <file>views/CloneDialog.qml</file>
     </qresource>
 </RCC>

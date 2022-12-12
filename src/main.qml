@@ -12,9 +12,13 @@ Maui.ApplicationWindow
 {
     id: root
 
+    property alias gitOperations : _gitOperations
+
     Bonsai.GitOperations
     {
         id: _gitOperations
+
+        onRepoCloned: openProject(url)
     }
 
     Bonsai.ProjectManager
@@ -22,83 +26,14 @@ Maui.ApplicationWindow
         id: _projectManager
     }
 
-    Maui.Dialog
+    Component
     {
-        id: cloneDialog
-        title: i18n("Git URL")
-        maxWidth: 600
-        acceptButton.text: i18n("Clone")
-        persistent: false
+        id: _cloneDialogComponent
 
-        Maui.SettingTemplate
+        CloneDialog
         {
-            label1.text: i18n("Repo URL")
-            label2.text: i18n("Remote repo URL")
-
-            Maui.TextField
-            {
-                id: _urlField
-                width: parent.parent.width
-                placeholderText: i18n("URL")
-            }
 
         }
-
-
-        Maui.SettingTemplate
-        {
-            label1.text: i18n("Name")
-            label2.text: i18n("Remote name")
-
-            Maui.TextField
-            {
-                id: _nameField
-                width: parent.parent.width
-                placeholderText: i18n("Name")
-            }
-
-        }
-
-        Maui.SettingTemplate
-        {
-            label1.text: i18n("Location")
-            label2.text: i18n("Local location to clone")
-
-            Maui.TextField
-            {
-                id: _pathField
-                width: parent.parent.width
-                placeholderText: i18n("Path")
-                text: FB.FM.homePath()
-            }
-
-        }
-
-        Maui.SettingTemplate
-        {
-            label1.text: i18n("Bare")
-            label2.text: i18n("Create a bare repo")
-
-            Switch
-            {
-                id: _bareSwitch
-            }
-
-        }
-
-        Maui.SettingTemplate
-        {
-            label1.text: i18n("Recursive")
-            label2.text: i18n("Clone submodules")
-
-            Switch
-            {
-                id: _recursiveSwitch
-            }
-
-        }
-
-        onAccepted: _gitOperations.clone(text, FB.FM.homePath()+"/bonsai_test")
     }
 
     property alias dialog : _dialogLoader.item
@@ -159,7 +94,11 @@ Maui.ApplicationWindow
         id: _cloneAction
         icon.name: "vcs-merge"
         text: i18n("Clone")
-        onTriggered: cloneDialog.open()
+        onTriggered:
+        {
+            _dialogLoader.sourceComponent = _cloneDialogComponent
+            dialog.open()
+        }
     }
 
     Action
@@ -258,9 +197,9 @@ Maui.ApplicationWindow
         dialog.singleSelection = true
         dialog.callback = function(paths)
         {
-            console.log("Paths", paths)
-            const url = paths[0]
-            _projectManager.addProject(url)
+
+            for(var path of paths)
+            openProject(path)
         }
 
         dialog.open()

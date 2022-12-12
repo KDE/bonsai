@@ -362,6 +362,7 @@ Maui.Page
 
                         width: parent.width
                         template.iconSource: _project.logo
+                        template.iconSizeHint: Maui.Style.iconSizes.big
 
                         label1.text: _project.title
                         label2.text: _project.currentBranch

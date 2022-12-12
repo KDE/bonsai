@@ -4,6 +4,7 @@
 #include <QDir>
 #include <QDirIterator>
 #include <QString>
+#include <QUrl>
 #include "libGitWrap/Operations/CloneOperation.hpp"
 #include "libGitWrap/Repository.hpp"
 #include "libGitWrap/DiffList.hpp"
@@ -15,17 +16,22 @@ GitOperations::GitOperations(QObject *parent) : QObject(parent)
     //    git.init();
 }
 
-void GitOperations::clone(const QUrl &url, const QUrl &path)
+void GitOperations::clone(const QString &url, const QString &path, const QString &name, bool bare, bool recursive)
 {
-    bool bare = false;
     auto repo = new Git::CloneOperation();
 
-    qDebug() << "WORKIG WITH" << url << path.toLocalFile();
-    repo->setUrl(url.toString());
-    repo->setPath(path.toLocalFile());
+
+    QUrl where = QUrl::fromUserInput(path+"/"+name);
+//    where.setPath(name);
+
+    qDebug() << "WORKIG WITH" << url << path << name << where;
+
+
+    repo->setUrl(url);
+    repo->setPath(where.toLocalFile());
     repo->setBare(bare);
     repo->setBackgroundMode(true);
-repo->
+
     connect(repo, &Git::CloneOperation::doneCheckout,[]()
     {
         qDebug() << "DOne checkout" ;
@@ -55,9 +61,11 @@ repo->
         qDebug() << "DOne downloading" ;
     });
 
-    connect(repo, &Git::CloneOperation::finished,[repo]()
+    connect(repo, &Git::CloneOperation::finished,[repo, this]()
     {
         qDebug() << "FInished" << repo->repository().gitPath();
+        repo->deleteLater();
+        Q_EMIT repoCloned(repo->repository().path());
     }); //if the backgorun mode is set to a thread
 
     Git::GitWrap git;
