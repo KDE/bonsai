@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:45+0000\n"
+"POT-Creation-Date: 2022-12-13 00:53+0000\n"
 "PO-Revision-Date: 2022-11-09 08:48+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -42,107 +42,42 @@ msgstr ""
 msgid "Developer"
 msgstr ""
 
-#: src/main.qml:28
-#, kde-format
-msgid "Git URL"
-msgstr ""
-
-#: src/main.qml:30 src/main.qml:161
-#, kde-format
-msgid "Clone"
-msgstr ""
-
-#: src/main.qml:35
-#, kde-format
-msgid "Repo URL"
-msgstr ""
-
-#: src/main.qml:36
-#, kde-format
-msgid "Remote repo URL"
-msgstr ""
-
-#: src/main.qml:42
-#, kde-format
-msgid "URL"
-msgstr ""
-
-#: src/main.qml:50 src/main.qml:57 src/views/BrowserView.qml:57
-#, kde-format
-msgid "Name"
-msgstr ""
-
-#: src/main.qml:51
-#, kde-format
-msgid "Remote name"
-msgstr ""
-
-#: src/main.qml:64
-#, kde-format
-msgid "Location"
-msgstr ""
-
-#: src/main.qml:65
-#, kde-format
-msgid "Local location to clone"
-msgstr ""
-
-#: src/main.qml:71
-#, kde-format
-msgid "Path"
-msgstr ""
-
-#: src/main.qml:79
-#, kde-format
-msgid "Bare"
-msgstr ""
-
-#: src/main.qml:80
-#, kde-format
-msgid "Create a bare repo"
-msgstr ""
-
-#: src/main.qml:91
-#, kde-format
-msgid "Recursive"
-msgstr ""
-
-#: src/main.qml:92
-#, kde-format
-msgid "Clone submodules"
-msgstr ""
-
-#: src/main.qml:149
+#: src/main.qml:84
 #, kde-format
 msgid "Recent"
 msgstr ""
 
-#: src/main.qml:170
+#: src/main.qml:96 src/views/CloneDialog.qml:14
+#, kde-format
+msgid "Clone"
+msgstr ""
+
+#: src/main.qml:109
 #, kde-format
 msgid "Create"
 msgstr ""
 
-#: src/main.qml:179
+#: src/main.qml:118
 #, kde-format
 msgid "Open"
 msgstr ""
 
-#: src/main.qml:194
+#: src/main.qml:133
 #, kde-format
 msgid "Let's Start"
 msgstr ""
 
-#: src/main.qml:195
+#: src/main.qml:134
 #, kde-format
 msgid "Open or clone an existing repository, or create a new one."
 msgstr ""
 
-#: src/main.qml:234
+#: src/main.qml:173
 #, kde-format
 msgid "Settings"
 msgstr ""
 
-#: src/main.qml:241
+#: src/main.qml:180
 #, kde-format
 msgid "About"
 msgstr ""
@@ -165,6 +100,12 @@ msgstr ""
 msgid "Modified"
 msgstr ""
 
+#: src/views/BrowserView.qml:57 src/views/CloneDialog.qml:35
+#: src/views/CloneDialog.qml:43
+#, kde-format
+msgid "Name"
+msgstr ""
+
 #: src/views/BrowserView.qml:75
 #, kde-format
 msgid "Nothing here!"
@@ -173,6 +114,66 @@ msgstr ""
 #: src/views/BrowserView.qml:76
 #, kde-format
 msgid "Previously opened repos will be listed here."
+msgstr ""
+
+#: src/views/CloneDialog.qml:12
+#, kde-format
+msgid "Git URL"
+msgstr ""
+
+#: src/views/CloneDialog.qml:21
+#, kde-format
+msgid "Repo URL"
+msgstr ""
+
+#: src/views/CloneDialog.qml:22
+#, kde-format
+msgid "Remote repo URL"
+msgstr ""
+
+#: src/views/CloneDialog.qml:28
+#, kde-format
+msgid "URL"
+msgstr ""
+
+#: src/views/CloneDialog.qml:36
+#, kde-format
+msgid "Remote name"
+msgstr ""
+
+#: src/views/CloneDialog.qml:50
+#, kde-format
+msgid "Location"
+msgstr ""
+
+#: src/views/CloneDialog.qml:51
+#, kde-format
+msgid "Local location to clone"
+msgstr ""
+
+#: src/views/CloneDialog.qml:57
+#, kde-format
+msgid "Path"
+msgstr ""
+
+#: src/views/CloneDialog.qml:65
+#, kde-format
+msgid "Bare"
+msgstr ""
+
+#: src/views/CloneDialog.qml:66
+#, kde-format
+msgid "Create a bare repo"
+msgstr ""
+
+#: src/views/CloneDialog.qml:77
+#, kde-format
+msgid "Recursive"
+msgstr ""
+
+#: src/views/CloneDialog.qml:78
+#, kde-format
+msgid "Clone submodules"
 msgstr ""
 
 #: src/views/ProjectView.qml:44
@@ -255,32 +256,32 @@ msgstr ""
 msgid "Desc"
 msgstr ""
 
-#: src/views/ProjectView.qml:450
+#: src/views/ProjectView.qml:451
 #, kde-format
 msgid "Checkout"
 msgstr ""
 
-#: src/views/ProjectView.qml:455
+#: src/views/ProjectView.qml:456
 #, kde-format
 msgid "Info"
 msgstr ""
 
-#: src/views/ProjectView.qml:462
+#: src/views/ProjectView.qml:463
 #, kde-format
 msgid "Copy ID"
 msgstr ""
 
-#: src/views/ProjectView.qml:519
+#: src/views/ProjectView.qml:520
 #, kde-format
 msgid "New Branch"
 msgstr ""
 
-#: src/views/ProjectView.qml:525
+#: src/views/ProjectView.qml:526
 #, kde-format
 msgid "New Tag"
 msgstr ""
 
-#: src/views/ProjectView.qml:533
+#: src/views/ProjectView.qml:534
 #, kde-format
 msgid "New File"
 msgstr ""

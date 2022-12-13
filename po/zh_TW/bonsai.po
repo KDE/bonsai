@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:45+0000\n"
+"POT-Creation-Date: 2022-12-13 00:53+0000\n"
 "PO-Revision-Date: 2022-11-10 19:15+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Chinese <kde-i18n-doc@kde.org>\n"
@@ -43,107 +43,42 @@ msgstr "Camilo Higuita"
 msgid "Developer"
 msgstr "開發者"
 
-#: src/main.qml:28
-#, kde-format
-msgid "Git URL"
-msgstr "Git 網址"
-
-#: src/main.qml:30 src/main.qml:161
-#, kde-format
-msgid "Clone"
-msgstr "複製"
-
-#: src/main.qml:35
-#, kde-format
-msgid "Repo URL"
-msgstr "版本庫網址"
-
-#: src/main.qml:36
-#, kde-format
-msgid "Remote repo URL"
-msgstr "遠端版本庫網址"
-
-#: src/main.qml:42
-#, kde-format
-msgid "URL"
-msgstr "網址"
-
-#: src/main.qml:50 src/main.qml:57 src/views/BrowserView.qml:57
-#, kde-format
-msgid "Name"
-msgstr "名稱"
-
-#: src/main.qml:51
-#, kde-format
-msgid "Remote name"
-msgstr "遠端名稱"
-
-#: src/main.qml:64
-#, kde-format
-msgid "Location"
-msgstr "位置"
-
-#: src/main.qml:65
-#, kde-format
-msgid "Local location to clone"
-msgstr "要複製到的本機位置"
-
-#: src/main.qml:71
-#, kde-format
-msgid "Path"
-msgstr "路徑"
-
-#: src/main.qml:79
-#, kde-format
-msgid "Bare"
-msgstr "裸庫"
-
-#: src/main.qml:80
-#, kde-format
-msgid "Create a bare repo"
-msgstr "建立一個裸版本庫"
-
-#: src/main.qml:91
-#, kde-format
-msgid "Recursive"
-msgstr "遞迴"
-
-#: src/main.qml:92
-#, kde-format
-msgid "Clone submodules"
-msgstr "複製 submodule"
-
-#: src/main.qml:149
+#: src/main.qml:84
 #, kde-format
 msgid "Recent"
 msgstr "最近使用"
 
-#: src/main.qml:170
+#: src/main.qml:96 src/views/CloneDialog.qml:14
+#, kde-format
+msgid "Clone"
+msgstr "複製"
+
+#: src/main.qml:109
 #, kde-format
 msgid "Create"
 msgstr "建立"
 
-#: src/main.qml:179
+#: src/main.qml:118
 #, kde-format
 msgid "Open"
 msgstr "開啟"
 
-#: src/main.qml:194
+#: src/main.qml:133
 #, kde-format
 msgid "Let's Start"
 msgstr "開始吧"
 
-#: src/main.qml:195
+#: src/main.qml:134
 #, kde-format
 msgid "Open or clone an existing repository, or create a new one."
 msgstr "開啟或複製一個現有的版本庫，或者是建立一個新的。"
 
-#: src/main.qml:234
+#: src/main.qml:173
 #, kde-format
 msgid "Settings"
 msgstr "設定"
 
-#: src/main.qml:241
+#: src/main.qml:180
 #, kde-format
 msgid "About"
 msgstr "關於"
@@ -165,6 +100,12 @@ msgstr "日期"
 msgid "Modified"
 msgstr "修改時間"
 
+#: src/views/BrowserView.qml:57 src/views/CloneDialog.qml:35
+#: src/views/CloneDialog.qml:43
+#, kde-format
+msgid "Name"
+msgstr "名稱"
+
 #: src/views/BrowserView.qml:75
 #, kde-format
 msgid "Nothing here!"
@@ -174,6 +115,66 @@ msgstr "這裡什麼都沒有！"
 #, kde-format
 msgid "Previously opened repos will be listed here."
 msgstr "之前開啟過的版本庫會列在這裡。"
+
+#: src/views/CloneDialog.qml:12
+#, kde-format
+msgid "Git URL"
+msgstr "Git 網址"
+
+#: src/views/CloneDialog.qml:21
+#, kde-format
+msgid "Repo URL"
+msgstr "版本庫網址"
+
+#: src/views/CloneDialog.qml:22
+#, kde-format
+msgid "Remote repo URL"
+msgstr "遠端版本庫網址"
+
+#: src/views/CloneDialog.qml:28
+#, kde-format
+msgid "URL"
+msgstr "網址"
+
+#: src/views/CloneDialog.qml:36
+#, kde-format
+msgid "Remote name"
+msgstr "遠端名稱"
+
+#: src/views/CloneDialog.qml:50
+#, kde-format
+msgid "Location"
+msgstr "位置"
+
+#: src/views/CloneDialog.qml:51
+#, kde-format
+msgid "Local location to clone"
+msgstr "要複製到的本機位置"
+
+#: src/views/CloneDialog.qml:57
+#, kde-format
+msgid "Path"
+msgstr "路徑"
+
+#: src/views/CloneDialog.qml:65
+#, kde-format
+msgid "Bare"
+msgstr "裸庫"
+
+#: src/views/CloneDialog.qml:66
+#, kde-format
+msgid "Create a bare repo"
+msgstr "建立一個裸版本庫"
+
+#: src/views/CloneDialog.qml:77
+#, kde-format
+msgid "Recursive"
+msgstr "遞迴"
+
+#: src/views/CloneDialog.qml:78
+#, kde-format
+msgid "Clone submodules"
+msgstr "複製 submodule"
 
 #: src/views/ProjectView.qml:44
 #, kde-format
@@ -255,32 +256,32 @@ msgstr "遞增"
 msgid "Desc"
 msgstr "遞減"
 
-#: src/views/ProjectView.qml:450
+#: src/views/ProjectView.qml:451
 #, kde-format
 msgid "Checkout"
 msgstr "簽出"
 
-#: src/views/ProjectView.qml:455
+#: src/views/ProjectView.qml:456
 #, kde-format
 msgid "Info"
 msgstr "資訊"
 
-#: src/views/ProjectView.qml:462
+#: src/views/ProjectView.qml:463
 #, kde-format
 msgid "Copy ID"
 msgstr "複製 ID"
 
-#: src/views/ProjectView.qml:519
+#: src/views/ProjectView.qml:520
 #, kde-format
 msgid "New Branch"
 msgstr "建立分支"
 
-#: src/views/ProjectView.qml:525
+#: src/views/ProjectView.qml:526
 #, kde-format
 msgid "New Tag"
 msgstr "建立標籤"
 
-#: src/views/ProjectView.qml:533
+#: src/views/ProjectView.qml:534
 #, kde-format
 msgid "New File"
 msgstr "建立檔案"

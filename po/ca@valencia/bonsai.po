@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-12-03 00:45+0000\n"
+"POT-Creation-Date: 2022-12-13 00:53+0000\n"
 "PO-Revision-Date: 2022-11-15 09:55+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -44,107 +44,42 @@ msgstr "Camilo Higuita"
 msgid "Developer"
 msgstr "Desenvolupador"
 
-#: src/main.qml:28
-#, kde-format
-msgid "Git URL"
-msgstr "URL de Git"
-
-#: src/main.qml:30 src/main.qml:161
-#, kde-format
-msgid "Clone"
-msgstr "Clona"
-
-#: src/main.qml:35
-#, kde-format
-msgid "Repo URL"
-msgstr "URL del repositori"
-
-#: src/main.qml:36
-#, kde-format
-msgid "Remote repo URL"
-msgstr "URL del repositori remot"
-
-#: src/main.qml:42
-#, kde-format
-msgid "URL"
-msgstr "URL"
-
-#: src/main.qml:50 src/main.qml:57 src/views/BrowserView.qml:57
-#, kde-format
-msgid "Name"
-msgstr "Nom"
-
-#: src/main.qml:51
-#, kde-format
-msgid "Remote name"
-msgstr "Nom remot"
-
-#: src/main.qml:64
-#, kde-format
-msgid "Location"
-msgstr "Ubicació"
-
-#: src/main.qml:65
-#, kde-format
-msgid "Local location to clone"
-msgstr "Ubicació local que s'ha de clonar"
-
-#: src/main.qml:71
-#, kde-format
-msgid "Path"
-msgstr "Camí"
-
-#: src/main.qml:79
-#, kde-format
-msgid "Bare"
-msgstr "Nu"
-
-#: src/main.qml:80
-#, kde-format
-msgid "Create a bare repo"
-msgstr "Crea un repositori nu"
-
-#: src/main.qml:91
-#, kde-format
-msgid "Recursive"
-msgstr "Recursiu"
-
-#: src/main.qml:92
-#, kde-format
-msgid "Clone submodules"
-msgstr "Clona els submòduls"
-
-#: src/main.qml:149
+#: src/main.qml:84
 #, kde-format
 msgid "Recent"
 msgstr "Recent"
 
-#: src/main.qml:170
+#: src/main.qml:96 src/views/CloneDialog.qml:14
+#, kde-format
+msgid "Clone"
+msgstr "Clona"
+
+#: src/main.qml:109
 #, kde-format
 msgid "Create"
 msgstr "Crea"
 
-#: src/main.qml:179
+#: src/main.qml:118
 #, kde-format
 msgid "Open"
 msgstr "Obri"
 
-#: src/main.qml:194
+#: src/main.qml:133
 #, kde-format
 msgid "Let's Start"
 msgstr "Comencem"
 
-#: src/main.qml:195
+#: src/main.qml:134
 #, kde-format
 msgid "Open or clone an existing repository, or create a new one."
 msgstr "Obri o clona un repositori existent, o crea'n un de nou."
 
-#: src/main.qml:234
+#: src/main.qml:173
 #, kde-format
 msgid "Settings"
 msgstr "Configuració"
 
-#: src/main.qml:241
+#: src/main.qml:180
 #, kde-format
 msgid "About"
 msgstr "Quant a"
@@ -167,6 +102,12 @@ msgstr "Data"
 msgid "Modified"
 msgstr "Modificat"
 
+#: src/views/BrowserView.qml:57 src/views/CloneDialog.qml:35
+#: src/views/CloneDialog.qml:43
+#, kde-format
+msgid "Name"
+msgstr "Nom"
+
 #: src/views/BrowserView.qml:75
 #, kde-format
 msgid "Nothing here!"
@@ -176,6 +117,66 @@ msgstr "Res ací!"
 #, kde-format
 msgid "Previously opened repos will be listed here."
 msgstr "Els repositoris oberts prèviament es llistaran ací."
+
+#: src/views/CloneDialog.qml:12
+#, kde-format
+msgid "Git URL"
+msgstr "URL de Git"
+
+#: src/views/CloneDialog.qml:21
+#, kde-format
+msgid "Repo URL"
+msgstr "URL del repositori"
+
+#: src/views/CloneDialog.qml:22
+#, kde-format
+msgid "Remote repo URL"
+msgstr "URL del repositori remot"
+
+#: src/views/CloneDialog.qml:28
+#, kde-format
+msgid "URL"
+msgstr "URL"
+
+#: src/views/CloneDialog.qml:36
+#, kde-format
+msgid "Remote name"
+msgstr "Nom remot"
+
+#: src/views/CloneDialog.qml:50
+#, kde-format
+msgid "Location"
+msgstr "Ubicació"
+
+#: src/views/CloneDialog.qml:51
+#, kde-format
+msgid "Local location to clone"
+msgstr "Ubicació local que s'ha de clonar"
+
+#: src/views/CloneDialog.qml:57
+#, kde-format
+msgid "Path"
+msgstr "Camí"
+
+#: src/views/CloneDialog.qml:65
+#, kde-format
+msgid "Bare"
+msgstr "Nu"
+
+#: src/views/CloneDialog.qml:66
+#, kde-format
+msgid "Create a bare repo"
+msgstr "Crea un repositori nu"
+
+#: src/views/CloneDialog.qml:77
+#, kde-format
+msgid "Recursive"
+msgstr "Recursiu"
+
+#: src/views/CloneDialog.qml:78
+#, kde-format
+msgid "Clone submodules"
+msgstr "Clona els submòduls"
 
 #: src/views/ProjectView.qml:44
 #, kde-format
@@ -257,32 +258,32 @@ msgstr "Asc"
 msgid "Desc"
 msgstr "Desc"
 
-#: src/views/ProjectView.qml:450
+#: src/views/ProjectView.qml:451
 #, kde-format
 msgid "Checkout"
 msgstr "Agafa"
 
-#: src/views/ProjectView.qml:455
+#: src/views/ProjectView.qml:456
 #, kde-format
 msgid "Info"
 msgstr "Informació"
 
-#: src/views/ProjectView.qml:462
+#: src/views/ProjectView.qml:463
 #, kde-format
 msgid "Copy ID"
 msgstr "Copia l'ID"
 
-#: src/views/ProjectView.qml:519
+#: src/views/ProjectView.qml:520
 #, kde-format
 msgid "New Branch"
 msgstr "Branca nova"
 
-#: src/views/ProjectView.qml:525
+#: src/views/ProjectView.qml:526
 #, kde-format
 msgid "New Tag"
 msgstr "Etiqueta nova"
 
-#: src/views/ProjectView.qml:533
+#: src/views/ProjectView.qml:534
 #, kde-format
 msgid "New File"
 msgstr "Fitxer nou"
