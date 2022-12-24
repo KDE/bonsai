@@ -17,6 +17,7 @@
   <name xml:lang="tr">Bonsai</name>
   <name xml:lang="uk">Бонсай</name>
   <name xml:lang="x-test">xxBonsaixx</name>
+  <name xml:lang="zh-TW">Bonsai</name>
   <summary>Git version control manager</summary>
   <summary xml:lang="ca">Gestor de control de versions Git</summary>
   <summary xml:lang="ca-valencia">Gestor de control de versions Git</summary>
@@ -31,6 +32,7 @@
   <summary xml:lang="tr">Git sürüm denetim yöneticisi</summary>
   <summary xml:lang="uk">Програма для керування версіями за допомогою Git</summary>
   <summary xml:lang="x-test">xxGit version control managerxx</summary>
+  <summary xml:lang="zh-TW">Git 版本控制管理器</summary>
   <description>
     <p>Browse and manage your local repositories.</p>
     <p xml:lang="ca">Navegueu i gestioneu els repositoris locals.</p>
@@ -46,6 +48,7 @@
     <p xml:lang="tr">Yerel depolarınıza göz atın ve onları yönetin</p>
     <p xml:lang="uk">Навігація і керування вашими локальними сховищами коду.</p>
     <p xml:lang="x-test">xxBrowse and manage your local repositories.xx</p>
+    <p xml:lang="zh-TW">瀏覽並管理您的本地端版本庫。</p>
   </description>
   <url type="homepage">https://mauikit.org/</url>
   <url type="bugtracker">https://invent.kde.org/maui/bonsai/-/issues</url>
@@ -66,6 +69,7 @@
       <caption xml:lang="tr">Bonsai - Taşınabilir sürüm</caption>
       <caption xml:lang="uk">Бонсай — мобільна версія</caption>
       <caption xml:lang="x-test">xxBonsai - mobile versionxx</caption>
+      <caption xml:lang="zh-TW">Bonsai - 行動版</caption>
       <image type="source" width="2899" height="2326">
        https://mauikit.org/wp-content/uploads/2022/11/bonsai.jpg
       </image>
