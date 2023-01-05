@@ -1,282 +1,284 @@
+# Xavier BESNARD <xavier.besnard]neuf.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-13 00:53+0000\n"
-"PO-Revision-Date: 2022-11-09 18:31+0100\n"
-"Last-Translator: KDE Francophone <kde-francophone@kde.org>\n"
-"Language-Team: KDE Francophone <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2023-01-04 13:14+0100\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
+"Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: src/main.cpp:50
 #, kde-format
 msgid "Bonsai"
-msgstr ""
+msgstr "Bonsai"
 
 #: src/main.cpp:50
 #, kde-format
 msgid "Git version control manager."
-msgstr ""
+msgstr "Gestionnaire pour le contrôle de versions sous Git."
 
 #: src/main.cpp:50
 #, kde-format
 msgid "© 2021-%1 Maui Development Team"
-msgstr ""
+msgstr "© 2021 - %1 L'équipe de développement de Maui"
 
 #: src/main.cpp:52
 #, kde-format
 msgid "Camilo Higuita"
-msgstr ""
+msgstr "Camilo Higuita"
 
 #: src/main.cpp:52
 #, kde-format
 msgid "Developer"
-msgstr ""
+msgstr "Développeur"
 
 #: src/main.qml:84
 #, kde-format
 msgid "Recent"
-msgstr ""
+msgstr "Récent"
 
 #: src/main.qml:96 src/views/CloneDialog.qml:14
 #, kde-format
 msgid "Clone"
-msgstr ""
+msgstr "Cloner"
 
 #: src/main.qml:109
 #, kde-format
 msgid "Create"
-msgstr ""
+msgstr "Créer"
 
 #: src/main.qml:118
 #, kde-format
 msgid "Open"
-msgstr ""
+msgstr "Ouvrir"
 
 #: src/main.qml:133
 #, kde-format
 msgid "Let's Start"
-msgstr ""
+msgstr "Commençons"
 
 #: src/main.qml:134
 #, kde-format
 msgid "Open or clone an existing repository, or create a new one."
-msgstr ""
+msgstr "Ouvrir ou cloner un dossier existant ou en créer un nouveau."
 
 #: src/main.qml:173
 #, kde-format
 msgid "Settings"
-msgstr ""
+msgstr "Configuration"
 
 #: src/main.qml:180
 #, kde-format
 msgid "About"
-msgstr ""
+msgstr "À propos"
 
 #: src/views/BrowserView.qml:20
 #, kde-format
 msgid "Filter"
 msgid_plural "Filter %1 repos"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Filtrer"
+msgstr[1] "Filtrer %1 dépôts"
 
 #: src/views/BrowserView.qml:33 src/views/ProjectView.qml:273
 #: src/views/ProjectView.qml:329
 #, kde-format
 msgid "Date"
-msgstr ""
+msgstr "Date"
 
 #: src/views/BrowserView.qml:45
 #, kde-format
 msgid "Modified"
-msgstr ""
+msgstr "Modifié"
 
 #: src/views/BrowserView.qml:57 src/views/CloneDialog.qml:35
 #: src/views/CloneDialog.qml:43
 #, kde-format
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: src/views/BrowserView.qml:75
 #, kde-format
 msgid "Nothing here!"
-msgstr ""
+msgstr "Rien ici !"
 
 #: src/views/BrowserView.qml:76
 #, kde-format
 msgid "Previously opened repos will be listed here."
-msgstr ""
+msgstr "Les dépôts précédemment ouverts seront listés ici."
 
 #: src/views/CloneDialog.qml:12
 #, kde-format
 msgid "Git URL"
-msgstr ""
+msgstr "URL pour Git"
 
 #: src/views/CloneDialog.qml:21
 #, kde-format
 msgid "Repo URL"
-msgstr ""
+msgstr "URL de dépôt"
 
 #: src/views/CloneDialog.qml:22
 #, kde-format
 msgid "Remote repo URL"
-msgstr ""
+msgstr "URL de dépôt distant"
 
 #: src/views/CloneDialog.qml:28
 #, kde-format
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: src/views/CloneDialog.qml:36
 #, kde-format
 msgid "Remote name"
-msgstr ""
+msgstr "Nom distant"
 
 #: src/views/CloneDialog.qml:50
 #, kde-format
 msgid "Location"
-msgstr ""
+msgstr "Emplacement"
 
 #: src/views/CloneDialog.qml:51
 #, kde-format
 msgid "Local location to clone"
-msgstr ""
+msgstr "Emplacement local à cloner"
 
 #: src/views/CloneDialog.qml:57
 #, kde-format
 msgid "Path"
-msgstr ""
+msgstr "Emplacement"
 
 #: src/views/CloneDialog.qml:65
 #, kde-format
 msgid "Bare"
-msgstr ""
+msgstr "Simple"
 
 #: src/views/CloneDialog.qml:66
 #, kde-format
 msgid "Create a bare repo"
-msgstr ""
+msgstr "Créer un dépôt simple"
 
 #: src/views/CloneDialog.qml:77
 #, kde-format
 msgid "Recursive"
-msgstr ""
+msgstr "Récursif"
 
 #: src/views/CloneDialog.qml:78
 #, kde-format
 msgid "Clone submodules"
-msgstr ""
+msgstr "Cloner les sous-modules"
 
 #: src/views/ProjectView.qml:44
 #, kde-format
 msgid "Commits"
-msgstr ""
+msgstr "Commits"
 
 #: src/views/ProjectView.qml:52
 #, kde-format
 msgid "Browser"
-msgstr ""
+msgstr "Navigateur"
 
 #: src/views/ProjectView.qml:126
 #, kde-format
 msgid "Head"
-msgstr ""
+msgstr "En-tête"
 
 #: src/views/ProjectView.qml:151
 #, kde-format
 msgid "Remotes"
-msgstr ""
+msgstr "Distants"
 
 #: src/views/ProjectView.qml:173
 #, kde-format
 msgid "Remote Branches"
-msgstr ""
+msgstr "Branches distantes"
 
 #: src/views/ProjectView.qml:227 src/views/ProjectView.qml:324
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "Auteur"
 
 #: src/views/ProjectView.qml:231
 #, kde-format
 msgid "Full Name"
-msgstr ""
+msgstr "Nom complet"
 
 #: src/views/ProjectView.qml:237
 #, kde-format
 msgid "Email"
-msgstr ""
+msgstr "Courriel"
 
 #: src/views/ProjectView.qml:249
 #, kde-format
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: src/views/ProjectView.qml:261
 #, kde-format
 msgid "Message"
-msgstr ""
+msgstr "Message"
 
 #: src/views/ProjectView.qml:279
 #, kde-format
 msgid "Parent Commit"
-msgstr ""
+msgstr "Commit du parent"
 
 #: src/views/ProjectView.qml:286
 #, kde-format
 msgid "Repo"
-msgstr ""
+msgstr "Dépôt"
 
 #: src/views/ProjectView.qml:289
 #, kde-format
 msgid "Local path"
-msgstr ""
+msgstr "Emplacement local"
 
 #: src/views/ProjectView.qml:312
 #, kde-format
 msgid "Filter commit by id, message or author"
-msgstr ""
+msgstr "Filtrer un commit par identifiant, message ou auteur"
 
 #: src/views/ProjectView.qml:336
 #, kde-format
 msgid "Asc"
-msgstr ""
+msgstr "Asc"
 
 #: src/views/ProjectView.qml:341
 #, kde-format
 msgid "Desc"
-msgstr ""
+msgstr "Desc"
 
 #: src/views/ProjectView.qml:451
 #, kde-format
 msgid "Checkout"
-msgstr ""
+msgstr "Extraire"
 
 #: src/views/ProjectView.qml:456
 #, kde-format
 msgid "Info"
-msgstr ""
+msgstr "Informations"
 
 #: src/views/ProjectView.qml:463
 #, kde-format
 msgid "Copy ID"
-msgstr ""
+msgstr "Copier un ID"
 
 #: src/views/ProjectView.qml:520
 #, kde-format
 msgid "New Branch"
-msgstr ""
+msgstr "Nouvelle branche"
 
 #: src/views/ProjectView.qml:526
 #, kde-format
 msgid "New Tag"
-msgstr ""
+msgstr "Nouvelle étiquette"
 
 #: src/views/ProjectView.qml:534
 #, kde-format
 msgid "New File"
-msgstr ""
+msgstr "Nouveau fichier"
