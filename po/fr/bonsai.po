@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-13 00:53+0000\n"
-"PO-Revision-Date: 2023-01-04 13:14+0100\n"
+"PO-Revision-Date: 2023-01-05 08:56+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -246,12 +246,12 @@ msgstr "Filtrer un commit par identifiant, message ou auteur"
 #: src/views/ProjectView.qml:336
 #, kde-format
 msgid "Asc"
-msgstr "Asc"
+msgstr "Croissant"
 
 #: src/views/ProjectView.qml:341
 #, kde-format
 msgid "Desc"
-msgstr "Desc"
+msgstr "Décroissant"
 
 #: src/views/ProjectView.qml:451
 #, kde-format
