@@ -121,10 +121,10 @@ Maui.Page
             maxWidth: 800
             maxHeight: 600
 
-            Maui.SettingsSection
+            Maui.SectionGroup
             {
                 title: i18n("Head")
-                Maui.SettingTemplate
+                Maui.SectionItem
                 {
                     label1.text: _project.headBranch.name
                     label2.text: _project.headBranch.upstreamRemoteName
@@ -137,7 +137,7 @@ Maui.Page
                     }
                 }
 
-                Maui.SettingTemplate
+                Maui.SectionItem
                 {
                     label1.text: _project.headBranch.prefix
                     label2.text: _project.headBranch.isLocal
@@ -146,13 +146,13 @@ Maui.Page
 
             }
 
-            Maui.SettingsSection
+            Maui.SectionGroup
             {
                 title: i18n("Remotes")
                 Repeater
                 {
                     model: _project.remotesModel
-                    delegate: Maui.SettingTemplate
+                    delegate: Maui.SectionItem
                     {
                         property string remoteName : modelData.name
                         label1.text: remoteName
@@ -168,14 +168,14 @@ Maui.Page
                 }
             }
 
-            Maui.SettingsSection
+            Maui.SectionGroup
             {
                 title: i18n("Remote Branches")
 
                 Repeater
                 {
                     model: _project.branches.localBranches
-                    delegate: Maui.SettingTemplate
+                    delegate: Maui.SectionItem
                     {
                         label1.text: modelData
                         label2.text: _project.branches.upstreamRemote(modelData)
@@ -222,17 +222,17 @@ Maui.Page
             maxWidth: 500
             maxHeight: 400
 
-            Maui.SettingsSection
+            Maui.SectionGroup
             {
                 title: i18n("Author")
 
-                Maui.SettingTemplate
+                Maui.SectionItem
                 {
                     label1.text: i18n("Full Name")
                     label2.text: info.fullName
                 }
 
-                Maui.SettingTemplate
+                Maui.SectionItem
                 {
                     label1.text: i18n("Email")
                     label2.text: info.email
@@ -244,7 +244,7 @@ Maui.Page
                     }
                 }
 
-                Maui.SettingTemplate
+                Maui.SectionItem
                 {
                     label1.text: i18n("ID")
                     label2.text: commitId
@@ -256,7 +256,7 @@ Maui.Page
                     }
                 }
 
-                Maui.SettingTemplate
+                Maui.SectionItem
                 {
                     label1.text: i18n("Message")
                     label2.text: info.message
@@ -268,23 +268,23 @@ Maui.Page
                     }
                 }
 
-                Maui.SettingTemplate
+                Maui.SectionItem
                 {
                     label1.text: i18n("Date")
                     label2.text: Qt.formatDateTime(info.date, "dd mm yyyy")
                 }
 
-                Maui.SettingTemplate
+                Maui.SectionItem
                 {
                     label1.text: i18n("Parent Commit")
                     label2.text: info.parentCommits
                 }
             }
 
-            Maui.SettingsSection
+            Maui.SectionGroup
             {
                 title: i18n("Repo")
-                Maui.SettingTemplate
+                Maui.SectionItem
                 {
                     label1.text: i18n("Local path")
                     label2.text: _project.url
@@ -354,7 +354,7 @@ Maui.Page
                 {
                     width: parent.width
 
-                    Maui.SectionDropDown
+                    Maui.SectionHeader
                     {
                         topPadding: Maui.Style.space.big
                         bottomPadding: topPadding + _commitsListView.topPadding
@@ -395,7 +395,7 @@ Maui.Page
                         ]
                     }
 
-                    //                    Maui.SectionDropDown
+                    //                    Maui.SectionHeader
                     //                    {
                     //                        topPadding: Maui.Style.space.big
                     //                        bottomPadding: topPadding + _commitsListView.topPadding

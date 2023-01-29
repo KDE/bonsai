@@ -12,7 +12,7 @@ Maui.Page
 {
     id: control
     headBar.forceCenterMiddleContent: !root.isWide
-    headBar.middleContent: Maui.TextField
+    headBar.middleContent: TextField
     {
         Layout.fillWidth: true
         Layout.maximumWidth: 500

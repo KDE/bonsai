@@ -16,12 +16,12 @@ Maui.Dialog
 
     onRejected: control.close()
 
-    Maui.SettingTemplate
+    Maui.SectionItem
     {
         label1.text: i18n("Repo URL")
         label2.text: i18n("Remote repo URL")
 
-        Maui.TextField
+        TextField
         {
             id: _urlField
             width: parent.parent.width
@@ -30,12 +30,12 @@ Maui.Dialog
     }
 
 
-    Maui.SettingTemplate
+    Maui.SectionItem
     {
         label1.text: i18n("Name")
         label2.text: i18n("Remote name")
 
-        Maui.TextField
+        TextField
         {
             id: _nameField
             text: _urlField.text.length ? _urlField.text.split("/").pop() : ""
@@ -45,12 +45,12 @@ Maui.Dialog
 
     }
 
-    Maui.SettingTemplate
+    Maui.SectionItem
     {
         label1.text: i18n("Location")
         label2.text: i18n("Local location to clone")
 
-        Maui.TextField
+        TextField
         {
             id: _pathField
             width: parent.parent.width
@@ -60,7 +60,7 @@ Maui.Dialog
 
     }
 
-    Maui.SettingTemplate
+    Maui.SectionItem
     {
         label1.text: i18n("Bare")
         label2.text: i18n("Create a bare repo")
@@ -72,7 +72,7 @@ Maui.Dialog
 
     }
 
-    Maui.SettingTemplate
+    Maui.SectionItem
     {
         label1.text: i18n("Recursive")
         label2.text: i18n("Clone submodules")
