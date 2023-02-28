@@ -6,9 +6,12 @@
 #include <QString>
 #include <QUrl>
 #include "libGitWrap/Operations/CloneOperation.hpp"
+#include "libGitWrap/Operations/RemoteOperations.hpp"
 #include "libGitWrap/Repository.hpp"
 #include "libGitWrap/DiffList.hpp"
 #include "libGitWrap/Events/Private/GitEventCallbacks.hpp"
+
+#include "projectmanager.h"
 
 GitOperations::GitOperations(QObject *parent) : QObject(parent)
 {
@@ -72,4 +75,28 @@ void GitOperations::clone(const QString &url, const QString &path, const QString
     git.init();
     repo->execute();
     qDebug() << repo->isRunning() << repo->reference() << repo->backgroundMode() << repo->path() << repo->result().errorText() << repo->refSpecs() << repo->remoteAlias() << repo->refLogMessage() << repo->repository().name() << repo->repository().gitPath() << repo->repository().basePath();
+}
+
+void GitOperations::pull(const QString &password)
+{
+    auto repo = ProjectManager::gitDir(m_url);
+
+    auto op = new Git::FetchOperation(repo);
+
+    Git::GitWrap git;
+    git.init();
+    op->execute();
+}
+
+QString GitOperations::url() const
+{
+    return m_url;
+}
+
+void GitOperations::setUrl(const QString &newUrl)
+{
+    if (m_url == newUrl)
+        return;
+    m_url = newUrl;
+    emit urlChanged();
 }
