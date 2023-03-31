@@ -289,11 +289,28 @@ Maui.Page
         }
     }
 
+    Maui.Holder
+    {
+        anchors.fill: parent
+        title:
+        {
+            switch(project.status.code)
+            {
+            case Bonsai.StatusMessage.Loading: return i18n("Loading...");
+            case Bonsai.StatusMessage.Error: return i18n("Error");
+            }
+        }
+
+        emoji: "indicator-messages"
+        body: project.status.message
+    }
+
     StackView
     {
         id: _stackView
         anchors.fill: parent
         clip: false
+        visible: project.status.code === Bonsai.StatusMessage.Ready
 
         initialItem: Maui.Page
         {
@@ -405,6 +422,9 @@ Maui.Page
                 {
                     id: _commitsModel
                     list: project.commitsModel
+                    recursiveFilteringEnabled: true
+                    sortCaseSensitivity: Qt.CaseInsensitive
+                    filterCaseSensitivity: Qt.CaseInsensitive
                 }
 
                 delegate: Maui.ListBrowserDelegate
@@ -461,7 +481,6 @@ Maui.Page
                 }
             }
         }
-
 
         Component
         {

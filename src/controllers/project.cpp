@@ -31,8 +31,8 @@
 
 
 Project::Project(QObject *parent) : QObject(parent)
-  ,m_commitsModel(nullptr)
-  ,m_branchesManager(nullptr)
+  ,m_commitsModel(new CommitHistoryModel(this))
+  ,m_branchesManager(new BranchesManager(this))
   ,m_cloneWatcher(nullptr)
   ,m_status(new StatusMessage(this))
 {
@@ -130,6 +130,10 @@ void Project::setData(const QString &url)
     //    {
     //        head.
     //    }
+
+    m_commitsModel->setRepo(this->m_repo);
+    m_branchesManager->setRepo(this->m_repo);
+
     setStatus(StatusMessage::Ready, i18n("Ready."));
 
 }
@@ -151,22 +155,12 @@ QString Project::currentBranch() const
 
 CommitHistoryModel *Project::getCommitsModel()
 {
-    if(!m_commitsModel)
-    {
-        m_commitsModel = new CommitHistoryModel(this);
-        m_commitsModel->setRepo(this->m_repo);
-    }
 
     return m_commitsModel;
 }
 
 BranchesManager *Project::getBranches()
 {
-    if(!m_branchesManager)
-    {
-        m_branchesManager = new BranchesManager(this);
-        m_branchesManager->setRepo(this->m_repo);
-    }
     return m_branchesManager;
 }
 
@@ -245,7 +239,6 @@ QString Project::fileStatusIcon(const QString &file)
     {
         return "vcs-conflicting";
     }
-
 
     if(status.testFlag(Git::Status::FileUnchanged))
     {
@@ -345,6 +338,10 @@ void Project::clone(const QString &url)
         {
             setStatus(StatusMessage::Error, i18n("Failed to create directory for repository."));
             return;
+        }else
+        {
+            m_title = dir.dirName();
+            Q_EMIT titleChanged(m_title);
         }
     }else
     {
@@ -358,28 +355,29 @@ void Project::clone(const QString &url)
     auto op = [remoteUrl = url, where = mUrl]()
     {
         LibQGit2::initLibQGit2();
-    LibQGit2::Repository op;
-    op.setRemoteCredentials("origin",  LibQGit2::Credentials());
+        LibQGit2::Repository op;
+        op.setRemoteCredentials("origin",  LibQGit2::Credentials());
 
-    try {
-        op.clone(remoteUrl, where.toLocalFile());
-    }
-    catch (const LibQGit2::Exception& ex) {
-        qDebug() << ex.what() << ex.category();
-    }
+        try {
+            op.clone(remoteUrl, where.toLocalFile());
+        }
+        catch (const LibQGit2::Exception& ex) {
+            qDebug() << ex.what() << ex.category();
+        }
     };
 
     m_cloneWatcher = new QFutureWatcher<void>;
 
     connect(m_cloneWatcher, &QFutureWatcher<void>::finished, [this]()
     {
-       this->setData(m_url);
+        qDebug() << "Setting data" << m_url;
+        this->setData(m_url);
     });
 
     auto future = QtConcurrent::run(op);
     m_cloneWatcher->setFuture(future);
 
-    setStatus(StatusMessage::Loading, i18n("Start cloning new repo."));
+    setStatus(StatusMessage::Loading, i18n("Start cloning %1 repository.", m_title));
 
 }
 

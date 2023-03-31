@@ -10,8 +10,7 @@ BranchesManager::BranchesManager(QObject *parent) : QObject(parent)
 void BranchesManager::setRepo(Git::Repository &repo)
 {
     m_repo = repo;
-
-
+    Q_EMIT repoChanged();
 }
 
 QStringList BranchesManager::allBranches()
