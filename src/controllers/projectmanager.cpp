@@ -2,7 +2,7 @@
 #include <QDebug>
 #include <MauiKit/FileBrowsing/fmstatic.h>
 #include <MauiKit/Core/utils.h>
-
+#include <QSettings>
 
 ProjectManager::ProjectManager(QObject *parent) : QObject(parent)
   ,m_projectsModel(nullptr)
@@ -48,7 +48,7 @@ QUrl ProjectManager::readmeFile(const QUrl &url)
 
 void ProjectManager::addProject(const QString &url)
 {
-    const QUrl localUrl = QUrl::fromUserInput(url, "/", QUrl::AssumeLocalFile);
+    const QUrl localUrl = QUrl::fromUserInput(url);
     auto repo = gitDir(localUrl);
     if(repo.isValid())
     {
@@ -56,9 +56,16 @@ void ProjectManager::addProject(const QString &url)
 
         if(this->saveHistory(localUrl))
         {
-            m_projectsModel->insert(repoInfo(localUrl, repo));
+            if(m_projectsModel)
+                m_projectsModel->insert(repoInfo(localUrl, repo));
+
         }
     }
+}
+
+void ProjectManager::addRemoteProject(const QString &remoteUrl, const QString &localUrl)
+{
+
 }
 
 Git::Repository ProjectManager::gitDir(const QUrl &url)
@@ -102,6 +109,11 @@ FMH::MODEL ProjectManager::repoInfo(const QUrl &url, Git::Repository &repo)
     return res;
 }
 
+GlobalSettings *ProjectManager::settings()
+{
+    return GlobalSettings::instance();
+}
+
 bool ProjectManager::saveHistory(const QUrl &url)
 {
     auto urls = this->loadHistory();
@@ -137,4 +149,34 @@ FMH::MODEL_LIST ProjectManager::reposData(const QList<QUrl> &urls)
         }
     }
     return res;
+}
+
+QString GlobalSettings::cloneDir() const
+{
+    return m_cloneDir;
+}
+
+void GlobalSettings::setCloneDir(QString cloneDir)
+{
+    if (m_cloneDir == cloneDir)
+        return;
+
+    m_cloneDir = cloneDir;
+
+    m_settings->beginGroup("General");
+    m_settings->setValue("CloneDir", m_cloneDir);
+    m_settings->endGroup();
+    m_settings->sync();
+
+    emit cloneDirChanged(m_cloneDir);
+}
+
+GlobalSettings::GlobalSettings() : QObject(nullptr)
+  ,m_settings(new QSettings(this))
+  ,m_cloneDir(FMStatic::HomePath)
+{
+    m_settings->beginGroup("General");
+    m_cloneDir = m_settings->value("CloneDir", m_cloneDir).toString();
+
+    m_settings->endGroup();
 }

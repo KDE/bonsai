@@ -20,11 +20,11 @@ Maui.Dialog
     {
         label1.text: i18n("Repo URL")
         label2.text: i18n("Remote repo URL")
-
+        columns: 1
         TextField
         {
             id: _urlField
-            width: parent.parent.width
+            Layout.fillWidth: true
             placeholderText: i18n("URL")
         }
     }
@@ -34,30 +34,30 @@ Maui.Dialog
     {
         label1.text: i18n("Name")
         label2.text: i18n("Remote name")
+        columns: 1
 
         TextField
         {
             id: _nameField
             text: _urlField.text.length ? _urlField.text.split("/").pop() : ""
-            width: parent.parent.width
+            Layout.fillWidth: true
             placeholderText: i18n("Name")
         }
-
     }
 
     Maui.SectionItem
     {
         label1.text: i18n("Location")
         label2.text: i18n("Local location to clone")
+        columns: 1
 
         TextField
         {
             id: _pathField
-            width: parent.parent.width
+            Layout.fillWidth: true
             placeholderText: i18n("Path")
-            text: FB.FM.homePath()
+            text: Bonsai.Settings.cloneDir
         }
-
     }
 
     Maui.SectionItem
@@ -81,11 +81,11 @@ Maui.Dialog
         {
             id: _recursiveSwitch
         }
-
     }
 
     onAccepted:
     {
-        gitOperations.clone(_urlField.text, _pathField.text, _nameField.text, _bareSwitch.checked, _recursiveSwitch.checked)
+        openProject( _pathField.text+ "/" +_nameField.text, _urlField.text)
+        control.close()
     }
 }

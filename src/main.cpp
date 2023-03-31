@@ -5,15 +5,7 @@
 #include <QIcon>
 #include <QCommandLineParser>
 
-#ifdef Q_OS_ANDROID
-#include <QGuiApplication>
-#else
 #include <QApplication>
-#endif
-
-#ifdef Q_OS_MACOS
-#include <MauiKit/Core/mauimacos.h>
-#endif
 
 #include <MauiKit/Core/mauiapp.h>
 
@@ -22,11 +14,13 @@
 
 #include "../bonsai_version.h"
 
-#include "controllers/gitoperations.h"
 #include "controllers/projectmanager.h"
 #include "controllers/branchesmanager.h"
 #include "controllers/project.h"
 #include "models/projectsmodel.h"
+
+#include <qgit2/qgitrepository.h>
+#include <qgit2/qgitremote.h>
 
 #define BONSAI_URI "org.maui.bonsai"
 
@@ -35,13 +29,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps, true);
 
-#ifdef Q_OS_ANDROID
-        QGuiApplication app(argc, argv);
-        if (!MAUIAndroid::checkRunTimePermissions({"android.permission.WRITE_EXTERNAL_STORAGE"}))
-                return -1;
-#else
         QApplication app(argc, argv);
-#endif
 
         app.setOrganizationName(QStringLiteral("Maui"));
         app.setWindowIcon(QIcon(":/assets/assets/bonsai.svg"));
@@ -77,19 +65,15 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
         engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
 
-        qmlRegisterType<GitOperations>(BONSAI_URI, 1, 0, "GitOperations");
         qmlRegisterAnonymousType<ProjectsModel>(BONSAI_URI, 1);
         qmlRegisterAnonymousType<CommitHistoryModel>(BONSAI_URI, 1);
         qmlRegisterAnonymousType<BranchesManager>(BONSAI_URI, 1);
+        qmlRegisterUncreatableType<StatusMessage>(BONSAI_URI, 1, 0, "StatusMessage", "Can not be created only referenced");
         qmlRegisterType<Project>(BONSAI_URI, 1, 0, "Project");
         qmlRegisterType<ProjectManager>(BONSAI_URI, 1, 0, "ProjectManager");
+        qmlRegisterSingletonInstance<GlobalSettings>(BONSAI_URI, 1, 0, "Settings", GlobalSettings::instance());
 
     engine.load(url);
 
-#ifdef Q_OS_MACOS
-        //    MAUIMacOS::removeTitlebarFromWindow();
-        //    MauiApp::instance()->setEnableCSD(true); //for now index can not handle cloud accounts
-
-#endif
         return app.exec();
 }

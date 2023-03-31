@@ -12,14 +12,8 @@ Maui.ApplicationWindow
 {
     id: root
 
-    property alias gitOperations : _gitOperations
-
-    Bonsai.GitOperations
-    {
-        id: _gitOperations
-
-        onRepoCloned: openProject(url)
-    }
+    property alias dialog : _dialogLoader.item
+    property alias fmDialog : _fmDialogLoader.item
 
     Bonsai.ProjectManager
     {
@@ -30,27 +24,31 @@ Maui.ApplicationWindow
     {
         id: _cloneDialogComponent
 
-        CloneDialog
-        {
-
-        }
+        CloneDialog {}
     }
-
-    property alias dialog : _dialogLoader.item
 
     Loader
     {
         id: _dialogLoader
     }
 
+    Loader
+    {
+        id: _fmDialogLoader
+    }
+
+    Component
+    {
+        id: _settingsDialogComponent
+
+        SettingsDialog  {}
+    }
+
     Component
     {
         id: _openFileDialogComponent
 
-        FB.FileDialog
-        {
-
-        }
+        FB.FileDialog  {}
     }
 
     Component
@@ -64,6 +62,9 @@ Maui.ApplicationWindow
                 icon.name: "go-previous"
                 onClicked: _mainStackView.pop()
             }
+
+            Keys.enabled: true
+            Keys.onEscapePressed: _mainStackView.pop()
         }
     }
 
@@ -71,10 +72,7 @@ Maui.ApplicationWindow
     {
         id: _projectPageComponent
 
-        ProjectView
-        {
-
-        }
+        ProjectView {}
     }
 
     Action
@@ -128,13 +126,17 @@ Maui.ApplicationWindow
         initialItem: Maui.TabView
         {
             id: _tabView
-            //        mobile: true
-            anchors.fill: parent
             holder.title : i18n("Let's Start")
             holder.body: i18n("Open or clone an existing repository, or create a new one.")
             holder.emoji: "qrc:/assets/assets/folder-add.svg"
 
             holder.actions:[  _recentAction, _cloneAction, _openAction, _newAction    ]
+
+            Rectangle
+            {
+                  Maui.TabViewInfo.tabTitle: "title"
+                color: "blue"
+            }
 
             tabBar.visible: true
             tabBar.showNewTabButton: false
@@ -185,30 +187,25 @@ Maui.ApplicationWindow
 
                 Maui.WindowControls {}
             ]
-
-
         }
     }
-
 
     function openLocalRepo()
     {
-        _dialogLoader.sourceComponent = _openFileDialogComponent
-        dialog.singleSelection = true
-        dialog.callback = function(paths)
+        _fmDialogLoader.sourceComponent = _openFileDialogComponent
+        fmDialog.singleSelection = true
+        fmDialog.callback = function(paths)
         {
 
             for(var path of paths)
-            openProject(path)
+                openProject(path)
         }
 
-        dialog.open()
+        fmDialog.open()
     }
 
-    function openProject(url)
+    function openProject(url, remote)
     {
-        _projectManager.addProject(url)
-
         const index = tabIndex(url)
         if(index > -1)
         {
@@ -216,7 +213,14 @@ Maui.ApplicationWindow
             return
         }
 
-        _tabView.addTab(_projectPageComponent, {'url' : url})
+        //        _projectManager.addProject(url)
+        console.log("OPEN PROJECT", url, remote)
+
+        var obj = _tabView.addTab(_projectPageComponent, {'url' : url})
+
+        if(remote)
+            obj.project.clone(remote)
+
         if(_mainStackView.depth === 2)
         {
             _mainStackView.pop()
@@ -234,11 +238,17 @@ Maui.ApplicationWindow
         {
             const tab =  _tabView.contentModel.get(i)
             console.log("FIN TAB INDEX", i, tab.url, path)
-            if(tab.url.toString() === path)
+            if(tab.url === path)
             {
                 return i
             }
         }
         return -1
+    }
+
+    function openConfigDialog()
+    {
+        _dialogLoader.sourceComponent = _settingsDialogComponent
+        dialog.open()
     }
 }

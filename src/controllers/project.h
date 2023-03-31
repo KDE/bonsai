@@ -1,14 +1,32 @@
-#ifndef PROJECT_H
-#define PROJECT_H
-
+#pragma once
 #include <QObject>
 #include <QUrl>
 #include "libGitWrap/Repository.hpp"
 
 #include "models/commithistorymodel.h"
 
+#include <QFutureWatcher>
+
 class BranchesManager;
-class Project;
+
+class StatusMessage : public QObject
+{
+    Q_OBJECT
+    Q_PROPERTY(StatusCode code MEMBER code CONSTANT FINAL)
+    Q_PROPERTY(QString message MEMBER message CONSTANT FINAL)
+public:
+    explicit StatusMessage(QObject *parent = nullptr);
+
+    enum StatusCode
+    {
+        Loading,
+        Ready,
+        Error
+    };  Q_ENUM(StatusCode)
+
+    StatusCode code = StatusCode::Ready;
+    QString message;
+};
 
 
 class Project : public QObject
@@ -16,7 +34,10 @@ class Project : public QObject
     Q_OBJECT
     Q_DISABLE_COPY(Project)
 
-    Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY urlChanged)
+    Q_PROPERTY(QString url READ url WRITE setUrl NOTIFY urlChanged)
+
+    Q_PROPERTY(StatusMessage* status READ status NOTIFY statusChanged FINAL)
+
     Q_PROPERTY(QString title READ getTitle NOTIFY titleChanged)
     Q_PROPERTY(QUrl logo READ getLogo NOTIFY logoChanged)
     Q_PROPERTY(QString currentBranch READ currentBranch WRITE setCurrentBranch NOTIFY currentBranchChanged)
@@ -25,27 +46,35 @@ class Project : public QObject
 
     Q_PROPERTY(CommitHistoryModel *commitsModel READ getCommitsModel CONSTANT FINAL)
     Q_PROPERTY(BranchesManager* branches READ getBranches CONSTANT FINAL)
-    Q_PROPERTY(QStringList status READ status NOTIFY statusChanged)
+    Q_PROPERTY(QStringList repoStatus READ repoStatus NOTIFY repoStatusChanged)
     Q_PROPERTY(QUrl readmeFile READ readmeFile NOTIFY readmeFileChanged CONSTANT)
     Q_PROPERTY(QVariantList remotesModel READ getRemotesModel NOTIFY remotesModelChanged)
 
-public:
-    explicit Project(QObject *parent = nullptr);
+public:    
 
-    QUrl url() const;
-    void setData(const QUrl &url);
+    explicit Project(QObject *parent = nullptr);
+    ~Project();
+
+    QString url() const;
+
+    /**
+     * @brief setUrl
+     * @param url
+     */
+    void setUrl(const QString &url);
+
     QString getTitle() const;
 
     QUrl getLogo() const;
 
     QString currentBranch() const;
+    void setCurrentBranch(const QString &currentBranch);
 
     CommitHistoryModel * getCommitsModel();
 
     BranchesManager* getBranches();
 
-    QStringList status() const;
-
+    QStringList repoStatus() const;
     QUrl readmeFile() const;
 
     QVariantList getRemotesModel() const;
@@ -54,17 +83,23 @@ public:
 
     QVariantMap getHeadBranch() const;
 
-public slots:
-    void setUrl(QUrl url);
+    StatusMessage* status() const;
 
-    void setCurrentBranch(const QString &currentBranch);
+public Q_SLOTS:
     QString fileStatusIcon(const QString &file);
 
     QVariantMap commitAuthor(const QString &id);
     QVariantMap remoteInfo(const QString &remoteName);
 
+    void pull();
+    void clone(const QString &url);
+
 private:
-    QUrl m_url;
+    QFutureWatcher<void> *m_cloneWatcher;
+
+    QString m_url;
+    QString m_remoteUrl;
+
     Git::Repository m_repo;
 
     QString m_title;
@@ -73,10 +108,10 @@ private:
 
     QString m_currentBranch;
 
-    CommitHistoryModel * m_commitsModel;
-    BranchesManager* m_branchesManager;
+    CommitHistoryModel *m_commitsModel;
+    BranchesManager *m_branchesManager;
 
-    QStringList m_status;
+    QStringList m_repoStatus;
 
     QUrl m_readmeFile;
 
@@ -84,21 +119,29 @@ private:
 
     QVariantMap m_currentBranchRemote;
     QVariantMap m_headBranch;
+    StatusMessage *m_status;
+
+    void setData(const QString &url);
 
     void setCurrentBranchRemote(const QString &currentBranch);
     void setHeadBranch();
 
-signals:
+    void setStatus(StatusMessage::StatusCode code, const QString &message);
+
+Q_SIGNALS:
     void titleChanged(QString title);
     void logoChanged(QUrl logo);
-    void urlChanged(QUrl url);
+    void urlChanged(QString url);
     void error(QString message);
     void currentBranchChanged(QString currentBranch);
-    void statusChanged(QStringList status);
+    void repoStatusChanged(QStringList status);
     void readmeFileChanged(QUrl readmeFile);
     void remotesModelChanged(QVariantList remotesModel);
     void currentBranchRemoteChanged(QVariantMap currentBranchRemote);
     void headBranchChanged(QVariantMap headBranch);
+    void remoteUrlChanged(QString remoteUrl);
+    void statusChanged();
 };
 
-#endif // PROJECT_H
+
+

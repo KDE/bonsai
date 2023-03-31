@@ -15,13 +15,12 @@ Maui.Page
     Maui.TabViewInfo.tabTitle: title
     Maui.TabViewInfo.tabToolTipText: url
 
-    height: ListView.view.height
-    width:  ListView.view.width
-
     property alias project: _project
     property alias url : _project.url
 
     property alias dialog : _dialogLoader.item
+
+    headBar.visible: false
 
     Bonsai.Project
     {
@@ -55,14 +54,11 @@ Maui.Page
             {
                 if(_stackView.depth === 1)
                 {
-                    _stackView.push(_browserView)
+                    _stackView.push(_browserViewComponent)
                 }
             }
         }
     }
-
-
-
 
     footBar.rightContent: [
 
@@ -108,7 +104,6 @@ Maui.Page
     {
         id: _dialogLoader
     }
-
 
     Component
     {
@@ -468,124 +463,139 @@ Maui.Page
         }
 
 
-        Maui.Page
+        Component
         {
-            id: _browserView
-            title: _browser.title
-            showTitle: true
-            FB.FileBrowser
+            id:  _browserViewComponent
+            Maui.Page
             {
-                id: _browser
-                anchors.fill: parent
-                currentPath: control.project.url
-                onItemClicked: openItem(index)
-                settings.viewType: FB.FMList.LIST_VIEW
-                settings.showHiddenFiles: true
-                browser.delegateInjector: Rectangle
+                id: _browserView
+                title: _browser.title
+                showTitle: true
+                FB.FileBrowser
                 {
-                    radius: Maui.Style.radiusV
-                    color: Maui.Theme.backgroundColor
-                    Maui.Icon
+                    id: _browser
+                    anchors.fill: parent
+                    currentPath: control.project.url
+                    onItemClicked: openItem(index)
+                    settings.viewType: FB.FMList.LIST_VIEW
+                    settings.showHiddenFiles: true
+                    browser.delegateInjector: Rectangle
                     {
-                        visible: itemData.isdir
-                        source: _project.fileStatusIcon(itemData.url)
-                        anchors.centerIn: parent
+                        radius: Maui.Style.radiusV
+                        color: Maui.Theme.backgroundColor
+                        Maui.Icon
+                        {
+                            visible: itemData.isdir
+                            source: _project.fileStatusIcon(itemData.url)
+                            anchors.centerIn: parent
+                        }
                     }
+
+                    //            gridItemSize: 100
                 }
 
-                //            gridItemSize: 100
+                headBar.leftContent: [
+
+                    ToolButton
+                    {
+                        icon.name: "go-up"
+                        onClicked:
+                        {
+                            //                        if(_browser.currentFMList.parentPath)
+                            _browser.goUp()
+                        }
+                    }
+
+                ]
+
+                headBar.rightContent: [
+
+                    Maui.ToolButtonMenu
+                    {
+                        icon.name: "list-add"
+                        MenuItem
+                        {
+                            text: i18n("New Branch")
+                            icon.name: "branch"
+                        }
+
+                        MenuItem
+                        {
+                            text: i18n("New Tag")
+                            icon.name: "tag"
+                        }
+
+                        MenuSeparator{}
+
+                        MenuItem
+                        {
+                            text: i18n("New File")
+                            icon.name: "document-new"
+                        }
+                    }
+
+                ]
+
+                footBar.leftContent: [
+
+                    ToolButton
+                    {
+                        icon.name: "vcs-pull"
+                        onClicked: control.project.pull()
+                    },
+
+                    ToolButton
+                    {
+                        icon.name: "vcs-pull"
+                    },
+
+                    ToolButton
+                    {
+                        icon.name: "vcs-push"
+                    },
+
+                    ToolButton
+                    {
+                        icon.name: "vcs-merge"
+                    },
+
+                    ToolButton
+                    {
+                        icon.name: "vcs-commit"
+                    },
+                    ToolButton
+                    {
+                        icon.name: "vcs-diff"
+                    },
+
+                    ToolButton
+                    {
+                        icon.name: "vcs-stash"
+                    },
+
+                    ToolButton
+                    {
+                        icon.name: "vcs-stash-pop"
+                    }
+
+                ]
             }
 
-            headBar.leftContent: [
-
-                ToolButton
-                {
-                    icon.name: "go-up"
-                    onClicked:
-                    {
-                        //                        if(_browser.currentFMList.parentPath)
-                        _browser.goUp()
-                    }
-                }
-
-            ]
-
-            headBar.rightContent: [
-
-                Maui.ToolButtonMenu
-                {
-                    icon.name: "list-add"
-                    MenuItem
-                    {
-                        text: i18n("New Branch")
-                        icon.name: "branch"
-                    }
-
-                    MenuItem
-                    {
-                        text: i18n("New Tag")
-                        icon.name: "tag"
-                    }
-
-                    MenuSeparator{}
-
-                    MenuItem
-                    {
-                        text: i18n("New File")
-                        icon.name: "document-new"
-                    }
-                }
-
-            ]
-
-            footBar.leftContent: [
-
-                ToolButton
-                {
-                    icon.name: "vcs-pull"
-                },
-
-                ToolButton
-                {
-                    icon.name: "vcs-pull"
-                },
-
-                ToolButton
-                {
-                    icon.name: "vcs-push"
-                },
-
-                ToolButton
-                {
-                    icon.name: "vcs-merge"
-                },
-
-                ToolButton
-                {
-                    icon.name: "vcs-commit"
-                },
-                ToolButton
-                {
-                    icon.name: "vcs-diff"
-                },
-
-                ToolButton
-                {
-                    icon.name: "vcs-stash"
-                },
-
-                ToolButton
-                {
-                    icon.name: "vcs-stash-pop"
-                }
-
-            ]
         }
-
-
     }
 
+    Maui.ProgressIndicator
+    {
+        width: parent.width
+        visible: project.status.code === Bonsai.StatusMessage.Loading
+        anchors.bottom: parent.bottom
+    }
 
+    Label
+    {
+        color: "orange"
+        text: project.status.code + " ///////////////////////// " + project.status.message
+    }
 
     function openCommitInfoDialog(id)
     {

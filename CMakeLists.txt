@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(BONSAI_VERSION 1.0.2)
+set(BONSAI_VERSION 1.1.0)
 
 project(bonsai VERSION ${BONSAI_VERSION})
 
@@ -15,23 +15,17 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(REQUIRED_QT_VERSION 5.15.0)
 set(REQUIRED_KF5_VERSION 5.60)
 
-if(ANDROID)
-    set(ANDROID_PACKAGE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/android_files)
-    set(ANDROID_ABIS "armeabi-v7a")
-endif()
-
 option(QUICK_COMPILER "Use QtQuick compiler to improve performance" TRUE)
 
 find_package(ECM ${REQUIRED_KF5_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${ECM_MODULE_PATH})
 
-if(UNIX AND NOT APPLE AND NOT ANDROID)
-    include(KDEInstallDirs)
-    include(KDECMakeSettings)
-    include(ECMInstallIcons)
-    include(ECMAddAppIcon)
-endif()
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fexceptions")
 
+include(KDEInstallDirs)
+include(KDECMakeSettings)
+include(ECMInstallIcons)
+include(ECMAddAppIcon)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDEClangFormat)
 include(ECMSetupVersion)
@@ -39,17 +33,14 @@ include(ECMSourceVersionControl)
 include(FeatureSummary)
 include(ECMQMLModules)
 
-find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Quick Core)
+find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Quick Core Widgets Concurrent)
 find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS I18n CoreAddons)
-
-if(ANDROID)
-    find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS AndroidExtras)
-else()
-    find_package(Qt5 ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE COMPONENTS Widgets)
-endif()
 
 find_package(MauiKit REQUIRED)
 find_package(MauiKit REQUIRED COMPONENTS FileBrowsing)
+
+find_package(Libqgit2 REQUIRED)
+find_package(Libgit2 REQUIRED)
 
 if(QUICK_COMPILER)
     find_package(Qt5QuickCompiler)
@@ -87,16 +78,18 @@ ecm_setup_version(${BONSAI_VERSION}
     VARIABLE_PREFIX BONSAI
     VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/bonsai_version.h"
     )
+
 include_directories(src/controllers)
+
+kde_enable_exceptions()
+
 
 add_subdirectory(src/controllers)
 add_subdirectory(src)
 
 ki18n_install(po)
 
-if(UNIX AND NOT APPLE AND NOT ANDROID)
-    install(FILES org.kde.bonsai.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
-    install(FILES org.kde.bonsai.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
-endif()
+install(FILES org.kde.bonsai.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+install(FILES org.kde.bonsai.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

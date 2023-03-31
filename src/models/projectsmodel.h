@@ -1,5 +1,4 @@
-#ifndef PROJECTSMODEL_H
-#define PROJECTSMODEL_H
+#pragma once
 
 #include <MauiKit/Core/mauilist.h>
 
@@ -15,11 +14,10 @@ public:
 
     void setList(const FMH::MODEL_LIST &list);
 
-public slots:
+public Q_SLOTS:
     void insert(const FMH::MODEL &item);
 
 private:
     FMH::MODEL_LIST m_list;
 };
 
-#endif // PROJECTSMODEL_H

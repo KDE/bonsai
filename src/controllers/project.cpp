@@ -1,7 +1,14 @@
 #include "project.h"
 #include "projectmanager.h"
+
 #include <QDebug>
 #include <QFileInfo>
+#include <QDir>
+
+#include <QtConcurrent>
+#include <QFuture>
+
+#include <KI18n/KLocalizedString>
 
 #include "controllers/branchesmanager.h"
 
@@ -11,37 +18,73 @@
 #include "libGitWrap/Remote.hpp"
 #include "libGitWrap/BranchRef.hpp"
 
+#include "libGitWrap/Operations/CheckoutOperation.hpp"
+#include "libGitWrap/Operations/RemoteOperations.hpp"
+
+#include <qgit2.h>
+#include <qgit2/qgitglobal.h>
+#include <qgit2/qgitcommit.h>
+#include <qgit2/qgitrepository.h>
+#include <qgit2/qgitcredentials.h>
+
+#include <qgit2/qgitexception.h>
+
+
 Project::Project(QObject *parent) : QObject(parent)
-  , m_commitsModel(nullptr)
+  ,m_commitsModel(nullptr)
   ,m_branchesManager(nullptr)
+  ,m_cloneWatcher(nullptr)
+  ,m_status(new StatusMessage(this))
 {
+    //    qRegisterMetaType<Status>("Status"); // this is needed for QML to know of WindowDecorations
+
     connect(this, &Project::urlChanged, this, &Project::setData);
     connect(this, &Project::currentBranchChanged, this, &Project::setCurrentBranchRemote);
 }
 
-QUrl Project::url() const
+Project::~Project()
+{
+    if(m_cloneWatcher)
+    {
+        m_cloneWatcher->cancel();
+        m_cloneWatcher->deleteLater();
+    }
+}
+
+QString Project::url() const
 {
     return m_url;
 }
 
-void Project::setData(const QUrl &url)
-{
-    m_repo = ProjectManager::gitDir(url);
+void Project::setData(const QString &url)
+{    
+    const auto mUrl = QUrl::fromUserInput(url);
 
-    m_logo = ProjectManager::projectLogo(url);
-    emit this->logoChanged(m_logo);
-
-    m_readmeFile = ProjectManager::readmeFile(url);
-    emit this->readmeFileChanged(m_readmeFile);
-
-    if(!m_repo.isValid())
+    if(!QFileInfo(mUrl.toLocalFile()).exists())
     {
-        emit error("URL is nto a valid repo");
+        setStatus(StatusMessage::Error, i18n("Directory does not exists."));
         return;
     }
 
+    m_repo = ProjectManager::gitDir(mUrl);
+
+    if(!m_repo.isValid())
+    {
+        Q_EMIT error(i18n("URL is not a valid repo."));
+        setStatus(StatusMessage::Error, url);
+        return;
+    }
+
+    setStatus(StatusMessage::Loading, i18n("Loading local repository."));
+
+    m_logo = ProjectManager::projectLogo(mUrl);
+    Q_EMIT this->logoChanged(m_logo);
+
+    m_readmeFile = ProjectManager::readmeFile(mUrl);
+    Q_EMIT this->readmeFileChanged(m_readmeFile);
+
     m_title = m_repo.name();
-    emit this->titleChanged(m_title);
+    Q_EMIT this->titleChanged(m_title);
 
     Git::Result r;
     m_currentBranch = m_repo.currentBranch(r);
@@ -49,9 +92,10 @@ void Project::setData(const QUrl &url)
     if ( !r )
     {
         qDebug()  << "Unable to get repo current branch" << r.errorText();
+
     }else
     {
-        emit this->currentBranchChanged(m_currentBranch);
+        Q_EMIT this->currentBranchChanged(m_currentBranch);
     }
 
     this->setHeadBranch();
@@ -65,7 +109,7 @@ void Project::setData(const QUrl &url)
         {
             m_remotesModel.append(QVariantMap{{"name", remote.name()}, {"url", remote.url()}, {"isValid", remote.isValid()}});
         }
-        emit remotesModelChanged(m_remotesModel);
+        Q_EMIT remotesModelChanged(m_remotesModel);
     }
 
     auto status = m_repo.status(r);
@@ -77,7 +121,7 @@ void Project::setData(const QUrl &url)
     {
         qDebug() << "PROJECT STATUS" << status.keys();
         qDebug() << status.keys();
-        m_status = status.keys();
+        m_repoStatus = status.keys();
     }
 
 
@@ -86,6 +130,7 @@ void Project::setData(const QUrl &url)
     //    {
     //        head.
     //    }
+    setStatus(StatusMessage::Ready, i18n("Ready."));
 
 }
 
@@ -125,9 +170,9 @@ BranchesManager *Project::getBranches()
     return m_branchesManager;
 }
 
-QStringList Project::status() const
+QStringList Project::repoStatus() const
 {
-    return m_status;
+    return m_repoStatus;
 }
 
 QUrl Project::readmeFile() const
@@ -151,13 +196,14 @@ QVariantMap Project::getHeadBranch() const
     return m_headBranch;
 }
 
-void Project::setUrl(QUrl url)
+void Project::setUrl(const QString &url)
 {
+    qDebug() << "SET URL " << url;
     if (m_url == url)
         return;
 
     m_url = url;
-    emit urlChanged(m_url);
+    Q_EMIT urlChanged(m_url);
 }
 
 void Project::setCurrentBranch(const QString &currentBranch)
@@ -166,7 +212,7 @@ void Project::setCurrentBranch(const QString &currentBranch)
         return;
 
     m_currentBranch = currentBranch;
-    emit currentBranchChanged(m_currentBranch);
+    Q_EMIT currentBranchChanged(m_currentBranch);
 }
 
 QString Project::fileStatusIcon(const QString &file)
@@ -176,7 +222,9 @@ QString Project::fileStatusIcon(const QString &file)
         return "error";
     }
 
-    if(!m_url.isParentOf(QUrl::fromUserInput(file)))
+    auto url = QUrl::fromUserInput(m_url);
+
+    if(!url.isParentOf(QUrl::fromUserInput(file)))
     {
         return "love";
     }
@@ -186,7 +234,7 @@ QString Project::fileStatusIcon(const QString &file)
         return "folder";
     }
 
-    auto relativeUrl = QString(file).replace(m_url.toString()+"/", "");
+    auto relativeUrl = QString(file).replace(url.toString()+"/", "");
     qDebug() << "GET STATUS FROM RELATIVE URL" <<  relativeUrl << m_url << file;
 
     Git::Result r;
@@ -271,6 +319,76 @@ QVariantMap Project::remoteInfo(const QString &remoteName)
     return res;
 }
 
+void Project::pull()
+{
+    if(!m_repo.isValid())
+    {
+        return;
+    }
+
+    qDebug() << "PULLIN OP";
+
+    auto op = new Git::FetchOperation(m_repo);
+    //    op->setRepository(m_repo);
+    //    op->setMode(Git::CheckoutSafe);
+    //    op->setBackgroundMode(true);
+    op->execute();
+}
+
+void Project::clone(const QString &url)
+{
+    const auto mUrl = QUrl::fromUserInput(m_url);
+    QDir dir (mUrl.toLocalFile());
+    if(!dir.exists())
+    {
+        if(!dir.mkpath("."))
+        {
+            setStatus(StatusMessage::Error, i18n("Failed to create directory for repository."));
+            return;
+        }
+    }else
+    {
+        m_repo = ProjectManager::gitDir(mUrl);
+        if(m_repo.isValid())
+        {
+            return;
+        }
+    }
+
+    auto op = [remoteUrl = url, where = mUrl]()
+    {
+        LibQGit2::initLibQGit2();
+    LibQGit2::Repository op;
+    op.setRemoteCredentials("origin",  LibQGit2::Credentials());
+
+    try {
+        op.clone(remoteUrl, where.toLocalFile());
+    }
+    catch (const LibQGit2::Exception& ex) {
+        qDebug() << ex.what() << ex.category();
+    }
+    };
+
+    m_cloneWatcher = new QFutureWatcher<void>;
+
+    connect(m_cloneWatcher, &QFutureWatcher<void>::finished, [this]()
+    {
+       this->setData(m_url);
+    });
+
+    auto future = QtConcurrent::run(op);
+    m_cloneWatcher->setFuture(future);
+
+    setStatus(StatusMessage::Loading, i18n("Start cloning new repo."));
+
+}
+
+
+StatusMessage* Project::status() const
+{
+    return m_status;
+}
+
 void Project::setCurrentBranchRemote(const QString &currentBranch)
 {
     if(!m_repo.isValid())
@@ -295,7 +413,7 @@ void Project::setCurrentBranchRemote(const QString &currentBranch)
         }
     }
 
-    emit this->currentBranchRemoteChanged(m_currentBranchRemote);
+    Q_EMIT this->currentBranchRemoteChanged(m_currentBranchRemote);
 
 }
 
@@ -319,7 +437,20 @@ void Project::setHeadBranch()
 
     }
 
-    emit headBranchChanged(m_headBranch);
-
+    Q_EMIT headBranchChanged(m_headBranch);
 }
 
+void Project::setStatus(StatusMessage::StatusCode code, const QString &message)
+{
+    m_status->code = code;
+    m_status->message = message;
+    Q_EMIT statusChanged();
+}
+
+
+StatusMessage::StatusMessage(QObject *parent) : QObject(parent)
+  ,code(StatusCode::Ready)
+  ,message(i18n("Nothing to see."))
+{
+
+}
