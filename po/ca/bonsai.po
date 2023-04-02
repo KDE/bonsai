@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-01 00:49+0000\n"
-"PO-Revision-Date: 2023-03-09 15:55+0100\n"
+"PO-Revision-Date: 2023-04-01 11:45+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -17,45 +17,42 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/controllers/project.cpp:65
 #, kde-format
 msgid "Directory does not exists."
-msgstr ""
+msgstr "El directori no existeix."
 
 #: src/controllers/project.cpp:73
 #, kde-format
 msgid "URL is not a valid repo."
-msgstr ""
+msgstr "L'URL no és un repositori vàlid."
 
 #: src/controllers/project.cpp:78
-#, fuzzy, kde-format
-#| msgid "Open a local repository"
+#, kde-format
 msgid "Loading local repository."
-msgstr "Obre un repositori local"
+msgstr "S'està carregant el repositori local."
 
 #: src/controllers/project.cpp:137
 #, kde-format
 msgid "Ready."
-msgstr ""
+msgstr "Preparat."
 
 #: src/controllers/project.cpp:339
 #, kde-format
 msgid "Failed to create directory for repository."
-msgstr ""
+msgstr "Ha fallat en crear el directori per al repositori."
 
 #: src/controllers/project.cpp:380
-#, fuzzy, kde-format
-#| msgid "Clone a repository"
+#, kde-format
 msgid "Start cloning %1 repository."
-msgstr "Clona un repositori"
+msgstr "S'ha iniciat la clonació del repositori %1."
 
 #: src/controllers/project.cpp:451
-#, fuzzy, kde-format
-#| msgid "Nothing here!"
+#, kde-format
 msgid "Nothing to see."
-msgstr "Res aquí!"
+msgstr "Res a veure."
 
 #: src/main.cpp:38
 #, kde-format
@@ -284,12 +281,12 @@ msgstr "Camí local"
 #: src/views/ProjectView.qml:299
 #, kde-format
 msgid "Loading..."
-msgstr ""
+msgstr "S'està carregant..."
 
 #: src/views/ProjectView.qml:300
 #, kde-format
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 #: src/views/ProjectView.qml:324
 #, kde-format
@@ -339,35 +336,24 @@ msgstr "Fitxer nou"
 #: src/views/SettingsDialog.qml:16
 #, kde-format
 msgid "Global"
-msgstr ""
+msgstr "Global"
 
 #: src/views/SettingsDialog.qml:20
-#, fuzzy, kde-format
-#| msgid "Clone a repository"
+#, kde-format
 msgid "Clone Directory"
-msgstr "Clona un repositori"
+msgstr "Clona un directori"
 
 #: src/views/SettingsDialog.qml:21
 #, kde-format
 msgid "Pick a default clone directory."
-msgstr ""
+msgstr "Seleccioneu un directori predeterminat de clonació."
 
 #: src/views/SettingsDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "Location"
+#, kde-format
 msgid "New location."
-msgstr "Ubicació"
+msgstr "Ubicació nova."
 
 #: src/views/SettingsDialog.qml:38
 #, kde-format
 msgid "Pick"
-msgstr ""
-
-#~ msgid "New Repo"
-#~ msgstr "Repositori nou"
-
-#~ msgid "Open a recent project"
-#~ msgstr "Obre un projecte recent"
-
-#~ msgid "Create a new repository"
-#~ msgstr "Crea un repositori nou"
+msgstr "Selecció"

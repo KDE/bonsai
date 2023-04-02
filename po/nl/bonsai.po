@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the bonsai package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2022.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-01 00:49+0000\n"
-"PO-Revision-Date: 2022-11-15 11:45+0100\n"
+"PO-Revision-Date: 2023-04-01 10:46+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,45 +15,42 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/controllers/project.cpp:65
 #, kde-format
 msgid "Directory does not exists."
-msgstr ""
+msgstr "Map bestaat niet."
 
 #: src/controllers/project.cpp:73
 #, kde-format
 msgid "URL is not a valid repo."
-msgstr ""
+msgstr "URL is geen geldige opslagruimte."
 
 #: src/controllers/project.cpp:78
-#, fuzzy, kde-format
-#| msgid "Open a local repository"
+#, kde-format
 msgid "Loading local repository."
-msgstr "Een lokale opslagruimte aanmaken"
+msgstr "Lokale opslagruimte laden"
 
 #: src/controllers/project.cpp:137
 #, kde-format
 msgid "Ready."
-msgstr ""
+msgstr "Gereed."
 
 #: src/controllers/project.cpp:339
 #, kde-format
 msgid "Failed to create directory for repository."
-msgstr ""
+msgstr "Aanmaken van map voor opslagruimte is mislukt."
 
 #: src/controllers/project.cpp:380
-#, fuzzy, kde-format
-#| msgid "Clone a repository"
+#, kde-format
 msgid "Start cloning %1 repository."
-msgstr "Een opslagruimte klonen"
+msgstr "Beginnen met klonen van opslagruimte %1."
 
 #: src/controllers/project.cpp:451
-#, fuzzy, kde-format
-#| msgid "Nothing here!"
+#, kde-format
 msgid "Nothing to see."
-msgstr "Er is hier niets!"
+msgstr "Er is niets te zien."
 
 #: src/main.cpp:38
 #, kde-format
@@ -282,12 +279,12 @@ msgstr "Lokaal pad"
 #: src/views/ProjectView.qml:299
 #, kde-format
 msgid "Loading..."
-msgstr ""
+msgstr "Bezig met laden..."
 
 #: src/views/ProjectView.qml:300
 #, kde-format
 msgid "Error"
-msgstr ""
+msgstr "Fout"
 
 #: src/views/ProjectView.qml:324
 #, kde-format
@@ -337,29 +334,27 @@ msgstr "Nieuw bestand"
 #: src/views/SettingsDialog.qml:16
 #, kde-format
 msgid "Global"
-msgstr ""
+msgstr "Globaal"
 
 #: src/views/SettingsDialog.qml:20
-#, fuzzy, kde-format
-#| msgid "Clone a repository"
+#, kde-format
 msgid "Clone Directory"
-msgstr "Een opslagruimte klonen"
+msgstr "Opslagruimte klonen"
 
 #: src/views/SettingsDialog.qml:21
 #, kde-format
 msgid "Pick a default clone directory."
-msgstr ""
+msgstr "Kies een standaard map met kloon."
 
 #: src/views/SettingsDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "Location"
+#, kde-format
 msgid "New location."
-msgstr "Locatie"
+msgstr "Nieuwe locatie."
 
 #: src/views/SettingsDialog.qml:38
 #, kde-format
 msgid "Pick"
-msgstr ""
+msgstr "Gekozen"
 
 #~ msgid "New Repo"
 #~ msgstr "Nieuwe opslagruimte"
