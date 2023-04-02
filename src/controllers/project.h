@@ -63,7 +63,7 @@ public:
      */
     void setUrl(const QString &url);
 
-    QString getTitle() const;
+    [[nodiscard]] QString getTitle() const;
 
     QUrl getLogo() const;
 

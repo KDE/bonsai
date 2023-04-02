@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.12
 import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
 import org.mauikit.texteditor 1.0 as TE
+import org.mauikit.terminal 1.0 as Term
 
 import org.maui.bonsai 1.0 as Bonsai
 
@@ -61,6 +62,13 @@ Maui.Page
     }
 
     footBar.rightContent: [
+
+        ToolButton
+        {
+          icon.name: "utilities-terminal-symbolic"
+          checked: _terminal.visible
+          onClicked: _terminal.visible = !_terminal.visible
+        },
 
         ToolButton
         {
@@ -305,301 +313,435 @@ Maui.Page
         body: project.status.message
     }
 
-    StackView
+    Maui.SplitView
     {
-        id: _stackView
         anchors.fill: parent
-        clip: false
-        visible: project.status.code === Bonsai.StatusMessage.Ready
+        orientation: Qt.Vertical
 
-        initialItem: Maui.Page
+        StackView
         {
+            id: _stackView
+            SplitView.fillWidth: true
+            SplitView.fillHeight: true
+            clip: false
+            visible: project.status.code === Bonsai.StatusMessage.Ready
 
-            headBar.forceCenterMiddleContent: root.isWide
-            headBar.middleContent: Maui.SearchField
+            initialItem: Maui.Page
             {
-                Layout.alignment: Qt.AlignCenter
-                Layout.maximumWidth: 500
-                Layout.fillWidth: true
-                placeholderText: i18n("Filter commit by id, message or author")
-                onAccepted: _commitsListView.model.filters = text.split(",")
-                onCleared: _commitsListView.model.clearFilters()
-            }
 
-            headBar.rightContent: Maui.ToolButtonMenu
-            {
-                icon.name: "view-sort"
-                autoExclusive: true
-
-                MenuItem
+                headBar.forceCenterMiddleContent: root.isWide
+                headBar.middleContent: Maui.SearchField
                 {
-                    text: i18n("Author")
+                    Layout.alignment: Qt.AlignCenter
+                    Layout.maximumWidth: 500
+                    Layout.fillWidth: true
+                    placeholderText: i18n("Filter commit by id, message or author")
+                    onAccepted: _commitsListView.model.filters = text.split(",")
+                    onCleared: _commitsListView.model.clearFilters()
                 }
 
-                MenuItem
+                headBar.rightContent: Maui.ToolButtonMenu
                 {
-                    text: i18n("Date")
-                }
+                    icon.name: "view-sort"
+                    autoExclusive: true
 
-                MenuSeparator{}
-
-                MenuItem
-                {
-                    text: i18n("Asc")
-                }
-
-                MenuItem
-                {
-                    text: i18n("Desc")
-                }
-            }
-
-
-            Maui.ListBrowser
-            {
-                id: _commitsListView
-                currentIndex: -1
-                anchors.fill: parent
-
-
-                flickable.header: Column
-                {
-                    width: parent.width
-
-                    Maui.SectionHeader
+                    MenuItem
                     {
-                        topPadding: Maui.Style.space.big
-                        bottomPadding: topPadding + _commitsListView.topPadding
-                        padding: _commitsListView.padding
+                        text: i18n("Author")
+                    }
 
+                    MenuItem
+                    {
+                        text: i18n("Date")
+                    }
+
+                    MenuSeparator{}
+
+                    MenuItem
+                    {
+                        text: i18n("Asc")
+                    }
+
+                    MenuItem
+                    {
+                        text: i18n("Desc")
+                    }
+                }
+
+
+                Maui.ListBrowser
+                {
+                    id: _commitsListView
+                    currentIndex: -1
+                    anchors.fill: parent
+
+
+                    flickable.header: Column
+                    {
                         width: parent.width
-                        template.iconSource: _project.logo
-                        template.iconSizeHint: Maui.Style.iconSizes.big
 
-                        label1.text: _project.title
-                        label2.text: _project.currentBranch
-                        //                        template.label3.text: _project.currentBranchRemote.name
-                        //                        template.label4.text: _project.currentBranchRemote.url
+                        Maui.SectionHeader
+                        {
+                            topPadding: Maui.Style.space.big
+                            bottomPadding: topPadding + _commitsListView.topPadding
+                            padding: _commitsListView.padding
 
-                        template.content:[ Maui.GridItemTemplate
+                            width: parent.width
+                            template.iconSource: _project.logo
+                            template.iconSizeHint: Maui.Style.iconSizes.big
+
+                            label1.text: _project.title
+                            label2.text: _project.currentBranch
+                            //                        template.label3.text: _project.currentBranchRemote.name
+                            //                        template.label4.text: _project.currentBranchRemote.url
+
+                            template.content:[ Maui.GridItemTemplate
+                                {
+                                    implicitWidth: 58
+                                    //                            implicitHeight: 64
+
+                                    iconSource: "vcs-commit"
+                                    iconSizeHint: Maui.Style.iconSizes.small
+                                    label1.text:  _commitsListView.count
+                                    label1.font.pointSize: Maui.Style.fontSizes.small
+                                },
+                                Maui.GridItemTemplate
+                                {
+                                    implicitWidth: 58
+                                    iconVisible: true
+                                    //                            implicitHeight: 64
+
+                                    iconSizeHint: Maui.Style.iconSizes.small
+
+                                    iconSource: "vcs-branch"
+                                    label1.text:   _project.branches.allBranches.length
+                                    label1.font.pointSize: Maui.Style.fontSizes.small
+                                }
+
+                            ]
+                        }
+
+                        //                    Maui.SectionHeader
+                        //                    {
+                        //                        topPadding: Maui.Style.space.big
+                        //                        bottomPadding: topPadding + _commitsListView.topPadding
+                        //                        padding: _commitsListView.padding
+                        //                        width: parent.width
+                        //                        label1.text: _project.url
+                        //                        label2.text: _project.currentBranch
+                        //                    }
+                    }
+
+                    model: Maui.BaseModel
+                    {
+                        id: _commitsModel
+                        list: project.commitsModel
+                        recursiveFilteringEnabled: true
+                        sortCaseSensitivity: Qt.CaseInsensitive
+                        filterCaseSensitivity: Qt.CaseInsensitive
+                    }
+
+                    delegate: Maui.ListBrowserDelegate
+                    {
+                        isCurrentItem: ListView.isCurrentItem
+                        width: ListView.view.width
+                        height:  ListView.isCurrentItem ? implicitHeight : Math.min(100, implicitHeight)
+                        label1.text: model.message
+                        label3.text: model.id
+                        label2.text: model.author
+                        label4.text: Qt.formatDateTime(model.date, "dd MM yyyy")
+                        rightLabels.visible: true
+
+                        onClicked:
+                        {
+                            _commitsListView.currentIndex = index
+                        }
+
+                        onDoubleClicked:
+                        {
+                            _commitsListView.currentIndex = index
+                            openCommitInfoDialog(_commitsModel.get(_commitsListView.currentIndex).id)
+                        }
+
+
+                        onRightClicked:
+                        {
+                            _commitsListView.currentIndex = index
+                            _commitMenu.show()
+                        }
+                    }
+
+                    Maui.ContextualMenu
+                    {
+                        id: _commitMenu
+
+                        MenuItem
+                        {
+                            text: i18n("Checkout")
+                        }
+
+                        MenuItem
+                        {
+                            text: i18n("Info")
+                            onTriggered: openCommitInfoDialog(_commitsModel.get(_commitsListView.currentIndex).id)
+                        }
+
+
+                        MenuItem
+                        {
+                            text: i18n("Copy ID")
+                            onTriggered: Maui.Handy.copyTextToClipboard(_commitsModel.get(_commitsListView.currentIndex).id)
+                        }
+                    }
+                }
+            }
+
+            Component
+            {
+                id:  _browserViewComponent
+
+                Maui.Page
+                {
+                    id: _browserView
+                    title: _browser.title
+                    showTitle: true
+                    FB.FileBrowser
+                    {
+                        id: _browser
+                        anchors.fill: parent
+                        currentPath: control.project.url
+                        onItemClicked: openItem(index)
+                        settings.viewType: FB.FMList.LIST_VIEW
+                        settings.showHiddenFiles: true
+                        browser.delegateInjector: Rectangle
+                        {
+                            radius: Maui.Style.radiusV
+                            color: Maui.Theme.backgroundColor
+                            Maui.Icon
                             {
-                                implicitWidth: 58
-                                //                            implicitHeight: 64
+                                visible: itemData.isdir
+                                source: _project.fileStatusIcon(itemData.url)
+                                anchors.centerIn: parent
+                            }
+                        }
 
-                                iconSource: "vcs-commit"
-                                iconSizeHint: Maui.Style.iconSizes.small
-                                label1.text:  _commitsListView.count
-                                label1.font.pointSize: Maui.Style.fontSizes.small
-                            },
-                            Maui.GridItemTemplate
+                        //            gridItemSize: 100
+                    }
+
+                    headBar.leftContent: [
+
+                        ToolButton
+                        {
+                            icon.name: "go-up"
+                            onClicked:
                             {
-                                implicitWidth: 58
-                                iconVisible: true
-                                //                            implicitHeight: 64
+                                //                        if(_browser.currentFMList.parentPath)
+                                _browser.goUp()
+                            }
+                        }
 
-                                iconSizeHint: Maui.Style.iconSizes.small
+                    ]
 
-                                iconSource: "vcs-branch"
-                                label1.text:   _project.branches.allBranches.length
-                                label1.font.pointSize: Maui.Style.fontSizes.small
+                    headBar.rightContent: [
+
+                        Maui.ToolButtonMenu
+                        {
+                            icon.name: "list-add"
+                            MenuItem
+                            {
+                                text: i18n("New Branch")
+                                icon.name: "branch"
                             }
 
-                        ]
-                    }
+                            MenuItem
+                            {
+                                text: i18n("New Tag")
+                                icon.name: "tag"
+                            }
 
-                    //                    Maui.SectionHeader
-                    //                    {
-                    //                        topPadding: Maui.Style.space.big
-                    //                        bottomPadding: topPadding + _commitsListView.topPadding
-                    //                        padding: _commitsListView.padding
-                    //                        width: parent.width
-                    //                        label1.text: _project.url
-                    //                        label2.text: _project.currentBranch
-                    //                    }
-                }
+                            MenuSeparator{}
 
-                model: Maui.BaseModel
-                {
-                    id: _commitsModel
-                    list: project.commitsModel
-                    recursiveFilteringEnabled: true
-                    sortCaseSensitivity: Qt.CaseInsensitive
-                    filterCaseSensitivity: Qt.CaseInsensitive
-                }
+                            MenuItem
+                            {
+                                text: i18n("New File")
+                                icon.name: "document-new"
+                            }
+                        }
 
-                delegate: Maui.ListBrowserDelegate
-                {
-                    isCurrentItem: ListView.isCurrentItem
-                    width: ListView.view.width
-                    height:  ListView.isCurrentItem ? implicitHeight : Math.min(100, implicitHeight)
-                    label1.text: model.message
-                    label3.text: model.id
-                    label2.text: model.author
-                    label4.text: Qt.formatDateTime(model.date, "dd MM yyyy")
-                    rightLabels.visible: true
+                    ]
 
-                    onClicked:
-                    {
-                        _commitsListView.currentIndex = index
-                    }
+                    footBar.leftContent: [
 
-                    onDoubleClicked:
-                    {
-                        _commitsListView.currentIndex = index
-                        openCommitInfoDialog(_commitsModel.get(_commitsListView.currentIndex).id)
-                    }
+                        ToolButtonOp
+                        {
+                            icon.name: "vcs-pull"
+                            onClicked: control.project.pull()
+                            text: i18n("Pull")
+                            display: ToolButton.TextBesideIcon
 
+                            Menu
+                            {
+                                title: i18n("Branch")
+                            }
 
-                    onRightClicked:
-                    {
-                        _commitsListView.currentIndex = index
-                        _commitMenu.show()
-                    }
-                }
+                            Menu
+                            {
+                                title: i18n("Remote")
+                            }
 
-                Maui.ContextualMenu
-                {
-                    id: _commitMenu
+                            MenuSeparator {}
 
-                    MenuItem
-                    {
-                        text: i18n("Checkout")
-                    }
+                            Column
+                            {
+                                width: ListView.view.width
+                                spacing: Maui.Style.defaultSpacing
+                                MenuItem
+                                {
+                                    width: parent.width
+                                    text: i18n("No Commit")
+                                    checkable: true
+                                }
 
-                    MenuItem
-                    {
-                        text: i18n("Info")
-                        onTriggered: openCommitInfoDialog(_commitsModel.get(_commitsListView.currentIndex).id)
-                    }
+                                MenuItem
+                                {
+                                    width: parent.width
+                                    text: i18n("Prune")
+                                    checkable: true
+                                }
 
+                                MenuItem
+                                {
+                                    width: parent.width
+                                    text: i18n("Tags")
+                                    checkable: true
 
-                    MenuItem
-                    {
-                        text: i18n("Copy ID")
-                        onTriggered: Maui.Handy.copyTextToClipboard(_commitsModel.get(_commitsListView.currentIndex).id)
-                    }
+                                }
+
+                                MenuItem
+                                {
+                                    width: parent.width
+                                    text: i18n("Squash")
+                                    checkable: true
+                                }
+                            }
+
+                            MenuSeparator{}
+
+                            Menu
+                            {
+                                title: i18n("Rebase")
+
+                                MenuItem
+                                {
+                                    text: i18n("Unset")
+                                    checkable: true
+                                    autoExclusive: true
+                                }
+
+                                MenuItem
+                                {
+                                    text: i18n("Yes")
+                                    checkable: true
+                                    autoExclusive: true
+                                }
+
+                                MenuItem
+                                {
+                                    text: i18n("No")
+                                    checkable: true
+                                    autoExclusive: true
+                                }
+
+                                MenuItem
+                                {
+                                    text: i18n("Only")
+                                    checkable: true
+                                    autoExclusive: true
+                                }
+                            }
+
+                            Menu
+                            {
+                                title: i18n("Fast Forward")
+
+                                MenuItem
+                                {
+                                    text: i18n("Unset")
+                                    checkable: true
+                                    autoExclusive: true
+                                }
+
+                                MenuItem
+                                {
+                                    text: i18n("Yes")
+                                    checkable: true
+                                    autoExclusive: true
+                                }
+
+                                MenuItem
+                                {
+                                    text: i18n("No")
+                                    checkable: true
+                                    autoExclusive: true
+                                }
+
+                                MenuItem
+                                {
+                                    text: i18n("Only")
+                                    checkable: true
+                                    autoExclusive: true
+                                }
+                            }
+                        },
+
+                        ToolButton
+                        {
+                            icon.name: "vcs-pull"
+                        },
+
+                        ToolButton
+                        {
+                            icon.name: "vcs-push"
+                        },
+
+                        ToolButton
+                        {
+                            icon.name: "vcs-merge"
+                        },
+
+                        ToolButton
+                        {
+                            icon.name: "vcs-commit"
+                        },
+                        ToolButton
+                        {
+                            icon.name: "vcs-diff"
+                        },
+
+                        ToolButton
+                        {
+                            icon.name: "vcs-stash"
+                        },
+
+                        ToolButton
+                        {
+                            icon.name: "vcs-stash-pop"
+                        }
+                    ]
                 }
             }
         }
 
-        Component
+        Term.Terminal
         {
-            id:  _browserViewComponent
-            Maui.Page
-            {
-                id: _browserView
-                title: _browser.title
-                showTitle: true
-                FB.FileBrowser
-                {
-                    id: _browser
-                    anchors.fill: parent
-                    currentPath: control.project.url
-                    onItemClicked: openItem(index)
-                    settings.viewType: FB.FMList.LIST_VIEW
-                    settings.showHiddenFiles: true
-                    browser.delegateInjector: Rectangle
-                    {
-                        radius: Maui.Style.radiusV
-                        color: Maui.Theme.backgroundColor
-                        Maui.Icon
-                        {
-                            visible: itemData.isdir
-                            source: _project.fileStatusIcon(itemData.url)
-                            anchors.centerIn: parent
-                        }
-                    }
-
-                    //            gridItemSize: 100
-                }
-
-                headBar.leftContent: [
-
-                    ToolButton
-                    {
-                        icon.name: "go-up"
-                        onClicked:
-                        {
-                            //                        if(_browser.currentFMList.parentPath)
-                            _browser.goUp()
-                        }
-                    }
-
-                ]
-
-                headBar.rightContent: [
-
-                    Maui.ToolButtonMenu
-                    {
-                        icon.name: "list-add"
-                        MenuItem
-                        {
-                            text: i18n("New Branch")
-                            icon.name: "branch"
-                        }
-
-                        MenuItem
-                        {
-                            text: i18n("New Tag")
-                            icon.name: "tag"
-                        }
-
-                        MenuSeparator{}
-
-                        MenuItem
-                        {
-                            text: i18n("New File")
-                            icon.name: "document-new"
-                        }
-                    }
-
-                ]
-
-                footBar.leftContent: [
-
-                    ToolButton
-                    {
-                        icon.name: "vcs-pull"
-                        onClicked: control.project.pull()
-                    },
-
-                    ToolButton
-                    {
-                        icon.name: "vcs-pull"
-                    },
-
-                    ToolButton
-                    {
-                        icon.name: "vcs-push"
-                    },
-
-                    ToolButton
-                    {
-                        icon.name: "vcs-merge"
-                    },
-
-                    ToolButton
-                    {
-                        icon.name: "vcs-commit"
-                    },
-                    ToolButton
-                    {
-                        icon.name: "vcs-diff"
-                    },
-
-                    ToolButton
-                    {
-                        icon.name: "vcs-stash"
-                    },
-
-                    ToolButton
-                    {
-                        icon.name: "vcs-stash-pop"
-                    }
-
-                ]
-            }
-
+            id: _terminal
+            SplitView.maximumHeight: 300
+            SplitView.minimumHeight: 100
+            SplitView.fillWidth: true
+            Maui.Theme.colorSet: Maui.Theme.Window
+            Maui.Theme.inherit: false
+            session.initialWorkingDirectory: control.project.url.replace("file://", "")
+            kterminal.colorScheme: "Adaptive"
         }
     }
 
