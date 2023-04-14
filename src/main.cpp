@@ -42,7 +42,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
         about.setBugAddress("https://invent.kde.org/maui/bonsai/-/issues");
         about.setOrganizationDomain(BONSAI_URI);
         about.setProgramLogo(app.windowIcon());
-        about.addComponent("libgit2");
+        about.addComponent("libkommit");
+
+        about.addCredit(QStringLiteral("Hamed Masafi"), i18n("Kommit Developer"));
 
         KAboutData::setApplicationData(about);
         MauiApp::instance()->setIconName("qrc:/assets/assets/bonsai.png");

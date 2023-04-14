@@ -77,11 +77,10 @@ ecm_setup_version(${BONSAI_VERSION}
     )
 
 include_directories(src/controllers)
-
 kde_enable_exceptions()
 
 
-#add_subdirectory(src/controllers)
+## forked libkommit @ bd4a56646fde669a4c4b32a8e11df5fd0c4dc743
 add_subdirectory(src/controllers/libkommit)
 add_subdirectory(src)
 
