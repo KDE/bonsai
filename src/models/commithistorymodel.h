@@ -1,5 +1,4 @@
-#ifndef COMMITHISTORYMODEL_H
-#define COMMITHISTORYMODEL_H
+#pragma once
 
 #include <QObject>
 #include <MauiKit/Core/mauilist.h>
@@ -26,4 +25,3 @@ private:
     void setData();
 };
 
-#endif // COMMITHISTORYMODEL_H

@@ -1,6 +1,5 @@
 #pragma once
 #include <QObject>
-#include "libGitWrap/Repository.hpp"
 
 class BranchesManager : public QObject
 {
@@ -11,8 +10,6 @@ class BranchesManager : public QObject
 
 public:
     explicit BranchesManager(QObject *parent = nullptr);
-
-    void setRepo(Git::Repository &repo);
 
     QStringList allBranches();
 
@@ -25,7 +22,7 @@ public Q_SLOTS:
     QString upstream(const QString &branchName);
 
 private:
-    Git::Repository m_repo;
+//    Git::Repository m_repo;
 
 Q_SIGNALS:
     void repoChanged();

@@ -4,35 +4,23 @@
 #include <QDebug>
 #include <QFileInfo>
 #include <QDir>
+#include <QColor>
 
 #include <QtConcurrent>
 #include <QFuture>
 
 #include <KI18n/KLocalizedString>
 
-#include "controllers/branchesmanager.h"
 
-#include "libGitWrap/Signature.hpp"
-#include "libGitWrap/Commit.hpp"
-#include "libGitWrap/ObjectId.hpp"
-#include "libGitWrap/Remote.hpp"
-#include "libGitWrap/BranchRef.hpp"
+#include <libkommit/commands/commandclone.h>
+#include <libkommit/models/logsmodel.h>
+#include <libkommit/gitglobal.h>
+#include <libkommit/gitlog.h>
 
-#include "libGitWrap/Operations/CheckoutOperation.hpp"
-#include "libGitWrap/Operations/RemoteOperations.hpp"
-
-#include <qgit2.h>
-#include <qgit2/qgitglobal.h>
-#include <qgit2/qgitcommit.h>
-#include <qgit2/qgitrepository.h>
-#include <qgit2/qgitcredentials.h>
-
-#include <qgit2/qgitexception.h>
-
+#include <libkommit/gitmanager.h>
 
 Project::Project(QObject *parent) : QObject(parent)
-  ,m_commitsModel(new CommitHistoryModel(this))
-  ,m_branchesManager(new BranchesManager(this))
+  ,m_manager(new Git::Manager())
   ,m_cloneWatcher(nullptr)
   ,m_status(new StatusMessage(this))
 {
@@ -49,6 +37,8 @@ Project::~Project()
         m_cloneWatcher->cancel();
         m_cloneWatcher->deleteLater();
     }
+
+    m_manager->deleteLater();
 }
 
 QString Project::url() const
@@ -60,15 +50,16 @@ void Project::setData(const QString &url)
 {    
     const auto mUrl = QUrl::fromUserInput(url);
 
-    if(!QFileInfo(mUrl.toLocalFile()).exists())
+    QFileInfo fileInfo(mUrl.toLocalFile());
+    if(!fileInfo.exists())
     {
         setStatus(StatusMessage::Error, i18n("Directory does not exists."));
         return;
     }
 
-    m_repo = ProjectManager::gitDir(mUrl);
+    m_manager->setPath(mUrl.toLocalFile());
 
-    if(!m_repo.isValid())
+    if(!m_manager->isValid())
     {
         Q_EMIT error(i18n("URL is not a valid repo."));
         setStatus(StatusMessage::Error, url);
@@ -83,56 +74,26 @@ void Project::setData(const QString &url)
     m_readmeFile = ProjectManager::readmeFile(mUrl);
     Q_EMIT this->readmeFileChanged(m_readmeFile);
 
-    m_title = m_repo.name();
+    m_title = fileInfo.fileName();
     Q_EMIT this->titleChanged(m_title);
 
-    Git::Result r;
-    m_currentBranch = m_repo.currentBranch(r);
-
-    if ( !r )
-    {
-        qDebug()  << "Unable to get repo current branch" << r.errorText();
-
-    }else
-    {
-        Q_EMIT this->currentBranchChanged(m_currentBranch);
-    }
+    m_currentBranch = m_manager->currentBranch();
+    Q_EMIT this->currentBranchChanged(m_currentBranch);
 
     this->setHeadBranch();
 
     qDebug() << "status states";
 
-    auto remotes = m_repo.allRemotes(r);
-    if(r)
-    {
-        for(const auto &remote : remotes)
-        {
-            m_remotesModel.append(QVariantMap{{"name", remote.name()}, {"url", remote.url()}, {"isValid", remote.isValid()}});
-        }
-        Q_EMIT remotesModelChanged(m_remotesModel);
-    }
+    //    auto remotes = m_manager->remotes();
 
-    auto status = m_repo.status(r);
-
-    if ( !r )
-    {
-        qDebug()  << "Unable to get repo status" << r.errorText();
-    }else
-    {
-        qDebug() << "PROJECT STATUS" << status.keys();
-        qDebug() << status.keys();
-        m_repoStatus = status.keys();
-    }
+    //        for(const auto &remote : remotes)
+    //        {
+    //            auto info = m_manager->remoteDetails(remote);
+    //            m_remotesModel.append(QVariantMap{{"name", info.name}, {"url", info.fetchUrl}});
+    //        }
+    //        Q_EMIT remotesModelChanged(m_remotesModel);
 
 
-    //    auto head = m_repo.HEAD(r);
-    //    if(r)
-    //    {
-    //        head.
-    //    }
-
-    m_commitsModel->setRepo(this->m_repo);
-    m_branchesManager->setRepo(this->m_repo);
 
     setStatus(StatusMessage::Ready, i18n("Ready."));
 
@@ -153,15 +114,9 @@ QString Project::currentBranch() const
     return m_currentBranch;
 }
 
-CommitHistoryModel *Project::getCommitsModel()
+Git::LogsModel *Project::getCommitsModel()
 {
-
-    return m_commitsModel;
-}
-
-BranchesManager *Project::getBranches()
-{
-    return m_branchesManager;
+    return m_manager->logsModel();
 }
 
 QStringList Project::repoStatus() const
@@ -211,7 +166,7 @@ void Project::setCurrentBranch(const QString &currentBranch)
 
 QString Project::fileStatusIcon(const QString &file)
 {
-    if(!m_repo.isValid())
+    if(!m_manager->isValid())
     {
         return "error";
     }
@@ -231,101 +186,113 @@ QString Project::fileStatusIcon(const QString &file)
     auto relativeUrl = QString(file).replace(url.toString()+"/", "");
     qDebug() << "GET STATUS FROM RELATIVE URL" <<  relativeUrl << m_url << file;
 
-    Git::Result r;
+    //    auto files = m_manager->repoFilesStatus();
 
-    Git::StatusFlags status = m_repo.status(r, relativeUrl);
 
-    if(status.testFlag(Git::Status::FileInvalidStatus))
-    {
-        return "vcs-conflicting";
-    }
 
-    if(status.testFlag(Git::Status::FileUnchanged))
-    {
-        return "vcs-normal";
-    }
-
-    if(status.testFlag(Git::Status::FileIgnored))
-    {
-        return "object-hidden";
-    }
-
-    if(status.testFlag(Git::Status::FileWorkingTreeNew) || status.testFlag(Git::Status::FileIndexNew))
-    {
-        return "vcs-added";
-    }
-
-    if(status.testFlag(Git::Status::FileWorkingTreeModified) ||status.testFlag(Git::Status::FileIndexModified) || status.testFlag(Git::Status::FileWorkingTreeTypeChange) || status.testFlag(Git::Status::FileIndexTypeChange) || status.testFlag(Git::Status::FileIndexRenamed))
-    {
-        return "vcs-locally-modified";
-    }
-
-    if(status.testFlag(Git::Status::FileWorkingTreeDeleted) || status.testFlag(Git::Status::FileIndexDeleted))
-    {
-        return "vcs-removed";
-    }
-
+    //    return Git::statusIcon()
     return "question";
 }
+
+QString Project::createHashLink(const QString &hash) const
+{
+    // TODO: remove also this one
+    auto log = m_manager->logsModel()->findLogByHash(hash);
+    if (!log)
+        return {};
+
+        return QStringLiteral(R"(<a href="hash:%1">%2</a> )").arg(log->commitHash(), log->subject());
+}
+
 
 QVariantMap Project::commitAuthor(const QString &id)
 {
     QVariantMap res;
-    if(!m_repo.isValid())
+    if(!m_manager->isValid())
         return res;
 
-    Git::Result r;
+    auto commit = m_manager->logsModel()->findLogByHash(id, Git::LogsModel::LogMatchType::BeginMatch);
 
-    auto commit = m_repo.lookupCommit(r, Git::ObjectId::fromString(id));
-    if(r)
-    {
-        res.insert("message", commit.message());
-        res.insert("parentCommits", commit.numParentCommits());
-        res.insert("shortMessage", commit.shortMessage());
+    if(!commit)
+        return res;
 
-        auto author = commit.author(r);
-        if(r)
+    res.insert("message", commit->body());
+    res.insert("shortMessage", commit->subject());
+
+    res.insert("name", commit->authorName());
+    res.insert("fullName", commit->committerName());
+    res.insert("email", commit->authorEmail());
+    res.insert("date", commit->commitDate());
+
+    QStringList parentHashHtml;
+       for (const auto &parent : commit->parents())
+           parentHashHtml.append(createHashLink(parent));
+
+       QStringList childsHashHtml;
+       for (const auto &child : commit->childs())
+           childsHashHtml.append(createHashLink(child));
+
+       res.insert("parentCommits", parentHashHtml);
+       res.insert("childCommits", childsHashHtml);
+
+    auto files = m_manager->changedFiles(id);
+
+    QVariantList filesHtml;
+
+        for (auto i = files.constBegin(); i != files.constEnd(); ++i)
         {
-            res.insert("name", author.name());
-            res.insert("fullName", author.fullName());
-            res.insert("email", author.email());
-            res.insert("date", author.when());
+            QString color;
+            switch (i.value()) {
+            case Git::ChangeStatus::Modified:
+                color = "orange";
+                break;
+            case Git::ChangeStatus::Added:
+                color = "green";
+                break;
+            case Git::ChangeStatus::Removed:
+                color = "red";
+                break;
+
+            case Git::ChangeStatus::Unknown:
+            case Git::ChangeStatus::Unmodified:
+            case Git::ChangeStatus::Renamed:
+            case Git::ChangeStatus::Copied:
+            case Git::ChangeStatus::UpdatedButInmerged:
+            case Git::ChangeStatus::Ignored:
+            case Git::ChangeStatus::Untracked:
+                break;
+            }
+
+            filesHtml << QVariantMap {{"color", color}, {"url",i.key()}};
         }
-    }
+
+
+    res.insert("changedFiles", filesHtml);
+
+
+
+    qDebug() << "CHANGED FILES" << childsHashHtml;
     return res;
 }
 
 QVariantMap Project::remoteInfo(const QString &remoteName)
 {
     QVariantMap res;
-    if(!m_repo.isValid())
+    if(!m_manager->isValid())
         return res;
 
-    Git::Result r;
 
-    auto remote = m_repo.remote(r, remoteName);
-    if(r)
-    {
-        res.insert("name", remote.name());
-        res.insert("url", remote.url());
-    }
+    auto remote = m_manager->remoteDetails(remoteName);
+
+    res.insert("name", remote.name);
+    res.insert("url", remote.pushUrl);
+
     return res;
 }
 
 void Project::pull()
 {
-    if(!m_repo.isValid())
-    {
-        return;
-    }
 
-    qDebug() << "PULLIN OP";
-
-    auto op = new Git::FetchOperation(m_repo);
-    //    op->setRepository(m_repo);
-    //    op->setMode(Git::CheckoutSafe);
-    //    op->setBackgroundMode(true);
-    op->execute();
 }
 
 void Project::clone(const QString &url)
@@ -345,8 +312,8 @@ void Project::clone(const QString &url)
         }
     }else
     {
-        m_repo = ProjectManager::gitDir(mUrl);
-        if(m_repo.isValid())
+        QDir gitDir (mUrl.toLocalFile()+"/.dir");
+        if(gitDir.exists())
         {
             return;
         }
@@ -354,16 +321,11 @@ void Project::clone(const QString &url)
 
     auto op = [remoteUrl = url, where = mUrl]()
     {
-        LibQGit2::initLibQGit2();
-        LibQGit2::Repository op;
-        op.setRemoteCredentials("origin",  LibQGit2::Credentials());
 
-        try {
-            op.clone(remoteUrl, where.toLocalFile());
-        }
-        catch (const LibQGit2::Exception& ex) {
-            qDebug() << ex.what() << ex.category();
-        }
+        Git::CloneCommand cmd;
+        cmd.setRepoUrl(remoteUrl);
+        cmd.setLocalPath(where.toLocalFile());
+        Git::run(where.toLocalFile(), cmd);
     };
 
     m_cloneWatcher = new QFutureWatcher<void>;
@@ -378,62 +340,75 @@ void Project::clone(const QString &url)
     m_cloneWatcher->setFuture(future);
 
     setStatus(StatusMessage::Loading, i18n("Start cloning %1 repository.", m_title));
-
 }
-
 
 StatusMessage* Project::status() const
 {
     return m_status;
 }
 
+QStringList Project::allBranches() const
+{
+    if(!m_manager->isValid())
+        return {};
+
+    return m_manager->branches();
+}
+
+QStringList Project::remoteBranches() const
+{
+    if(!m_manager->isValid())
+        return {};
+
+    return m_manager->remoteBranches();
+}
+
 void Project::setCurrentBranchRemote(const QString &currentBranch)
 {
-    if(!m_repo.isValid())
+    if(!m_manager->isValid())
         return;
 
-    Git::Result r;
-    m_currentBranchRemote.clear();
-    auto branchRef = m_repo.branchRef(r, m_currentBranch);
-    if(r)
-    {
-        auto remoteName = branchRef.upstreamRemoteName(r);
 
-        if(r)
-        {
-            m_currentBranchRemote = remoteInfo(remoteName);
+    //    m_currentBranchRemote.clear();
+    //    auto branchRef = m_repo.branchRef(r, m_currentBranch);
+    //    if(r)
+    //    {
+    //        auto remoteName = branchRef.upstreamRemoteName(r);
 
-        }
+    //        if(r)
+    //        {
+    //            m_currentBranchRemote = remoteInfo(remoteName);
 
-        if(!r)
-        {
-            qDebug() << "Could nto find current branch remote name";
-        }
-    }
+    //        }
 
-    Q_EMIT this->currentBranchRemoteChanged(m_currentBranchRemote);
+    //        if(!r)
+    //        {
+    //            qDebug() << "Could nto find current branch remote name";
+    //        }
+    //    }
+
+    //    Q_EMIT this->currentBranchRemoteChanged(m_currentBranchRemote);
 
 }
 
 void Project::setHeadBranch()
 {
-    if(!m_repo.isValid())
+    if(!m_manager->isValid())
         return;
 
-    Git::Result r;
-    m_headBranch.clear();
-    auto headRef = m_repo.headBranch(r);
-    if(r)
-    {
-        m_headBranch.insert("name", headRef.name());
-        m_headBranch.insert("isLocal", headRef.isLocal());
-        m_headBranch.insert("isRemote", headRef.isRemote());
-        m_headBranch.insert("prefix", headRef.prefix());
-        m_headBranch.insert("upstreamRemoteName", headRef.upstreamRemoteName(r));
-        m_headBranch.insert("upstreamName", headRef.upstreamName(r));
-        m_headBranch.insert("isCurrentBranch", headRef.isCurrentBranch());
 
-    }
+    m_headBranch.clear();
+    auto headRef = m_manager->currentBranch();
+
+    m_headBranch.insert("name", headRef);
+    //        m_headBranch.insert("isLocal", headRef.isLocal());
+    //        m_headBranch.insert("isRemote", headRef.isRemote());
+    //        m_headBranch.insert("prefix", headRef.prefix());
+    //        m_headBranch.insert("upstreamRemoteName", headRef.upstreamRemoteName(r));
+    //        m_headBranch.insert("upstreamName", headRef.upstreamName(r));
+    //        m_headBranch.insert("isCurrentBranch", headRef.isCurrentBranch());
+
+
 
     Q_EMIT headBranchChanged(m_headBranch);
 }

@@ -1,13 +1,14 @@
 #pragma once
 #include <QObject>
 #include <QUrl>
-#include "libGitWrap/Repository.hpp"
-
-#include "models/commithistorymodel.h"
 
 #include <QFutureWatcher>
 
-class BranchesManager;
+namespace Git
+{
+class Manager;
+class LogsModel;
+}
 
 class StatusMessage : public QObject
 {
@@ -44,11 +45,13 @@ class Project : public QObject
     Q_PROPERTY(QVariantMap currentBranchRemote READ currentBranchRemote NOTIFY currentBranchRemoteChanged)
     Q_PROPERTY(QVariantMap headBranch READ getHeadBranch NOTIFY headBranchChanged)
 
-    Q_PROPERTY(CommitHistoryModel *commitsModel READ getCommitsModel CONSTANT FINAL)
-    Q_PROPERTY(BranchesManager* branches READ getBranches CONSTANT FINAL)
+    Q_PROPERTY(Git::LogsModel *commitsModel READ getCommitsModel CONSTANT FINAL)
     Q_PROPERTY(QStringList repoStatus READ repoStatus NOTIFY repoStatusChanged)
     Q_PROPERTY(QUrl readmeFile READ readmeFile NOTIFY readmeFileChanged CONSTANT)
     Q_PROPERTY(QVariantList remotesModel READ getRemotesModel NOTIFY remotesModelChanged)
+
+    Q_PROPERTY(QStringList allBranches READ allBranches NOTIFY repoChanged)
+    Q_PROPERTY(QStringList remoteBranches READ remoteBranches NOTIFY repoChanged)
 
 public:    
 
@@ -70,9 +73,7 @@ public:
     QString currentBranch() const;
     void setCurrentBranch(const QString &currentBranch);
 
-    CommitHistoryModel * getCommitsModel();
-
-    BranchesManager* getBranches();
+    Git::LogsModel * getCommitsModel();
 
     QStringList repoStatus() const;
     QUrl readmeFile() const;
@@ -85,6 +86,10 @@ public:
 
     StatusMessage* status() const;
 
+    QStringList allBranches() const;
+
+    QStringList remoteBranches() const;
+
 public Q_SLOTS:
     QString fileStatusIcon(const QString &file);
 
@@ -95,21 +100,17 @@ public Q_SLOTS:
     void clone(const QString &url);
 
 private:
+    Git::Manager *m_manager;
     QFutureWatcher<void> *m_cloneWatcher;
 
     QString m_url;
     QString m_remoteUrl;
-
-    Git::Repository m_repo;
 
     QString m_title;
 
     QUrl m_logo;
 
     QString m_currentBranch;
-
-    CommitHistoryModel *m_commitsModel;
-    BranchesManager *m_branchesManager;
 
     QStringList m_repoStatus;
 
@@ -127,6 +128,7 @@ private:
     void setHeadBranch();
 
     void setStatus(StatusMessage::StatusCode code, const QString &message);
+    QString createHashLink(const QString &hash) const;
 
 Q_SIGNALS:
     void titleChanged(QString title);
@@ -141,6 +143,7 @@ Q_SIGNALS:
     void headBranchChanged(QVariantMap headBranch);
     void remoteUrlChanged(QString remoteUrl);
     void statusChanged();
+    void repoChanged();
 };
 
 

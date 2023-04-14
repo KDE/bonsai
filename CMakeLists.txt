@@ -39,9 +39,6 @@ find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS I18n CoreAddons)
 find_package(MauiKit REQUIRED)
 find_package(MauiKit REQUIRED COMPONENTS FileBrowsing)
 
-find_package(Libqgit2 REQUIRED)
-find_package(Libgit2 REQUIRED)
-
 if(QUICK_COMPILER)
     find_package(Qt5QuickCompiler)
     set_package_properties(Qt5QuickCompiler PROPERTIES
@@ -84,7 +81,8 @@ include_directories(src/controllers)
 kde_enable_exceptions()
 
 
-add_subdirectory(src/controllers)
+#add_subdirectory(src/controllers)
+add_subdirectory(src/controllers/libkommit)
 add_subdirectory(src)
 
 ki18n_install(po)

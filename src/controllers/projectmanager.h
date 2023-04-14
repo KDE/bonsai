@@ -2,7 +2,6 @@
 
 #include <QObject>
 #include <QUrl>
-#include "libGitWrap/Repository.hpp"
 
 #include "models/projectsmodel.h"
 
@@ -52,8 +51,7 @@ public:
     static QUrl projectLogo(const QUrl &url);
     static QUrl readmeFile(const QUrl &url);
 
-    static Git::Repository gitDir(const QUrl &url);
-    static FMH::MODEL repoInfo(const QUrl &url, Git::Repository &repo);
+    static FMH::MODEL repoInfo(const QUrl &url);
 
     static GlobalSettings* settings();
 

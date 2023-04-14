@@ -65,9 +65,9 @@ Maui.Page
 
         ToolButton
         {
-          icon.name: "utilities-terminal-symbolic"
-          checked: _terminal.visible
-          onClicked: _terminal.visible = !_terminal.visible
+            icon.name: "utilities-terminal-symbolic"
+            checked: _terminal.visible
+            onClicked: _terminal.visible = !_terminal.visible
         },
 
         ToolButton
@@ -97,7 +97,7 @@ Maui.Page
             icon.name: "vcs-branch"
             Repeater
             {
-                model: _project.branches.allBranches
+                model: _project.allBranches
                 MenuItem
                 {
                     autoExclusive: true
@@ -219,11 +219,12 @@ Maui.Page
         Maui.Dialog
         {
             property string commitId
+            id: _infoDialog
             readonly property var info : _project.commitAuthor(commitId)
             defaultButtons: false
             persistent: false
             maxWidth: 500
-            maxHeight: 400
+            //            maxHeight: 400
 
             Maui.SectionGroup
             {
@@ -279,8 +280,34 @@ Maui.Page
 
                 Maui.SectionItem
                 {
+                    id: _parentCommitField
                     label1.text: i18n("Parent Commit")
                     label2.text: info.parentCommits
+                    label2.textFormat: Text.AutoText
+                    Connections
+                    {
+                        target: _parentCommitField.label2
+                        function onLinkActivated(link)
+                        {
+                            _infoDialog.commitId = link.replace("hash:", "")
+                        }
+                    }
+                }
+
+                Maui.SectionItem
+                {
+                    id: _childCommitField
+                    label1.text: i18n("Child Commit")
+                    label2.text: info.childCommits
+                    label2.textFormat: Text.AutoText
+                    Connections
+                    {
+                        target: _childCommitField.label2
+                        function onLinkActivated(link)
+                        {
+                            _infoDialog.commitId = link.replace("hash:", "")
+                        }
+                    }
                 }
             }
 
@@ -289,11 +316,37 @@ Maui.Page
                 title: i18n("Repo")
                 Maui.SectionItem
                 {
-                    label1.text: i18n("Local path")
+                    label1.text: i18n("Local Path")
                     label2.text: _project.url
                 }
             }
 
+
+            Maui.SectionGroup
+            {
+                title: i18n("Files")
+                Maui.SectionItem
+                {
+                    label1.text: i18n("Changed Files")
+                    columns: 1
+
+                    ColumnLayout
+                    {
+                        Layout.fillWidth: true
+
+                        Repeater
+                        {
+                            model: info.changedFiles
+                            delegate: Label
+                            {
+                                Layout.fillWidth: true
+                                text: modelData.url
+                                color: modelData.color
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -323,7 +376,7 @@ Maui.Page
             id: _stackView
             SplitView.fillWidth: true
             SplitView.fillHeight: true
-            clip: false
+            clip: true
             visible: project.status.code === Bonsai.StatusMessage.Ready
 
             initialItem: Maui.Page
@@ -414,7 +467,7 @@ Maui.Page
                                     iconSizeHint: Maui.Style.iconSizes.small
 
                                     iconSource: "vcs-branch"
-                                    label1.text:   _project.branches.allBranches.length
+                                    label1.text:   _project.allBranches.length
                                     label1.font.pointSize: Maui.Style.fontSizes.small
                                 }
 
@@ -432,22 +485,15 @@ Maui.Page
                         //                    }
                     }
 
-                    model: Maui.BaseModel
-                    {
-                        id: _commitsModel
-                        list: project.commitsModel
-                        recursiveFilteringEnabled: true
-                        sortCaseSensitivity: Qt.CaseInsensitive
-                        filterCaseSensitivity: Qt.CaseInsensitive
-                    }
+                    model: project.commitsModel
 
                     delegate: Maui.ListBrowserDelegate
                     {
                         isCurrentItem: ListView.isCurrentItem
                         width: ListView.view.width
                         height:  ListView.isCurrentItem ? implicitHeight : Math.min(100, implicitHeight)
-                        label1.text: model.message
-                        label3.text: model.id
+                        label1.text: model.subject
+                        label3.text: model.hash
                         label2.text: model.author
                         label4.text: Qt.formatDateTime(model.date, "dd MM yyyy")
                         rightLabels.visible: true
@@ -460,7 +506,7 @@ Maui.Page
                         onDoubleClicked:
                         {
                             _commitsListView.currentIndex = index
-                            openCommitInfoDialog(_commitsModel.get(_commitsListView.currentIndex).id)
+                            openCommitInfoDialog(model.hash)
                         }
 
 
@@ -505,6 +551,7 @@ Maui.Page
                     id: _browserView
                     title: _browser.title
                     showTitle: true
+
                     FB.FileBrowser
                     {
                         id: _browser
@@ -570,14 +617,20 @@ Maui.Page
 
                     ]
 
+                    footBar.enabled: !_terminal.session.hasActiveProcess
                     footBar.leftContent: [
 
                         ToolButtonOp
                         {
                             icon.name: "vcs-pull"
-                            onClicked: control.project.pull()
                             text: i18n("Pull")
                             display: ToolButton.TextBesideIcon
+
+                            onClicked:
+                            {
+                                runCommand("git pull")
+                                //                                control.project.pull()
+                            }
 
                             Menu
                             {
@@ -718,14 +771,20 @@ Maui.Page
                             icon.name: "vcs-diff"
                         },
 
-                        ToolButton
+                        ToolButtonOp
                         {
                             icon.name: "vcs-stash"
+                            text: i18n("Stash")
+
+                            onClicked: runCommand("git stash")
                         },
 
-                        ToolButton
+                        ToolButtonOp
                         {
                             icon.name: "vcs-stash-pop"
+                            text: i18n("Stash Pop")
+
+                            onClicked: runCommand("git stash pop")
                         }
                     ]
                 }
@@ -735,10 +794,11 @@ Maui.Page
         Term.Terminal
         {
             id: _terminal
+            readOnly: true
             SplitView.maximumHeight: 300
             SplitView.minimumHeight: 100
             SplitView.fillWidth: true
-            Maui.Theme.colorSet: Maui.Theme.Window
+            Maui.Theme.colorSet: Maui.Theme.Header
             Maui.Theme.inherit: false
             session.initialWorkingDirectory: control.project.url.replace("file://", "")
             kterminal.colorScheme: "Adaptive"
@@ -763,5 +823,15 @@ Maui.Page
         _dialogLoader.sourceComponent = _commitInfoDialogComponent
         control.dialog.commitId = id
         control.dialog.open()
+    }
+
+    function runCommand(command)
+    {
+        if(_terminal.session.hasActiveProcess)
+        {
+            return;
+        }
+
+        _terminal.session.sendText(command+ "\n")
     }
 }
