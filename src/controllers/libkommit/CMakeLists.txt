@@ -2,9 +2,9 @@
 include(GenerateExportHeader)
 include(ECMQtDeclareLoggingCategory)
 
-add_library(libkommit SHARED)
+add_library(libkommit_bonsai STATIC)
 
-target_sources(libkommit PRIVATE
+target_sources(libkommit_bonsai PRIVATE
     gitglobal.cpp
     gitloglist.cpp
     gitsubmodule.cpp
@@ -78,9 +78,9 @@ target_sources(libkommit PRIVATE
     commands/commandclean.h
 )
 
-generate_export_header(libkommit BASE_NAME libkommit)
+generate_export_header(libkommit_bonsai BASE_NAME libkommit)
 
-ecm_qt_declare_logging_category(libkommit
+ecm_qt_declare_logging_category(libkommit_bonsai
     HEADER libkommit_debug.h
     IDENTIFIER KOMMITLIB_LOG
     CATEGORY_NAME "org.kde.kommit.libkommit" DESCRIPTION "libkommit" EXPORT KOMMIT
@@ -90,15 +90,15 @@ ecm_qt_declare_logging_category(libkommit
 #    PROPERTIES OUTPUT_NAME kommit VERSION ${LIBKOMMIT_LIB_VERSION} SOVERSION ${LIBKOMMIT_LIB_SOVERSION}
 #)
 
-target_link_libraries(libkommit
+target_link_libraries(libkommit_bonsai
     Qt::Core
     Qt::Widgets
     Qt::Concurrent
     KF5::I18n
 )
 
-if (BUILD_TESTING)
+#if (BUILD_TESTING)
 #    add_subdirectory(autotests)
-endif()
+#endif()
 
 #install(TARGETS libkommit ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} LIBRARY NAMELINK_SKIP)
