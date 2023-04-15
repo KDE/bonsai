@@ -3,6 +3,10 @@
 #include <QUrl>
 
 #include <QFutureWatcher>
+#include <libkommit/filestatus.h>
+
+class QFileSystemWatcher;
+class QTimer;
 
 namespace Git
 {
@@ -102,6 +106,9 @@ public Q_SLOTS:
 private:
     Git::Manager *m_manager;
     QFutureWatcher<void> *m_cloneWatcher;
+    QList<Git::FileStatus> m_filesStatus;
+    QFileSystemWatcher *m_gitDirWacther;
+    QTimer *m_watcherTimer;
 
     QString m_url;
     QString m_remoteUrl;
@@ -123,6 +130,7 @@ private:
     StatusMessage *m_status;
 
     void setData(const QString &url);
+    bool loadData();
 
     void setCurrentBranchRemote(const QString &currentBranch);
     void setHeadBranch();

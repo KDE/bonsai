@@ -63,12 +63,6 @@ Maui.Page
 
     footBar.rightContent: [
 
-        ToolButton
-        {
-            icon.name: "utilities-terminal-symbolic"
-            checked: _terminal.visible
-            onClicked: _terminal.visible = !_terminal.visible
-        },
 
         ToolButton
         {
@@ -215,140 +209,11 @@ Maui.Page
     Component
     {
         id: _commitInfoDialogComponent
-
-        Maui.Dialog
+        CommitInfoDialog
         {
-            property string commitId
-            id: _infoDialog
-            readonly property var info : _project.commitAuthor(commitId)
-            defaultButtons: false
-            persistent: false
-            maxWidth: 500
-            //            maxHeight: 400
 
-            Maui.SectionGroup
-            {
-                title: i18n("Author")
-
-                Maui.SectionItem
-                {
-                    label1.text: i18n("Full Name")
-                    label2.text: info.fullName
-                }
-
-                Maui.SectionItem
-                {
-                    label1.text: i18n("Email")
-                    label2.text: info.email
-
-                    ToolButton
-                    {
-                        icon.name: "mail-message"
-                        onClicked: Qt.openUrlExternally("mailto:"+info.email)
-                    }
-                }
-
-                Maui.SectionItem
-                {
-                    label1.text: i18n("ID")
-                    label2.text: commitId
-
-                    ToolButton
-                    {
-                        icon.name: "edit-copy"
-                        onClicked: Maui.Handy.copyTextToClipboard(commitId)
-                    }
-                }
-
-                Maui.SectionItem
-                {
-                    label1.text: i18n("Message")
-                    label2.text: info.message
-
-                    ToolButton
-                    {
-                        icon.name: "edit-copy"
-                        onClicked: Maui.Handy.copyTextToClipboard(info.message)
-                    }
-                }
-
-                Maui.SectionItem
-                {
-                    label1.text: i18n("Date")
-                    label2.text: Qt.formatDateTime(info.date, "dd mm yyyy")
-                }
-
-                Maui.SectionItem
-                {
-                    id: _parentCommitField
-                    label1.text: i18n("Parent Commit")
-                    label2.text: info.parentCommits
-                    label2.textFormat: Text.AutoText
-                    Connections
-                    {
-                        target: _parentCommitField.label2
-                        function onLinkActivated(link)
-                        {
-                            _infoDialog.commitId = link.replace("hash:", "")
-                        }
-                    }
-                }
-
-                Maui.SectionItem
-                {
-                    id: _childCommitField
-                    label1.text: i18n("Child Commit")
-                    label2.text: info.childCommits
-                    label2.textFormat: Text.AutoText
-                    Connections
-                    {
-                        target: _childCommitField.label2
-                        function onLinkActivated(link)
-                        {
-                            _infoDialog.commitId = link.replace("hash:", "")
-                        }
-                    }
-                }
-            }
-
-            Maui.SectionGroup
-            {
-                title: i18n("Repo")
-                Maui.SectionItem
-                {
-                    label1.text: i18n("Local Path")
-                    label2.text: _project.url
-                }
-            }
-
-
-            Maui.SectionGroup
-            {
-                title: i18n("Files")
-                Maui.SectionItem
-                {
-                    label1.text: i18n("Changed Files")
-                    columns: 1
-
-                    ColumnLayout
-                    {
-                        Layout.fillWidth: true
-
-                        Repeater
-                        {
-                            model: info.changedFiles
-                            delegate: Label
-                            {
-                                Layout.fillWidth: true
-                                text: modelData.url
-                                color: modelData.color
-                            }
-                        }
-                    }
-                }
-            }
         }
-    }
+     }
 
     Maui.Holder
     {
@@ -366,16 +231,11 @@ Maui.Page
         body: project.status.message
     }
 
-    Maui.SplitView
-    {
-        anchors.fill: parent
-        orientation: Qt.Vertical
-
         StackView
         {
             id: _stackView
-            SplitView.fillWidth: true
-            SplitView.fillHeight: true
+            anchors.fill: parent
+
             clip: true
             visible: project.status.code === Bonsai.StatusMessage.Ready
 
@@ -421,13 +281,11 @@ Maui.Page
                     }
                 }
 
-
                 Maui.ListBrowser
                 {
                     id: _commitsListView
                     currentIndex: -1
                     anchors.fill: parent
-
 
                     flickable.header: Column
                     {
@@ -440,8 +298,8 @@ Maui.Page
                             padding: _commitsListView.padding
 
                             width: parent.width
-                            template.iconSource: _project.logo
-                            template.iconSizeHint: Maui.Style.iconSizes.big
+                            template.imageSource: _project.logo
+                            template.imageSizeHint: Maui.Style.iconSizes.big
 
                             label1.text: _project.title
                             label2.text: _project.currentBranch
@@ -473,16 +331,6 @@ Maui.Page
 
                             ]
                         }
-
-                        //                    Maui.SectionHeader
-                        //                    {
-                        //                        topPadding: Maui.Style.space.big
-                        //                        bottomPadding: topPadding + _commitsListView.topPadding
-                        //                        padding: _commitsListView.padding
-                        //                        width: parent.width
-                        //                        label1.text: _project.url
-                        //                        label2.text: _project.currentBranch
-                        //                    }
                     }
 
                     model: project.commitsModel
@@ -564,6 +412,7 @@ Maui.Page
                         {
                             radius: Maui.Style.radiusV
                             color: Maui.Theme.backgroundColor
+
                             Maui.Icon
                             {
                                 visible: itemData.isdir
@@ -571,18 +420,16 @@ Maui.Page
                                 anchors.centerIn: parent
                             }
                         }
-
-                        //            gridItemSize: 100
                     }
 
                     headBar.leftContent: [
 
                         ToolButton
                         {
+                            visible: _browser.currentPath !== control.project.url
                             icon.name: "go-up"
                             onClicked:
                             {
-                                //                        if(_browser.currentFMList.parentPath)
                                 _browser.goUp()
                             }
                         }
@@ -617,7 +464,6 @@ Maui.Page
 
                     ]
 
-                    footBar.enabled: !_terminal.session.hasActiveProcess
                     footBar.leftContent: [
 
                         ToolButtonOp
@@ -791,19 +637,6 @@ Maui.Page
             }
         }
 
-        Term.Terminal
-        {
-            id: _terminal
-            readOnly: true
-            SplitView.maximumHeight: 300
-            SplitView.minimumHeight: 100
-            SplitView.fillWidth: true
-            Maui.Theme.colorSet: Maui.Theme.Header
-            Maui.Theme.inherit: false
-            session.initialWorkingDirectory: control.project.url.replace("file://", "")
-            kterminal.colorScheme: "Adaptive"
-        }
-    }
 
     Maui.ProgressIndicator
     {

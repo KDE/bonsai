@@ -5,12 +5,13 @@
 #include <QFileInfo>
 #include <QDir>
 #include <QColor>
+#include <QFileSystemWatcher>
+#include <QTimer>
 
 #include <QtConcurrent>
 #include <QFuture>
 
 #include <KI18n/KLocalizedString>
-
 
 #include <libkommit/commands/commandclone.h>
 #include <libkommit/models/logsmodel.h>
@@ -23,11 +24,38 @@ Project::Project(QObject *parent) : QObject(parent)
   ,m_manager(new Git::Manager())
   ,m_cloneWatcher(nullptr)
   ,m_status(new StatusMessage(this))
+  ,m_gitDirWacther(new QFileSystemWatcher(this))
+  ,m_watcherTimer(new QTimer(this))
 {
     //    qRegisterMetaType<Status>("Status"); // this is needed for QML to know of WindowDecorations
 
     connect(this, &Project::urlChanged, this, &Project::setData);
     connect(this, &Project::currentBranchChanged, this, &Project::setCurrentBranchRemote);
+
+
+    //Watch the git directory in case somehting happens, if so then refresh the needed parts
+    connect(m_gitDirWacther, &QFileSystemWatcher::directoryChanged, [this](const QString &dir)
+    {
+        qDebug() << "GIT DIR CHANGED REACT TO IT ???????????????????" << dir;
+
+        m_watcherTimer->start();
+    });
+
+    m_watcherTimer->setSingleShot(true);
+    m_watcherTimer->setInterval(1000);
+
+    connect(m_watcherTimer, &QTimer::timeout, [this]()
+    {
+        qDebug() << "GIT DIR CHANGED REACT TO IT";
+
+        if(!m_manager->isValid())
+            return;
+
+        m_manager->logsModel()->load();
+        loadData();
+
+        Q_EMIT repoChanged();
+    });
 }
 
 Project::~Project()
@@ -58,15 +86,26 @@ void Project::setData(const QString &url)
     }
 
     m_manager->setPath(mUrl.toLocalFile());
-
     if(!m_manager->isValid())
     {
         Q_EMIT error(i18n("URL is not a valid repo."));
-        setStatus(StatusMessage::Error, url);
+        setStatus(StatusMessage::Error, mUrl.toString());
         return;
     }
 
+    m_gitDirWacther->addPath(mUrl.toLocalFile());
+
     setStatus(StatusMessage::Loading, i18n("Loading local repository."));
+
+    if(loadData())
+        setStatus(StatusMessage::Ready, i18n("Ready."));
+
+}
+
+bool Project::loadData()
+{
+    const auto mUrl = QUrl::fromUserInput(m_url);
+    QFileInfo fileInfo(mUrl.toLocalFile());
 
     m_logo = ProjectManager::projectLogo(mUrl);
     Q_EMIT this->logoChanged(m_logo);
@@ -82,21 +121,9 @@ void Project::setData(const QString &url)
 
     this->setHeadBranch();
 
-    qDebug() << "status states";
+    m_filesStatus = m_manager->repoFilesStatus();
 
-    //    auto remotes = m_manager->remotes();
-
-    //        for(const auto &remote : remotes)
-    //        {
-    //            auto info = m_manager->remoteDetails(remote);
-    //            m_remotesModel.append(QVariantMap{{"name", info.name}, {"url", info.fetchUrl}});
-    //        }
-    //        Q_EMIT remotesModelChanged(m_remotesModel);
-
-
-
-    setStatus(StatusMessage::Ready, i18n("Ready."));
-
+    return true;
 }
 
 QString Project::getTitle() const
@@ -164,6 +191,33 @@ void Project::setCurrentBranch(const QString &currentBranch)
     Q_EMIT currentBranchChanged(m_currentBranch);
 }
 
+static QString statusIcon(Git::FileStatus::Status status)
+{
+    switch (status) {
+    case Git::FileStatus::Status::Added:
+        return QStringLiteral("git-status-added");
+    case Git::FileStatus::Status::Ignored:
+        return QStringLiteral("git-status-ignored");
+    case Git::FileStatus::Status::Modified:
+        return QStringLiteral("git-status-modified");
+    case Git::FileStatus::Status::Removed:
+        return QStringLiteral("git-status-removed");
+    case Git::FileStatus::Status::Renamed:
+        return QStringLiteral("git-status-renamed");
+    case Git::FileStatus::Status::Unknown:
+    case Git::FileStatus::Status::Untracked:
+        return QStringLiteral("git-status-unknown");
+    case Git::FileStatus::Status::Copied:
+    case Git::FileStatus::Status::UpdatedButInmerged:
+    case Git::FileStatus::Status::Unmodified:
+        return QStringLiteral("git-status-update");
+    default:
+        qWarning() << "Unknown icon" ;
+    }
+    return QStringLiteral("git-status-update");
+}
+
+
 QString Project::fileStatusIcon(const QString &file)
 {
     if(!m_manager->isValid())
@@ -178,20 +232,50 @@ QString Project::fileStatusIcon(const QString &file)
         return "love";
     }
 
-    if(QFileInfo(QUrl::fromUserInput(file).toLocalFile()).isDir())
+    QFileInfo info(QUrl::fromUserInput(file).toLocalFile());
+    if(info.isDir())
     {
-        return "folder";
+        Git::FileStatus::Status status = Git::FileStatus::Unmodified;
+        for (const auto &s : std::as_const(m_filesStatus))
+        {
+            const auto filePath = m_manager->path() + QLatin1Char('/') + s.name();
+
+            if (!filePath.startsWith(info.absoluteFilePath()))
+            {
+                continue;
+            }
+
+            if (status == Git::FileStatus::Unmodified)
+            {
+                status = s.status();
+            } else if (status != s.status()) {
+                return statusIcon(Git::FileStatus::Modified);
+            }
+        }
+
+        return statusIcon(status);
+
+
     }
 
     auto relativeUrl = QString(file).replace(url.toString()+"/", "");
     qDebug() << "GET STATUS FROM RELATIVE URL" <<  relativeUrl << m_url << file;
 
-    //    auto files = m_manager->repoFilesStatus();
 
+    auto result = std::find_if(m_filesStatus.constBegin(), m_filesStatus.constEnd(), [relativeUrl](const Git::FileStatus &file)
+    {
+        qDebug() << "CHECKING MATCH FILE" << file.name() << file.status();
 
+        return relativeUrl == file.name();
+    });
 
+    if(result != m_filesStatus.constEnd())
+    {
+        return statusIcon((*result).status());
+    }
     //    return Git::statusIcon()
-    return "question";
+    return statusIcon(Git::FileStatus::Unmodified);
+
 }
 
 QString Project::createHashLink(const QString &hash) const
@@ -201,7 +285,7 @@ QString Project::createHashLink(const QString &hash) const
     if (!log)
         return {};
 
-        return QStringLiteral(R"(<a href="hash:%1">%2</a> )").arg(log->commitHash(), log->subject());
+    return QStringLiteral(R"(<a href="hash:%1">%2</a> )").arg(log->commitHash(), log->subject());
 }
 
 
@@ -223,48 +307,49 @@ QVariantMap Project::commitAuthor(const QString &id)
     res.insert("fullName", commit->committerName());
     res.insert("email", commit->authorEmail());
     res.insert("date", commit->commitDate());
+    res.insert("branch", commit->branch());
 
     QStringList parentHashHtml;
-       for (const auto &parent : commit->parents())
-           parentHashHtml.append(createHashLink(parent));
+    for (const auto &parent : commit->parents())
+        parentHashHtml.append(createHashLink(parent));
 
-       QStringList childsHashHtml;
-       for (const auto &child : commit->childs())
-           childsHashHtml.append(createHashLink(child));
+    QStringList childsHashHtml;
+    for (const auto &child : commit->childs())
+        childsHashHtml.append(createHashLink(child));
 
-       res.insert("parentCommits", parentHashHtml);
-       res.insert("childCommits", childsHashHtml);
+    res.insert("parentCommits", parentHashHtml);
+    res.insert("childCommits", childsHashHtml);
 
     auto files = m_manager->changedFiles(id);
 
     QVariantList filesHtml;
 
-        for (auto i = files.constBegin(); i != files.constEnd(); ++i)
-        {
-            QString color;
-            switch (i.value()) {
-            case Git::ChangeStatus::Modified:
-                color = "orange";
-                break;
-            case Git::ChangeStatus::Added:
-                color = "green";
-                break;
-            case Git::ChangeStatus::Removed:
-                color = "red";
-                break;
+    for (auto i = files.constBegin(); i != files.constEnd(); ++i)
+    {
+        QString color;
+        switch (i.value()) {
+        case Git::ChangeStatus::Modified:
+            color = "orange";
+            break;
+        case Git::ChangeStatus::Added:
+            color = "green";
+            break;
+        case Git::ChangeStatus::Removed:
+            color = "red";
+            break;
 
-            case Git::ChangeStatus::Unknown:
-            case Git::ChangeStatus::Unmodified:
-            case Git::ChangeStatus::Renamed:
-            case Git::ChangeStatus::Copied:
-            case Git::ChangeStatus::UpdatedButInmerged:
-            case Git::ChangeStatus::Ignored:
-            case Git::ChangeStatus::Untracked:
-                break;
-            }
-
-            filesHtml << QVariantMap {{"color", color}, {"url",i.key()}};
+        case Git::ChangeStatus::Unknown:
+        case Git::ChangeStatus::Unmodified:
+        case Git::ChangeStatus::Renamed:
+        case Git::ChangeStatus::Copied:
+        case Git::ChangeStatus::UpdatedButInmerged:
+        case Git::ChangeStatus::Ignored:
+        case Git::ChangeStatus::Untracked:
+            break;
         }
+
+        filesHtml << QVariantMap {{"color", color}, {"url",i.key()}};
+    }
 
 
     res.insert("changedFiles", filesHtml);

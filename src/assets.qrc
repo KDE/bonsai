@@ -24,7 +24,4 @@
         <file>assets/icons/ic_stash.svg</file>
         <file>assets/icons/ic_wiki.svg</file>
     </qresource>
-    <qresource prefix="/">
-        <file>views/ToolButtonOp.qml</file>
-    </qresource>
 </RCC>

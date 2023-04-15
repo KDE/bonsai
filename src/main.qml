@@ -130,13 +130,7 @@ Maui.ApplicationWindow
             holder.body: i18n("Open or clone an existing repository, or create a new one.")
             holder.emoji: "qrc:/assets/assets/folder-add.svg"
 
-            holder.actions:[  _recentAction, _cloneAction, _openAction, _newAction    ]
-
-            Rectangle
-            {
-                  Maui.TabViewInfo.tabTitle: "title"
-                color: "blue"
-            }
+            holder.actions:[  _recentAction, _cloneAction, _openAction, _newAction ]
 
             tabBar.visible: true
             tabBar.showNewTabButton: false

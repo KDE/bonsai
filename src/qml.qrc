@@ -5,5 +5,7 @@
         <file>views/ProjectView.qml</file>
         <file>views/CloneDialog.qml</file>
         <file>views/SettingsDialog.qml</file>
+        <file>views/CommitInfoDialog.qml</file>
+        <file>views/ToolButtonOp.qml</file>
     </qresource>
 </RCC>
