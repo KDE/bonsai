@@ -19,7 +19,7 @@ class Manager;
 class LIBKOMMIT_EXPORT AbstractGitItemsModel : public QAbstractListModel
 {
     Q_OBJECT
-    Q_PROPERTY(Status status READ status WRITE setStatus NOTIFY statusChanged)
+    Q_PROPERTY(Status status READ status NOTIFY statusChanged)
 
 public:
     explicit AbstractGitItemsModel(Manager *git, QObject *parent = nullptr);
@@ -31,6 +31,7 @@ public:
 
 public Q_SLOTS:
     void load();
+    void reset();
 
 protected:
     void setStatus(Status newStatus);

@@ -17,6 +17,7 @@
 #include <libkommit/models/logsmodel.h>
 #include <libkommit/gitglobal.h>
 #include <libkommit/gitlog.h>
+#include <libkommit/models/remotesmodel.h>
 
 #include <libkommit/gitmanager.h>
 
@@ -29,8 +30,9 @@ Project::Project(QObject *parent) : QObject(parent)
 {
     //    qRegisterMetaType<Status>("Status"); // this is needed for QML to know of WindowDecorations
 
+    qRegisterMetaType<const Git::RemotesModel*>("const Git::RemotesModel *");
     connect(this, &Project::urlChanged, this, &Project::setData);
-    connect(this, &Project::currentBranchChanged, this, &Project::setCurrentBranchRemote);
+//    connect(this, &Project::currentBranchChanged, this, &Project::setCurrentBranchRemote);
 
 
     //Watch the git directory in case somehting happens, if so then refresh the needed parts
@@ -43,7 +45,7 @@ Project::Project(QObject *parent) : QObject(parent)
 
     connect(m_gitDirWacther, &QFileSystemWatcher::fileChanged, [this](const QString &dir)
     {
-        qDebug() << "GIT DIR CHANGED REACT TO IT ???????????????????" << dir;
+        qDebug() << "GIT FILE CHANGED REACT TO IT ???????????????????" << dir;
 
         m_watcherTimer->start();
     });
@@ -100,13 +102,10 @@ void Project::setData(const QString &url)
         return;
     }
 
+    m_gitDirWacther->addPath(mUrl.toLocalFile());
     m_gitDirWacther->addPath(mUrl.toLocalFile()+"/.git/objects");
-    m_gitDirWacther->addPath(mUrl.toLocalFile()+"/.git/objects/info");
-    m_gitDirWacther->addPath(mUrl.toLocalFile()+"/.git/objects/pack");
-    m_gitDirWacther->addPath(mUrl.toLocalFile()+"/.git/refs");
     m_gitDirWacther->addPath(mUrl.toLocalFile()+"/.git/refs/heads");
     m_gitDirWacther->addPath(mUrl.toLocalFile()+"/.git/index");
-    m_gitDirWacther->addPath(mUrl.toLocalFile()+"/.git/logs");
 
     setStatus(StatusMessage::Loading, i18n("Loading local repository."));
 
@@ -156,6 +155,9 @@ QString Project::currentBranch() const
 
 Git::LogsModel *Project::getCommitsModel()
 {
+    if(!m_manager->isValid())
+        return nullptr;
+
     return m_manager->logsModel();
 }
 
@@ -169,16 +171,15 @@ QUrl Project::readmeFile() const
     return m_readmeFile;
 }
 
-
-QVariantList Project::getRemotesModel() const
+Git::RemotesModel *Project::remotesModel() const
 {
-    return m_remotesModel;
+    if(!m_manager->isValid())
+        return nullptr;
+
+    qDebug() << "ASKIGN FOR THE RMEOTES MODEL" << m_manager->remotesModel()->rowCount(QModelIndex());
+    return m_manager->remotesModel();
 }
 
-QVariantMap Project::currentBranchRemote() const
-{
-    return m_currentBranchRemote;
-}
 
 QVariantMap Project::getHeadBranch() const
 {
@@ -267,18 +268,12 @@ QString Project::fileStatusIcon(const QString &file)
         }
 
         return statusIcon(status);
-
-
     }
 
     auto relativeUrl = QString(file).replace(url.toString()+"/", "");
-    qDebug() << "GET STATUS FROM RELATIVE URL" <<  relativeUrl << m_url << file;
-
 
     auto result = std::find_if(m_filesStatus.constBegin(), m_filesStatus.constEnd(), [relativeUrl](const Git::FileStatus &file)
     {
-        qDebug() << "CHECKING MATCH FILE" << file.name() << file.status();
-
         return relativeUrl == file.name();
     });
 
@@ -461,33 +456,6 @@ QStringList Project::remoteBranches() const
     return m_manager->remoteBranches();
 }
 
-void Project::setCurrentBranchRemote(const QString &currentBranch)
-{
-    if(!m_manager->isValid())
-        return;
-
-
-    //    m_currentBranchRemote.clear();
-    //    auto branchRef = m_repo.branchRef(r, m_currentBranch);
-    //    if(r)
-    //    {
-    //        auto remoteName = branchRef.upstreamRemoteName(r);
-
-    //        if(r)
-    //        {
-    //            m_currentBranchRemote = remoteInfo(remoteName);
-
-    //        }
-
-    //        if(!r)
-    //        {
-    //            qDebug() << "Could nto find current branch remote name";
-    //        }
-    //    }
-
-    //    Q_EMIT this->currentBranchRemoteChanged(m_currentBranchRemote);
-
-}
 
 void Project::setHeadBranch()
 {

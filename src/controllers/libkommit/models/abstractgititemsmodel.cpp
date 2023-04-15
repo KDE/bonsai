@@ -6,6 +6,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "abstractgititemsmodel.h"
 #include "gitmanager.h"
+#include <QDebug>
 
 namespace Git
 {
@@ -33,10 +34,15 @@ void AbstractGitItemsModel::load()
         return;
 
     setStatus(Loading);
-    beginResetModel();
     fill();
-    endResetModel();
+}
+
+void AbstractGitItemsModel::reset()
+{
+    qDebug() << "Reset model now that it is ready?";
+    beginResetModel();
     setStatus(Loaded);
+    endResetModel();
 }
 
 void AbstractGitItemsModel::setStatus(Status newStatus)

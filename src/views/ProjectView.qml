@@ -118,67 +118,41 @@ Maui.Page
             maxWidth: 800
             maxHeight: 600
 
-            Maui.SectionGroup
+            page.content: Maui.ProgressIndicator
             {
-                title: i18n("Head")
-                Maui.SectionItem
-                {
-                    label1.text: _project.headBranch.name
-                    label2.text: _project.headBranch.upstreamRemoteName
-
-                    CheckBox
-                    {
-                        visible: _project.headBranch.isCurrentBranch
-                        checked: visible
-                        checkable: false
-                    }
-                }
-
-                Maui.SectionItem
-                {
-                    label1.text: _project.headBranch.prefix
-                    label2.text: _project.headBranch.isLocal
-
-                }
-
+                width: parent.width
+                anchors.bottom: parent.bottom
+                visible:  _project.remotesModel.status === Bonsai.RemotesModel.Loading
             }
 
-            Maui.SectionGroup
+            Repeater
             {
-                title: i18n("Remotes")
-                Repeater
-                {
-                    model: _project.remotesModel
-                    delegate: Maui.SectionItem
-                    {
-                        property string remoteName : modelData.name
-                        label1.text: remoteName
-                        label2.text: modelData.url
-                        enabled: modelData.isValid
 
-                        Maui.CheckBoxItem
-                        {
-                            checked: _project.currentBranchRemote.name === remoteName
-                            visible: checked
-                        }
+                model: _project.remotesModel
+                delegate:  Maui.SectionGroup
+                {
+                    title: model.name
+
+                    Maui.SectionItem
+                    {
+                        label1.text: i18n("Default Branch")
+                        label2.text: model.headBranch
+                    }
+
+                    Maui.SectionItem
+                    {
+                        label1.text: i18n("Push Url")
+                        label2.text: model.pushUrl
+                    }
+
+                    Maui.SectionItem
+                    {
+                        label1.text: i18n("Fetch Url")
+                        label2.text: model.fetchUrl
                     }
                 }
             }
 
-            Maui.SectionGroup
-            {
-                title: i18n("Remote Branches")
-
-                Repeater
-                {
-                    model: _project.branches.localBranches
-                    delegate: Maui.SectionItem
-                    {
-                        label1.text: modelData
-                        label2.text: _project.branches.upstreamRemote(modelData)
-                    }
-                }
-            }
 
         }
     }
@@ -213,7 +187,7 @@ Maui.Page
         {
 
         }
-     }
+    }
 
     Maui.Holder
     {
@@ -231,411 +205,419 @@ Maui.Page
         body: project.status.message
     }
 
-        StackView
+    StackView
+    {
+        id: _stackView
+        anchors.fill: parent
+
+        clip: true
+        visible: project.status.code === Bonsai.StatusMessage.Ready
+
+        initialItem: Maui.Page
         {
-            id: _stackView
-            anchors.fill: parent
 
-            clip: true
-            visible: project.status.code === Bonsai.StatusMessage.Ready
-
-            initialItem: Maui.Page
+            headBar.forceCenterMiddleContent: root.isWide
+            headBar.middleContent: Maui.SearchField
             {
+                Layout.alignment: Qt.AlignCenter
+                Layout.maximumWidth: 500
+                Layout.fillWidth: true
+                placeholderText: i18n("Filter commit by id, message or author")
+                onAccepted: _commitsListView.model.filters = text.split(",")
+                onCleared: _commitsListView.model.clearFilters()
+            }
 
-                headBar.forceCenterMiddleContent: root.isWide
-                headBar.middleContent: Maui.SearchField
+            headBar.rightContent: Maui.ToolButtonMenu
+            {
+                icon.name: "view-sort"
+                autoExclusive: true
+
+                MenuItem
                 {
-                    Layout.alignment: Qt.AlignCenter
-                    Layout.maximumWidth: 500
-                    Layout.fillWidth: true
-                    placeholderText: i18n("Filter commit by id, message or author")
-                    onAccepted: _commitsListView.model.filters = text.split(",")
-                    onCleared: _commitsListView.model.clearFilters()
+                    text: i18n("Author")
                 }
 
-                headBar.rightContent: Maui.ToolButtonMenu
+                MenuItem
                 {
-                    icon.name: "view-sort"
-                    autoExclusive: true
-
-                    MenuItem
-                    {
-                        text: i18n("Author")
-                    }
-
-                    MenuItem
-                    {
-                        text: i18n("Date")
-                    }
-
-                    MenuSeparator{}
-
-                    MenuItem
-                    {
-                        text: i18n("Asc")
-                    }
-
-                    MenuItem
-                    {
-                        text: i18n("Desc")
-                    }
+                    text: i18n("Date")
                 }
 
-                Maui.ListBrowser
+                MenuSeparator{}
+
+                MenuItem
                 {
-                    id: _commitsListView
-                    currentIndex: -1
-                    anchors.fill: parent
+                    text: i18n("Asc")
+                }
 
-                    flickable.header: Column
-                    {
-                        width: parent.width
-
-                        Maui.SectionHeader
-                        {
-                            topPadding: Maui.Style.space.big
-                            bottomPadding: topPadding + _commitsListView.topPadding
-                            padding: _commitsListView.padding
-
-                            width: parent.width
-                            template.imageSource: _project.logo
-                            template.imageSizeHint: Maui.Style.iconSizes.big
-
-                            label1.text: _project.title
-                            label2.text: _project.currentBranch
-                            //                        template.label3.text: _project.currentBranchRemote.name
-                            //                        template.label4.text: _project.currentBranchRemote.url
-
-                            template.content:[ Maui.GridItemTemplate
-                                {
-                                    implicitWidth: 58
-                                    //                            implicitHeight: 64
-
-                                    iconSource: "vcs-commit"
-                                    iconSizeHint: Maui.Style.iconSizes.small
-                                    label1.text:  _commitsListView.count
-                                    label1.font.pointSize: Maui.Style.fontSizes.small
-                                },
-                                Maui.GridItemTemplate
-                                {
-                                    implicitWidth: 58
-                                    iconVisible: true
-                                    //                            implicitHeight: 64
-
-                                    iconSizeHint: Maui.Style.iconSizes.small
-
-                                    iconSource: "vcs-branch"
-                                    label1.text:   _project.allBranches.length
-                                    label1.font.pointSize: Maui.Style.fontSizes.small
-                                }
-
-                            ]
-                        }
-                    }
-
-                    model: project.commitsModel
-
-                    delegate: Maui.ListBrowserDelegate
-                    {
-                        isCurrentItem: ListView.isCurrentItem
-                        width: ListView.view.width
-                        height:  ListView.isCurrentItem ? implicitHeight : Math.min(100, implicitHeight)
-                        label1.text: model.subject
-                        label3.text: model.hash
-                        label2.text: model.author
-                        label4.text: Qt.formatDateTime(model.date, "dd MM yyyy")
-                        rightLabels.visible: true
-
-                        onClicked:
-                        {
-                            _commitsListView.currentIndex = index
-                        }
-
-                        onDoubleClicked:
-                        {
-                            _commitsListView.currentIndex = index
-                            openCommitInfoDialog(model.hash)
-                        }
-
-
-                        onRightClicked:
-                        {
-                            _commitsListView.currentIndex = index
-                            _commitMenu.show()
-                        }
-                    }
-
-                    Maui.ContextualMenu
-                    {
-                        id: _commitMenu
-
-                        MenuItem
-                        {
-                            text: i18n("Checkout")
-                        }
-
-                        MenuItem
-                        {
-                            text: i18n("Info")
-                            onTriggered: openCommitInfoDialog(_commitsModel.get(_commitsListView.currentIndex).id)
-                        }
-
-
-                        MenuItem
-                        {
-                            text: i18n("Copy ID")
-                            onTriggered: Maui.Handy.copyTextToClipboard(_commitsModel.get(_commitsListView.currentIndex).id)
-                        }
-                    }
+                MenuItem
+                {
+                    text: i18n("Desc")
                 }
             }
 
-            Component
+            Maui.ListBrowser
             {
-                id:  _browserViewComponent
+                id: _commitsListView
+                currentIndex: -1
+                anchors.fill: parent
 
-                Maui.Page
+                flickable.header: Column
                 {
-                    id: _browserView
-                    title: _browser.title
-                    showTitle: true
+                    width: parent.width
 
-                    FB.FileBrowser
+                    Maui.SectionHeader
                     {
-                        id: _browser
-                        anchors.fill: parent
-                        currentPath: control.project.url
-                        onItemClicked: openItem(index)
-                        settings.viewType: FB.FMList.LIST_VIEW
-                        settings.showHiddenFiles: true
-                        browser.delegateInjector: Rectangle
-                        {
-                            radius: Maui.Style.radiusV
-                            color: Maui.Theme.backgroundColor
+                        topPadding: Maui.Style.space.big
+                        bottomPadding: topPadding + _commitsListView.topPadding
+                        padding: _commitsListView.padding
 
-                            Maui.Icon
+                        width: parent.width
+                        template.imageSource: _project.logo
+                        template.imageSizeHint: Maui.Style.iconSizes.big
+
+                        label1.text: _project.title
+                        label2.text: _project.currentBranch
+                        //                        template.label3.text: _project.currentBranchRemote.name
+                        //                        template.label4.text: _project.currentBranchRemote.url
+
+                        template.content:[ Maui.GridItemTemplate
                             {
-                                visible: itemData.isdir
-                                source: _project.fileStatusIcon(itemData.url)
-                                anchors.centerIn: parent
+                                implicitWidth: 58
+                                //                            implicitHeight: 64
+
+                                iconSource: "vcs-commit"
+                                iconSizeHint: Maui.Style.iconSizes.small
+                                label1.text:  _commitsListView.count
+                                label1.font.pointSize: Maui.Style.fontSizes.small
+                            },
+                            Maui.GridItemTemplate
+                            {
+                                implicitWidth: 58
+                                iconVisible: true
+                                //                            implicitHeight: 64
+
+                                iconSizeHint: Maui.Style.iconSizes.small
+
+                                iconSource: "vcs-branch"
+                                label1.text:   _project.allBranches.length
+                                label1.font.pointSize: Maui.Style.fontSizes.small
                             }
-                        }
+
+                        ]
+                    }
+                }
+
+                Maui.ProgressIndicator
+                            {
+                                width: parent.width
+                                anchors.bottom: parent.bottom
+                                visible:  _project.commitsModel.status === Bonsai.CommitsModel.Loading
+                            }
+
+
+                model: project.commitsModel
+
+                delegate: Maui.ListBrowserDelegate
+                {
+                    isCurrentItem: ListView.isCurrentItem
+                    width: ListView.view.width
+                    height:  ListView.isCurrentItem ? implicitHeight : Math.min(100, implicitHeight)
+                    label1.text: model.subject
+                    label3.text: model.hash
+                    label2.text: model.author
+                    label4.text: Qt.formatDateTime(model.date, "dd MM yyyy")
+                    rightLabels.visible: true
+
+                    onClicked:
+                    {
+                        _commitsListView.currentIndex = index
                     }
 
-                    headBar.leftContent: [
+                    onDoubleClicked:
+                    {
+                        _commitsListView.currentIndex = index
+                        openCommitInfoDialog(model.hash)
+                    }
 
-                        ToolButton
-                        {
-                            visible: _browser.currentPath !== control.project.url
-                            icon.name: "go-up"
-                            onClicked:
-                            {
-                                _browser.goUp()
-                            }
-                        }
 
-                    ]
+                    onRightClicked:
+                    {
+                        _commitsListView.currentIndex = index
+                        _commitMenu.show()
+                    }
+                }
 
-                    headBar.rightContent: [
+                Maui.ContextualMenu
+                {
+                    id: _commitMenu
 
-                        Maui.ToolButtonMenu
-                        {
-                            icon.name: "list-add"
-                            MenuItem
-                            {
-                                text: i18n("New Branch")
-                                icon.name: "branch"
-                            }
+                    MenuItem
+                    {
+                        text: i18n("Checkout")
+                    }
 
-                            MenuItem
-                            {
-                                text: i18n("New Tag")
-                                icon.name: "tag"
-                            }
+                    MenuItem
+                    {
+                        text: i18n("Info")
+                        onTriggered: openCommitInfoDialog(_commitsModel.get(_commitsListView.currentIndex).id)
+                    }
 
-                            MenuSeparator{}
 
-                            MenuItem
-                            {
-                                text: i18n("New File")
-                                icon.name: "document-new"
-                            }
-                        }
-
-                    ]
-
-                    footBar.leftContent: [
-
-                        ToolButtonOp
-                        {
-                            icon.name: "vcs-pull"
-                            text: i18n("Pull")
-                            display: ToolButton.TextBesideIcon
-
-                            onClicked:
-                            {
-                                runCommand("git pull")
-                                //                                control.project.pull()
-                            }
-
-                            Menu
-                            {
-                                title: i18n("Branch")
-                            }
-
-                            Menu
-                            {
-                                title: i18n("Remote")
-                            }
-
-                            MenuSeparator {}
-
-                            Column
-                            {
-                                width: ListView.view.width
-                                spacing: Maui.Style.defaultSpacing
-                                MenuItem
-                                {
-                                    width: parent.width
-                                    text: i18n("No Commit")
-                                    checkable: true
-                                }
-
-                                MenuItem
-                                {
-                                    width: parent.width
-                                    text: i18n("Prune")
-                                    checkable: true
-                                }
-
-                                MenuItem
-                                {
-                                    width: parent.width
-                                    text: i18n("Tags")
-                                    checkable: true
-
-                                }
-
-                                MenuItem
-                                {
-                                    width: parent.width
-                                    text: i18n("Squash")
-                                    checkable: true
-                                }
-                            }
-
-                            MenuSeparator{}
-
-                            Menu
-                            {
-                                title: i18n("Rebase")
-
-                                MenuItem
-                                {
-                                    text: i18n("Unset")
-                                    checkable: true
-                                    autoExclusive: true
-                                }
-
-                                MenuItem
-                                {
-                                    text: i18n("Yes")
-                                    checkable: true
-                                    autoExclusive: true
-                                }
-
-                                MenuItem
-                                {
-                                    text: i18n("No")
-                                    checkable: true
-                                    autoExclusive: true
-                                }
-
-                                MenuItem
-                                {
-                                    text: i18n("Only")
-                                    checkable: true
-                                    autoExclusive: true
-                                }
-                            }
-
-                            Menu
-                            {
-                                title: i18n("Fast Forward")
-
-                                MenuItem
-                                {
-                                    text: i18n("Unset")
-                                    checkable: true
-                                    autoExclusive: true
-                                }
-
-                                MenuItem
-                                {
-                                    text: i18n("Yes")
-                                    checkable: true
-                                    autoExclusive: true
-                                }
-
-                                MenuItem
-                                {
-                                    text: i18n("No")
-                                    checkable: true
-                                    autoExclusive: true
-                                }
-
-                                MenuItem
-                                {
-                                    text: i18n("Only")
-                                    checkable: true
-                                    autoExclusive: true
-                                }
-                            }
-                        },
-
-                        ToolButton
-                        {
-                            icon.name: "vcs-pull"
-                        },
-
-                        ToolButton
-                        {
-                            icon.name: "vcs-push"
-                        },
-
-                        ToolButton
-                        {
-                            icon.name: "vcs-merge"
-                        },
-
-                        ToolButton
-                        {
-                            icon.name: "vcs-commit"
-                        },
-                        ToolButton
-                        {
-                            icon.name: "vcs-diff"
-                        },
-
-                        ToolButtonOp
-                        {
-                            icon.name: "vcs-stash"
-                            text: i18n("Stash")
-
-                            onClicked: runCommand("git stash")
-                        },
-
-                        ToolButtonOp
-                        {
-                            icon.name: "vcs-stash-pop"
-                            text: i18n("Stash Pop")
-
-                            onClicked: runCommand("git stash pop")
-                        }
-                    ]
+                    MenuItem
+                    {
+                        text: i18n("Copy ID")
+                        onTriggered: Maui.Handy.copyTextToClipboard(_commitsModel.get(_commitsListView.currentIndex).id)
+                    }
                 }
             }
         }
+
+        Component
+        {
+            id:  _browserViewComponent
+
+            Maui.Page
+            {
+                id: _browserView
+                title: _browser.title
+                showTitle: true
+
+                FB.FileBrowser
+                {
+                    id: _browser
+                    anchors.fill: parent
+                    currentPath: control.project.url
+                    onItemClicked: openItem(index)
+                    settings.viewType: FB.FMList.LIST_VIEW
+                    settings.showHiddenFiles: true
+                    browser.delegateInjector: Rectangle
+                    {
+                        radius: Maui.Style.radiusV
+                        color: Maui.Theme.backgroundColor
+
+                        Maui.Icon
+                        {
+                            visible: itemData.isdir
+                            source: _project.fileStatusIcon(itemData.url)
+                            anchors.centerIn: parent
+                        }
+                    }
+                }
+
+                headBar.leftContent: [
+
+                    ToolButton
+                    {
+                        visible: _browser.currentPath !== control.project.url
+                        icon.name: "go-up"
+                        onClicked:
+                        {
+                            _browser.goUp()
+                        }
+                    }
+
+                ]
+
+                headBar.rightContent: [
+
+                    Maui.ToolButtonMenu
+                    {
+                        icon.name: "list-add"
+                        MenuItem
+                        {
+                            text: i18n("New Branch")
+                            icon.name: "branch"
+                        }
+
+                        MenuItem
+                        {
+                            text: i18n("New Tag")
+                            icon.name: "tag"
+                        }
+
+                        MenuSeparator{}
+
+                        MenuItem
+                        {
+                            text: i18n("New File")
+                            icon.name: "document-new"
+                        }
+                    }
+
+                ]
+
+                footBar.leftContent: [
+
+                    ToolButtonOp
+                    {
+                        icon.name: "vcs-pull"
+                        text: i18n("Pull")
+                        display: ToolButton.TextBesideIcon
+
+                        onClicked:
+                        {
+                            runCommand("git pull")
+                            //                                control.project.pull()
+                        }
+
+                        Menu
+                        {
+                            title: i18n("Branch")
+                        }
+
+                        Menu
+                        {
+                            title: i18n("Remote")
+                        }
+
+                        MenuSeparator {}
+
+                        Column
+                        {
+                            width: ListView.view.width
+                            spacing: Maui.Style.defaultSpacing
+                            MenuItem
+                            {
+                                width: parent.width
+                                text: i18n("No Commit")
+                                checkable: true
+                            }
+
+                            MenuItem
+                            {
+                                width: parent.width
+                                text: i18n("Prune")
+                                checkable: true
+                            }
+
+                            MenuItem
+                            {
+                                width: parent.width
+                                text: i18n("Tags")
+                                checkable: true
+
+                            }
+
+                            MenuItem
+                            {
+                                width: parent.width
+                                text: i18n("Squash")
+                                checkable: true
+                            }
+                        }
+
+                        MenuSeparator{}
+
+                        Menu
+                        {
+                            title: i18n("Rebase")
+
+                            MenuItem
+                            {
+                                text: i18n("Unset")
+                                checkable: true
+                                autoExclusive: true
+                            }
+
+                            MenuItem
+                            {
+                                text: i18n("Yes")
+                                checkable: true
+                                autoExclusive: true
+                            }
+
+                            MenuItem
+                            {
+                                text: i18n("No")
+                                checkable: true
+                                autoExclusive: true
+                            }
+
+                            MenuItem
+                            {
+                                text: i18n("Only")
+                                checkable: true
+                                autoExclusive: true
+                            }
+                        }
+
+                        Menu
+                        {
+                            title: i18n("Fast Forward")
+
+                            MenuItem
+                            {
+                                text: i18n("Unset")
+                                checkable: true
+                                autoExclusive: true
+                            }
+
+                            MenuItem
+                            {
+                                text: i18n("Yes")
+                                checkable: true
+                                autoExclusive: true
+                            }
+
+                            MenuItem
+                            {
+                                text: i18n("No")
+                                checkable: true
+                                autoExclusive: true
+                            }
+
+                            MenuItem
+                            {
+                                text: i18n("Only")
+                                checkable: true
+                                autoExclusive: true
+                            }
+                        }
+                    },
+
+                    ToolButton
+                    {
+                        icon.name: "vcs-pull"
+                    },
+
+                    ToolButton
+                    {
+                        icon.name: "vcs-push"
+                    },
+
+                    ToolButton
+                    {
+                        icon.name: "vcs-merge"
+                    },
+
+                    ToolButton
+                    {
+                        icon.name: "vcs-commit"
+                    },
+                    ToolButton
+                    {
+                        icon.name: "vcs-diff"
+                    },
+
+                    ToolButtonOp
+                    {
+                        icon.name: "vcs-stash"
+                        text: i18n("Stash")
+
+                        onClicked: runCommand("git stash")
+                    },
+
+                    ToolButtonOp
+                    {
+                        icon.name: "vcs-stash-pop"
+                        text: i18n("Stash Pop")
+
+                        onClicked: runCommand("git stash pop")
+                    }
+                ]
+            }
+        }
+    }
 
 
     Maui.ProgressIndicator

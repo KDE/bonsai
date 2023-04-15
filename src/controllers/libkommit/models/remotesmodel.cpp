@@ -20,12 +20,6 @@ RemotesModel::RemotesModel(Manager *git, QObject *parent)
 {
 }
 
-int RemotesModel::columnCount(const QModelIndex &parent) const
-{
-    Q_UNUSED(parent)
-    return 3;
-}
-
 int RemotesModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
@@ -34,14 +28,20 @@ int RemotesModel::rowCount(const QModelIndex &parent) const
 
 QVariant RemotesModel::data(const QModelIndex &index, int role) const
 {
-    if (role != Qt::DisplayRole || !index.isValid() || index.row() < 0 || index.row() >= mData.size())
+    if (!index.isValid())
         return {};
 
     auto remote = mData.at(index.row());
 
-    switch (index.column()) {
-    case 0:
+    switch (role) {
+    case Name:
         return remote->name;
+    case HeadBranch:
+        return remote->headBranch;
+    case FetchUrl:
+        return remote->fetchUrl;
+    case PushUrl:
+        return remote->pushUrl;
     }
     return {};
 }
@@ -92,4 +92,13 @@ void RemotesModel::fill()
     }
 }
 
+}
+
+
+QHash<int, QByteArray> Git::RemotesModel::roleNames() const
+{
+    return {{Name, "name"},
+        {HeadBranch, "headBranch"},
+        {FetchUrl, "fetchUrl"},
+        {PushUrl, "pushUrl"}};
 }

@@ -12,6 +12,7 @@ namespace Git
 {
 class Manager;
 class LogsModel;
+class RemotesModel;
 }
 
 class StatusMessage : public QObject
@@ -46,13 +47,12 @@ class Project : public QObject
     Q_PROPERTY(QString title READ getTitle NOTIFY titleChanged)
     Q_PROPERTY(QUrl logo READ getLogo NOTIFY logoChanged)
     Q_PROPERTY(QString currentBranch READ currentBranch WRITE setCurrentBranch NOTIFY currentBranchChanged)
-    Q_PROPERTY(QVariantMap currentBranchRemote READ currentBranchRemote NOTIFY currentBranchRemoteChanged)
     Q_PROPERTY(QVariantMap headBranch READ getHeadBranch NOTIFY headBranchChanged)
 
     Q_PROPERTY(Git::LogsModel *commitsModel READ getCommitsModel CONSTANT FINAL)
     Q_PROPERTY(QStringList repoStatus READ repoStatus NOTIFY repoStatusChanged)
     Q_PROPERTY(QUrl readmeFile READ readmeFile NOTIFY readmeFileChanged CONSTANT)
-    Q_PROPERTY(QVariantList remotesModel READ getRemotesModel NOTIFY remotesModelChanged)
+    Q_PROPERTY(Git::RemotesModel *remotesModel READ remotesModel CONSTANT FINAL)
 
     Q_PROPERTY(QStringList allBranches READ allBranches NOTIFY repoChanged)
     Q_PROPERTY(QStringList remoteBranches READ remoteBranches NOTIFY repoChanged)
@@ -82,9 +82,8 @@ public:
     QStringList repoStatus() const;
     QUrl readmeFile() const;
 
-    QVariantList getRemotesModel() const;
+    Git::RemotesModel *remotesModel() const;
 
-    QVariantMap currentBranchRemote() const;
 
     QVariantMap getHeadBranch() const;
 
@@ -123,9 +122,6 @@ private:
 
     QUrl m_readmeFile;
 
-    QVariantList m_remotesModel;
-
-    QVariantMap m_currentBranchRemote;
     QVariantMap m_headBranch;
     StatusMessage *m_status;
 
@@ -146,12 +142,12 @@ Q_SIGNALS:
     void currentBranchChanged(QString currentBranch);
     void repoStatusChanged(QStringList status);
     void readmeFileChanged(QUrl readmeFile);
-    void remotesModelChanged(QVariantList remotesModel);
     void currentBranchRemoteChanged(QVariantMap currentBranchRemote);
     void headBranchChanged(QVariantMap headBranch);
     void remoteUrlChanged(QString remoteUrl);
     void statusChanged();
     void repoChanged();
+    void modelsChanged();
 };
 
 

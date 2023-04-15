@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 #include "libkommit_export.h"
 #include <QList>
 #include <QString>
+#include <QObject>
 
 namespace Git
 {
@@ -27,8 +28,9 @@ public:
     Q_REQUIRED_RESULT QString statusText() const;
 };
 
-class Remote
+class LIBKOMMIT_EXPORT Remote
 {
+
 public:
     QString name;
     QString headBranch;

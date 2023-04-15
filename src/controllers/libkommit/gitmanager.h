@@ -147,6 +147,8 @@ Q_SIGNALS:
 
     void isRebasingChanged();
 
+    void modelsReady();
+
 private:
     QString mPath;
     bool mIsValid{false};

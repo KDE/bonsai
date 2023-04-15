@@ -20,6 +20,8 @@
 #include "models/projectsmodel.h"
 
 #include <libkommit/models/logsmodel.h>
+#include <libkommit/models/remotesmodel.h>
+#include <libkommit/gitremote.h>
 
 #define BONSAI_URI "org.maui.bonsai"
 
@@ -67,7 +69,10 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
         engine.rootContext()->setContextObject(new KLocalizedContext(&engine));
 
         qmlRegisterAnonymousType<ProjectsModel>(BONSAI_URI, 1);
-        qmlRegisterAnonymousType<Git::LogsModel>(BONSAI_URI, 1);
+        qmlRegisterUncreatableType<Git::RemotesModel>(BONSAI_URI, 1, 0, "RemotesModel", "Use it from the Project instance");
+        qmlRegisterUncreatableType<Git::LogsModel>(BONSAI_URI, 1, 0, "CommitsModel", "Use it from the Project instance");
+//        qmlRegisterAnonymousType<Git::Remote>(BONSAI_URI, 1);
+//        qmlRegisterAnonymousType<Git::RemoteBranch>(BONSAI_URI, 1);
         qmlRegisterAnonymousType<BranchesManager>(BONSAI_URI, 1);
         qmlRegisterUncreatableType<StatusMessage>(BONSAI_URI, 1, 0, "StatusMessage", "Can not be created only referenced");
         qmlRegisterType<Project>(BONSAI_URI, 1, 0, "Project");

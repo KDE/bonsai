@@ -16,6 +16,8 @@
 #include <QProcess>
 #include <QSortFilterProxyModel>
 #include <QtConcurrent>
+#include <QFuture>
+#include <QFutureWatcher>
 
 namespace Git
 {
@@ -92,7 +94,7 @@ QList<FileStatus> Manager::repoFilesStatus() const
                                         QStringLiteral("--short"),
                                         QStringLiteral("--ignore-submodules"),
                                         QStringLiteral("--porcelain")}))
-                            .split(QLatin1Char('\n'));
+            .split(QLatin1Char('\n'));
     QList<FileStatus> files;
     for (const auto &item : buffer) {
         if (!item.trimmed().size())
@@ -142,7 +144,7 @@ QPair<int, int> Manager::uniqueCommitsOnBranches(const QString &branch1, const Q
         return qMakePair(0, 0);
 
     auto ret = readAllNonEmptyOutput(
-        {QStringLiteral("rev-list"), QStringLiteral("--left-right"), QStringLiteral("--count"), branch1 + QStringLiteral("...") + branch2});
+                {QStringLiteral("rev-list"), QStringLiteral("--left-right"), QStringLiteral("--count"), branch1 + QStringLiteral("...") + branch2});
 
     if (ret.size() != 1)
         return qMakePair(-1, -1);
@@ -275,10 +277,10 @@ QString Manager::escapeFileName(const QString &filePath) const
     return filePath;
 }
 
-bool load(AbstractGitItemsModel *cache)
+AbstractGitItemsModel * load(AbstractGitItemsModel *cache)
 {
     cache->load();
-    return true;
+    return cache;
 }
 
 void Manager::loadAsync()
@@ -303,7 +305,22 @@ void Manager::loadAsync()
     if (!models.empty()) {
 #ifdef QT_CONCURRENT_LIB
         qDebug() << "LOADING MODELS ASYNC";
-        QtConcurrent::mapped(models, load);
+        auto future = QtConcurrent::mapped(models, load);
+
+        auto watcher = new QFutureWatcher<AbstractGitItemsModel *>;
+
+        watcher->setFuture(future);
+
+        connect(watcher, &QFutureWatcher<bool>::finished, [this]()
+        {
+            Q_EMIT modelsReady();
+        });
+
+        connect(watcher, &QFutureWatcher<AbstractGitItemsModel *>::resultReadyAt, [this, watcher](int index)
+        {
+            auto model = watcher->resultAt(index);
+            model->reset();
+        });
 #else
         for (auto &m : models)
             m->load();
@@ -393,8 +410,8 @@ Manager *Manager::instance()
 QString Manager::currentBranch() const
 {
     const auto ret = QString(runGit({QStringLiteral("rev-parse"), QStringLiteral("--abbrev-ref"), QStringLiteral("HEAD")}))
-                         .remove(QLatin1Char('\n'))
-                         .remove(QLatin1Char('\r'));
+            .remove(QLatin1Char('\n'))
+            .remove(QLatin1Char('\r'));
     return ret;
 }
 
