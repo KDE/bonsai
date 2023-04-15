@@ -41,6 +41,13 @@ Project::Project(QObject *parent) : QObject(parent)
         m_watcherTimer->start();
     });
 
+    connect(m_gitDirWacther, &QFileSystemWatcher::fileChanged, [this](const QString &dir)
+    {
+        qDebug() << "GIT DIR CHANGED REACT TO IT ???????????????????" << dir;
+
+        m_watcherTimer->start();
+    });
+
     m_watcherTimer->setSingleShot(true);
     m_watcherTimer->setInterval(1000);
 
@@ -93,7 +100,13 @@ void Project::setData(const QString &url)
         return;
     }
 
-    m_gitDirWacther->addPath(mUrl.toLocalFile());
+    m_gitDirWacther->addPath(mUrl.toLocalFile()+"/.git/objects");
+    m_gitDirWacther->addPath(mUrl.toLocalFile()+"/.git/objects/info");
+    m_gitDirWacther->addPath(mUrl.toLocalFile()+"/.git/objects/pack");
+    m_gitDirWacther->addPath(mUrl.toLocalFile()+"/.git/refs");
+    m_gitDirWacther->addPath(mUrl.toLocalFile()+"/.git/refs/heads");
+    m_gitDirWacther->addPath(mUrl.toLocalFile()+"/.git/index");
+    m_gitDirWacther->addPath(mUrl.toLocalFile()+"/.git/logs");
 
     setStatus(StatusMessage::Loading, i18n("Loading local repository."));
 
