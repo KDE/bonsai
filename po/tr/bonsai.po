@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-15 00:47+0000\n"
-"PO-Revision-Date: 2023-04-01 12:02+0300\n"
+"POT-Creation-Date: 2023-04-16 00:46+0000\n"
+"PO-Revision-Date: 2023-04-15 13:25+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,15 +15,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.03.70\n"
 
 #: src/controllers/libkommit/commands/commandpull.cpp:61
 #, kde-format
 msgid "Already up to date."
-msgstr ""
+msgstr "Tümü güncel."
 
 #: src/controllers/libkommit/commands/commandpull.cpp:65
-#: src/views/ProjectView.qml:361
+#: src/views/ProjectView.qml:200
 #, kde-format
 msgid "Error"
 msgstr "Hata"
@@ -34,27 +34,29 @@ msgid ""
 "Your local changes to the following files would be overwritten by checkout. "
 "Please commit your changes or stash them before you switch branches."
 msgstr ""
+"Çıkış yapmak, aşağıdaki dosyalara yaptığınız yerel değişikliklerin üzerine "
+"yazacaktır. Dal değiştirmeden önce lütfen değişikliklerinizi işleyin veya "
+"onları zulalayın."
 
 #: src/controllers/libkommit/gitremote.cpp:120
 #, kde-format
 msgid "Unknown"
-msgstr ""
+msgstr "Bilinmiyor"
 
 #: src/controllers/libkommit/gitremote.cpp:122
 #, kde-format
 msgid "Up to date"
-msgstr ""
+msgstr "Güncel"
 
 #: src/controllers/libkommit/gitremote.cpp:124
 #, kde-format
 msgid "Fast forwardable"
-msgstr ""
+msgstr "İleri sarılabilir"
 
 #: src/controllers/libkommit/gitremote.cpp:126
-#, fuzzy, kde-format
-#| msgid "Local location to clone"
+#, kde-format
 msgid "Local out of date"
-msgstr "Klonlanacak yerel konum"
+msgstr "Yerel veri güncel değil"
 
 #: src/controllers/libkommit/models/authorsmodel.cpp:37
 #: src/controllers/libkommit/models/branchesmodel.cpp:56
@@ -66,7 +68,7 @@ msgid "Name"
 msgstr "Ad"
 
 #: src/controllers/libkommit/models/authorsmodel.cpp:39
-#: src/views/ProjectView.qml:241
+#: src/views/CommitInfoDialog.qml:36
 #, kde-format
 msgid "Email"
 msgstr "E-posta"
@@ -78,39 +80,35 @@ msgid "Commits"
 msgstr "İşlemeler"
 
 #: src/controllers/libkommit/models/branchesmodel.cpp:58
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "Commit(s) behind"
-msgstr "İşlemeler"
+msgstr "Gerideki işlemeler"
 
 #: src/controllers/libkommit/models/branchesmodel.cpp:60
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "Commit(s) ahead"
-msgstr "İşlemeler"
+msgstr "İlerideki işlemeler"
 
 #: src/controllers/libkommit/models/stashesmodel.cpp:60
 #: src/controllers/libkommit/models/tagsmodel.cpp:64
 #, kde-format
 msgid "Subject"
-msgstr ""
+msgstr "Konu"
 
 #: src/controllers/libkommit/models/stashesmodel.cpp:62
-#, fuzzy, kde-format
-#| msgid "Author"
+#, kde-format
 msgid "Author name"
-msgstr "Yazar"
+msgstr "Yazar adı"
 
 #: src/controllers/libkommit/models/stashesmodel.cpp:64
-#, fuzzy, kde-format
-#| msgid "Author"
+#, kde-format
 msgid "Author email"
-msgstr "Yazar"
+msgstr "Yazar e-postası"
 
 #: src/controllers/libkommit/models/stashesmodel.cpp:66
 #, kde-format
 msgid "Time"
-msgstr ""
+msgstr "Zaman"
 
 #: src/controllers/libkommit/models/submodulesmodel.cpp:55
 #: src/views/CloneDialog.qml:58
@@ -119,7 +117,6 @@ msgid "Path"
 msgstr "Yol"
 
 #: src/controllers/libkommit/models/submodulesmodel.cpp:57
-#: src/views/ProjectView.qml:129
 #, kde-format
 msgid "Head"
 msgstr "Depo Ucu"
@@ -127,84 +124,82 @@ msgstr "Depo Ucu"
 #: src/controllers/libkommit/models/submodulesmodel.cpp:59
 #, kde-format
 msgid "Status"
-msgstr ""
+msgstr "Durum"
 
 #: src/controllers/libkommit/models/tagsmodel.cpp:66
 #, kde-format
 msgid "Tagger"
-msgstr ""
+msgstr "Etiketleyici"
 
 #: src/controllers/libkommit/models/tagsmodel.cpp:68
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "Committer"
-msgstr "İşlemeler"
+msgstr "İşleyici"
 
-#: src/controllers/project.cpp:56
+#: src/controllers/project.cpp:93
 #, kde-format
 msgid "Directory does not exists."
 msgstr "Dizin yok."
 
-#: src/controllers/project.cpp:64
+#: src/controllers/project.cpp:100
 #, kde-format
 msgid "URL is not a valid repo."
 msgstr "URL, geçerli bir depo değil."
 
-#: src/controllers/project.cpp:69
+#: src/controllers/project.cpp:110
 #, kde-format
 msgid "Loading local repository."
 msgstr "Yerel depo yükleniyor."
 
-#: src/controllers/project.cpp:98
+#: src/controllers/project.cpp:113
 #, kde-format
 msgid "Ready."
 msgstr "Hazır."
 
-#: src/controllers/project.cpp:306
+#: src/controllers/project.cpp:399
 #, kde-format
 msgid "Failed to create directory for repository."
 msgstr "Depo için dizin oluşturulamadı."
 
-#: src/controllers/project.cpp:342
+#: src/controllers/project.cpp:435
 #, kde-format
 msgid "Start cloning %1 repository."
 msgstr "%1 deposunu klonlamayı başlatın."
 
-#: src/controllers/project.cpp:426
+#: src/controllers/project.cpp:492
 #, kde-format
 msgid "Nothing to see."
 msgstr "Burada bir şey yok."
 
-#: src/main.cpp:37
+#: src/main.cpp:39
 #, kde-format
 msgid "Bonsai"
 msgstr "Bonsai"
 
-#: src/main.cpp:37
+#: src/main.cpp:39
 #, kde-format
 msgid "Git version control manager."
 msgstr "Git sürüm denetim yöneticisi."
 
-#: src/main.cpp:37
+#: src/main.cpp:39
 #, kde-format
 msgid "© 2021-%1 Maui Development Team"
 msgstr "© 2021-%1 Maui Geliştirme Takımı"
 
-#: src/main.cpp:39
+#: src/main.cpp:41
 #, kde-format
 msgid "Camilo Higuita"
 msgstr "Camilo Higuita"
 
-#: src/main.cpp:39
+#: src/main.cpp:41
 #, kde-format
 msgid "Developer"
 msgstr "Geliştirici"
 
-#: src/main.cpp:47
-#, fuzzy, kde-format
-#| msgid "Developer"
+#: src/main.cpp:49
+#, kde-format
 msgid "Kommit Developer"
-msgstr "Geliştirici"
+msgstr "Kommit Geliştiricisi"
 
 #: src/main.qml:82
 #, kde-format
@@ -236,12 +231,12 @@ msgstr "Haydi Başlayalım"
 msgid "Open or clone an existing repository, or create a new one."
 msgstr "Var olan bir depoyu açın/klonlayın veya yeni bir tane oluşturun."
 
-#: src/main.qml:175
+#: src/main.qml:169
 #, kde-format
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: src/main.qml:182
+#: src/main.qml:176
 #, kde-format
 msgid "About"
 msgstr "Hakkında"
@@ -253,8 +248,8 @@ msgid_plural "Filter %1 repos"
 msgstr[0] "Süz"
 msgstr[1] "%1 depoyu süz"
 
-#: src/views/BrowserView.qml:33 src/views/ProjectView.qml:277
-#: src/views/ProjectView.qml:408
+#: src/views/BrowserView.qml:33 src/views/CommitInfoDialog.qml:72
+#: src/views/ProjectView.qml:242
 #, kde-format
 msgid "Date"
 msgstr "Tarih"
@@ -329,201 +324,207 @@ msgstr "Özyineli"
 msgid "Clone submodules"
 msgstr "Altmodülleri klonla"
 
+#: src/views/CommitInfoDialog.qml:19
+#, fuzzy, kde-format
+#| msgid "Commits"
+msgid "Commit Info"
+msgstr "İşlemeler"
+
+#: src/views/CommitInfoDialog.qml:26 src/views/ProjectView.qml:237
+#, kde-format
+msgid "Author"
+msgstr "Yazar"
+
+#: src/views/CommitInfoDialog.qml:30
+#, kde-format
+msgid "Full Name"
+msgstr "Tam Ad"
+
+#: src/views/CommitInfoDialog.qml:48
+#, kde-format
+msgid "ID"
+msgstr "Kimlik"
+
+#: src/views/CommitInfoDialog.qml:60
+#, kde-format
+msgid "Message"
+msgstr "İleti"
+
+#: src/views/CommitInfoDialog.qml:79
+#, kde-format
+msgid "Repo"
+msgstr "Depo"
+
+#: src/views/CommitInfoDialog.qml:83
+#, kde-format
+msgid "Local Path"
+msgstr "Yerel Yol"
+
+#: src/views/CommitInfoDialog.qml:89 src/views/ProjectView.qml:465
+#, kde-format
+msgid "Branch"
+msgstr "Dal"
+
+#: src/views/CommitInfoDialog.qml:96
+#, kde-format
+msgid "Parent Commit"
+msgstr "Üst İşleme"
+
+#: src/views/CommitInfoDialog.qml:112
+#, kde-format
+msgid "Child Commit"
+msgstr "Alt İşleme"
+
+#: src/views/CommitInfoDialog.qml:129
+#, kde-format
+msgid "Files"
+msgstr "Dosyalar"
+
+#: src/views/CommitInfoDialog.qml:132
+#, kde-format
+msgid "Changed Files"
+msgstr "Değiştirilen Dosyalar"
+
 #: src/views/ProjectView.qml:52
 #, kde-format
 msgid "Browser"
 msgstr "Tarayıcı"
 
-#: src/views/ProjectView.qml:154
-#, kde-format
-msgid "Remotes"
-msgstr "Uzak Konumlar"
-
-#: src/views/ProjectView.qml:176
-#, kde-format
-msgid "Remote Branches"
-msgstr "Uzak Dallar"
-
-#: src/views/ProjectView.qml:231 src/views/ProjectView.qml:403
-#, kde-format
-msgid "Author"
-msgstr "Yazar"
-
-#: src/views/ProjectView.qml:235
-#, kde-format
-msgid "Full Name"
-msgstr "Tam Ad"
-
-#: src/views/ProjectView.qml:253
-#, kde-format
-msgid "ID"
-msgstr "Kimlik"
-
-#: src/views/ProjectView.qml:265
-#, kde-format
-msgid "Message"
-msgstr "İleti"
-
-#: src/views/ProjectView.qml:284
-#, kde-format
-msgid "Parent Commit"
-msgstr "Üst İşleme"
-
-#: src/views/ProjectView.qml:300
+#: src/views/ProjectView.qml:138
 #, fuzzy, kde-format
-#| msgid "Commits"
-msgid "Child Commit"
-msgstr "İşlemeler"
+#| msgid "New Branch"
+msgid "Default Branch"
+msgstr "Yeni Dal"
 
-#: src/views/ProjectView.qml:316
+#: src/views/ProjectView.qml:144
 #, kde-format
-msgid "Repo"
-msgstr "Depo"
-
-#: src/views/ProjectView.qml:319
-#, fuzzy, kde-format
-#| msgid "Local path"
-msgid "Local Path"
-msgstr "Yerel yol"
-
-#: src/views/ProjectView.qml:327
-#, fuzzy, kde-format
-#| msgid "New File"
-msgid "Files"
-msgstr "Yeni Dosya"
-
-#: src/views/ProjectView.qml:330
-#, kde-format
-msgid "Changed Files"
+msgid "Push Url"
 msgstr ""
 
-#: src/views/ProjectView.qml:360
+#: src/views/ProjectView.qml:150
+#, kde-format
+msgid "Fetch Url"
+msgstr ""
+
+#: src/views/ProjectView.qml:199
 #, kde-format
 msgid "Loading..."
 msgstr "Yükleniyor..."
 
-#: src/views/ProjectView.qml:391
+#: src/views/ProjectView.qml:225
 #, kde-format
 msgid "Filter commit by id, message or author"
 msgstr "İşlemeyi; kimliğe, iletiye veya yazara göre süz"
 
-#: src/views/ProjectView.qml:415
+#: src/views/ProjectView.qml:249
 #, kde-format
 msgid "Asc"
 msgstr "Artan"
 
-#: src/views/ProjectView.qml:420
+#: src/views/ProjectView.qml:254
 #, kde-format
 msgid "Desc"
 msgstr "Azalan"
 
-#: src/views/ProjectView.qml:526
+#: src/views/ProjectView.qml:356
 #, kde-format
 msgid "Checkout"
 msgstr "Çıkış"
 
-#: src/views/ProjectView.qml:531
+#: src/views/ProjectView.qml:361
 #, kde-format
 msgid "Info"
 msgstr "Bilgi"
 
-#: src/views/ProjectView.qml:538
+#: src/views/ProjectView.qml:368
 #, kde-format
 msgid "Copy ID"
 msgstr "Kimliği Kopyala"
 
-#: src/views/ProjectView.qml:599
+#: src/views/ProjectView.qml:428
 #, kde-format
 msgid "New Branch"
 msgstr "Yeni Dal"
 
-#: src/views/ProjectView.qml:605
+#: src/views/ProjectView.qml:434
 #, kde-format
 msgid "New Tag"
 msgstr "Yeni Etiket"
 
-#: src/views/ProjectView.qml:613
+#: src/views/ProjectView.qml:442
 #, kde-format
 msgid "New File"
 msgstr "Yeni Dosya"
 
-#: src/views/ProjectView.qml:626
+#: src/views/ProjectView.qml:454
 #, kde-format
 msgid "Pull"
-msgstr ""
+msgstr "Çek"
 
-#: src/views/ProjectView.qml:637
-#, fuzzy, kde-format
-#| msgid "New Branch"
-msgid "Branch"
-msgstr "Yeni Dal"
-
-#: src/views/ProjectView.qml:642
-#, fuzzy, kde-format
-#| msgid "Remotes"
+#: src/views/ProjectView.qml:470
+#, kde-format
 msgid "Remote"
-msgstr "Uzak Konumlar"
+msgstr "Uzak Konum"
 
-#: src/views/ProjectView.qml:654
-#, fuzzy, kde-format
-#| msgid "Commits"
+#: src/views/ProjectView.qml:482
+#, kde-format
 msgid "No Commit"
-msgstr "İşlemeler"
+msgstr "İşleme Yok"
 
-#: src/views/ProjectView.qml:661
+#: src/views/ProjectView.qml:489
 #, kde-format
 msgid "Prune"
-msgstr ""
+msgstr "Buda"
 
-#: src/views/ProjectView.qml:668
+#: src/views/ProjectView.qml:496
 #, kde-format
 msgid "Tags"
-msgstr ""
+msgstr "Etiketler"
 
-#: src/views/ProjectView.qml:676
+#: src/views/ProjectView.qml:504
 #, kde-format
 msgid "Squash"
-msgstr ""
+msgstr "Tıkıştır"
 
-#: src/views/ProjectView.qml:685
+#: src/views/ProjectView.qml:513
 #, kde-format
 msgid "Rebase"
-msgstr ""
+msgstr "Yeniden Temellendir"
 
-#: src/views/ProjectView.qml:689 src/views/ProjectView.qml:722
+#: src/views/ProjectView.qml:517 src/views/ProjectView.qml:550
 #, kde-format
 msgid "Unset"
-msgstr ""
+msgstr "Ayarı Kaldır"
 
-#: src/views/ProjectView.qml:696 src/views/ProjectView.qml:729
+#: src/views/ProjectView.qml:524 src/views/ProjectView.qml:557
 #, kde-format
 msgid "Yes"
-msgstr ""
+msgstr "Evet"
 
-#: src/views/ProjectView.qml:703 src/views/ProjectView.qml:736
+#: src/views/ProjectView.qml:531 src/views/ProjectView.qml:564
 #, kde-format
 msgid "No"
-msgstr ""
+msgstr "Hayır"
 
-#: src/views/ProjectView.qml:710 src/views/ProjectView.qml:743
+#: src/views/ProjectView.qml:538 src/views/ProjectView.qml:571
 #, kde-format
 msgid "Only"
-msgstr ""
+msgstr "Yalnızca"
 
-#: src/views/ProjectView.qml:718
+#: src/views/ProjectView.qml:546
 #, kde-format
 msgid "Fast Forward"
-msgstr ""
+msgstr "İleri Sar"
 
-#: src/views/ProjectView.qml:777
+#: src/views/ProjectView.qml:605
 #, kde-format
 msgid "Stash"
-msgstr ""
+msgstr "Zulala"
 
-#: src/views/ProjectView.qml:785
+#: src/views/ProjectView.qml:613
 #, kde-format
 msgid "Stash Pop"
-msgstr ""
+msgstr "Zulayı Patlat"
 
 #: src/views/SettingsDialog.qml:16
 #, kde-format
@@ -549,6 +550,12 @@ msgstr "Yeni konum."
 #, kde-format
 msgid "Pick"
 msgstr "Seç"
+
+#~ msgid "Remotes"
+#~ msgstr "Uzak Konumlar"
+
+#~ msgid "Remote Branches"
+#~ msgstr "Uzak Dallar"
 
 #~ msgid "New Repo"
 #~ msgstr "Yeni Depo"

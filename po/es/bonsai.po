@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-15 00:47+0000\n"
+"POT-Creation-Date: 2023-04-16 00:46+0000\n"
 "PO-Revision-Date: 2023-04-01 18:30+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -25,7 +25,7 @@ msgid "Already up to date."
 msgstr ""
 
 #: src/controllers/libkommit/commands/commandpull.cpp:65
-#: src/views/ProjectView.qml:361
+#: src/views/ProjectView.qml:200
 #, kde-format
 msgid "Error"
 msgstr "Error"
@@ -68,7 +68,7 @@ msgid "Name"
 msgstr "Nombre"
 
 #: src/controllers/libkommit/models/authorsmodel.cpp:39
-#: src/views/ProjectView.qml:241
+#: src/views/CommitInfoDialog.qml:36
 #, kde-format
 msgid "Email"
 msgstr "Correo electrónico"
@@ -121,7 +121,6 @@ msgid "Path"
 msgstr "Ruta"
 
 #: src/controllers/libkommit/models/submodulesmodel.cpp:57
-#: src/views/ProjectView.qml:129
 #, kde-format
 msgid "Head"
 msgstr "Head"
@@ -142,67 +141,67 @@ msgstr ""
 msgid "Committer"
 msgstr "Confirmaciones"
 
-#: src/controllers/project.cpp:56
+#: src/controllers/project.cpp:93
 #, kde-format
 msgid "Directory does not exists."
 msgstr "El directorio no existe."
 
-#: src/controllers/project.cpp:64
+#: src/controllers/project.cpp:100
 #, kde-format
 msgid "URL is not a valid repo."
 msgstr "La URL no es un repositorio válido."
 
-#: src/controllers/project.cpp:69
+#: src/controllers/project.cpp:110
 #, kde-format
 msgid "Loading local repository."
 msgstr "Cargando repositorio local."
 
-#: src/controllers/project.cpp:98
+#: src/controllers/project.cpp:113
 #, kde-format
 msgid "Ready."
 msgstr "Preparado."
 
-#: src/controllers/project.cpp:306
+#: src/controllers/project.cpp:399
 #, kde-format
 msgid "Failed to create directory for repository."
 msgstr "No se ha podido crear el directorio para el repositorio."
 
-#: src/controllers/project.cpp:342
+#: src/controllers/project.cpp:435
 #, kde-format
 msgid "Start cloning %1 repository."
 msgstr "Iniciar la clonación del repositorio %1."
 
-#: src/controllers/project.cpp:426
+#: src/controllers/project.cpp:492
 #, kde-format
 msgid "Nothing to see."
 msgstr "No hay nada para ver."
 
-#: src/main.cpp:37
+#: src/main.cpp:39
 #, kde-format
 msgid "Bonsai"
 msgstr "Bonsai"
 
-#: src/main.cpp:37
+#: src/main.cpp:39
 #, kde-format
 msgid "Git version control manager."
 msgstr "Gestor de control de versiones Git."
 
-#: src/main.cpp:37
+#: src/main.cpp:39
 #, kde-format
 msgid "© 2021-%1 Maui Development Team"
 msgstr "© 2021-%1 El equipo de desarrollo de Maui"
 
-#: src/main.cpp:39
+#: src/main.cpp:41
 #, kde-format
 msgid "Camilo Higuita"
 msgstr "Camilo Higuita"
 
-#: src/main.cpp:39
+#: src/main.cpp:41
 #, kde-format
 msgid "Developer"
 msgstr "Desarrollador"
 
-#: src/main.cpp:47
+#: src/main.cpp:49
 #, fuzzy, kde-format
 #| msgid "Developer"
 msgid "Kommit Developer"
@@ -238,12 +237,12 @@ msgstr "Empecemos"
 msgid "Open or clone an existing repository, or create a new one."
 msgstr "Abrir o clonar un repositorio existente, o crear uno nuevo."
 
-#: src/main.qml:175
+#: src/main.qml:169
 #, kde-format
 msgid "Settings"
 msgstr "Preferencias"
 
-#: src/main.qml:182
+#: src/main.qml:176
 #, kde-format
 msgid "About"
 msgstr "Acerca de"
@@ -255,8 +254,8 @@ msgid_plural "Filter %1 repos"
 msgstr[0] "Filtrar"
 msgstr[1] "Filtrar %1 repositorios"
 
-#: src/views/BrowserView.qml:33 src/views/ProjectView.qml:277
-#: src/views/ProjectView.qml:408
+#: src/views/BrowserView.qml:33 src/views/CommitInfoDialog.qml:72
+#: src/views/ProjectView.qml:242
 #, kde-format
 msgid "Date"
 msgstr "Fecha"
@@ -331,198 +330,210 @@ msgstr "Recursivo"
 msgid "Clone submodules"
 msgstr "Clonar submódulos"
 
-#: src/views/ProjectView.qml:52
-#, kde-format
-msgid "Browser"
-msgstr "Navegador"
+#: src/views/CommitInfoDialog.qml:19
+#, fuzzy, kde-format
+#| msgid "Commits"
+msgid "Commit Info"
+msgstr "Confirmaciones"
 
-#: src/views/ProjectView.qml:154
-#, kde-format
-msgid "Remotes"
-msgstr "Remotos"
-
-#: src/views/ProjectView.qml:176
-#, kde-format
-msgid "Remote Branches"
-msgstr "Ramas remotas"
-
-#: src/views/ProjectView.qml:231 src/views/ProjectView.qml:403
+#: src/views/CommitInfoDialog.qml:26 src/views/ProjectView.qml:237
 #, kde-format
 msgid "Author"
 msgstr "Autor"
 
-#: src/views/ProjectView.qml:235
+#: src/views/CommitInfoDialog.qml:30
 #, kde-format
 msgid "Full Name"
 msgstr "Nombre completo"
 
-#: src/views/ProjectView.qml:253
+#: src/views/CommitInfoDialog.qml:48
 #, kde-format
 msgid "ID"
 msgstr "ID"
 
-#: src/views/ProjectView.qml:265
+#: src/views/CommitInfoDialog.qml:60
 #, kde-format
 msgid "Message"
 msgstr "Mensaje"
 
-#: src/views/ProjectView.qml:284
-#, kde-format
-msgid "Parent Commit"
-msgstr "Confirmación padre"
-
-#: src/views/ProjectView.qml:300
-#, fuzzy, kde-format
-#| msgid "Commits"
-msgid "Child Commit"
-msgstr "Confirmaciones"
-
-#: src/views/ProjectView.qml:316
+#: src/views/CommitInfoDialog.qml:79
 #, kde-format
 msgid "Repo"
 msgstr "Repositorio"
 
-#: src/views/ProjectView.qml:319
+#: src/views/CommitInfoDialog.qml:83
 #, fuzzy, kde-format
 #| msgid "Local path"
 msgid "Local Path"
 msgstr "Ruta local"
 
-#: src/views/ProjectView.qml:327
-#, fuzzy, kde-format
-#| msgid "New File"
-msgid "Files"
-msgstr "Nuevo archivo"
-
-#: src/views/ProjectView.qml:330
-#, kde-format
-msgid "Changed Files"
-msgstr ""
-
-#: src/views/ProjectView.qml:360
-#, kde-format
-msgid "Loading..."
-msgstr "Cargando..."
-
-#: src/views/ProjectView.qml:391
-#, kde-format
-msgid "Filter commit by id, message or author"
-msgstr "Filtrar confirmaciones por ID, mensaje o autor"
-
-#: src/views/ProjectView.qml:415
-#, kde-format
-msgid "Asc"
-msgstr "Asc"
-
-#: src/views/ProjectView.qml:420
-#, kde-format
-msgid "Desc"
-msgstr "Desc"
-
-#: src/views/ProjectView.qml:526
-#, kde-format
-msgid "Checkout"
-msgstr "Cambiar rama"
-
-#: src/views/ProjectView.qml:531
-#, kde-format
-msgid "Info"
-msgstr "Información"
-
-#: src/views/ProjectView.qml:538
-#, kde-format
-msgid "Copy ID"
-msgstr "Copiar ID"
-
-#: src/views/ProjectView.qml:599
-#, kde-format
-msgid "New Branch"
-msgstr "Nueva rama"
-
-#: src/views/ProjectView.qml:605
-#, kde-format
-msgid "New Tag"
-msgstr "Nueva etiqueta"
-
-#: src/views/ProjectView.qml:613
-#, kde-format
-msgid "New File"
-msgstr "Nuevo archivo"
-
-#: src/views/ProjectView.qml:626
-#, kde-format
-msgid "Pull"
-msgstr ""
-
-#: src/views/ProjectView.qml:637
+#: src/views/CommitInfoDialog.qml:89 src/views/ProjectView.qml:465
 #, fuzzy, kde-format
 #| msgid "New Branch"
 msgid "Branch"
 msgstr "Nueva rama"
 
-#: src/views/ProjectView.qml:642
+#: src/views/CommitInfoDialog.qml:96
+#, kde-format
+msgid "Parent Commit"
+msgstr "Confirmación padre"
+
+#: src/views/CommitInfoDialog.qml:112
+#, fuzzy, kde-format
+#| msgid "Commits"
+msgid "Child Commit"
+msgstr "Confirmaciones"
+
+#: src/views/CommitInfoDialog.qml:129
+#, fuzzy, kde-format
+#| msgid "New File"
+msgid "Files"
+msgstr "Nuevo archivo"
+
+#: src/views/CommitInfoDialog.qml:132
+#, kde-format
+msgid "Changed Files"
+msgstr ""
+
+#: src/views/ProjectView.qml:52
+#, kde-format
+msgid "Browser"
+msgstr "Navegador"
+
+#: src/views/ProjectView.qml:138
+#, fuzzy, kde-format
+#| msgid "New Branch"
+msgid "Default Branch"
+msgstr "Nueva rama"
+
+#: src/views/ProjectView.qml:144
+#, kde-format
+msgid "Push Url"
+msgstr ""
+
+#: src/views/ProjectView.qml:150
+#, kde-format
+msgid "Fetch Url"
+msgstr ""
+
+#: src/views/ProjectView.qml:199
+#, kde-format
+msgid "Loading..."
+msgstr "Cargando..."
+
+#: src/views/ProjectView.qml:225
+#, kde-format
+msgid "Filter commit by id, message or author"
+msgstr "Filtrar confirmaciones por ID, mensaje o autor"
+
+#: src/views/ProjectView.qml:249
+#, kde-format
+msgid "Asc"
+msgstr "Asc"
+
+#: src/views/ProjectView.qml:254
+#, kde-format
+msgid "Desc"
+msgstr "Desc"
+
+#: src/views/ProjectView.qml:356
+#, kde-format
+msgid "Checkout"
+msgstr "Cambiar rama"
+
+#: src/views/ProjectView.qml:361
+#, kde-format
+msgid "Info"
+msgstr "Información"
+
+#: src/views/ProjectView.qml:368
+#, kde-format
+msgid "Copy ID"
+msgstr "Copiar ID"
+
+#: src/views/ProjectView.qml:428
+#, kde-format
+msgid "New Branch"
+msgstr "Nueva rama"
+
+#: src/views/ProjectView.qml:434
+#, kde-format
+msgid "New Tag"
+msgstr "Nueva etiqueta"
+
+#: src/views/ProjectView.qml:442
+#, kde-format
+msgid "New File"
+msgstr "Nuevo archivo"
+
+#: src/views/ProjectView.qml:454
+#, kde-format
+msgid "Pull"
+msgstr ""
+
+#: src/views/ProjectView.qml:470
 #, fuzzy, kde-format
 #| msgid "Remotes"
 msgid "Remote"
 msgstr "Remotos"
 
-#: src/views/ProjectView.qml:654
+#: src/views/ProjectView.qml:482
 #, fuzzy, kde-format
 #| msgid "Commits"
 msgid "No Commit"
 msgstr "Confirmaciones"
 
-#: src/views/ProjectView.qml:661
+#: src/views/ProjectView.qml:489
 #, kde-format
 msgid "Prune"
 msgstr ""
 
-#: src/views/ProjectView.qml:668
+#: src/views/ProjectView.qml:496
 #, kde-format
 msgid "Tags"
 msgstr ""
 
-#: src/views/ProjectView.qml:676
+#: src/views/ProjectView.qml:504
 #, kde-format
 msgid "Squash"
 msgstr ""
 
-#: src/views/ProjectView.qml:685
+#: src/views/ProjectView.qml:513
 #, kde-format
 msgid "Rebase"
 msgstr ""
 
-#: src/views/ProjectView.qml:689 src/views/ProjectView.qml:722
+#: src/views/ProjectView.qml:517 src/views/ProjectView.qml:550
 #, kde-format
 msgid "Unset"
 msgstr ""
 
-#: src/views/ProjectView.qml:696 src/views/ProjectView.qml:729
+#: src/views/ProjectView.qml:524 src/views/ProjectView.qml:557
 #, kde-format
 msgid "Yes"
 msgstr ""
 
-#: src/views/ProjectView.qml:703 src/views/ProjectView.qml:736
+#: src/views/ProjectView.qml:531 src/views/ProjectView.qml:564
 #, kde-format
 msgid "No"
 msgstr ""
 
-#: src/views/ProjectView.qml:710 src/views/ProjectView.qml:743
+#: src/views/ProjectView.qml:538 src/views/ProjectView.qml:571
 #, kde-format
 msgid "Only"
 msgstr ""
 
-#: src/views/ProjectView.qml:718
+#: src/views/ProjectView.qml:546
 #, kde-format
 msgid "Fast Forward"
 msgstr ""
 
-#: src/views/ProjectView.qml:777
+#: src/views/ProjectView.qml:605
 #, kde-format
 msgid "Stash"
 msgstr ""
 
-#: src/views/ProjectView.qml:785
+#: src/views/ProjectView.qml:613
 #, kde-format
 msgid "Stash Pop"
 msgstr ""
@@ -551,6 +562,12 @@ msgstr "Nueva ubicación."
 #, kde-format
 msgid "Pick"
 msgstr "Elegir"
+
+#~ msgid "Remotes"
+#~ msgstr "Remotos"
+
+#~ msgid "Remote Branches"
+#~ msgstr "Ramas remotas"
 
 #~ msgid "New Repo"
 #~ msgstr "Nuevo repositorio"
