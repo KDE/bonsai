@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-16 00:46+0000\n"
-"PO-Revision-Date: 2023-04-15 10:26+0200\n"
+"PO-Revision-Date: 2023-04-16 08:31+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
 "%100<=4 ? 2 : 3);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: src/controllers/libkommit/commands/commandpull.cpp:61
 #, kde-format
@@ -325,10 +325,9 @@ msgid "Clone submodules"
 msgstr "Kloniraj podmodule"
 
 #: src/views/CommitInfoDialog.qml:19
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "Commit Info"
-msgstr "Potrditve"
+msgstr "Informacija o potrditvi"
 
 #: src/views/CommitInfoDialog.qml:26 src/views/ProjectView.qml:237
 #, kde-format
@@ -391,20 +390,19 @@ msgid "Browser"
 msgstr "Brskalnik"
 
 #: src/views/ProjectView.qml:138
-#, fuzzy, kde-format
-#| msgid "New Branch"
+#, kde-format
 msgid "Default Branch"
-msgstr "Nova veja"
+msgstr "Privzeta veja"
 
 #: src/views/ProjectView.qml:144
 #, kde-format
 msgid "Push Url"
-msgstr ""
+msgstr "Potisni Url"
 
 #: src/views/ProjectView.qml:150
 #, kde-format
 msgid "Fetch Url"
-msgstr ""
+msgstr "Poberi Url"
 
 #: src/views/ProjectView.qml:199
 #, kde-format
@@ -514,7 +512,7 @@ msgstr "Samo"
 #: src/views/ProjectView.qml:546
 #, kde-format
 msgid "Fast Forward"
-msgstr ""
+msgstr "Hitro naprej"
 
 #: src/views/ProjectView.qml:605
 #, kde-format

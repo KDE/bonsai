@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-16 00:46+0000\n"
-"PO-Revision-Date: 2023-04-15 11:48+0200\n"
+"PO-Revision-Date: 2023-04-16 10:40+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -327,10 +327,9 @@ msgid "Clone submodules"
 msgstr "Clona els submòduls"
 
 #: src/views/CommitInfoDialog.qml:19
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "Commit Info"
-msgstr "Comissions"
+msgstr "Informació de la comissió"
 
 #: src/views/CommitInfoDialog.qml:26 src/views/ProjectView.qml:237
 #, kde-format
@@ -393,20 +392,19 @@ msgid "Browser"
 msgstr "Navegador"
 
 #: src/views/ProjectView.qml:138
-#, fuzzy, kde-format
-#| msgid "New Branch"
+#, kde-format
 msgid "Default Branch"
-msgstr "Branca nova"
+msgstr "Branca predeterminada"
 
 #: src/views/ProjectView.qml:144
 #, kde-format
 msgid "Push Url"
-msgstr ""
+msgstr "URL de pujada"
 
 #: src/views/ProjectView.qml:150
 #, kde-format
 msgid "Fetch Url"
-msgstr ""
+msgstr "URL d'obtenció"
 
 #: src/views/ProjectView.qml:199
 #, kde-format
@@ -552,9 +550,3 @@ msgstr "Ubicació nova."
 #, kde-format
 msgid "Pick"
 msgstr "Selecció"
-
-#~ msgid "Remotes"
-#~ msgstr "Remots"
-
-#~ msgid "Remote Branches"
-#~ msgstr "Branques remotes"

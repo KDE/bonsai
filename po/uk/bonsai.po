@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-16 00:46+0000\n"
-"PO-Revision-Date: 2023-04-15 08:55+0300\n"
+"PO-Revision-Date: 2023-04-16 08:57+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -328,10 +328,9 @@ msgid "Clone submodules"
 msgstr "Клонувати підмодулі"
 
 #: src/views/CommitInfoDialog.qml:19
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "Commit Info"
-msgstr "Внески"
+msgstr "Дані щодо внеску"
 
 #: src/views/CommitInfoDialog.qml:26 src/views/ProjectView.qml:237
 #, kde-format
@@ -394,20 +393,19 @@ msgid "Browser"
 msgstr "Навігатор"
 
 #: src/views/ProjectView.qml:138
-#, fuzzy, kde-format
-#| msgid "New Branch"
+#, kde-format
 msgid "Default Branch"
-msgstr "Нова гілка"
+msgstr "Типова гілка"
 
 #: src/views/ProjectView.qml:144
 #, kde-format
 msgid "Push Url"
-msgstr ""
+msgstr "Адреса записування"
 
 #: src/views/ProjectView.qml:150
 #, kde-format
 msgid "Fetch Url"
-msgstr ""
+msgstr "Адреса отримання"
 
 #: src/views/ProjectView.qml:199
 #, kde-format

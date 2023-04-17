@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-16 00:46+0000\n"
-"PO-Revision-Date: 2023-04-15 11:24+0200\n"
+"PO-Revision-Date: 2023-04-16 15:41+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -325,10 +325,9 @@ msgid "Clone submodules"
 msgstr "Submodules klonen"
 
 #: src/views/CommitInfoDialog.qml:19
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "Commit Info"
-msgstr "Vastleggingen (commits)"
+msgstr "Informatie bij vastlegging (commit)"
 
 #: src/views/CommitInfoDialog.qml:26 src/views/ProjectView.qml:237
 #, kde-format
@@ -391,20 +390,19 @@ msgid "Browser"
 msgstr "Browser"
 
 #: src/views/ProjectView.qml:138
-#, fuzzy, kde-format
-#| msgid "New Branch"
+#, kde-format
 msgid "Default Branch"
-msgstr "Nieuwe branch"
+msgstr "Standaard branch"
 
 #: src/views/ProjectView.qml:144
 #, kde-format
 msgid "Push Url"
-msgstr ""
+msgstr "URL opsturen"
 
 #: src/views/ProjectView.qml:150
 #, kde-format
 msgid "Fetch Url"
-msgstr ""
+msgstr "URL ophalen"
 
 #: src/views/ProjectView.qml:199
 #, kde-format
