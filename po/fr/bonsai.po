@@ -137,12 +137,12 @@ msgstr "Commits"
 #: src/controllers/project.cpp:93
 #, kde-format
 msgid "Directory does not exists."
-msgstr "Le dossier  n'existe pas."
+msgstr "Le dossier n'existe pas."
 
 #: src/controllers/project.cpp:100
 #, kde-format
 msgid "URL is not a valid repo."
-msgstr "L'URL  n'est pas un dépôt valable."
+msgstr "L'URL n'est pas un dépôt valable."
 
 #: src/controllers/project.cpp:110
 #, kde-format
@@ -227,7 +227,7 @@ msgstr "Commençons"
 #: src/main.qml:130
 #, kde-format
 msgid "Open or clone an existing repository, or create a new one."
-msgstr "Ouvrir ou cloner un dossier existant ou en créer un nouveau."
+msgstr "Ouvrir ou cloner un dépôt existant ou en créer un nouveau."
 
 #: src/main.qml:169
 #, kde-format
