@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-16 00:46+0000\n"
-"PO-Revision-Date: 2023-04-20 11:36+0200\n"
+"PO-Revision-Date: 2023-04-24 07:47+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgstr ""
 #: src/controllers/libkommit/commands/commandpull.cpp:61
 #, kde-format
 msgid "Already up to date."
-msgstr ""
+msgstr "Déjà à jour"
 
 #: src/controllers/libkommit/commands/commandpull.cpp:65
 #: src/views/ProjectView.qml:200
