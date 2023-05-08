@@ -415,6 +415,16 @@ QString Manager::currentBranch() const
     return ret;
 }
 
+//git rev-parse --abbrev-ref --symbolic-full-name @{u}
+QString Manager::currentRemote() const
+{
+    const auto ret = QString(runGit({QStringLiteral("rev-parse"), QStringLiteral("--abbrev-ref"), QStringLiteral("--symbolic-full-name"), QStringLiteral("@{u}")})+"/")
+                         .remove(QLatin1Char('\n'))
+                         .remove(QLatin1Char('\r'))
+                         .split("/").first();
+    return ret;
+}
+
 QString Manager::run(const AbstractCommand &cmd) const
 {
     return QString(runGit(cmd.generateArgs()));

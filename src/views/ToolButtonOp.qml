@@ -14,7 +14,6 @@ AbstractButton
     contentItem: Maui.ToolActions
     {
         autoExclusive: false
-        currentIndex: -1
         expanded: true
         display: control.display
         checkable: false
@@ -29,9 +28,9 @@ AbstractButton
         Action
         {
             onTriggered: _menu.popup()
-            icon.height: 8
-            icon.width: 8
-            icon.source: "qrc:/assets/arrow-down.svg"
+//            icon.height: 8
+//            icon.width: 8
+            icon.name: "view-more-horizontal-symbolic"
             checked: _menu.visible
         }
     }

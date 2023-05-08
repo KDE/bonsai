@@ -75,6 +75,7 @@ public:
 
     // branches
     Q_REQUIRED_RESULT QString currentBranch() const;
+    Q_REQUIRED_RESULT QString currentRemote() const;
     Q_REQUIRED_RESULT QPair<int, int> uniqueCommitsOnBranches(const QString &branch1, const QString &branch2) const;
     Q_REQUIRED_RESULT QStringList branches() const;
     Q_REQUIRED_RESULT QStringList remoteBranches() const;

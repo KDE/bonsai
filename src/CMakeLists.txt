@@ -5,6 +5,7 @@ set(bonsai_SRCS
     controllers/project.cpp
     controllers/projectmanager.cpp
     controllers/branchesmanager.cpp
+    controllers/actionrunner.cpp
     models/projectsmodel.cpp
     assets.qrc
     )

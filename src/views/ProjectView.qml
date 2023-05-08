@@ -26,6 +26,11 @@ Maui.Page
     Bonsai.Project
     {
         id: _project
+
+        onActionFinished:
+        {
+            root.notify("dialog-warning", ok ? i18n("Action Finished") : i18n("Action Failed"), message)
+        }
     }
 
     title: project.title
@@ -74,6 +79,8 @@ Maui.Page
             }
         },
 
+        Switch{},
+
         ToolButton
         {
             visible: String(_project.readmeFile).length > 0
@@ -83,24 +90,8 @@ Maui.Page
                 _dialogLoader.sourceComponent = _readmeDialogComponent
                 control.dialog.open()
             }
-        },
-
-        Maui.ToolButtonMenu
-        {
-
-            icon.name: "vcs-branch"
-            Repeater
-            {
-                model: _project.allBranches
-                MenuItem
-                {
-                    autoExclusive: true
-                    checked: _project.currentBranch === text
-                    text: modelData
-                    onTriggered: _project.currentBranch = text
-                }
-            }
-        }]
+        }
+    ]
 
     Loader
     {
@@ -446,28 +437,95 @@ Maui.Page
 
                 ]
 
+                footBar.rightContent: ToolButtonOp
+                    {
+                        id: _switchButton
+                        icon.name: "vcs-branch"
+                        text: i18n("Switch: %1", selectedBranch)
+                        property string selectedBranch : _project.currentBranch
+
+                        onClicked:
+                        {
+                            _project.checkout(selectedBranch)
+                        }
+
+                        Repeater
+                        {
+                            model: _project.allBranches
+                            MenuItem
+                            {
+                                autoExclusive: true
+                                checked: _project.currentBranch === text
+                                text: modelData
+                                onTriggered: _switchButton.selectedBranch = text
+                            }
+                        }
+
+                        MenuSeparator{}
+
+                        MenuItem
+                        {
+                            id: _forceOption
+                            text: i18n("Force")
+                        }
+
+                        MenuItem
+                        {
+                            id: _remote
+                            text: i18n("Remote")
+                        }
+                    }
+
                 footBar.leftContent: [
 
                     ToolButtonOp
                     {
+                        id: _pullOp
                         icon.name: "vcs-pull"
                         text: i18n("Pull")
                         display: ToolButton.TextBesideIcon
 
+
+                        property string remote : control.project.headBranch.remote
+                        property string branch: control.project.headBranch.name
+
                         onClicked:
                         {
-                            runCommand("git pull")
-                            //                                control.project.pull()
+                            control.project.pull(remote, branch)
                         }
 
                         Menu
                         {
                             title: i18n("Branch")
+                            Repeater
+                            {
+                                model: control.project.allBranches
+                                delegate: MenuItem
+                                {
+                                    autoExclusive: true
+                                    text: modelData
+                                    checkable: true
+                                    checked: modelData === _pullOp.branch
+                                }
+
+                            }
                         }
 
                         Menu
                         {
                             title: i18n("Remote")
+                            Repeater
+                            {
+                                model: control.project.remoteBranches
+                                delegate: MenuItem
+                                {
+                                    autoExclusive: true
+                                    text: modelData
+                                    checkable: true
+                                    checked: modelData === _pullOp.remote
+                                }
+
+                            }
                         }
 
                         MenuSeparator {}
@@ -604,7 +662,7 @@ Maui.Page
                         icon.name: "vcs-stash"
                         text: i18n("Stash")
 
-                        onClicked: runCommand("git stash")
+                        onClicked: _project.stash()
                     },
 
                     ToolButtonOp
@@ -614,6 +672,7 @@ Maui.Page
 
                         onClicked: runCommand("git stash pop")
                     }
+
                 ]
             }
         }

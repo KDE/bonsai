@@ -21,6 +21,8 @@
 
 #include <libkommit/gitmanager.h>
 
+#include "actionrunner.h"
+
 Project::Project(QObject *parent) : QObject(parent)
   ,m_manager(new Git::Manager())
   ,m_cloneWatcher(nullptr)
@@ -61,6 +63,7 @@ Project::Project(QObject *parent) : QObject(parent)
             return;
 
         m_manager->logsModel()->load();
+        m_manager->logsModel()->reset();
         loadData();
 
         Q_EMIT repoChanged();
@@ -383,11 +386,6 @@ QVariantMap Project::remoteInfo(const QString &remoteName)
     return res;
 }
 
-void Project::pull()
-{
-
-}
-
 void Project::clone(const QString &url)
 {
     const auto mUrl = QUrl::fromUserInput(m_url);
@@ -435,6 +433,68 @@ void Project::clone(const QString &url)
     setStatus(StatusMessage::Loading, i18n("Start cloning %1 repository.", m_title));
 }
 
+void Project::checkout(const QString &target, const QString &remote, bool force, Git::CommandSwitchBranch::Mode mode)
+{
+    auto cmd = new Git::CommandSwitchBranch(m_manager);
+
+    cmd->setTarget(target);
+    cmd->setMode(mode);
+    cmd->setForce(force);
+    cmd->setRemoteBranch(remote);
+
+    auto runner = new ActionRunner(m_manager->path());
+    connect(runner, &ActionRunner::actionFished, [this, runner](bool ok, const QString &message)
+    {
+        Q_EMIT actionFinished(ok, message);
+        runner->deleteLater();
+    });
+    runner->run(cmd);
+}
+
+void Project::stash()
+{
+    auto runner = new ActionRunner(m_manager->path());
+    connect(runner, &ActionRunner::actionFished, [this, runner](bool ok, const QString &message)
+    {
+        Q_EMIT actionFinished(ok, message);
+        runner->deleteLater();
+    });
+    runner->run({"stash"});
+}
+
+void Project::stashPop()
+{
+    auto runner = new ActionRunner(m_manager->path());
+    connect(runner, &ActionRunner::actionFished, [this, runner](bool ok, const QString &message)
+    {
+        Q_EMIT actionFinished(ok, message);
+        runner->deleteLater();
+    });
+    runner->run({"stash pop"});
+}
+
+void Project::pull(const QString &remote, const QString &branch, Git::CommandPull::Rebase rebase, Git::CommandPull::FastForward fastforward, bool squash, bool noCommit, bool prune, bool tags)
+{
+    auto cmd = new Git::CommandPull();
+
+    cmd->setRemote(remote);
+    cmd->setBranch(branch);
+    cmd->setRebase(rebase);
+    cmd->setFastForward(fastforward);
+    cmd->setSquash(squash);
+    cmd->setNoCommit(noCommit);
+    cmd->setPrune(prune);
+    cmd->setTags(tags);
+
+    auto runner = new ActionRunner(m_manager->path());
+    connect(runner, &ActionRunner::actionFished, [this, runner](bool ok, const QString &message)
+            {
+                Q_EMIT actionFinished(ok, message);
+                runner->deleteLater();
+            });
+    runner->run(cmd);
+}
+
 StatusMessage* Project::status() const
 {
     return m_status;
@@ -453,7 +513,7 @@ QStringList Project::remoteBranches() const
     if(!m_manager->isValid())
         return {};
 
-    return m_manager->remoteBranches();
+    return m_manager->remotes();
 }
 
 
@@ -467,6 +527,7 @@ void Project::setHeadBranch()
     auto headRef = m_manager->currentBranch();
 
     m_headBranch.insert("name", headRef);
+    m_headBranch.insert("remote", m_manager->currentRemote());
     //        m_headBranch.insert("isLocal", headRef.isLocal());
     //        m_headBranch.insert("isRemote", headRef.isRemote());
     //        m_headBranch.insert("prefix", headRef.prefix());

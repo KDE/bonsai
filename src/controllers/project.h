@@ -5,6 +5,10 @@
 #include <QFutureWatcher>
 #include <libkommit/filestatus.h>
 
+#include <libkommit/commands/commandswitchbranch.h>
+
+#include <libkommit/commands/commandpull.h>
+
 class QFileSystemWatcher;
 class QTimer;
 
@@ -46,7 +50,9 @@ class Project : public QObject
 
     Q_PROPERTY(QString title READ getTitle NOTIFY titleChanged)
     Q_PROPERTY(QUrl logo READ getLogo NOTIFY logoChanged)
+
     Q_PROPERTY(QString currentBranch READ currentBranch WRITE setCurrentBranch NOTIFY currentBranchChanged)
+
     Q_PROPERTY(QVariantMap headBranch READ getHeadBranch NOTIFY headBranchChanged)
 
     Q_PROPERTY(Git::LogsModel *commitsModel READ getCommitsModel CONSTANT FINAL)
@@ -58,6 +64,8 @@ class Project : public QObject
     Q_PROPERTY(QStringList remoteBranches READ remoteBranches NOTIFY repoChanged)
 
 public:    
+
+    Q_ENUM(Git::CommandSwitchBranch::Mode)
 
     explicit Project(QObject *parent = nullptr);
     ~Project();
@@ -99,8 +107,14 @@ public Q_SLOTS:
     QVariantMap commitAuthor(const QString &id);
     QVariantMap remoteInfo(const QString &remoteName);
 
-    void pull();
+    //Actions
     void clone(const QString &url);
+
+    void checkout(const QString &target, const QString &remote = "", bool force = false, Git::CommandSwitchBranch::Mode mode = Git::CommandSwitchBranch::ExistingBranch);
+    void stash();
+    void stashPop();
+
+    void pull(const QString &remote, const QString &branch, Git::CommandPull::Rebase rebase = Git::CommandPull::None, Git::CommandPull::FastForward fastforward = Git::CommandPull::Unset, bool squash = false, bool noCommit = false, bool prune = false, bool tags = false);
 
 private:
     Git::Manager *m_manager;
@@ -148,6 +162,8 @@ Q_SIGNALS:
     void statusChanged();
     void repoChanged();
     void modelsChanged();
+
+    void actionFinished(bool ok, const QString &message);
 };
 
 

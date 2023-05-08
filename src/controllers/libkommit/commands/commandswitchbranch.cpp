@@ -20,7 +20,8 @@ CommandSwitchBranch::CommandSwitchBranch(Manager *git)
 
 void CommandSwitchBranch::parseOutputSection(const QByteArray &output, const QByteArray &errorOutput)
 {
-    if (errorOutput.contains("error: Your local changes to the following files would be overwritten by checkout")) {
+    if (errorOutput.contains("error: Your local changes to the following files would be overwritten by checkout")||
+            output.contains("error: Your local changes to the following files would be overwritten by checkout")) {
         setStatus(Error);
         setErrorMessage(
             i18n("Your local changes to the following files would be overwritten by checkout. "
