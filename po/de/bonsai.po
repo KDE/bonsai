@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-16 00:46+0000\n"
+"POT-Creation-Date: 2023-05-09 00:46+0000\n"
 "PO-Revision-Date: 2023-04-16 14:22+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -25,12 +25,12 @@ msgid "Already up to date."
 msgstr "Bereits aktuell."
 
 #: src/controllers/libkommit/commands/commandpull.cpp:65
-#: src/views/ProjectView.qml:200
+#: src/views/ProjectView.qml:191
 #, kde-format
 msgid "Error"
 msgstr "Fehler"
 
-#: src/controllers/libkommit/commands/commandswitchbranch.cpp:26
+#: src/controllers/libkommit/commands/commandswitchbranch.cpp:27
 #, kde-format
 msgid ""
 "Your local changes to the following files would be overwritten by checkout. "
@@ -74,7 +74,7 @@ msgid "Email"
 msgstr "E-Mail"
 
 #: src/controllers/libkommit/models/authorsmodel.cpp:41
-#: src/views/ProjectView.qml:44
+#: src/views/ProjectView.qml:49
 #, kde-format
 msgid "Commits"
 msgstr "Commits"
@@ -137,37 +137,37 @@ msgstr ""
 msgid "Committer"
 msgstr "Commits"
 
-#: src/controllers/project.cpp:93
+#: src/controllers/project.cpp:96
 #, kde-format
 msgid "Directory does not exists."
 msgstr "Der Ordner existiert nicht."
 
-#: src/controllers/project.cpp:100
+#: src/controllers/project.cpp:103
 #, kde-format
 msgid "URL is not a valid repo."
 msgstr ""
 
-#: src/controllers/project.cpp:110
+#: src/controllers/project.cpp:113
 #, kde-format
 msgid "Loading local repository."
 msgstr ""
 
-#: src/controllers/project.cpp:113
+#: src/controllers/project.cpp:116
 #, kde-format
 msgid "Ready."
 msgstr "Bereit."
 
-#: src/controllers/project.cpp:399
+#: src/controllers/project.cpp:397
 #, kde-format
 msgid "Failed to create directory for repository."
 msgstr "Der Ordner für das Repository kann nicht erstellt werden."
 
-#: src/controllers/project.cpp:435
+#: src/controllers/project.cpp:433
 #, kde-format
 msgid "Start cloning %1 repository."
 msgstr ""
 
-#: src/controllers/project.cpp:492
+#: src/controllers/project.cpp:553
 #, kde-format
 msgid "Nothing to see."
 msgstr "Nichts zu sehen."
@@ -252,7 +252,7 @@ msgstr[0] "Filtern"
 msgstr[1] "%1 Repositories filtern"
 
 #: src/views/BrowserView.qml:33 src/views/CommitInfoDialog.qml:72
-#: src/views/ProjectView.qml:242
+#: src/views/ProjectView.qml:233
 #, kde-format
 msgid "Date"
 msgstr "Datum"
@@ -333,7 +333,7 @@ msgstr "Submodule klonen"
 msgid "Commit Info"
 msgstr "Commits"
 
-#: src/views/CommitInfoDialog.qml:26 src/views/ProjectView.qml:237
+#: src/views/CommitInfoDialog.qml:26 src/views/ProjectView.qml:228
 #, kde-format
 msgid "Author"
 msgstr "Autor"
@@ -364,7 +364,7 @@ msgstr "Repository"
 msgid "Local Path"
 msgstr "Lokaler Pfad"
 
-#: src/views/CommitInfoDialog.qml:89 src/views/ProjectView.qml:465
+#: src/views/CommitInfoDialog.qml:89 src/views/ProjectView.qml:499
 #, fuzzy, kde-format
 #| msgid "New Branch"
 msgid "Branch"
@@ -392,145 +392,165 @@ msgstr "Neue Datei"
 msgid "Changed Files"
 msgstr ""
 
-#: src/views/ProjectView.qml:52
+#: src/views/ProjectView.qml:32
+#, kde-format
+msgid "Action Finished"
+msgstr ""
+
+#: src/views/ProjectView.qml:32
+#, kde-format
+msgid "Action Failed"
+msgstr ""
+
+#: src/views/ProjectView.qml:57
 #, kde-format
 msgid "Browser"
 msgstr "Browser"
 
-#: src/views/ProjectView.qml:138
+#: src/views/ProjectView.qml:129
 #, fuzzy, kde-format
 #| msgid "New Branch"
 msgid "Default Branch"
 msgstr "Neuer Branch"
 
-#: src/views/ProjectView.qml:144
+#: src/views/ProjectView.qml:135
 #, kde-format
 msgid "Push Url"
 msgstr ""
 
-#: src/views/ProjectView.qml:150
+#: src/views/ProjectView.qml:141
 #, kde-format
 msgid "Fetch Url"
 msgstr ""
 
-#: src/views/ProjectView.qml:199
+#: src/views/ProjectView.qml:190
 #, kde-format
 msgid "Loading..."
 msgstr "Wird geladen ..."
 
-#: src/views/ProjectView.qml:225
+#: src/views/ProjectView.qml:216
 #, kde-format
 msgid "Filter commit by id, message or author"
 msgstr "Commits nach ID, Nachricht oder Autor filtern"
 
-#: src/views/ProjectView.qml:249
+#: src/views/ProjectView.qml:240
 #, kde-format
 msgid "Asc"
 msgstr "Aufsteigend"
 
-#: src/views/ProjectView.qml:254
+#: src/views/ProjectView.qml:245
 #, kde-format
 msgid "Desc"
 msgstr "Absteigend"
 
-#: src/views/ProjectView.qml:356
+#: src/views/ProjectView.qml:347
 #, kde-format
 msgid "Checkout"
 msgstr "Checkout"
 
-#: src/views/ProjectView.qml:361
+#: src/views/ProjectView.qml:352
 #, kde-format
 msgid "Info"
 msgstr "Info"
 
-#: src/views/ProjectView.qml:368
+#: src/views/ProjectView.qml:359
 #, kde-format
 msgid "Copy ID"
 msgstr "ID kopieren"
 
-#: src/views/ProjectView.qml:428
+#: src/views/ProjectView.qml:419
 #, kde-format
 msgid "New Branch"
 msgstr "Neuer Branch"
 
-#: src/views/ProjectView.qml:434
+#: src/views/ProjectView.qml:425
 #, kde-format
 msgid "New Tag"
 msgstr "Neuer Tag"
 
-#: src/views/ProjectView.qml:442
+#: src/views/ProjectView.qml:433
 #, kde-format
 msgid "New File"
 msgstr "Neue Datei"
 
-#: src/views/ProjectView.qml:454
+#: src/views/ProjectView.qml:444
 #, kde-format
-msgid "Pull"
+msgid "Switch: %1"
 msgstr ""
 
-#: src/views/ProjectView.qml:470
+#: src/views/ProjectView.qml:469
+#, kde-format
+msgid "Force"
+msgstr ""
+
+#: src/views/ProjectView.qml:475 src/views/ProjectView.qml:516
 #, fuzzy, kde-format
 #| msgid "Remotes"
 msgid "Remote"
 msgstr "Remotes"
 
-#: src/views/ProjectView.qml:482
+#: src/views/ProjectView.qml:485
+#, kde-format
+msgid "Pull"
+msgstr ""
+
+#: src/views/ProjectView.qml:540
 #, fuzzy, kde-format
 #| msgid "Commits"
 msgid "No Commit"
 msgstr "Commits"
 
-#: src/views/ProjectView.qml:489
+#: src/views/ProjectView.qml:547
 #, kde-format
 msgid "Prune"
 msgstr ""
 
-#: src/views/ProjectView.qml:496
+#: src/views/ProjectView.qml:554
 #, kde-format
 msgid "Tags"
 msgstr ""
 
-#: src/views/ProjectView.qml:504
+#: src/views/ProjectView.qml:562
 #, kde-format
 msgid "Squash"
 msgstr ""
 
-#: src/views/ProjectView.qml:513
+#: src/views/ProjectView.qml:571
 #, kde-format
 msgid "Rebase"
 msgstr ""
 
-#: src/views/ProjectView.qml:517 src/views/ProjectView.qml:550
+#: src/views/ProjectView.qml:575 src/views/ProjectView.qml:608
 #, kde-format
 msgid "Unset"
 msgstr ""
 
-#: src/views/ProjectView.qml:524 src/views/ProjectView.qml:557
+#: src/views/ProjectView.qml:582 src/views/ProjectView.qml:615
 #, kde-format
 msgid "Yes"
 msgstr ""
 
-#: src/views/ProjectView.qml:531 src/views/ProjectView.qml:564
+#: src/views/ProjectView.qml:589 src/views/ProjectView.qml:622
 #, kde-format
 msgid "No"
 msgstr ""
 
-#: src/views/ProjectView.qml:538 src/views/ProjectView.qml:571
+#: src/views/ProjectView.qml:596 src/views/ProjectView.qml:629
 #, kde-format
 msgid "Only"
 msgstr ""
 
-#: src/views/ProjectView.qml:546
+#: src/views/ProjectView.qml:604
 #, kde-format
 msgid "Fast Forward"
 msgstr ""
 
-#: src/views/ProjectView.qml:605
+#: src/views/ProjectView.qml:663
 #, kde-format
 msgid "Stash"
 msgstr ""
 
-#: src/views/ProjectView.qml:613
+#: src/views/ProjectView.qml:671
 #, kde-format
 msgid "Stash Pop"
 msgstr ""
