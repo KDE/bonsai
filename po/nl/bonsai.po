@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-09 00:46+0000\n"
-"PO-Revision-Date: 2023-04-16 15:41+0200\n"
+"PO-Revision-Date: 2023-05-09 10:30+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.0\n"
 
 #: src/controllers/libkommit/commands/commandpull.cpp:61
 #, kde-format
@@ -387,12 +387,12 @@ msgstr "Gewijzigde bestanden"
 #: src/views/ProjectView.qml:32
 #, kde-format
 msgid "Action Finished"
-msgstr ""
+msgstr "Actie voltooid"
 
 #: src/views/ProjectView.qml:32
 #, kde-format
 msgid "Action Failed"
-msgstr ""
+msgstr "Actie is mislukt"
 
 #: src/views/ProjectView.qml:57
 #, kde-format
@@ -467,12 +467,12 @@ msgstr "Nieuw bestand"
 #: src/views/ProjectView.qml:444
 #, kde-format
 msgid "Switch: %1"
-msgstr ""
+msgstr "Omschakelen: %1"
 
 #: src/views/ProjectView.qml:469
 #, kde-format
 msgid "Force"
-msgstr ""
+msgstr "Afdwingen"
 
 #: src/views/ProjectView.qml:475 src/views/ProjectView.qml:516
 #, kde-format
@@ -482,7 +482,7 @@ msgstr "Op afstand"
 #: src/views/ProjectView.qml:485
 #, kde-format
 msgid "Pull"
-msgstr "Pull"
+msgstr "Ophalen"
 
 #: src/views/ProjectView.qml:540
 #, kde-format

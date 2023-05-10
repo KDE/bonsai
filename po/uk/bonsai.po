@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-09 00:46+0000\n"
-"PO-Revision-Date: 2023-04-16 08:57+0300\n"
+"PO-Revision-Date: 2023-05-09 08:36+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -390,12 +390,12 @@ msgstr "Змінені файли"
 #: src/views/ProjectView.qml:32
 #, kde-format
 msgid "Action Finished"
-msgstr ""
+msgstr "Виконання дії завершено"
 
 #: src/views/ProjectView.qml:32
 #, kde-format
 msgid "Action Failed"
-msgstr ""
+msgstr "Не вдалось виконати дію"
 
 #: src/views/ProjectView.qml:57
 #, kde-format
@@ -470,12 +470,12 @@ msgstr "Новий файл"
 #: src/views/ProjectView.qml:444
 #, kde-format
 msgid "Switch: %1"
-msgstr ""
+msgstr "Перемикання: %1"
 
 #: src/views/ProjectView.qml:469
 #, kde-format
 msgid "Force"
-msgstr ""
+msgstr "Примусово"
 
 #: src/views/ProjectView.qml:475 src/views/ProjectView.qml:516
 #, kde-format
