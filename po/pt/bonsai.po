@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-09 00:46+0000\n"
-"PO-Revision-Date: 2023-04-17 16:11+0100\n"
+"PO-Revision-Date: 2023-05-11 19:52+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -388,12 +388,12 @@ msgstr "Ficheiros Modificados"
 #: src/views/ProjectView.qml:32
 #, kde-format
 msgid "Action Finished"
-msgstr ""
+msgstr "Acção Terminada"
 
 #: src/views/ProjectView.qml:32
 #, kde-format
 msgid "Action Failed"
-msgstr ""
+msgstr "Acção sem Sucesso"
 
 #: src/views/ProjectView.qml:57
 #, kde-format
@@ -468,12 +468,12 @@ msgstr "Novo Ficheiro"
 #: src/views/ProjectView.qml:444
 #, kde-format
 msgid "Switch: %1"
-msgstr ""
+msgstr "Mudar: %1"
 
 #: src/views/ProjectView.qml:469
 #, kde-format
 msgid "Force"
-msgstr ""
+msgstr "Obrigar"
 
 #: src/views/ProjectView.qml:475 src/views/ProjectView.qml:516
 #, kde-format
