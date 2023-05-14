@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-09 00:46+0000\n"
-"PO-Revision-Date: 2023-04-23 12:27+0200\n"
+"PO-Revision-Date: 2023-05-13 08:58+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -389,12 +389,12 @@ msgstr "Zmienione pliki"
 #: src/views/ProjectView.qml:32
 #, kde-format
 msgid "Action Finished"
-msgstr ""
+msgstr "Ukończono działanie"
 
 #: src/views/ProjectView.qml:32
 #, kde-format
 msgid "Action Failed"
-msgstr ""
+msgstr "Nie udało się wykonać działania"
 
 #: src/views/ProjectView.qml:57
 #, kde-format
@@ -469,12 +469,12 @@ msgstr "Nowy plik"
 #: src/views/ProjectView.qml:444
 #, kde-format
 msgid "Switch: %1"
-msgstr ""
+msgstr "Przełącz: %1"
 
 #: src/views/ProjectView.qml:469
 #, kde-format
 msgid "Force"
-msgstr ""
+msgstr "Wymuś"
 
 #: src/views/ProjectView.qml:475 src/views/ProjectView.qml:516
 #, kde-format
