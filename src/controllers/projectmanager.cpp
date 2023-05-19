@@ -49,18 +49,17 @@ QUrl ProjectManager::readmeFile(const QUrl &url)
 void ProjectManager::addProject(const QString &url)
 {
     const QUrl localUrl = QUrl::fromUserInput(url);
-//    auto repo = gitDir(localUrl);
-//    if(repo.isValid())
-//    {
-//        qDebug() << "Prtoject exists and it is a directory" << repo.name();
+    if(isGitDir(localUrl.toString()))
+    {
+        qDebug() << "Prtoject exists and it is a directory" << url;
 
-//        if(this->saveHistory(localUrl))
-//        {
-//            if(m_projectsModel)
-//                m_projectsModel->insert(repoInfo(localUrl, repo));
+        if(this->saveHistory(localUrl))
+        {
+            if(m_projectsModel)
+                m_projectsModel->insert(repoInfo(localUrl));
 
-//        }
-//    }
+        }
+    }
 }
 
 void ProjectManager::addRemoteProject(const QString &remoteUrl, const QString &localUrl)
@@ -68,43 +67,23 @@ void ProjectManager::addRemoteProject(const QString &remoteUrl, const QString &l
 
 }
 
-//Git::Repository ProjectManager::gitDir(const QUrl &url)
-//{
-//    Git::Repository repo;
+bool ProjectManager::isGitDir(const QString &url)
+{
+    if(FMH::fileExists(url))
+    {
+       if(FMH::fileExists(url+"/.git"))
+           return true;
+    }
 
-//    if(FMStatic::fileExists(url))
-//    {
-//        if(FMStatic::isDir(url))
-//        {
-//            Git::Result r;
-//            repo = Git::Repository::open(r, url.toLocalFile() );
-//            if ( !r )
-//            {
-//                qDebug()  << "Unable to open repository at %s." << url << r.errorText();
-//            }
-
-//            qDebug() << "repo ok << " << repo.name();
-//        }
-//    }
-
-//    return repo;
-//}
+    return false;
+}
 
 FMH::MODEL ProjectManager::repoInfo(const QUrl &url)
 {
     FMH::MODEL res = FMStatic::getFileInfoModel(url);
 
-//    res[FMH::MODEL_KEY::TITLE] = repo.name();
     res[FMH::MODEL_KEY::ARTWORK] = ProjectManager::projectLogo(url).toString();
 
-//    Git::Result r;
-//    QString branch = repo.currentBranch(r);
-//    if ( !r )
-//    {
-//        qDebug()  << "Unable to get repo current branch" << r.errorText();
-//    }
-
-//    res[FMH::MODEL_KEY::BRANCH] = branch;
 
     return res;
 }
@@ -139,15 +118,13 @@ FMH::MODEL_LIST ProjectManager::reposData(const QList<QUrl> &urls)
 {
     FMH::MODEL_LIST  res;
 
-//    for(const auto &url : urls)
-//    {
-//        auto repo = this->gitDir(url);
-
-//        if(repo.isValid())
-//        {
-//            res << repoInfo(url, repo);
-//        }
-//    }
+    for(const auto &url : urls)
+    {
+        if(isGitDir(url.toString()))
+        {
+            res << repoInfo(url);
+        }
+    }
     return res;
 }
 
