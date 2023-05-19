@@ -686,12 +686,6 @@ Maui.Page
         anchors.bottom: parent.bottom
     }
 
-    Label
-    {
-        color: "orange"
-        text: project.status.code + " ///////////////////////// " + project.status.message
-    }
-
     function openCommitInfoDialog(id)
     {
         _dialogLoader.sourceComponent = _commitInfoDialogComponent

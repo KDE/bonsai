@@ -97,9 +97,8 @@ Maui.Page
             iconSizeHint: Maui.Style.iconSizes.big
             template.imageSizeHint: iconSizeHint
 
-            label1.text: model.title
+            label1.text: model.name
             label2.text: model.url.replace(FB.FM.homePath(), "")
-            label3.text: model.branch
 
             tooltipText: model.url
 

@@ -73,6 +73,7 @@ public Q_SLOTS:
      * Where to clone the repository
      */
     void addRemoteProject(const QString &remoteUrl, const QString &localUrl);
+    static bool isGitDir(const QString &url);
 
 private:
     ProjectsModel * m_projectsModel;

@@ -10,7 +10,6 @@ AbstractButton
 
     default property alias actions : _menu.contentData
 
-
     contentItem: Maui.ToolActions
     {
         autoExclusive: false
@@ -35,9 +34,8 @@ AbstractButton
         }
     }
 
-    Menu
+   data: Menu
     {
         id: _menu
     }
-
 }
