@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-05-09 00:46+0000\n"
-"PO-Revision-Date: 2023-04-22 20:42+0200\n"
+"PO-Revision-Date: 2023-07-21 12:15+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.04.3\n"
 
 #: src/controllers/libkommit/commands/commandpull.cpp:61
 #, kde-format
@@ -390,12 +390,12 @@ msgstr "Aldatutako fitxategiak"
 #: src/views/ProjectView.qml:32
 #, kde-format
 msgid "Action Finished"
-msgstr ""
+msgstr "Ekintza amaitu da"
 
 #: src/views/ProjectView.qml:32
 #, kde-format
 msgid "Action Failed"
-msgstr ""
+msgstr "Ekintzak huts egin du"
 
 #: src/views/ProjectView.qml:57
 #, kde-format
@@ -470,12 +470,12 @@ msgstr "Fitxategi berria"
 #: src/views/ProjectView.qml:444
 #, kde-format
 msgid "Switch: %1"
-msgstr ""
+msgstr "Trukatu: %1"
 
 #: src/views/ProjectView.qml:469
 #, kde-format
 msgid "Force"
-msgstr ""
+msgstr "Behartu"
 
 #: src/views/ProjectView.qml:475 src/views/ProjectView.qml:516
 #, kde-format
@@ -488,10 +488,9 @@ msgid "Pull"
 msgstr "Tira egin"
 
 #: src/views/ProjectView.qml:540
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "No Commit"
-msgstr "Baliozkotzeak"
+msgstr "Baliozkotzerik ez"
 
 #: src/views/ProjectView.qml:547
 #, kde-format
@@ -511,12 +510,12 @@ msgstr "Zanpatu"
 #: src/views/ProjectView.qml:571
 #, kde-format
 msgid "Rebase"
-msgstr ""
+msgstr "«Rebase»"
 
 #: src/views/ProjectView.qml:575 src/views/ProjectView.qml:608
 #, kde-format
 msgid "Unset"
-msgstr ""
+msgstr "«Unset»"
 
 #: src/views/ProjectView.qml:582 src/views/ProjectView.qml:615
 #, kde-format
@@ -539,14 +538,14 @@ msgid "Fast Forward"
 msgstr "Azkar aurrerantz"
 
 #: src/views/ProjectView.qml:663
-#, fuzzy, kde-format
+#, kde-format
 msgid "Stash"
-msgstr "Gordelekua"
+msgstr "«Stash»"
 
 #: src/views/ProjectView.qml:671
 #, kde-format
 msgid "Stash Pop"
-msgstr ""
+msgstr "«Stash Pop»"
 
 #: src/views/SettingsDialog.qml:16
 #, kde-format
