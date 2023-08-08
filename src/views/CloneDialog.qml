@@ -6,15 +6,31 @@ import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
 import org.maui.bonsai 1.0 as Bonsai
 
-Maui.Dialog
+Maui.PopupPage
 {
     id: control
     title: i18n("Git URL")
     maxWidth: 600
-    acceptButton.text: i18n("Clone")
     persistent: false
 
-    onRejected: control.close()
+    actions: [
+        Action
+        {
+            text: i18n("Clone")
+            onTriggered:
+            {
+                openProject( _pathField.text+ "/" +_nameField.text, _urlField.text)
+                control.close()
+            }
+        },
+
+        Action
+        {
+            text: i18n("Cancel")
+            onTriggered: control.close()
+        }
+    ]
+
 
     Maui.SectionItem
     {
@@ -81,11 +97,5 @@ Maui.Dialog
         {
             id: _recursiveSwitch
         }
-    }
-
-    onAccepted:
-    {
-        openProject( _pathField.text+ "/" +_nameField.text, _urlField.text)
-        control.close()
     }
 }
