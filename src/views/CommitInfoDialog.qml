@@ -6,14 +6,13 @@ import org.mauikit.controls 1.3 as Maui
 
 import org.maui.bonsai 1.0 as Bonsai
 
-Maui.Dialog
+Maui.PopupPage
 {
     id: control
 
     property string commitId
     readonly property var info : _project.commitAuthor(commitId)
 
-    defaultButtons: false
     persistent: true
 
     title: i18n("Commit Info")

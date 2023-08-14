@@ -102,9 +102,8 @@ Maui.Page
     {
         id: _remoteDialogComponent
 
-        Maui.Dialog
+        Maui.PopupPage
         {
-            defaultButtons: false
             persistent: false
             maxWidth: 800
             maxHeight: 600
@@ -118,7 +117,6 @@ Maui.Page
 
             Repeater
             {
-
                 model: _project.remotesModel
                 delegate:  Maui.SectionGroup
                 {
@@ -152,11 +150,11 @@ Maui.Page
     {
         id: _readmeDialogComponent
 
-        Maui.Dialog
+        Maui.PopupPage
         {
             maxHeight: 800
             maxWidth: 900
-            defaultButtons: false
+
             hint: 1
             title: "README.MD"
             stack: TE.TextEditor
