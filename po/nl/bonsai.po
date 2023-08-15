@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-09 00:46+0000\n"
+"POT-Creation-Date: 2023-08-15 00:44+0000\n"
 "PO-Revision-Date: 2023-05-09 10:30+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -23,7 +23,7 @@ msgid "Already up to date."
 msgstr "Al bijgewerkt."
 
 #: src/controllers/libkommit/commands/commandpull.cpp:65
-#: src/views/ProjectView.qml:191
+#: src/views/ProjectView.qml:189
 #, kde-format
 msgid "Error"
 msgstr "Fout"
@@ -61,14 +61,14 @@ msgstr "Lokaal niet bijgewerkt"
 #: src/controllers/libkommit/models/authorsmodel.cpp:37
 #: src/controllers/libkommit/models/branchesmodel.cpp:56
 #: src/controllers/libkommit/models/tagsmodel.cpp:62
-#: src/views/BrowserView.qml:57 src/views/CloneDialog.qml:35
-#: src/views/CloneDialog.qml:44
+#: src/views/BrowserView.qml:57 src/views/CloneDialog.qml:51
+#: src/views/CloneDialog.qml:60
 #, kde-format
 msgid "Name"
 msgstr "Naam"
 
 #: src/controllers/libkommit/models/authorsmodel.cpp:39
-#: src/views/CommitInfoDialog.qml:36
+#: src/views/CommitInfoDialog.qml:35
 #, kde-format
 msgid "Email"
 msgstr "E-mail"
@@ -111,7 +111,7 @@ msgid "Time"
 msgstr "Tijd"
 
 #: src/controllers/libkommit/models/submodulesmodel.cpp:55
-#: src/views/CloneDialog.qml:58
+#: src/views/CloneDialog.qml:74
 #, kde-format
 msgid "Path"
 msgstr "Pad"
@@ -206,7 +206,7 @@ msgstr "Kommit-ontwikkelaar"
 msgid "Recent"
 msgstr "Recent"
 
-#: src/main.qml:94 src/views/CloneDialog.qml:14
+#: src/main.qml:94 src/views/CloneDialog.qml:19
 #, kde-format
 msgid "Clone"
 msgstr "Klonen"
@@ -248,8 +248,8 @@ msgid_plural "Filter %1 repos"
 msgstr[0] "Filteren"
 msgstr[1] "%1 opslagruimten filteren"
 
-#: src/views/BrowserView.qml:33 src/views/CommitInfoDialog.qml:72
-#: src/views/ProjectView.qml:233
+#: src/views/BrowserView.qml:33 src/views/CommitInfoDialog.qml:71
+#: src/views/ProjectView.qml:231
 #, kde-format
 msgid "Date"
 msgstr "Datum"
@@ -274,112 +274,117 @@ msgstr "Van eerder geopende opslagruimten zal hier een lijst worden gemaakt."
 msgid "Git URL"
 msgstr "Git-URL"
 
-#: src/views/CloneDialog.qml:21
+#: src/views/CloneDialog.qml:29
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#: src/views/CloneDialog.qml:37
 #, kde-format
 msgid "Repo URL"
 msgstr "URL van opslagruimte"
 
-#: src/views/CloneDialog.qml:22
+#: src/views/CloneDialog.qml:38
 #, kde-format
 msgid "Remote repo URL"
 msgstr "URL op afstand van opslagruimte"
 
-#: src/views/CloneDialog.qml:28
+#: src/views/CloneDialog.qml:44
 #, kde-format
 msgid "URL"
 msgstr "URL"
 
-#: src/views/CloneDialog.qml:36
+#: src/views/CloneDialog.qml:52
 #, kde-format
 msgid "Remote name"
 msgstr "Naam op afstand"
 
-#: src/views/CloneDialog.qml:50
+#: src/views/CloneDialog.qml:66
 #, kde-format
 msgid "Location"
 msgstr "Locatie"
 
-#: src/views/CloneDialog.qml:51
+#: src/views/CloneDialog.qml:67
 #, kde-format
 msgid "Local location to clone"
 msgstr "Lokale positie naar kloon"
 
-#: src/views/CloneDialog.qml:65
+#: src/views/CloneDialog.qml:81
 #, kde-format
 msgid "Bare"
 msgstr "Leeg"
 
-#: src/views/CloneDialog.qml:66
+#: src/views/CloneDialog.qml:82
 #, kde-format
 msgid "Create a bare repo"
 msgstr "Een lege opslagruimte aanmaken"
 
-#: src/views/CloneDialog.qml:77
+#: src/views/CloneDialog.qml:93
 #, kde-format
 msgid "Recursive"
 msgstr "Recursief"
 
-#: src/views/CloneDialog.qml:78
+#: src/views/CloneDialog.qml:94
 #, kde-format
 msgid "Clone submodules"
 msgstr "Submodules klonen"
 
-#: src/views/CommitInfoDialog.qml:19
+#: src/views/CommitInfoDialog.qml:18
 #, kde-format
 msgid "Commit Info"
 msgstr "Informatie bij vastlegging (commit)"
 
-#: src/views/CommitInfoDialog.qml:26 src/views/ProjectView.qml:228
+#: src/views/CommitInfoDialog.qml:25 src/views/ProjectView.qml:226
 #, kde-format
 msgid "Author"
 msgstr "Auteur"
 
-#: src/views/CommitInfoDialog.qml:30
+#: src/views/CommitInfoDialog.qml:29
 #, kde-format
 msgid "Full Name"
 msgstr "Volledige naam"
 
-#: src/views/CommitInfoDialog.qml:48
+#: src/views/CommitInfoDialog.qml:47
 #, kde-format
 msgid "ID"
 msgstr "ID"
 
-#: src/views/CommitInfoDialog.qml:60
+#: src/views/CommitInfoDialog.qml:59
 #, kde-format
 msgid "Message"
 msgstr "Bericht"
 
-#: src/views/CommitInfoDialog.qml:79
+#: src/views/CommitInfoDialog.qml:78
 #, kde-format
 msgid "Repo"
 msgstr "Opslagruimte"
 
-#: src/views/CommitInfoDialog.qml:83
+#: src/views/CommitInfoDialog.qml:82
 #, kde-format
 msgid "Local Path"
 msgstr "Lokaal pad"
 
-#: src/views/CommitInfoDialog.qml:89 src/views/ProjectView.qml:499
+#: src/views/CommitInfoDialog.qml:88 src/views/ProjectView.qml:497
 #, kde-format
 msgid "Branch"
 msgstr "Branch"
 
-#: src/views/CommitInfoDialog.qml:96
+#: src/views/CommitInfoDialog.qml:95
 #, kde-format
 msgid "Parent Commit"
 msgstr "Parent-commit"
 
-#: src/views/CommitInfoDialog.qml:112
+#: src/views/CommitInfoDialog.qml:111
 #, kde-format
 msgid "Child Commit"
 msgstr "Vastlegging (commit) van afgeleide"
 
-#: src/views/CommitInfoDialog.qml:129
+#: src/views/CommitInfoDialog.qml:128
 #, kde-format
 msgid "Files"
 msgstr "Bestanden"
 
-#: src/views/CommitInfoDialog.qml:132
+#: src/views/CommitInfoDialog.qml:131
 #, kde-format
 msgid "Changed Files"
 msgstr "Gewijzigde bestanden"
@@ -399,147 +404,147 @@ msgstr "Actie is mislukt"
 msgid "Browser"
 msgstr "Browser"
 
-#: src/views/ProjectView.qml:129
+#: src/views/ProjectView.qml:127
 #, kde-format
 msgid "Default Branch"
 msgstr "Standaard branch"
 
-#: src/views/ProjectView.qml:135
+#: src/views/ProjectView.qml:133
 #, kde-format
 msgid "Push Url"
 msgstr "URL opsturen"
 
-#: src/views/ProjectView.qml:141
+#: src/views/ProjectView.qml:139
 #, kde-format
 msgid "Fetch Url"
 msgstr "URL ophalen"
 
-#: src/views/ProjectView.qml:190
+#: src/views/ProjectView.qml:188
 #, kde-format
 msgid "Loading..."
 msgstr "Bezig met laden..."
 
-#: src/views/ProjectView.qml:216
+#: src/views/ProjectView.qml:214
 #, kde-format
 msgid "Filter commit by id, message or author"
 msgstr "Commit filteren op id, bericht of auteur"
 
-#: src/views/ProjectView.qml:240
+#: src/views/ProjectView.qml:238
 #, kde-format
 msgid "Asc"
 msgstr "Oplopend"
 
-#: src/views/ProjectView.qml:245
+#: src/views/ProjectView.qml:243
 #, kde-format
 msgid "Desc"
 msgstr "Aflopend"
 
-#: src/views/ProjectView.qml:347
+#: src/views/ProjectView.qml:345
 #, kde-format
 msgid "Checkout"
 msgstr "Checkout"
 
-#: src/views/ProjectView.qml:352
+#: src/views/ProjectView.qml:350
 #, kde-format
 msgid "Info"
 msgstr "Informatie"
 
-#: src/views/ProjectView.qml:359
+#: src/views/ProjectView.qml:357
 #, kde-format
 msgid "Copy ID"
 msgstr "ID kopiëren"
 
-#: src/views/ProjectView.qml:419
+#: src/views/ProjectView.qml:417
 #, kde-format
 msgid "New Branch"
 msgstr "Nieuwe branch"
 
-#: src/views/ProjectView.qml:425
+#: src/views/ProjectView.qml:423
 #, kde-format
 msgid "New Tag"
 msgstr "Nieuwe tag"
 
-#: src/views/ProjectView.qml:433
+#: src/views/ProjectView.qml:431
 #, kde-format
 msgid "New File"
 msgstr "Nieuw bestand"
 
-#: src/views/ProjectView.qml:444
+#: src/views/ProjectView.qml:442
 #, kde-format
 msgid "Switch: %1"
 msgstr "Omschakelen: %1"
 
-#: src/views/ProjectView.qml:469
+#: src/views/ProjectView.qml:467
 #, kde-format
 msgid "Force"
 msgstr "Afdwingen"
 
-#: src/views/ProjectView.qml:475 src/views/ProjectView.qml:516
+#: src/views/ProjectView.qml:473 src/views/ProjectView.qml:514
 #, kde-format
 msgid "Remote"
 msgstr "Op afstand"
 
-#: src/views/ProjectView.qml:485
+#: src/views/ProjectView.qml:483
 #, kde-format
 msgid "Pull"
 msgstr "Ophalen"
 
-#: src/views/ProjectView.qml:540
+#: src/views/ProjectView.qml:538
 #, kde-format
 msgid "No Commit"
 msgstr "Geen commit"
 
-#: src/views/ProjectView.qml:547
+#: src/views/ProjectView.qml:545
 #, kde-format
 msgid "Prune"
 msgstr "Rommel verwijderen"
 
-#: src/views/ProjectView.qml:554
+#: src/views/ProjectView.qml:552
 #, kde-format
 msgid "Tags"
 msgstr "Tags"
 
-#: src/views/ProjectView.qml:562
+#: src/views/ProjectView.qml:560
 #, kde-format
 msgid "Squash"
 msgstr "Krimpen"
 
-#: src/views/ProjectView.qml:571
+#: src/views/ProjectView.qml:569
 #, kde-format
 msgid "Rebase"
 msgstr "Rebase"
 
-#: src/views/ProjectView.qml:575 src/views/ProjectView.qml:608
+#: src/views/ProjectView.qml:573 src/views/ProjectView.qml:606
 #, kde-format
 msgid "Unset"
 msgstr "Gezette waarde verwijderen"
 
-#: src/views/ProjectView.qml:582 src/views/ProjectView.qml:615
+#: src/views/ProjectView.qml:580 src/views/ProjectView.qml:613
 #, kde-format
 msgid "Yes"
 msgstr "Ja"
 
-#: src/views/ProjectView.qml:589 src/views/ProjectView.qml:622
+#: src/views/ProjectView.qml:587 src/views/ProjectView.qml:620
 #, kde-format
 msgid "No"
 msgstr "Nee"
 
-#: src/views/ProjectView.qml:596 src/views/ProjectView.qml:629
+#: src/views/ProjectView.qml:594 src/views/ProjectView.qml:627
 #, kde-format
 msgid "Only"
 msgstr "Alleen"
 
-#: src/views/ProjectView.qml:604
+#: src/views/ProjectView.qml:602
 #, kde-format
 msgid "Fast Forward"
 msgstr "Snel vooruit"
 
-#: src/views/ProjectView.qml:663
+#: src/views/ProjectView.qml:661
 #, kde-format
 msgid "Stash"
 msgstr "Stapel"
 
-#: src/views/ProjectView.qml:671
+#: src/views/ProjectView.qml:669
 #, kde-format
 msgid "Stash Pop"
 msgstr "Op stapel zetten"
