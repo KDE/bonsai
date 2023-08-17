@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-15 00:44+0000\n"
-"PO-Revision-Date: 2023-07-21 12:15+0200\n"
+"PO-Revision-Date: 2023-08-16 18:47+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -280,7 +280,7 @@ msgstr "Git URLa"
 #: src/views/CloneDialog.qml:29
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Utzi"
 
 #: src/views/CloneDialog.qml:37
 #, kde-format
