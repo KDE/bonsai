@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-15 00:44+0000\n"
-"PO-Revision-Date: 2023-08-07 23:34+0200\n"
+"PO-Revision-Date: 2023-08-25 20:55+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -275,7 +275,7 @@ msgstr "Git URL"
 #: src/views/CloneDialog.qml:29
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 #: src/views/CloneDialog.qml:37
 #, kde-format
