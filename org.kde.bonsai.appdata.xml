@@ -9,41 +9,51 @@
   <name xml:lang="cs">Bonsai</name>
   <name xml:lang="de">Bonsai</name>
   <name xml:lang="en-GB">Bonsai</name>
+  <name xml:lang="eo">Bonsai</name>
   <name xml:lang="es">Bonsai</name>
   <name xml:lang="eu">Bonsai</name>
   <name xml:lang="fi">Bonsai</name>
   <name xml:lang="fr">Bonsai</name>
+  <name xml:lang="gl">Bonsai</name>
   <name xml:lang="id">Bonsai</name>
   <name xml:lang="it">Bonsai</name>
   <name xml:lang="ka">Bonsai</name>
+  <name xml:lang="ko">Bonsai</name>
   <name xml:lang="nl">Bonsai</name>
   <name xml:lang="pl">Bonsai</name>
   <name xml:lang="pt">Bonsai</name>
   <name xml:lang="sk">Bonsai</name>
   <name xml:lang="sl">Bonsai</name>
+  <name xml:lang="sv">Bonsai</name>
   <name xml:lang="tr">Bonsai</name>
   <name xml:lang="uk">Бонсай</name>
   <name xml:lang="x-test">xxBonsaixx</name>
+  <name xml:lang="zh-CN">Bonsai</name>
   <name xml:lang="zh-TW">Bonsai</name>
   <summary>Git version control manager</summary>
   <summary xml:lang="ca">Gestor de control de versions Git</summary>
   <summary xml:lang="ca-valencia">Gestor de control de versions Git</summary>
   <summary xml:lang="de">Programm für Git-Versionsverwaltung</summary>
   <summary xml:lang="en-GB">Git version control manager</summary>
+  <summary xml:lang="eo">Versiokontroladministrilo por Git</summary>
   <summary xml:lang="es">Gestor de control de versiones de Git</summary>
   <summary xml:lang="eu">Git bertsio kontrol kudeatzailea</summary>
   <summary xml:lang="fi">Git-versionhallinnan käyttöliittymä</summary>
   <summary xml:lang="fr">Gestionnaire pour le contrôleur de version « Git »</summary>
+  <summary xml:lang="gl">Xestor de control de versións de Git.</summary>
   <summary xml:lang="id">Manajer kontrol versi Git</summary>
   <summary xml:lang="it">Gestore del controllo di versione Git</summary>
   <summary xml:lang="ka">Git ვერსიის კონტროლის მმართველი</summary>
+  <summary xml:lang="ko">Git 버전 관리자</summary>
   <summary xml:lang="nl">Versiebesturingsbeheerder van Git</summary>
   <summary xml:lang="pl">Zarządzanie wersjami z Gitem</summary>
   <summary xml:lang="pt">Gestor de controlo de versões Git</summary>
   <summary xml:lang="sl">Upravljalnik različic Git</summary>
+  <summary xml:lang="sv">Git versionskontrollhantering</summary>
   <summary xml:lang="tr">Git sürüm denetim yöneticisi</summary>
   <summary xml:lang="uk">Програма для керування версіями за допомогою Git</summary>
   <summary xml:lang="x-test">xxGit version control managerxx</summary>
+  <summary xml:lang="zh-CN">Git 版本控制管理器</summary>
   <summary xml:lang="zh-TW">Git 版本控制管理器</summary>
   <description>
     <p>Browse and manage your local repositories.</p>
@@ -51,20 +61,25 @@
     <p xml:lang="ca-valencia">Navegueu i gestioneu els repositoris locals.</p>
     <p xml:lang="de">Lokale Repositories anzeigen und verwalten.</p>
     <p xml:lang="en-GB">Browse and manage your local repositories.</p>
+    <p xml:lang="eo">Foliumi kaj administri viajn lokajn deponejeojn.</p>
     <p xml:lang="es">Explore y gestione sus repositorios locales.</p>
     <p xml:lang="eu">Arakatu eta kudeatu zure gordetegi lokalak.</p>
     <p xml:lang="fi">Selaa ja hallinnoi paikallisia lähteitä.</p>
     <p xml:lang="fr">Naviguer et gérer vos dépôts locaux.</p>
+    <p xml:lang="gl">Examine e xestione os seus repositorios locais.</p>
     <p xml:lang="id">Telusur dan kelola repositori lokal Anda.</p>
     <p xml:lang="it">Sfoglia e gestisci i tuoi depositi locali.</p>
     <p xml:lang="ka">დაათვალიერეთ და მართეთ თქვენი ლოკალური რეპოზიტორიები.</p>
+    <p xml:lang="ko">로컬 저장소를 보고 관리합니다.</p>
     <p xml:lang="nl">Door uw lokale opslagruimten bladeren en deze beheren.</p>
     <p xml:lang="pl">Przeglądaj i zarządzaj swoimi miejscowymi repozytoriami.</p>
     <p xml:lang="pt">Navegue e faça a gestão dos seus repositórios locais.</p>
     <p xml:lang="sl">Brskanje in upravljanje vaših lokalnih skladišč.</p>
+    <p xml:lang="sv">Bläddra i och hantera dina lokala arkiv.</p>
     <p xml:lang="tr">Yerel depolarınıza göz atın ve onları yönetin</p>
     <p xml:lang="uk">Навігація і керування вашими локальними сховищами коду.</p>
     <p xml:lang="x-test">xxBrowse and manage your local repositories.xx</p>
+    <p xml:lang="zh-CN">浏览并管理您的本地仓库。</p>
     <p xml:lang="zh-TW">瀏覽並管理您的本地端版本庫。</p>
   </description>
   <url type="homepage">https://mauikit.org/</url>
@@ -77,20 +92,25 @@
       <caption xml:lang="ca-valencia">Bonsai - versió mòbil</caption>
       <caption xml:lang="de">Bonsai - Mobilversion</caption>
       <caption xml:lang="en-GB">Bonsai - mobile version</caption>
+      <caption xml:lang="eo">Bonsai - poŝtelefona versio</caption>
       <caption xml:lang="es">Bonsai - versión para móvil</caption>
       <caption xml:lang="eu">Bonsai - mugikorreko bertsioa</caption>
       <caption xml:lang="fi">Bonsai – mobiiliversio</caption>
       <caption xml:lang="fr">Bonsai - version mobile</caption>
+      <caption xml:lang="gl">Bonsai — versión móbil.</caption>
       <caption xml:lang="id">Bonsai - versi ponsel</caption>
       <caption xml:lang="it">Bonsai - versione mobile</caption>
       <caption xml:lang="ka">Bonsai - მობილურის ვერსია</caption>
+      <caption xml:lang="ko">Bonsai - 모바일 버전</caption>
       <caption xml:lang="nl">Bonsai - mobiele versie</caption>
       <caption xml:lang="pl">Bonsai - wydanie przenośne</caption>
       <caption xml:lang="pt">Bonsai - versão móvel</caption>
       <caption xml:lang="sl">Bonsai - mobilna različica</caption>
+      <caption xml:lang="sv">Bonsai - mobilversion</caption>
       <caption xml:lang="tr">Bonsai - Taşınabilir sürüm</caption>
       <caption xml:lang="uk">Бонсай — мобільна версія</caption>
       <caption xml:lang="x-test">xxBonsai - mobile versionxx</caption>
+      <caption xml:lang="zh-CN">Bonsai - 移动版本</caption>
       <caption xml:lang="zh-TW">Bonsai - 行動版</caption>
       <image type="source" width="2899" height="2326">
        https://mauikit.org/wp-content/uploads/2022/11/bonsai.jpg
@@ -108,6 +128,12 @@
   <content_rating type="oars-1.0"/>
   <project_group>KDE</project_group>
   <releases>
+    <release version="1.1.1" date="2023-08-28">
+      <url>https://mauikit.org/blog/maui-release-briefing-3/</url>
+    </release>
+    <release version="1.1.0" date="2023-05-25">
+      <url>https://mauikit.org/blog/maui-release-briefing-2/</url>
+    </release>
     <release version="1.0.2" date="2023-02-28">
       <url>https://mauikit.org/blog/maui-project-release-report-1/</url>
     </release>

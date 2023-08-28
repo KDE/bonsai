@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-09 00:46+0000\n"
-"PO-Revision-Date: 2023-04-29 08:35\n"
+"POT-Creation-Date: 2023-08-15 00:44+0000\n"
+"PO-Revision-Date: 2023-08-27 03:41\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -20,13 +20,13 @@ msgstr ""
 #: src/controllers/libkommit/commands/commandpull.cpp:61
 #, kde-format
 msgid "Already up to date."
-msgstr ""
+msgstr "已是最新版本。"
 
 #: src/controllers/libkommit/commands/commandpull.cpp:65
-#: src/views/ProjectView.qml:191
+#: src/views/ProjectView.qml:189
 #, kde-format
 msgid "Error"
-msgstr ""
+msgstr "错误"
 
 #: src/controllers/libkommit/commands/commandswitchbranch.cpp:27
 #, kde-format
@@ -38,12 +38,12 @@ msgstr ""
 #: src/controllers/libkommit/gitremote.cpp:120
 #, kde-format
 msgid "Unknown"
-msgstr ""
+msgstr "未知"
 
 #: src/controllers/libkommit/gitremote.cpp:122
 #, kde-format
 msgid "Up to date"
-msgstr ""
+msgstr "已是最新"
 
 #: src/controllers/libkommit/gitremote.cpp:124
 #, kde-format
@@ -53,28 +53,28 @@ msgstr ""
 #: src/controllers/libkommit/gitremote.cpp:126
 #, kde-format
 msgid "Local out of date"
-msgstr ""
+msgstr "本地文件已过期"
 
 #: src/controllers/libkommit/models/authorsmodel.cpp:37
 #: src/controllers/libkommit/models/branchesmodel.cpp:56
 #: src/controllers/libkommit/models/tagsmodel.cpp:62
-#: src/views/BrowserView.qml:57 src/views/CloneDialog.qml:35
-#: src/views/CloneDialog.qml:44
+#: src/views/BrowserView.qml:57 src/views/CloneDialog.qml:51
+#: src/views/CloneDialog.qml:60
 #, kde-format
 msgid "Name"
-msgstr ""
+msgstr "姓名"
 
 #: src/controllers/libkommit/models/authorsmodel.cpp:39
-#: src/views/CommitInfoDialog.qml:36
+#: src/views/CommitInfoDialog.qml:35
 #, kde-format
 msgid "Email"
-msgstr ""
+msgstr "电子邮箱"
 
 #: src/controllers/libkommit/models/authorsmodel.cpp:41
 #: src/views/ProjectView.qml:49
 #, kde-format
 msgid "Commits"
-msgstr ""
+msgstr "提交"
 
 #: src/controllers/libkommit/models/branchesmodel.cpp:58
 #, kde-format
@@ -90,38 +90,38 @@ msgstr ""
 #: src/controllers/libkommit/models/tagsmodel.cpp:64
 #, kde-format
 msgid "Subject"
-msgstr ""
+msgstr "主题"
 
 #: src/controllers/libkommit/models/stashesmodel.cpp:62
 #, kde-format
 msgid "Author name"
-msgstr ""
+msgstr "作者姓名"
 
 #: src/controllers/libkommit/models/stashesmodel.cpp:64
 #, kde-format
 msgid "Author email"
-msgstr ""
+msgstr "作者电子邮件"
 
 #: src/controllers/libkommit/models/stashesmodel.cpp:66
 #, kde-format
 msgid "Time"
-msgstr ""
+msgstr "时间"
 
 #: src/controllers/libkommit/models/submodulesmodel.cpp:55
-#: src/views/CloneDialog.qml:58
+#: src/views/CloneDialog.qml:74
 #, kde-format
 msgid "Path"
-msgstr ""
+msgstr "路径"
 
 #: src/controllers/libkommit/models/submodulesmodel.cpp:57
 #, kde-format
 msgid "Head"
-msgstr ""
+msgstr "头部"
 
 #: src/controllers/libkommit/models/submodulesmodel.cpp:59
 #, kde-format
 msgid "Status"
-msgstr ""
+msgstr "状态"
 
 #: src/controllers/libkommit/models/tagsmodel.cpp:66
 #, kde-format
@@ -131,124 +131,124 @@ msgstr ""
 #: src/controllers/libkommit/models/tagsmodel.cpp:68
 #, kde-format
 msgid "Committer"
-msgstr ""
+msgstr "提交者"
 
 #: src/controllers/project.cpp:96
 #, kde-format
 msgid "Directory does not exists."
-msgstr ""
+msgstr "目录不存在。"
 
 #: src/controllers/project.cpp:103
 #, kde-format
 msgid "URL is not a valid repo."
-msgstr ""
+msgstr "URL 不是有效的仓库。"
 
 #: src/controllers/project.cpp:113
 #, kde-format
 msgid "Loading local repository."
-msgstr ""
+msgstr "正在加载本地仓库。"
 
 #: src/controllers/project.cpp:116
 #, kde-format
 msgid "Ready."
-msgstr ""
+msgstr "就绪。"
 
 #: src/controllers/project.cpp:397
 #, kde-format
 msgid "Failed to create directory for repository."
-msgstr ""
+msgstr "无法创建仓库目录。"
 
 #: src/controllers/project.cpp:433
 #, kde-format
 msgid "Start cloning %1 repository."
-msgstr ""
+msgstr "开始克隆 %1 仓库。"
 
 #: src/controllers/project.cpp:553
 #, kde-format
 msgid "Nothing to see."
-msgstr ""
+msgstr "空空如也。"
 
 #: src/main.cpp:39
 #, kde-format
 msgid "Bonsai"
-msgstr ""
+msgstr "Bonsai"
 
 #: src/main.cpp:39
 #, kde-format
 msgid "Git version control manager."
-msgstr ""
+msgstr "Git 版本控制管理器。"
 
 #: src/main.cpp:39
 #, kde-format
 msgid "© 2021-%1 Maui Development Team"
-msgstr ""
+msgstr "© 2021-%1 Maui 开发团队"
 
 #: src/main.cpp:41
 #, kde-format
 msgid "Camilo Higuita"
-msgstr ""
+msgstr "Camilo Higuita"
 
 #: src/main.cpp:41
 #, kde-format
 msgid "Developer"
-msgstr ""
+msgstr "开发者"
 
 #: src/main.cpp:49
 #, kde-format
 msgid "Kommit Developer"
-msgstr ""
+msgstr "Kommit 开发者"
 
 #: src/main.qml:82
 #, kde-format
 msgid "Recent"
 msgstr ""
 
-#: src/main.qml:94 src/views/CloneDialog.qml:14
+#: src/main.qml:94 src/views/CloneDialog.qml:19
 #, kde-format
 msgid "Clone"
-msgstr ""
+msgstr "克隆"
 
 #: src/main.qml:107
 #, kde-format
 msgid "Create"
-msgstr ""
+msgstr "新建"
 
 #: src/main.qml:116
 #, kde-format
 msgid "Open"
-msgstr ""
+msgstr "打开"
 
 #: src/main.qml:129
 #, kde-format
 msgid "Let's Start"
-msgstr ""
+msgstr "我们开始吧"
 
 #: src/main.qml:130
 #, kde-format
 msgid "Open or clone an existing repository, or create a new one."
-msgstr ""
+msgstr "打开或克隆现有的仓库，或创建新的仓库。"
 
 #: src/main.qml:169
 #, kde-format
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 #: src/main.qml:176
 #, kde-format
 msgid "About"
-msgstr ""
+msgstr "关于"
 
 #: src/views/BrowserView.qml:20
 #, kde-format
 msgid "Filter"
 msgid_plural "Filter %1 repos"
-msgstr[0] ""
+msgstr[0] "在 %1 个仓库中筛选"
 
-#: src/views/BrowserView.qml:33 src/views/CommitInfoDialog.qml:72
-#: src/views/ProjectView.qml:233
+#: src/views/BrowserView.qml:33 src/views/CommitInfoDialog.qml:71
+#: src/views/ProjectView.qml:231
 #, kde-format
 msgid "Date"
-msgstr ""
+msgstr "日期"
 
 #: src/views/BrowserView.qml:45
 #, kde-format
@@ -258,284 +258,289 @@ msgstr ""
 #: src/views/BrowserView.qml:75
 #, kde-format
 msgid "Nothing here!"
-msgstr ""
+msgstr "暂无内容！"
 
 #: src/views/BrowserView.qml:76
 #, kde-format
 msgid "Previously opened repos will be listed here."
-msgstr ""
+msgstr "以前打开的仓库将在此列出。"
 
 #: src/views/CloneDialog.qml:12
 #, kde-format
 msgid "Git URL"
+msgstr "Git URL"
+
+#: src/views/CloneDialog.qml:29
+#, kde-format
+msgid "Cancel"
 msgstr ""
 
-#: src/views/CloneDialog.qml:21
+#: src/views/CloneDialog.qml:37
 #, kde-format
 msgid "Repo URL"
-msgstr ""
+msgstr "仓库 URL"
 
-#: src/views/CloneDialog.qml:22
+#: src/views/CloneDialog.qml:38
 #, kde-format
 msgid "Remote repo URL"
-msgstr ""
+msgstr "远程仓库 URL"
 
-#: src/views/CloneDialog.qml:28
+#: src/views/CloneDialog.qml:44
 #, kde-format
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
-#: src/views/CloneDialog.qml:36
+#: src/views/CloneDialog.qml:52
 #, kde-format
 msgid "Remote name"
-msgstr ""
+msgstr "远程名称"
 
-#: src/views/CloneDialog.qml:50
+#: src/views/CloneDialog.qml:66
 #, kde-format
 msgid "Location"
-msgstr ""
+msgstr "位置"
 
-#: src/views/CloneDialog.qml:51
+#: src/views/CloneDialog.qml:67
 #, kde-format
 msgid "Local location to clone"
-msgstr ""
+msgstr "本地克隆位置"
 
-#: src/views/CloneDialog.qml:65
+#: src/views/CloneDialog.qml:81
 #, kde-format
 msgid "Bare"
 msgstr ""
 
-#: src/views/CloneDialog.qml:66
+#: src/views/CloneDialog.qml:82
 #, kde-format
 msgid "Create a bare repo"
 msgstr ""
 
-#: src/views/CloneDialog.qml:77
+#: src/views/CloneDialog.qml:93
 #, kde-format
 msgid "Recursive"
-msgstr ""
+msgstr "递归"
 
-#: src/views/CloneDialog.qml:78
+#: src/views/CloneDialog.qml:94
 #, kde-format
 msgid "Clone submodules"
-msgstr ""
+msgstr "克隆子模块"
 
-#: src/views/CommitInfoDialog.qml:19
+#: src/views/CommitInfoDialog.qml:18
 #, kde-format
 msgid "Commit Info"
 msgstr ""
 
-#: src/views/CommitInfoDialog.qml:26 src/views/ProjectView.qml:228
+#: src/views/CommitInfoDialog.qml:25 src/views/ProjectView.qml:226
 #, kde-format
 msgid "Author"
-msgstr ""
+msgstr "作者"
 
-#: src/views/CommitInfoDialog.qml:30
+#: src/views/CommitInfoDialog.qml:29
 #, kde-format
 msgid "Full Name"
-msgstr ""
+msgstr "全名"
 
-#: src/views/CommitInfoDialog.qml:48
+#: src/views/CommitInfoDialog.qml:47
 #, kde-format
 msgid "ID"
 msgstr ""
 
-#: src/views/CommitInfoDialog.qml:60
+#: src/views/CommitInfoDialog.qml:59
 #, kde-format
 msgid "Message"
 msgstr ""
 
-#: src/views/CommitInfoDialog.qml:79
+#: src/views/CommitInfoDialog.qml:78
 #, kde-format
 msgid "Repo"
-msgstr ""
+msgstr "仓库"
 
-#: src/views/CommitInfoDialog.qml:83
+#: src/views/CommitInfoDialog.qml:82
 #, kde-format
 msgid "Local Path"
-msgstr ""
+msgstr "本地路径"
 
-#: src/views/CommitInfoDialog.qml:89 src/views/ProjectView.qml:499
+#: src/views/CommitInfoDialog.qml:88 src/views/ProjectView.qml:497
 #, kde-format
 msgid "Branch"
-msgstr ""
+msgstr "分支"
 
-#: src/views/CommitInfoDialog.qml:96
+#: src/views/CommitInfoDialog.qml:95
 #, kde-format
 msgid "Parent Commit"
 msgstr ""
 
-#: src/views/CommitInfoDialog.qml:112
+#: src/views/CommitInfoDialog.qml:111
 #, kde-format
 msgid "Child Commit"
 msgstr ""
 
-#: src/views/CommitInfoDialog.qml:129
+#: src/views/CommitInfoDialog.qml:128
 #, kde-format
 msgid "Files"
-msgstr ""
+msgstr "文件"
 
-#: src/views/CommitInfoDialog.qml:132
+#: src/views/CommitInfoDialog.qml:131
 #, kde-format
 msgid "Changed Files"
-msgstr ""
+msgstr "更改的文件"
 
 #: src/views/ProjectView.qml:32
 #, kde-format
 msgid "Action Finished"
-msgstr ""
+msgstr "操作完成"
 
 #: src/views/ProjectView.qml:32
 #, kde-format
 msgid "Action Failed"
-msgstr ""
+msgstr "操作失败"
 
 #: src/views/ProjectView.qml:57
 #, kde-format
 msgid "Browser"
 msgstr ""
 
-#: src/views/ProjectView.qml:129
+#: src/views/ProjectView.qml:127
 #, kde-format
 msgid "Default Branch"
-msgstr ""
+msgstr "默认分支"
 
-#: src/views/ProjectView.qml:135
+#: src/views/ProjectView.qml:133
 #, kde-format
 msgid "Push Url"
 msgstr ""
 
-#: src/views/ProjectView.qml:141
+#: src/views/ProjectView.qml:139
 #, kde-format
 msgid "Fetch Url"
-msgstr ""
+msgstr "拉取 URL"
 
-#: src/views/ProjectView.qml:190
+#: src/views/ProjectView.qml:188
 #, kde-format
 msgid "Loading..."
-msgstr ""
+msgstr "加载中..."
 
-#: src/views/ProjectView.qml:216
+#: src/views/ProjectView.qml:214
 #, kde-format
 msgid "Filter commit by id, message or author"
-msgstr ""
+msgstr "按 ID、消息或作者过滤提交"
 
-#: src/views/ProjectView.qml:240
+#: src/views/ProjectView.qml:238
 #, kde-format
 msgid "Asc"
-msgstr ""
+msgstr "升序"
 
-#: src/views/ProjectView.qml:245
+#: src/views/ProjectView.qml:243
 #, kde-format
 msgid "Desc"
-msgstr ""
+msgstr "降序"
 
-#: src/views/ProjectView.qml:347
+#: src/views/ProjectView.qml:345
 #, kde-format
 msgid "Checkout"
-msgstr ""
+msgstr "检出"
 
-#: src/views/ProjectView.qml:352
+#: src/views/ProjectView.qml:350
 #, kde-format
 msgid "Info"
-msgstr ""
+msgstr "详情"
 
-#: src/views/ProjectView.qml:359
+#: src/views/ProjectView.qml:357
 #, kde-format
 msgid "Copy ID"
-msgstr ""
+msgstr "复制ID"
 
-#: src/views/ProjectView.qml:419
+#: src/views/ProjectView.qml:417
 #, kde-format
 msgid "New Branch"
-msgstr ""
+msgstr "新建分支"
 
-#: src/views/ProjectView.qml:425
+#: src/views/ProjectView.qml:423
 #, kde-format
 msgid "New Tag"
-msgstr ""
+msgstr "新建标签"
 
-#: src/views/ProjectView.qml:433
+#: src/views/ProjectView.qml:431
 #, kde-format
 msgid "New File"
-msgstr ""
+msgstr "新建文件"
 
-#: src/views/ProjectView.qml:444
+#: src/views/ProjectView.qml:442
 #, kde-format
 msgid "Switch: %1"
-msgstr ""
+msgstr "切换：%1"
 
-#: src/views/ProjectView.qml:469
+#: src/views/ProjectView.qml:467
 #, kde-format
 msgid "Force"
 msgstr ""
 
-#: src/views/ProjectView.qml:475 src/views/ProjectView.qml:516
+#: src/views/ProjectView.qml:473 src/views/ProjectView.qml:514
 #, kde-format
 msgid "Remote"
-msgstr ""
+msgstr "远程"
 
-#: src/views/ProjectView.qml:485
+#: src/views/ProjectView.qml:483
 #, kde-format
 msgid "Pull"
-msgstr ""
+msgstr "拉取"
 
-#: src/views/ProjectView.qml:540
+#: src/views/ProjectView.qml:538
 #, kde-format
 msgid "No Commit"
 msgstr ""
 
-#: src/views/ProjectView.qml:547
+#: src/views/ProjectView.qml:545
 #, kde-format
 msgid "Prune"
 msgstr ""
 
-#: src/views/ProjectView.qml:554
+#: src/views/ProjectView.qml:552
 #, kde-format
 msgid "Tags"
-msgstr ""
+msgstr "标签"
 
-#: src/views/ProjectView.qml:562
+#: src/views/ProjectView.qml:560
 #, kde-format
 msgid "Squash"
-msgstr ""
+msgstr "压缩"
 
-#: src/views/ProjectView.qml:571
+#: src/views/ProjectView.qml:569
 #, kde-format
 msgid "Rebase"
-msgstr ""
+msgstr "变基"
 
-#: src/views/ProjectView.qml:575 src/views/ProjectView.qml:608
+#: src/views/ProjectView.qml:573 src/views/ProjectView.qml:606
 #, kde-format
 msgid "Unset"
-msgstr ""
+msgstr "取消设置"
 
-#: src/views/ProjectView.qml:582 src/views/ProjectView.qml:615
+#: src/views/ProjectView.qml:580 src/views/ProjectView.qml:613
 #, kde-format
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
-#: src/views/ProjectView.qml:589 src/views/ProjectView.qml:622
+#: src/views/ProjectView.qml:587 src/views/ProjectView.qml:620
 #, kde-format
 msgid "No"
-msgstr ""
+msgstr "否"
 
-#: src/views/ProjectView.qml:596 src/views/ProjectView.qml:629
+#: src/views/ProjectView.qml:594 src/views/ProjectView.qml:627
 #, kde-format
 msgid "Only"
-msgstr ""
+msgstr "仅"
 
-#: src/views/ProjectView.qml:604
+#: src/views/ProjectView.qml:602
 #, kde-format
 msgid "Fast Forward"
-msgstr ""
+msgstr "快进"
 
-#: src/views/ProjectView.qml:663
+#: src/views/ProjectView.qml:661
 #, kde-format
 msgid "Stash"
-msgstr ""
+msgstr "暂存"
 
-#: src/views/ProjectView.qml:671
+#: src/views/ProjectView.qml:669
 #, kde-format
 msgid "Stash Pop"
 msgstr ""
@@ -543,24 +548,24 @@ msgstr ""
 #: src/views/SettingsDialog.qml:16
 #, kde-format
 msgid "Global"
-msgstr ""
+msgstr "全局"
 
 #: src/views/SettingsDialog.qml:20
 #, kde-format
 msgid "Clone Directory"
-msgstr ""
+msgstr "克隆目录"
 
 #: src/views/SettingsDialog.qml:21
 #, kde-format
 msgid "Pick a default clone directory."
-msgstr ""
+msgstr "选择默认克隆目录。"
 
 #: src/views/SettingsDialog.qml:32
 #, kde-format
 msgid "New location."
-msgstr ""
+msgstr "新位置。"
 
 #: src/views/SettingsDialog.qml:38
 #, kde-format
 msgid "Pick"
-msgstr ""
+msgstr "选择"

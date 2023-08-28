@@ -7,8 +7,7 @@ set(bonsai_SRCS
     controllers/branchesmanager.cpp
     controllers/actionrunner.cpp
     models/projectsmodel.cpp
-    assets.qrc
-    )
+    assets.qrc)
 
 if(QUICK_COMPILER)
     qtquick_compiler_add_resources(bonsai_QML_QRC qml.qrc)
@@ -18,12 +17,20 @@ endif()
 
 add_executable(${PROJECT_NAME}
     ${bonsai_SRCS}
-    ${bonsai_QML_QRC}
-    )
+    ${bonsai_QML_QRC})
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 
-target_link_libraries(${PROJECT_NAME} MauiKit MauiKit::FileBrowsing Qt5::Widgets Qt5::Quick Qt5::Core Qt5::Concurrent KF5::CoreAddons KF5::I18n libkommit_bonsai)
+target_link_libraries(${PROJECT_NAME}
+    MauiKit3
+    MauiKit3::FileBrowsing
+    Qt5::Widgets
+    Qt5::Quick
+    Qt5::Core
+    Qt5::Concurrent
+    KF5::CoreAddons
+    KF5::I18n
+    libkommit_bonsai)
 
 install(TARGETS ${PROJECT_NAME} ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 

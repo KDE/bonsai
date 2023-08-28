@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QObject>
-#include <MauiKit/Core/mauilist.h>
+#include <MauiKit3/Core/mauilist.h>
 #include "libGitWrap/Repository.hpp"
 
 class Project;

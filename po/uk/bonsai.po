@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-09 00:46+0000\n"
-"PO-Revision-Date: 2023-05-09 08:36+0300\n"
+"POT-Creation-Date: 2023-08-15 00:44+0000\n"
+"PO-Revision-Date: 2023-08-15 09:38+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -24,7 +24,7 @@ msgid "Already up to date."
 msgstr "Вже актуальне."
 
 #: src/controllers/libkommit/commands/commandpull.cpp:65
-#: src/views/ProjectView.qml:191
+#: src/views/ProjectView.qml:189
 #, kde-format
 msgid "Error"
 msgstr "Помилка"
@@ -62,14 +62,14 @@ msgstr "Локальна є застарілою"
 #: src/controllers/libkommit/models/authorsmodel.cpp:37
 #: src/controllers/libkommit/models/branchesmodel.cpp:56
 #: src/controllers/libkommit/models/tagsmodel.cpp:62
-#: src/views/BrowserView.qml:57 src/views/CloneDialog.qml:35
-#: src/views/CloneDialog.qml:44
+#: src/views/BrowserView.qml:57 src/views/CloneDialog.qml:51
+#: src/views/CloneDialog.qml:60
 #, kde-format
 msgid "Name"
 msgstr "Назва"
 
 #: src/controllers/libkommit/models/authorsmodel.cpp:39
-#: src/views/CommitInfoDialog.qml:36
+#: src/views/CommitInfoDialog.qml:35
 #, kde-format
 msgid "Email"
 msgstr "Ел. пошта"
@@ -112,7 +112,7 @@ msgid "Time"
 msgstr "Час"
 
 #: src/controllers/libkommit/models/submodulesmodel.cpp:55
-#: src/views/CloneDialog.qml:58
+#: src/views/CloneDialog.qml:74
 #, kde-format
 msgid "Path"
 msgstr "Шлях"
@@ -207,7 +207,7 @@ msgstr "Розробник Kommit"
 msgid "Recent"
 msgstr "Нещодавні"
 
-#: src/main.qml:94 src/views/CloneDialog.qml:14
+#: src/main.qml:94 src/views/CloneDialog.qml:19
 #, kde-format
 msgid "Clone"
 msgstr "Клонувати"
@@ -251,8 +251,8 @@ msgstr[1] "Фільтрувати %1 сховища"
 msgstr[2] "Фільтрувати %1 сховищ"
 msgstr[3] "Фільтрувати %1 сховище"
 
-#: src/views/BrowserView.qml:33 src/views/CommitInfoDialog.qml:72
-#: src/views/ProjectView.qml:233
+#: src/views/BrowserView.qml:33 src/views/CommitInfoDialog.qml:71
+#: src/views/ProjectView.qml:231
 #, kde-format
 msgid "Date"
 msgstr "Дата"
@@ -277,112 +277,117 @@ msgstr "Тут буде показано раніше відкриті схов�
 msgid "Git URL"
 msgstr "Адреса Git"
 
-#: src/views/CloneDialog.qml:21
+#: src/views/CloneDialog.qml:29
+#, kde-format
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: src/views/CloneDialog.qml:37
 #, kde-format
 msgid "Repo URL"
 msgstr "Адреса сховища"
 
-#: src/views/CloneDialog.qml:22
+#: src/views/CloneDialog.qml:38
 #, kde-format
 msgid "Remote repo URL"
 msgstr "Адреса віддаленого сховища"
 
-#: src/views/CloneDialog.qml:28
+#: src/views/CloneDialog.qml:44
 #, kde-format
 msgid "URL"
 msgstr "Адреса"
 
-#: src/views/CloneDialog.qml:36
+#: src/views/CloneDialog.qml:52
 #, kde-format
 msgid "Remote name"
 msgstr "Назва віддаленого сховища"
 
-#: src/views/CloneDialog.qml:50
+#: src/views/CloneDialog.qml:66
 #, kde-format
 msgid "Location"
 msgstr "Місце"
 
-#: src/views/CloneDialog.qml:51
+#: src/views/CloneDialog.qml:67
 #, kde-format
 msgid "Local location to clone"
 msgstr "Локальне місце для клонування"
 
-#: src/views/CloneDialog.qml:65
+#: src/views/CloneDialog.qml:81
 #, kde-format
 msgid "Bare"
 msgstr "Мінімальне"
 
-#: src/views/CloneDialog.qml:66
+#: src/views/CloneDialog.qml:82
 #, kde-format
 msgid "Create a bare repo"
 msgstr "Створити мінімальне сховище"
 
-#: src/views/CloneDialog.qml:77
+#: src/views/CloneDialog.qml:93
 #, kde-format
 msgid "Recursive"
 msgstr "Рекурсивно"
 
-#: src/views/CloneDialog.qml:78
+#: src/views/CloneDialog.qml:94
 #, kde-format
 msgid "Clone submodules"
 msgstr "Клонувати підмодулі"
 
-#: src/views/CommitInfoDialog.qml:19
+#: src/views/CommitInfoDialog.qml:18
 #, kde-format
 msgid "Commit Info"
 msgstr "Дані щодо внеску"
 
-#: src/views/CommitInfoDialog.qml:26 src/views/ProjectView.qml:228
+#: src/views/CommitInfoDialog.qml:25 src/views/ProjectView.qml:226
 #, kde-format
 msgid "Author"
 msgstr "Автор"
 
-#: src/views/CommitInfoDialog.qml:30
+#: src/views/CommitInfoDialog.qml:29
 #, kde-format
 msgid "Full Name"
 msgstr "Ім'я повністю"
 
-#: src/views/CommitInfoDialog.qml:48
+#: src/views/CommitInfoDialog.qml:47
 #, kde-format
 msgid "ID"
 msgstr "Ід."
 
-#: src/views/CommitInfoDialog.qml:60
+#: src/views/CommitInfoDialog.qml:59
 #, kde-format
 msgid "Message"
 msgstr "Повідомлення"
 
-#: src/views/CommitInfoDialog.qml:79
+#: src/views/CommitInfoDialog.qml:78
 #, kde-format
 msgid "Repo"
 msgstr "Схов."
 
-#: src/views/CommitInfoDialog.qml:83
+#: src/views/CommitInfoDialog.qml:82
 #, kde-format
 msgid "Local Path"
 msgstr "Локальний шлях"
 
-#: src/views/CommitInfoDialog.qml:89 src/views/ProjectView.qml:499
+#: src/views/CommitInfoDialog.qml:88 src/views/ProjectView.qml:497
 #, kde-format
 msgid "Branch"
 msgstr "Гілка"
 
-#: src/views/CommitInfoDialog.qml:96
+#: src/views/CommitInfoDialog.qml:95
 #, kde-format
 msgid "Parent Commit"
 msgstr "Батьківський внесок"
 
-#: src/views/CommitInfoDialog.qml:112
+#: src/views/CommitInfoDialog.qml:111
 #, kde-format
 msgid "Child Commit"
 msgstr "Дочірній внесок"
 
-#: src/views/CommitInfoDialog.qml:129
+#: src/views/CommitInfoDialog.qml:128
 #, kde-format
 msgid "Files"
 msgstr "Файли"
 
-#: src/views/CommitInfoDialog.qml:132
+#: src/views/CommitInfoDialog.qml:131
 #, kde-format
 msgid "Changed Files"
 msgstr "Змінені файли"
@@ -402,147 +407,147 @@ msgstr "Не вдалось виконати дію"
 msgid "Browser"
 msgstr "Навігатор"
 
-#: src/views/ProjectView.qml:129
+#: src/views/ProjectView.qml:127
 #, kde-format
 msgid "Default Branch"
 msgstr "Типова гілка"
 
-#: src/views/ProjectView.qml:135
+#: src/views/ProjectView.qml:133
 #, kde-format
 msgid "Push Url"
 msgstr "Адреса записування"
 
-#: src/views/ProjectView.qml:141
+#: src/views/ProjectView.qml:139
 #, kde-format
 msgid "Fetch Url"
 msgstr "Адреса отримання"
 
-#: src/views/ProjectView.qml:190
+#: src/views/ProjectView.qml:188
 #, kde-format
 msgid "Loading..."
 msgstr "Завантаження…"
 
-#: src/views/ProjectView.qml:216
+#: src/views/ProjectView.qml:214
 #, kde-format
 msgid "Filter commit by id, message or author"
 msgstr "Фільтрувати внески за ідентифікатором, повідомленням або автором"
 
-#: src/views/ProjectView.qml:240
+#: src/views/ProjectView.qml:238
 #, kde-format
 msgid "Asc"
 msgstr "Зрост"
 
-#: src/views/ProjectView.qml:245
+#: src/views/ProjectView.qml:243
 #, kde-format
 msgid "Desc"
 msgstr "Опис"
 
-#: src/views/ProjectView.qml:347
+#: src/views/ProjectView.qml:345
 #, kde-format
 msgid "Checkout"
 msgstr "Отримати"
 
-#: src/views/ProjectView.qml:352
+#: src/views/ProjectView.qml:350
 #, kde-format
 msgid "Info"
 msgstr "Інформація"
 
-#: src/views/ProjectView.qml:359
+#: src/views/ProjectView.qml:357
 #, kde-format
 msgid "Copy ID"
 msgstr "Копіювати ідентифікатор"
 
-#: src/views/ProjectView.qml:419
+#: src/views/ProjectView.qml:417
 #, kde-format
 msgid "New Branch"
 msgstr "Нова гілка"
 
-#: src/views/ProjectView.qml:425
+#: src/views/ProjectView.qml:423
 #, kde-format
 msgid "New Tag"
 msgstr "Нова мітка"
 
-#: src/views/ProjectView.qml:433
+#: src/views/ProjectView.qml:431
 #, kde-format
 msgid "New File"
 msgstr "Новий файл"
 
-#: src/views/ProjectView.qml:444
+#: src/views/ProjectView.qml:442
 #, kde-format
 msgid "Switch: %1"
 msgstr "Перемикання: %1"
 
-#: src/views/ProjectView.qml:469
+#: src/views/ProjectView.qml:467
 #, kde-format
 msgid "Force"
 msgstr "Примусово"
 
-#: src/views/ProjectView.qml:475 src/views/ProjectView.qml:516
+#: src/views/ProjectView.qml:473 src/views/ProjectView.qml:514
 #, kde-format
 msgid "Remote"
 msgstr "Віддалене"
 
-#: src/views/ProjectView.qml:485
+#: src/views/ProjectView.qml:483
 #, kde-format
 msgid "Pull"
 msgstr "Отримати"
 
-#: src/views/ProjectView.qml:540
+#: src/views/ProjectView.qml:538
 #, kde-format
 msgid "No Commit"
 msgstr "Немає внеску"
 
-#: src/views/ProjectView.qml:547
+#: src/views/ProjectView.qml:545
 #, kde-format
 msgid "Prune"
 msgstr "Спростити"
 
-#: src/views/ProjectView.qml:554
+#: src/views/ProjectView.qml:552
 #, kde-format
 msgid "Tags"
 msgstr "Мітки"
 
-#: src/views/ProjectView.qml:562
+#: src/views/ProjectView.qml:560
 #, kde-format
 msgid "Squash"
 msgstr "Складування"
 
-#: src/views/ProjectView.qml:571
+#: src/views/ProjectView.qml:569
 #, kde-format
 msgid "Rebase"
 msgstr "Перенести основу"
 
-#: src/views/ProjectView.qml:575 src/views/ProjectView.qml:608
+#: src/views/ProjectView.qml:573 src/views/ProjectView.qml:606
 #, kde-format
 msgid "Unset"
 msgstr "Скасувати"
 
-#: src/views/ProjectView.qml:582 src/views/ProjectView.qml:615
+#: src/views/ProjectView.qml:580 src/views/ProjectView.qml:613
 #, kde-format
 msgid "Yes"
 msgstr "Так"
 
-#: src/views/ProjectView.qml:589 src/views/ProjectView.qml:622
+#: src/views/ProjectView.qml:587 src/views/ProjectView.qml:620
 #, kde-format
 msgid "No"
 msgstr "Ні"
 
-#: src/views/ProjectView.qml:596 src/views/ProjectView.qml:629
+#: src/views/ProjectView.qml:594 src/views/ProjectView.qml:627
 #, kde-format
 msgid "Only"
 msgstr "Лише"
 
-#: src/views/ProjectView.qml:604
+#: src/views/ProjectView.qml:602
 #, kde-format
 msgid "Fast Forward"
 msgstr "Повний вперед"
 
-#: src/views/ProjectView.qml:663
+#: src/views/ProjectView.qml:661
 #, kde-format
 msgid "Stash"
 msgstr "Стос"
 
-#: src/views/ProjectView.qml:671
+#: src/views/ProjectView.qml:669
 #, kde-format
 msgid "Stash Pop"
 msgstr "Виштовхнути зі стосу"
