@@ -33,6 +33,7 @@
   <summary>Git version control manager</summary>
   <summary xml:lang="ca">Gestor de control de versions Git</summary>
   <summary xml:lang="ca-valencia">Gestor de control de versions Git</summary>
+  <summary xml:lang="cs">Správa verzí Git</summary>
   <summary xml:lang="de">Programm für Git-Versionsverwaltung</summary>
   <summary xml:lang="en-GB">Git version control manager</summary>
   <summary xml:lang="eo">Versiokontroladministrilo por Git</summary>
@@ -59,6 +60,7 @@
     <p>Browse and manage your local repositories.</p>
     <p xml:lang="ca">Navegueu i gestioneu els repositoris locals.</p>
     <p xml:lang="ca-valencia">Navegueu i gestioneu els repositoris locals.</p>
+    <p xml:lang="cs">Procházejte a spravujte místní repozitáře.</p>
     <p xml:lang="de">Lokale Repositories anzeigen und verwalten.</p>
     <p xml:lang="en-GB">Browse and manage your local repositories.</p>
     <p xml:lang="eo">Foliumi kaj administri viajn lokajn deponejeojn.</p>
@@ -90,6 +92,7 @@
       <caption>Bonsai - mobile version</caption>
       <caption xml:lang="ca">Bonsai - versió mòbil</caption>
       <caption xml:lang="ca-valencia">Bonsai - versió mòbil</caption>
+      <caption xml:lang="cs">Bonsai - mobilní verze</caption>
       <caption xml:lang="de">Bonsai - Mobilversion</caption>
       <caption xml:lang="en-GB">Bonsai - mobile version</caption>
       <caption xml:lang="eo">Bonsai - poŝtelefona versio</caption>
