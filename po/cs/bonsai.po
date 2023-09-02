@@ -274,7 +274,7 @@ msgstr ""
 #: src/views/CloneDialog.qml:29
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #: src/views/CloneDialog.qml:37
 #, kde-format
