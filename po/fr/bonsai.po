@@ -1,18 +1,19 @@
 # Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
+# Valentin Poupon <valentin.poupon@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-15 00:44+0000\n"
-"PO-Revision-Date: 2023-04-24 07:47+0200\n"
-"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
-"Language-Team: fr\n"
+"PO-Revision-Date: 2023-08-31 22:39+0200\n"
+"Last-Translator: Valentin Poupon <valentin.poupon@gmail.com>\n"
+"Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: src/controllers/libkommit/commands/commandpull.cpp:61
 #, kde-format
@@ -31,6 +32,9 @@ msgid ""
 "Your local changes to the following files would be overwritten by checkout. "
 "Please commit your changes or stash them before you switch branches."
 msgstr ""
+"Vos modifications locales apportées aux fichiers suivants seront écrasées "
+"par le basculement. Veuillez valider ou remiser vos modifications avant de "
+"changer de branche."
 
 #: src/controllers/libkommit/gitremote.cpp:120
 #, kde-format
@@ -48,10 +52,9 @@ msgid "Fast forwardable"
 msgstr "Transférable rapidement"
 
 #: src/controllers/libkommit/gitremote.cpp:126
-#, fuzzy, kde-format
-#| msgid "Local location to clone"
+#, kde-format
 msgid "Local out of date"
-msgstr "Emplacement local à cloner"
+msgstr "Local obsolète"
 
 #: src/controllers/libkommit/models/authorsmodel.cpp:37
 #: src/controllers/libkommit/models/branchesmodel.cpp:56
@@ -75,16 +78,14 @@ msgid "Commits"
 msgstr "Commits"
 
 #: src/controllers/libkommit/models/branchesmodel.cpp:58
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "Commit(s) behind"
-msgstr "Commits"
+msgstr "Commit(s) derrière"
 
 #: src/controllers/libkommit/models/branchesmodel.cpp:60
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "Commit(s) ahead"
-msgstr "Commits"
+msgstr "Commit(s) devant"
 
 #: src/controllers/libkommit/models/stashesmodel.cpp:60
 #: src/controllers/libkommit/models/tagsmodel.cpp:64
@@ -126,13 +127,12 @@ msgstr "État"
 #: src/controllers/libkommit/models/tagsmodel.cpp:66
 #, kde-format
 msgid "Tagger"
-msgstr ""
+msgstr "Créateur de l'étiquette"
 
 #: src/controllers/libkommit/models/tagsmodel.cpp:68
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "Committer"
-msgstr "Commits"
+msgstr "Commiteur"
 
 #: src/controllers/project.cpp:96
 #, kde-format
@@ -275,7 +275,7 @@ msgstr "URL pour Git"
 #: src/views/CloneDialog.qml:29
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #: src/views/CloneDialog.qml:37
 #, kde-format
@@ -328,10 +328,9 @@ msgid "Clone submodules"
 msgstr "Cloner les sous-modules"
 
 #: src/views/CommitInfoDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "Commit Info"
-msgstr "Commits"
+msgstr "Infos sur le commit"
 
 #: src/views/CommitInfoDialog.qml:25 src/views/ProjectView.qml:226
 #, kde-format
@@ -371,13 +370,12 @@ msgstr "Branche"
 #: src/views/CommitInfoDialog.qml:95
 #, kde-format
 msgid "Parent Commit"
-msgstr "Commit du parent"
+msgstr "Commit parent"
 
 #: src/views/CommitInfoDialog.qml:111
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "Child Commit"
-msgstr "Commits"
+msgstr "Commit enfant"
 
 #: src/views/CommitInfoDialog.qml:128
 #, kde-format
@@ -392,12 +390,12 @@ msgstr "Fichiers modifiés"
 #: src/views/ProjectView.qml:32
 #, kde-format
 msgid "Action Finished"
-msgstr ""
+msgstr "Action terminée"
 
 #: src/views/ProjectView.qml:32
 #, kde-format
 msgid "Action Failed"
-msgstr ""
+msgstr "Échec de l'action"
 
 #: src/views/ProjectView.qml:57
 #, kde-format
@@ -412,17 +410,17 @@ msgstr "Branche par défaut"
 #: src/views/ProjectView.qml:133
 #, kde-format
 msgid "Push Url"
-msgstr ""
+msgstr "Pousser à l'URL"
 
 #: src/views/ProjectView.qml:139
 #, kde-format
 msgid "Fetch Url"
-msgstr ""
+msgstr "Récupérer l'URL"
 
 #: src/views/ProjectView.qml:188
 #, kde-format
 msgid "Loading..."
-msgstr "Chargement en cours..."
+msgstr "Chargement en cours…"
 
 #: src/views/ProjectView.qml:214
 #, kde-format
@@ -472,12 +470,12 @@ msgstr "Nouveau fichier"
 #: src/views/ProjectView.qml:442
 #, kde-format
 msgid "Switch: %1"
-msgstr ""
+msgstr "Basculer : %1"
 
 #: src/views/ProjectView.qml:467
 #, kde-format
 msgid "Force"
-msgstr ""
+msgstr "Forcer"
 
 #: src/views/ProjectView.qml:473 src/views/ProjectView.qml:514
 #, kde-format
@@ -487,18 +485,17 @@ msgstr "Distant"
 #: src/views/ProjectView.qml:483
 #, kde-format
 msgid "Pull"
-msgstr ""
+msgstr "Tirer"
 
 #: src/views/ProjectView.qml:538
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "No Commit"
-msgstr "Commits"
+msgstr "Pas de commit"
 
 #: src/views/ProjectView.qml:545
 #, kde-format
 msgid "Prune"
-msgstr ""
+msgstr "Élaguer"
 
 #: src/views/ProjectView.qml:552
 #, kde-format
@@ -508,17 +505,17 @@ msgstr "Étiquettes"
 #: src/views/ProjectView.qml:560
 #, kde-format
 msgid "Squash"
-msgstr ""
+msgstr "Rejeter"
 
 #: src/views/ProjectView.qml:569
 #, kde-format
 msgid "Rebase"
-msgstr ""
+msgstr "Rebaser"
 
 #: src/views/ProjectView.qml:573 src/views/ProjectView.qml:606
 #, kde-format
 msgid "Unset"
-msgstr ""
+msgstr "Annuler le paramétrage"
 
 #: src/views/ProjectView.qml:580 src/views/ProjectView.qml:613
 #, kde-format
@@ -538,17 +535,17 @@ msgstr "Uniquement"
 #: src/views/ProjectView.qml:602
 #, kde-format
 msgid "Fast Forward"
-msgstr ""
+msgstr "Avance rapide"
 
 #: src/views/ProjectView.qml:661
 #, kde-format
 msgid "Stash"
-msgstr ""
+msgstr "Remiser"
 
 #: src/views/ProjectView.qml:669
 #, kde-format
 msgid "Stash Pop"
-msgstr ""
+msgstr "Appliquer le remisage"
 
 #: src/views/SettingsDialog.qml:16
 #, kde-format
@@ -568,7 +565,7 @@ msgstr "Sélectionner un dossier de clonage par défaut."
 #: src/views/SettingsDialog.qml:32
 #, kde-format
 msgid "New location."
-msgstr "Nouvel emplacement"
+msgstr "Nouvel emplacement."
 
 #: src/views/SettingsDialog.qml:38
 #, kde-format
