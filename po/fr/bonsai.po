@@ -1,19 +1,19 @@
-# Xavier BESNARD <xavier.besnard@neuf.fr>, 2023.
+# SPDX-FileCopyrightText: 2023 Xavier BESNARD <xavier.besnard@neuf.fr>
 # Valentin Poupon <valentin.poupon@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-08-15 00:44+0000\n"
-"PO-Revision-Date: 2023-08-31 22:39+0200\n"
-"Last-Translator: Valentin Poupon <valentin.poupon@gmail.com>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"PO-Revision-Date: 2023-10-11 19:08+0200\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
+"Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #: src/controllers/libkommit/commands/commandpull.cpp:61
 #, kde-format
@@ -415,7 +415,7 @@ msgstr "Pousser à l'URL"
 #: src/views/ProjectView.qml:139
 #, kde-format
 msgid "Fetch Url"
-msgstr "Récupérer l'URL"
+msgstr "Extraire l'URL"
 
 #: src/views/ProjectView.qml:188
 #, kde-format
