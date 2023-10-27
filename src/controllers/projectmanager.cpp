@@ -1,7 +1,7 @@
 #include "projectmanager.h"
 #include <QDebug>
 #include <MauiKit3/FileBrowsing/fmstatic.h>
-#include <MauiKit3/Core/utils.h>
+
 #include <QSettings>
 
 ProjectManager::ProjectManager(QObject *parent) : QObject(parent)
@@ -100,14 +100,20 @@ bool ProjectManager::saveHistory(const QUrl &url)
         return false;
 
     urls << url;
-
-    UTIL::saveSettings("URLS", QUrl::toStringList(urls), "HISTORY");
+    QSettings settings;
+	settings.beginGroup("HISTORY");
+settings.setValue("URLS", QUrl::toStringList(urls));
+settings.endGroup();	
     return true;
 }
 
 QList<QUrl> ProjectManager::loadHistory()
 {
-    auto urls = UTIL::loadSettings("URLS", "HISTORY", QStringList()).toStringList();
+ QSettings settings;
+	settings.beginGroup("HISTORY");
+    auto urls = settings.value("URLS", QStringList()).toStringList();
+settings.endGroup();	
+
     urls.removeDuplicates();
     auto res = QUrl::fromStringList(urls);
     res.removeAll(QString(""));
