@@ -1,32 +1,32 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the bonsai package.
 #
-# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2022.
+# SPDX-FileCopyrightText: 2022, 2023 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:28+0000\n"
-"PO-Revision-Date: 2022-12-24 01:11+0900\n"
+"PO-Revision-Date: 2023-12-13 17:58+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: src/controllers/libkommit/commands/commandpull.cpp:61
 #, kde-format
 msgid "Already up to date."
-msgstr ""
+msgstr "已是最新。"
 
 #: src/controllers/libkommit/commands/commandpull.cpp:65
 #: src/views/ProjectView.qml:189
 #, kde-format
 msgid "Error"
-msgstr ""
+msgstr "錯誤"
 
 #: src/controllers/libkommit/commands/commandswitchbranch.cpp:27
 #, kde-format
@@ -34,27 +34,28 @@ msgid ""
 "Your local changes to the following files would be overwritten by checkout. "
 "Please commit your changes or stash them before you switch branches."
 msgstr ""
+"簽出將會覆寫您對以下檔案的本地變更。請先提交您的變更或是 stash 它們之後才能切"
+"換分支。"
 
 #: src/controllers/libkommit/gitremote.cpp:120
 #, kde-format
 msgid "Unknown"
-msgstr ""
+msgstr "未知"
 
 #: src/controllers/libkommit/gitremote.cpp:122
 #, kde-format
 msgid "Up to date"
-msgstr ""
+msgstr "最新"
 
 #: src/controllers/libkommit/gitremote.cpp:124
 #, kde-format
 msgid "Fast forwardable"
-msgstr ""
+msgstr "可快轉"
 
 #: src/controllers/libkommit/gitremote.cpp:126
-#, fuzzy, kde-format
-#| msgid "Local location to clone"
+#, kde-format
 msgid "Local out of date"
-msgstr "要複製到的本機位置"
+msgstr "本機非最新"
 
 #: src/controllers/libkommit/models/authorsmodel.cpp:37
 #: src/controllers/libkommit/models/branchesmodel.cpp:56
@@ -78,39 +79,35 @@ msgid "Commits"
 msgstr "提交"
 
 #: src/controllers/libkommit/models/branchesmodel.cpp:58
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "Commit(s) behind"
-msgstr "提交"
+msgstr "晚幾個提交"
 
 #: src/controllers/libkommit/models/branchesmodel.cpp:60
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "Commit(s) ahead"
-msgstr "提交"
+msgstr "早幾個提交"
 
 #: src/controllers/libkommit/models/stashesmodel.cpp:60
 #: src/controllers/libkommit/models/tagsmodel.cpp:64
 #, kde-format
 msgid "Subject"
-msgstr ""
+msgstr "主旨"
 
 #: src/controllers/libkommit/models/stashesmodel.cpp:62
-#, fuzzy, kde-format
-#| msgid "Author"
+#, kde-format
 msgid "Author name"
-msgstr "作者"
+msgstr "作者名稱"
 
 #: src/controllers/libkommit/models/stashesmodel.cpp:64
-#, fuzzy, kde-format
-#| msgid "Author"
+#, kde-format
 msgid "Author email"
-msgstr "作者"
+msgstr "作者電子郵件"
 
 #: src/controllers/libkommit/models/stashesmodel.cpp:66
 #, kde-format
 msgid "Time"
-msgstr ""
+msgstr "時間"
 
 #: src/controllers/libkommit/models/submodulesmodel.cpp:55
 #: src/views/CloneDialog.qml:74
@@ -126,56 +123,52 @@ msgstr "Head"
 #: src/controllers/libkommit/models/submodulesmodel.cpp:59
 #, kde-format
 msgid "Status"
-msgstr ""
+msgstr "狀態"
 
 #: src/controllers/libkommit/models/tagsmodel.cpp:66
 #, kde-format
 msgid "Tagger"
-msgstr ""
+msgstr "標記者"
 
 #: src/controllers/libkommit/models/tagsmodel.cpp:68
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "Committer"
-msgstr "提交"
+msgstr "提交者"
 
 #: src/controllers/project.cpp:96
 #, kde-format
 msgid "Directory does not exists."
-msgstr ""
+msgstr "目錄不存在。"
 
 #: src/controllers/project.cpp:103
 #, kde-format
 msgid "URL is not a valid repo."
-msgstr ""
+msgstr "網址不是一個無效的版本庫。"
 
 #: src/controllers/project.cpp:113
-#, fuzzy, kde-format
-#| msgid "Open a local repository"
+#, kde-format
 msgid "Loading local repository."
-msgstr "開啟本機版本庫"
+msgstr "正在載入本機版本庫。"
 
 #: src/controllers/project.cpp:116
 #, kde-format
 msgid "Ready."
-msgstr ""
+msgstr "已就緒。"
 
 #: src/controllers/project.cpp:397
 #, kde-format
 msgid "Failed to create directory for repository."
-msgstr ""
+msgstr "為版本庫建立目錄失敗。"
 
 #: src/controllers/project.cpp:433
-#, fuzzy, kde-format
-#| msgid "Clone a repository"
+#, kde-format
 msgid "Start cloning %1 repository."
-msgstr "複製版本庫"
+msgstr "開始複製 %1 版本庫。"
 
 #: src/controllers/project.cpp:553
-#, fuzzy, kde-format
-#| msgid "Nothing here!"
+#, kde-format
 msgid "Nothing to see."
-msgstr "這裡什麼都沒有！"
+msgstr "什麼都沒有。"
 
 #: src/main.cpp:39
 #, kde-format
@@ -203,10 +196,9 @@ msgid "Developer"
 msgstr "開發者"
 
 #: src/main.cpp:49
-#, fuzzy, kde-format
-#| msgid "Developer"
+#, kde-format
 msgid "Kommit Developer"
-msgstr "開發者"
+msgstr "Kommit 開發者"
 
 #: src/main.qml:82
 #, kde-format
@@ -283,7 +275,7 @@ msgstr "Git 網址"
 #: src/views/CloneDialog.qml:29
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: src/views/CloneDialog.qml:37
 #, kde-format
@@ -336,10 +328,9 @@ msgid "Clone submodules"
 msgstr "複製 submodule"
 
 #: src/views/CommitInfoDialog.qml:18
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "Commit Info"
-msgstr "提交"
+msgstr "提交資訊"
 
 #: src/views/CommitInfoDialog.qml:25 src/views/ProjectView.qml:226
 #, kde-format
@@ -367,16 +358,14 @@ msgid "Repo"
 msgstr "版本庫"
 
 #: src/views/CommitInfoDialog.qml:82
-#, fuzzy, kde-format
-#| msgid "Local path"
+#, kde-format
 msgid "Local Path"
 msgstr "本機路徑"
 
 #: src/views/CommitInfoDialog.qml:88 src/views/ProjectView.qml:497
-#, fuzzy, kde-format
-#| msgid "New Branch"
+#, kde-format
 msgid "Branch"
-msgstr "建立分支"
+msgstr "分支"
 
 #: src/views/CommitInfoDialog.qml:95
 #, kde-format
@@ -384,31 +373,29 @@ msgid "Parent Commit"
 msgstr "親提交"
 
 #: src/views/CommitInfoDialog.qml:111
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "Child Commit"
-msgstr "提交"
+msgstr "子提交"
 
 #: src/views/CommitInfoDialog.qml:128
-#, fuzzy, kde-format
-#| msgid "New File"
+#, kde-format
 msgid "Files"
-msgstr "建立檔案"
+msgstr "檔案"
 
 #: src/views/CommitInfoDialog.qml:131
 #, kde-format
 msgid "Changed Files"
-msgstr ""
+msgstr "更動的檔案"
 
 #: src/views/ProjectView.qml:32
 #, kde-format
 msgid "Action Finished"
-msgstr ""
+msgstr "動作完成"
 
 #: src/views/ProjectView.qml:32
 #, kde-format
 msgid "Action Failed"
-msgstr ""
+msgstr "動作失敗"
 
 #: src/views/ProjectView.qml:57
 #, kde-format
@@ -416,25 +403,24 @@ msgid "Browser"
 msgstr "瀏覽器"
 
 #: src/views/ProjectView.qml:127
-#, fuzzy, kde-format
-#| msgid "New Branch"
+#, kde-format
 msgid "Default Branch"
-msgstr "建立分支"
+msgstr "預設分支"
 
 #: src/views/ProjectView.qml:133
 #, kde-format
 msgid "Push Url"
-msgstr ""
+msgstr "推送網址"
 
 #: src/views/ProjectView.qml:139
 #, kde-format
 msgid "Fetch Url"
-msgstr ""
+msgstr "抓取網址"
 
 #: src/views/ProjectView.qml:188
 #, kde-format
 msgid "Loading..."
-msgstr ""
+msgstr "載入中..."
 
 #: src/views/ProjectView.qml:214
 #, kde-format
@@ -484,111 +470,107 @@ msgstr "建立檔案"
 #: src/views/ProjectView.qml:442
 #, kde-format
 msgid "Switch: %1"
-msgstr ""
+msgstr "切換: %1"
 
 #: src/views/ProjectView.qml:467
 #, kde-format
 msgid "Force"
-msgstr ""
+msgstr "強制"
 
 #: src/views/ProjectView.qml:473 src/views/ProjectView.qml:514
-#, fuzzy, kde-format
-#| msgid "Remotes"
+#, kde-format
 msgid "Remote"
 msgstr "遠端"
 
 #: src/views/ProjectView.qml:483
 #, kde-format
 msgid "Pull"
-msgstr ""
+msgstr "拉取"
 
 #: src/views/ProjectView.qml:538
-#, fuzzy, kde-format
-#| msgid "Commits"
+#, kde-format
 msgid "No Commit"
-msgstr "提交"
+msgstr "無提交"
 
 #: src/views/ProjectView.qml:545
 #, kde-format
 msgid "Prune"
-msgstr ""
+msgstr "剪除"
 
 #: src/views/ProjectView.qml:552
 #, kde-format
 msgid "Tags"
-msgstr ""
+msgstr "標籤"
 
 #: src/views/ProjectView.qml:560
 #, kde-format
 msgid "Squash"
-msgstr ""
+msgstr "Squash"
 
 #: src/views/ProjectView.qml:569
 #, kde-format
 msgid "Rebase"
-msgstr ""
+msgstr "重定基底"
 
 #: src/views/ProjectView.qml:573 src/views/ProjectView.qml:606
 #, kde-format
 msgid "Unset"
-msgstr ""
+msgstr "取消設定"
 
 #: src/views/ProjectView.qml:580 src/views/ProjectView.qml:613
 #, kde-format
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: src/views/ProjectView.qml:587 src/views/ProjectView.qml:620
 #, kde-format
 msgid "No"
-msgstr ""
+msgstr "否"
 
 #: src/views/ProjectView.qml:594 src/views/ProjectView.qml:627
 #, kde-format
 msgid "Only"
-msgstr ""
+msgstr "僅"
 
 #: src/views/ProjectView.qml:602
 #, kde-format
 msgid "Fast Forward"
-msgstr ""
+msgstr "快轉"
 
 #: src/views/ProjectView.qml:661
 #, kde-format
 msgid "Stash"
-msgstr ""
+msgstr "貯存"
 
 #: src/views/ProjectView.qml:669
 #, kde-format
 msgid "Stash Pop"
-msgstr ""
+msgstr "貯存彈出"
 
 #: src/views/SettingsDialog.qml:16
 #, kde-format
 msgid "Global"
-msgstr ""
+msgstr "全域"
 
 #: src/views/SettingsDialog.qml:20
-#, fuzzy, kde-format
-#| msgid "Clone a repository"
+#, kde-format
 msgid "Clone Directory"
-msgstr "複製版本庫"
+msgstr "複製目錄"
 
 #: src/views/SettingsDialog.qml:21
 #, kde-format
 msgid "Pick a default clone directory."
-msgstr ""
+msgstr "選取一個預設複製到的目錄。"
 
 #: src/views/SettingsDialog.qml:32
-#, fuzzy, kde-format
-#| msgid "Location"
+#, kde-format
 msgid "New location."
-msgstr "位置"
+msgstr "新位置。"
 
 #: src/views/SettingsDialog.qml:38
 #, kde-format
 msgid "Pick"
-msgstr ""
+msgstr "選取"
 
 #~ msgid "Remotes"
 #~ msgstr "遠端"
