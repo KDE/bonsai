@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:28+0000\n"
+"POT-Creation-Date: 2024-02-10 01:51+0000\n"
 "PO-Revision-Date: 2023-08-15 18:36+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -173,32 +173,17 @@ msgstr "Iniciar la clonación del repositorio %1."
 msgid "Nothing to see."
 msgstr "No hay nada para ver."
 
-#: src/main.cpp:39
-#, kde-format
-msgid "Bonsai"
-msgstr "Bonsai"
-
-#: src/main.cpp:39
+#: src/main.cpp:42
 #, kde-format
 msgid "Git version control manager."
 msgstr "Gestor de control de versiones Git."
 
-#: src/main.cpp:39
-#, kde-format
-msgid "© 2021-%1 Maui Development Team"
-msgstr "© 2021-%1 El equipo de desarrollo de Maui"
-
-#: src/main.cpp:41
-#, kde-format
-msgid "Camilo Higuita"
-msgstr "Camilo Higuita"
-
-#: src/main.cpp:41
+#: src/main.cpp:47
 #, kde-format
 msgid "Developer"
 msgstr "Desarrollador"
 
-#: src/main.cpp:49
+#: src/main.cpp:55
 #, kde-format
 msgid "Kommit Developer"
 msgstr "Desarrollador de Kommit"
@@ -575,6 +560,15 @@ msgstr "Nueva ubicación."
 #, kde-format
 msgid "Pick"
 msgstr "Elegir"
+
+#~ msgid "Bonsai"
+#~ msgstr "Bonsai"
+
+#~ msgid "© 2021-%1 Maui Development Team"
+#~ msgstr "© 2021-%1 El equipo de desarrollo de Maui"
+
+#~ msgid "Camilo Higuita"
+#~ msgstr "Camilo Higuita"
 
 #~ msgid "Remotes"
 #~ msgstr "Remotos"

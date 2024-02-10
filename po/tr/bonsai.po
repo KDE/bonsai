@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the bonsai package.
 #
-# Emir SARI <emir_sari@icloud.com>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:28+0000\n"
-"PO-Revision-Date: 2023-08-15 05:08+0300\n"
+"POT-Creation-Date: 2024-02-10 01:51+0000\n"
+"PO-Revision-Date: 2024-02-09 18:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 24.01.95\n"
 
 #: src/controllers/libkommit/commands/commandpull.cpp:61
 #, kde-format
@@ -171,32 +171,17 @@ msgstr "%1 deposunu klonlamayı başlatın."
 msgid "Nothing to see."
 msgstr "Burada bir şey yok."
 
-#: src/main.cpp:39
-#, kde-format
-msgid "Bonsai"
-msgstr "Bonsai"
-
-#: src/main.cpp:39
+#: src/main.cpp:42
 #, kde-format
 msgid "Git version control manager."
 msgstr "Git sürüm denetim yöneticisi."
 
-#: src/main.cpp:39
-#, kde-format
-msgid "© 2021-%1 Maui Development Team"
-msgstr "© 2021-%1 Maui Geliştirme Takımı"
-
-#: src/main.cpp:41
-#, kde-format
-msgid "Camilo Higuita"
-msgstr "Camilo Higuita"
-
-#: src/main.cpp:41
+#: src/main.cpp:47
 #, kde-format
 msgid "Developer"
 msgstr "Geliştirici"
 
-#: src/main.cpp:49
+#: src/main.cpp:55
 #, kde-format
 msgid "Kommit Developer"
 msgstr "Kommit Geliştiricisi"
@@ -272,7 +257,7 @@ msgstr "Daha önceden açılan depolar burada listelenirler."
 #: src/views/CloneDialog.qml:12
 #, kde-format
 msgid "Git URL"
-msgstr "Git URL'si"
+msgstr "Git URL’si"
 
 #: src/views/CloneDialog.qml:29
 #, kde-format
@@ -282,12 +267,12 @@ msgstr "İptal"
 #: src/views/CloneDialog.qml:37
 #, kde-format
 msgid "Repo URL"
-msgstr "Depo URL'si"
+msgstr "Depo URL’si"
 
 #: src/views/CloneDialog.qml:38
 #, kde-format
 msgid "Remote repo URL"
-msgstr "Uzak depo URL'si"
+msgstr "Uzak depo URL’si"
 
 #: src/views/CloneDialog.qml:44
 #, kde-format
@@ -573,6 +558,15 @@ msgstr "Yeni konum."
 #, kde-format
 msgid "Pick"
 msgstr "Seç"
+
+#~ msgid "Bonsai"
+#~ msgstr "Bonsai"
+
+#~ msgid "© 2021-%1 Maui Development Team"
+#~ msgstr "© 2021-%1 Maui Geliştirme Takımı"
+
+#~ msgid "Camilo Higuita"
+#~ msgstr "Camilo Higuita"
 
 #~ msgid "Remotes"
 #~ msgstr "Uzak Konumlar"
