@@ -555,9 +555,3 @@ msgstr "Nové umístění."
 #, kde-format
 msgid "Pick"
 msgstr "Výběr"
-
-#~ msgid "Bonsai"
-#~ msgstr "Bonsai"
-
-#~ msgid "Camilo Higuita"
-#~ msgstr "Camilo Higuita"
