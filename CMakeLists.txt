@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-set(BONSAI_VERSION 1.1.2)
+set(BONSAI_VERSION 1.1.3)
 add_compile_definitions(APP_COPYRIGHT_NOTICE="© 2022-2024 Maui Development Team")
 
 project(bonsai VERSION ${BONSAI_VERSION})
