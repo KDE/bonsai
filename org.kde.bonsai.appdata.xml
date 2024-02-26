@@ -41,7 +41,7 @@
   <summary xml:lang="es">Gestor de control de versiones de Git</summary>
   <summary xml:lang="eu">Git bertsio kontrol kudeatzailea</summary>
   <summary xml:lang="fi">Git-versionhallinnan käyttöliittymä</summary>
-  <summary xml:lang="fr">Gestionnaire pour le contrôleur de version « Git »</summary>
+  <summary xml:lang="fr">Gestionnaire pour le contrôleur de version « Git »</summary>
   <summary xml:lang="gl">Xestor de control de versións de Git.</summary>
   <summary xml:lang="id">Manajer kontrol versi Git</summary>
   <summary xml:lang="it">Gestore del controllo di versione Git</summary>
@@ -135,6 +135,9 @@
   <content_rating type="oars-1.0"/>
   <project_group>KDE</project_group>
   <releases>
+  <release version="1.1.3" date="2024-02-26">
+    <url>https://mauikit.org/blog/maui-release-briefing-5/</url>
+  </release>
     <release version="1.1.2" date="2023-11-30">
       <url>https://mauikit.org/blog/maui-release-briefing-4/</url>
     </release>
