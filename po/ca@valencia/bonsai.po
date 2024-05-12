@@ -409,7 +409,7 @@ msgstr "URL d'obtenció"
 #: src/views/ProjectView.qml:188
 #, kde-format
 msgid "Loading..."
-msgstr "S'està carregant..."
+msgstr "S'està carregant…"
 
 #: src/views/ProjectView.qml:214
 #, kde-format
@@ -560,12 +560,3 @@ msgstr "Ubicació nova."
 #, kde-format
 msgid "Pick"
 msgstr "Selecció"
-
-#~ msgid "Bonsai"
-#~ msgstr "Bonsai"
-
-#~ msgid "© 2021-%1 Maui Development Team"
-#~ msgstr "© 2021-%1 L'equip de desenvolupament de Maui"
-
-#~ msgid "Camilo Higuita"
-#~ msgstr "Camilo Higuita"
