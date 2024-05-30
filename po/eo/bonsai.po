@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: bonsai\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-02-10 01:51+0000\n"
-"PO-Revision-Date: 2024-03-24 10:34+0100\n"
+"PO-Revision-Date: 2024-05-29 23:46+0200\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -35,6 +35,8 @@ msgid ""
 "Your local changes to the following files would be overwritten by checkout. "
 "Please commit your changes or stash them before you switch branches."
 msgstr ""
+"Viaj lokaj ŝanĝoj al la sekvaj dosieroj estus anstataŭitaj per elpreno. "
+"Bonvolu enmeti viajn ŝanĝojn aŭ konservi ilin antaŭ ol vi ŝanĝas branĉojn."
 
 #: src/controllers/libkommit/gitremote.cpp:120
 #, kde-format
@@ -228,8 +230,8 @@ msgstr "Pri"
 #, kde-format
 msgid "Filter"
 msgid_plural "Filter %1 repos"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Filtri"
+msgstr[1] "Filtri %1 deponejojn"
 
 #: src/views/BrowserView.qml:33 src/views/CommitInfoDialog.qml:71
 #: src/views/ProjectView.qml:231
