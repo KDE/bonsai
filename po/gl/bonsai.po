@@ -1,0 +1,559 @@
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the bonsai package.
+#
+# SPDX-FileCopyrightText: 2024 Adrián Chaves (Gallaecio)
+msgid ""
+msgstr ""
+"Project-Id-Version: bonsai\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-02-10 01:51+0000\n"
+"PO-Revision-Date: 2024-06-16 11:09+0200\n"
+"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
+"Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
+"Language: gl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 24.05.0\n"
+
+#: src/controllers/libkommit/commands/commandpull.cpp:61
+#, kde-format
+msgid "Already up to date."
+msgstr "Xa está ao día."
+
+#: src/controllers/libkommit/commands/commandpull.cpp:65
+#: src/views/ProjectView.qml:189
+#, kde-format
+msgid "Error"
+msgstr "Erro"
+
+#: src/controllers/libkommit/commands/commandswitchbranch.cpp:27
+#, kde-format
+msgid ""
+"Your local changes to the following files would be overwritten by checkout. "
+"Please commit your changes or stash them before you switch branches."
+msgstr ""
+"A obtención sobrescribiría os cambios locais dos seguintes ficheiros. Remita "
+"os cambios ou apárteos antes de cambiar de rama."
+
+#: src/controllers/libkommit/gitremote.cpp:120
+#, kde-format
+msgid "Unknown"
+msgstr "Descoñecida"
+
+#: src/controllers/libkommit/gitremote.cpp:122
+#, kde-format
+msgid "Up to date"
+msgstr "Ao día"
+
+#: src/controllers/libkommit/gitremote.cpp:124
+#, kde-format
+msgid "Fast forwardable"
+msgstr "Permite avanzar"
+
+#: src/controllers/libkommit/gitremote.cpp:126
+#, kde-format
+msgid "Local out of date"
+msgstr "Local obsoleta"
+
+#: src/controllers/libkommit/models/authorsmodel.cpp:37
+#: src/controllers/libkommit/models/branchesmodel.cpp:56
+#: src/controllers/libkommit/models/tagsmodel.cpp:62
+#: src/views/BrowserView.qml:57 src/views/CloneDialog.qml:51
+#: src/views/CloneDialog.qml:60
+#, kde-format
+msgid "Name"
+msgstr "Nome"
+
+#: src/controllers/libkommit/models/authorsmodel.cpp:39
+#: src/views/CommitInfoDialog.qml:35
+#, kde-format
+msgid "Email"
+msgstr "Enderezo de correo electrónico"
+
+#: src/controllers/libkommit/models/authorsmodel.cpp:41
+#: src/views/ProjectView.qml:49
+#, kde-format
+msgid "Commits"
+msgstr "Remisións"
+
+#: src/controllers/libkommit/models/branchesmodel.cpp:58
+#, kde-format
+msgid "Commit(s) behind"
+msgstr "Remisións por detrás"
+
+#: src/controllers/libkommit/models/branchesmodel.cpp:60
+#, kde-format
+msgid "Commit(s) ahead"
+msgstr "Remisións por diante"
+
+#: src/controllers/libkommit/models/stashesmodel.cpp:60
+#: src/controllers/libkommit/models/tagsmodel.cpp:64
+#, kde-format
+msgid "Subject"
+msgstr "Asunto"
+
+#: src/controllers/libkommit/models/stashesmodel.cpp:62
+#, kde-format
+msgid "Author name"
+msgstr "Nome da persoa autora"
+
+#: src/controllers/libkommit/models/stashesmodel.cpp:64
+#, kde-format
+msgid "Author email"
+msgstr "Enderezo de correo electrónico de autoría"
+
+#: src/controllers/libkommit/models/stashesmodel.cpp:66
+#, kde-format
+msgid "Time"
+msgstr "Hora"
+
+#: src/controllers/libkommit/models/submodulesmodel.cpp:55
+#: src/views/CloneDialog.qml:74
+#, kde-format
+msgid "Path"
+msgstr "Ruta"
+
+#: src/controllers/libkommit/models/submodulesmodel.cpp:57
+#, kde-format
+msgid "Head"
+msgstr "Cabeceira"
+
+#: src/controllers/libkommit/models/submodulesmodel.cpp:59
+#, kde-format
+msgid "Status"
+msgstr "Estado"
+
+#: src/controllers/libkommit/models/tagsmodel.cpp:66
+#, kde-format
+msgid "Tagger"
+msgstr "Etiquetaxe"
+
+#: src/controllers/libkommit/models/tagsmodel.cpp:68
+#, kde-format
+msgid "Committer"
+msgstr "Remisión"
+
+#: src/controllers/project.cpp:96
+#, kde-format
+msgid "Directory does not exists."
+msgstr "O cartafol non existe."
+
+#: src/controllers/project.cpp:103
+#, kde-format
+msgid "URL is not a valid repo."
+msgstr "O URL non corresponde a un repositorio válido."
+
+#: src/controllers/project.cpp:113
+#, kde-format
+msgid "Loading local repository."
+msgstr "Cargando un repositorio local."
+
+#: src/controllers/project.cpp:116
+#, kde-format
+msgid "Ready."
+msgstr "Listo."
+
+#: src/controllers/project.cpp:397
+#, kde-format
+msgid "Failed to create directory for repository."
+msgstr "Non foi posíbel crear o cartafol para o repositorio."
+
+#: src/controllers/project.cpp:433
+#, kde-format
+msgid "Start cloning %1 repository."
+msgstr "Iniciar a clonación do repositorio %1."
+
+#: src/controllers/project.cpp:553
+#, kde-format
+msgid "Nothing to see."
+msgstr "Nada que ver aquí."
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Git version control manager."
+msgstr "Xestor de control de versións de Git."
+
+#: src/main.cpp:47
+#, kde-format
+msgid "Developer"
+msgstr "Desenvolvemento."
+
+#: src/main.cpp:55
+#, kde-format
+msgid "Kommit Developer"
+msgstr "Desenvolvemento de Kommit."
+
+#: src/main.qml:82
+#, kde-format
+msgid "Recent"
+msgstr "Recente"
+
+#: src/main.qml:94 src/views/CloneDialog.qml:19
+#, kde-format
+msgid "Clone"
+msgstr "Clonar"
+
+#: src/main.qml:107
+#, kde-format
+msgid "Create"
+msgstr "Crear"
+
+#: src/main.qml:116
+#, kde-format
+msgid "Open"
+msgstr "Abrir"
+
+#: src/main.qml:129
+#, kde-format
+msgid "Let's Start"
+msgstr "Primeiros pasos"
+
+#: src/main.qml:130
+#, kde-format
+msgid "Open or clone an existing repository, or create a new one."
+msgstr "Abrir ou clonar un repositorio existente, ou crear un novo."
+
+#: src/main.qml:169
+#, kde-format
+msgid "Settings"
+msgstr "Configuración"
+
+#: src/main.qml:176
+#, kde-format
+msgid "About"
+msgstr "Sobre"
+
+#: src/views/BrowserView.qml:20
+#, kde-format
+msgid "Filter"
+msgid_plural "Filter %1 repos"
+msgstr[0] "Filtrar"
+msgstr[1] "Filtrar %1 repositorios"
+
+#: src/views/BrowserView.qml:33 src/views/CommitInfoDialog.qml:71
+#: src/views/ProjectView.qml:231
+#, kde-format
+msgid "Date"
+msgstr "Data"
+
+#: src/views/BrowserView.qml:45
+#, kde-format
+msgid "Modified"
+msgstr "Modificado"
+
+#: src/views/BrowserView.qml:75
+#, kde-format
+msgid "Nothing here!"
+msgstr "Aquí non hai nada."
+
+#: src/views/BrowserView.qml:76
+#, kde-format
+msgid "Previously opened repos will be listed here."
+msgstr "Aquí listaranse os repositorios abertos previamente."
+
+#: src/views/CloneDialog.qml:12
+#, kde-format
+msgid "Git URL"
+msgstr "URL de Git"
+
+#: src/views/CloneDialog.qml:29
+#, kde-format
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: src/views/CloneDialog.qml:37
+#, kde-format
+msgid "Repo URL"
+msgstr "URL de repositorio"
+
+#: src/views/CloneDialog.qml:38
+#, kde-format
+msgid "Remote repo URL"
+msgstr "URL de repositorio remoto"
+
+#: src/views/CloneDialog.qml:44
+#, kde-format
+msgid "URL"
+msgstr "URL"
+
+#: src/views/CloneDialog.qml:52
+#, kde-format
+msgid "Remote name"
+msgstr "Nome remoto"
+
+#: src/views/CloneDialog.qml:66
+#, kde-format
+msgid "Location"
+msgstr "Localización"
+
+#: src/views/CloneDialog.qml:67
+#, kde-format
+msgid "Local location to clone"
+msgstr "Localización local para clonar"
+
+#: src/views/CloneDialog.qml:81
+#, kde-format
+msgid "Bare"
+msgstr "Baleiro"
+
+#: src/views/CloneDialog.qml:82
+#, kde-format
+msgid "Create a bare repo"
+msgstr "Crear un repositorio baleiro"
+
+#: src/views/CloneDialog.qml:93
+#, kde-format
+msgid "Recursive"
+msgstr "Recursivo"
+
+#: src/views/CloneDialog.qml:94
+#, kde-format
+msgid "Clone submodules"
+msgstr "Clonar os submódulos"
+
+#: src/views/CommitInfoDialog.qml:18
+#, kde-format
+msgid "Commit Info"
+msgstr "Información da remisión"
+
+#: src/views/CommitInfoDialog.qml:25 src/views/ProjectView.qml:226
+#, kde-format
+msgid "Author"
+msgstr "Autoría"
+
+#: src/views/CommitInfoDialog.qml:29
+#, kde-format
+msgid "Full Name"
+msgstr "Nome completo"
+
+#: src/views/CommitInfoDialog.qml:47
+#, kde-format
+msgid "ID"
+msgstr "Identificador"
+
+#: src/views/CommitInfoDialog.qml:59
+#, kde-format
+msgid "Message"
+msgstr "Mensaxe"
+
+#: src/views/CommitInfoDialog.qml:78
+#, kde-format
+msgid "Repo"
+msgstr "Repositorio"
+
+#: src/views/CommitInfoDialog.qml:82
+#, kde-format
+msgid "Local Path"
+msgstr "Ruta local"
+
+#: src/views/CommitInfoDialog.qml:88 src/views/ProjectView.qml:497
+#, kde-format
+msgid "Branch"
+msgstr "Rama"
+
+#: src/views/CommitInfoDialog.qml:95
+#, kde-format
+msgid "Parent Commit"
+msgstr "Remisión anterior"
+
+#: src/views/CommitInfoDialog.qml:111
+#, kde-format
+msgid "Child Commit"
+msgstr "Seguinte remisión"
+
+#: src/views/CommitInfoDialog.qml:128
+#, kde-format
+msgid "Files"
+msgstr "Ficheiros"
+
+#: src/views/CommitInfoDialog.qml:131
+#, kde-format
+msgid "Changed Files"
+msgstr "Ficheiros cambiados"
+
+#: src/views/ProjectView.qml:32
+#, kde-format
+msgid "Action Finished"
+msgstr "A acción rematou"
+
+#: src/views/ProjectView.qml:32
+#, kde-format
+msgid "Action Failed"
+msgstr "A acción fallou"
+
+#: src/views/ProjectView.qml:57
+#, kde-format
+msgid "Browser"
+msgstr "Navegador"
+
+#: src/views/ProjectView.qml:127
+#, kde-format
+msgid "Default Branch"
+msgstr "Rama predeterminada"
+
+#: src/views/ProjectView.qml:133
+#, kde-format
+msgid "Push Url"
+msgstr "URL para puxar"
+
+#: src/views/ProjectView.qml:139
+#, kde-format
+msgid "Fetch Url"
+msgstr "URL para obter"
+
+#: src/views/ProjectView.qml:188
+#, kde-format
+msgid "Loading..."
+msgstr "Cargando…"
+
+#: src/views/ProjectView.qml:214
+#, kde-format
+msgid "Filter commit by id, message or author"
+msgstr "Filtrar a remisión por identificador, mensaxe ou autoría."
+
+#: src/views/ProjectView.qml:238
+#, kde-format
+msgid "Asc"
+msgstr "Asc"
+
+#: src/views/ProjectView.qml:243
+#, kde-format
+msgid "Desc"
+msgstr "Desc"
+
+#: src/views/ProjectView.qml:345
+#, kde-format
+msgid "Checkout"
+msgstr "Obtención"
+
+#: src/views/ProjectView.qml:350
+#, kde-format
+msgid "Info"
+msgstr "Información"
+
+#: src/views/ProjectView.qml:357
+#, kde-format
+msgid "Copy ID"
+msgstr "Copiar o identificador"
+
+#: src/views/ProjectView.qml:417
+#, kde-format
+msgid "New Branch"
+msgstr "Nova rama"
+
+#: src/views/ProjectView.qml:423
+#, kde-format
+msgid "New Tag"
+msgstr "Nova etiqueta"
+
+#: src/views/ProjectView.qml:431
+#, kde-format
+msgid "New File"
+msgstr "Novo ficheiro"
+
+#: src/views/ProjectView.qml:442
+#, kde-format
+msgid "Switch: %1"
+msgstr "Cambiar: %1"
+
+#: src/views/ProjectView.qml:467
+#, kde-format
+msgid "Force"
+msgstr "Forzar"
+
+#: src/views/ProjectView.qml:473 src/views/ProjectView.qml:514
+#, kde-format
+msgid "Remote"
+msgstr "Remoto"
+
+#: src/views/ProjectView.qml:483
+#, kde-format
+msgid "Pull"
+msgstr "Pular"
+
+#: src/views/ProjectView.qml:538
+#, kde-format
+msgid "No Commit"
+msgstr "Non hai remisións"
+
+#: src/views/ProjectView.qml:545
+#, kde-format
+msgid "Prune"
+msgstr "Eliminar"
+
+#: src/views/ProjectView.qml:552
+#, kde-format
+msgid "Tags"
+msgstr "Etiquetas"
+
+#: src/views/ProjectView.qml:560
+#, kde-format
+msgid "Squash"
+msgstr "Xuntar"
+
+#: src/views/ProjectView.qml:569
+#, kde-format
+msgid "Rebase"
+msgstr "Rebasear"
+
+#: src/views/ProjectView.qml:573 src/views/ProjectView.qml:606
+#, kde-format
+msgid "Unset"
+msgstr "Non definida"
+
+#: src/views/ProjectView.qml:580 src/views/ProjectView.qml:613
+#, kde-format
+msgid "Yes"
+msgstr "Si"
+
+#: src/views/ProjectView.qml:587 src/views/ProjectView.qml:620
+#, kde-format
+msgid "No"
+msgstr "Non"
+
+#: src/views/ProjectView.qml:594 src/views/ProjectView.qml:627
+#, kde-format
+msgid "Only"
+msgstr "Só"
+
+#: src/views/ProjectView.qml:602
+#, kde-format
+msgid "Fast Forward"
+msgstr "Avanzar"
+
+#: src/views/ProjectView.qml:661
+#, kde-format
+msgid "Stash"
+msgstr "Reservar"
+
+#: src/views/ProjectView.qml:669
+#, kde-format
+msgid "Stash Pop"
+msgstr "Recuperar da reserva"
+
+#: src/views/SettingsDialog.qml:16
+#, kde-format
+msgid "Global"
+msgstr "Global"
+
+#: src/views/SettingsDialog.qml:20
+#, kde-format
+msgid "Clone Directory"
+msgstr "Clonar un cartafol"
+
+#: src/views/SettingsDialog.qml:21
+#, kde-format
+msgid "Pick a default clone directory."
+msgstr "Escoller un cartafol predeterminado para clonar."
+
+#: src/views/SettingsDialog.qml:32
+#, kde-format
+msgid "New location."
+msgstr "Nova localización."
+
+#: src/views/SettingsDialog.qml:38
+#, kde-format
+msgid "Pick"
+msgstr "Escoller"
